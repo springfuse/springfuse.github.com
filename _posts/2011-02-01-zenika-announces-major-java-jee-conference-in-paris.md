@@ -19,3 +19,5 @@ Check their site <a href="http://www.whatsnextparis.com/">http://www.whatsnextpa
 Yes Paris could become the Java capital in Europe ! 
 
 Go go Zenika.
+
+## 2011 february 1

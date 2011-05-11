@@ -33,56 +33,62 @@
 		        </li> 
 		        <li>
 		        	<a href="/service.html">Services</a>
-		            <div class="sub" style="width:500px"> 
+		            <div class="sub" style="width:650px;"> 
 		            	<div class="row"> 
-							<table class="tarifs">
+							<table id="features-comparison">
 								<thead>
 									<tr> 
-							        	<th>&nbsp;</th>
-										<td>Saison</td>
-										<td>Semaine</td>
-										<td>Week-end</td>
+										<th style="width:500px">Feature</th>
+										<td style="width:70px">Springfuse</td>
+										<td style="width:70px">Celerio</td>
 									</tr>
 							    </thead>
 							    <tbody>
-									<tr class="haute-saison">
-										<th>&nbsp;</th>
-										<td>Haute Saison</td>
-										<td>1500 €</td>
-										<td>400 €</td>
+									<tr>
+										<th>Generates all layers</th>
+										<td class="checked"></td>
+										<td class="checked"></td>
 									</tr>
-									<tr class="pleine-saison">
-										<th>&nbsp;</th>
-										<td>Pleine saison</td>
-										<td>1100 €</td>
-										<td>300 €</td>
+									<tr>
+										<th>Generates unit tests</th>
+										<td class="checked"></td>
+										<td class="checked"></td>
 									</tr>
-							        	<tr class="moyenne-saison">
-										<th>&nbsp;</th>
-										<td>Moyenne Saison</td>
-										<td>900 €</td>
-										<td>200 €</td>
+							        <tr>
+										<th>Configure generation output:inheritance, renaming, relations, etc.</th>
+										<td class="checked"></td>
+										<td class="checked"></td>
 									</tr>
-									<tr class="basse-saison">
-										<th>&nbsp;</th>
-										<td>Basse Saison</td>
-										<td>700 €</td>
-										<td>200 €</td>
+									<tr>
+										<th>Generate on your computer (not remotely)</th>
+										<td></td>
+										<td class="checked"></td>
+									</tr>
+									<tr>
+										<th>Code generation round-trip</th>
+										<td></td>
+										<td class="checked"></td>
+									</tr>
+									<tr>
+										<th>Additional ready-to-use generation template packs</th>
+										<td></td>
+										<td class="checked"></td>
+									</tr>
+									<tr>
+										<th>Create your own generation templates</th>
+										<td></td>
+										<td class="checked"></td>
 									</tr>
 								</tbody>
+								<tfoot>
+									<tr>
+										<th>Price</th>
+										<td>Free</td>
+										<td>Contact us</td>
+									</tr>
+								</tfoot>
 							</table>
 						</div>
-		            	<div class="row" style="text-align:center;"">
-			            	<ul> 
-			                	<li><h2><a href="/tarifs.html#semaine">Semaines</a></h2></li> 
-			                </ul> 
-			            	<ul> 
-			                	<li><h2><a href="/tarifs.html#dispo">Disponibilités</a></h2></li> 
-			                </ul> 
-			            	<ul> 
-			                	<li><h2><a href="/reserver.html">Réserver</a></h2></li> 
-			                </ul> 
-		            	</div> 
 					</div>
 		        </li> 
 		        <li> 
@@ -90,12 +96,12 @@
 		        </li> 
 		        <li> 
 		        	<a href="/blog.html">Blog</a>
-		      		<div class="sub" style="width:400px;"> 
+		      		<div class="sub" style="width:455px;"> 
 		            	<div class="row"> 
-		                    <ul style="width: 400px;">
+		                    <ul style="width: 455px;">
 			                	<li><h2><a href="/blog.html">Latest posts</a></h2></li>
 								{% for post in site.posts limit:5 %}
-								<li><a href="{{ post.url }}">{{ post.date | date_to_string }}- {{ post.title }}</a></li>
+								<li><a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }}</a></li>
 								{% endfor %}
 			                	<li><h2><a href="/blog.html">All posts</a></h2></li>
 		                    </ul> 
@@ -103,19 +109,7 @@
 		            </div>  
 		        </li>
 		        <li>
-		        	<a href="/acces.html">About-us</a> 
-		            <div class="sub" style="width:300px;"> 
-		            	<div class="row"> 
-			            	<ul> 
-			                	<li><h2><a href="/acces.html">En avion</a></h2></li>
-			                    <li><h2><a href="/acces.html">En voiture</a></h2></li> 
-			                </ul>
-			            	<ul> 
-			                    <li><h2><a href="/acces.html">En train</a></h2></li> 
-			                    <li><h2><a href="/acces.html">Sur un poney ?</a></h2></li> 
-			                </ul> 
-			            </div>
-			         </div> 
+		        	<a href="/contact-us.html">Contact us</a> 
 		        </li> 
 		    </ul>
 		</nav>

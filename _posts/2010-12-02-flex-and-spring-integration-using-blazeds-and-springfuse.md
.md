@@ -15,4 +15,4 @@ but are novice to Spring and Hibernate.
 
 Enjoy !
 
-Nicolas.
+## 2010 december 2

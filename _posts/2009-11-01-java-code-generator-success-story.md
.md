@@ -20,3 +20,5 @@ The launch of BforBank has been extensively covered by the media in France: pres
 Steria and Jaxio are going to present this success story at the <a href="http://www.mdday.fr/">Model Driven Day</a> conference in Paris on November 26th. 
 
 We hope to meet you there!
+
+## 2009 novembre 1
