@@ -432,5 +432,3 @@ Import in eclipse, and enjoy !
     Do not import the intermediary project in your IDE. Instead, import the generated project, 
     its folder name ends with '-generated'.
 </p>
-
-from within github edit page !
