@@ -4,6 +4,8 @@ title: Java Code Generator Success Story
 comments: true
 ---
 
+# Java Code Generator Success Story
+
 Earlier this year, a software development team working at <a href="http://www.steria.com/en/about-steria.htm">Steria</a>, a leading IT consulting firm in Europe, 
 has invited <a href="http://www.jaxio.com/">Jaxio</a> to demonstrate Celerio, the Enterprise version of SpringFuse.
 

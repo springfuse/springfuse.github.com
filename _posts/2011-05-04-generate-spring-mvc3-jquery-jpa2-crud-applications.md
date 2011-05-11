@@ -3,7 +3,7 @@ layout: main
 title: Generate Spring MVC3, JQuery, JPA2 CRUD Application
 comments: true
 ---
-<link rel="stylesheet" href="http://tom.preston-werner.com/css/syntax.css" type="text/css" />
+
 # 5 may 2011 - Generate Spring MVC3, JQuery, JPA2 CRUD Application
 
 We are pleased to announce some major improvements in the Spring MVC application that SpringFuse generates.
