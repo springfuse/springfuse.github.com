@@ -1,0 +1,5 @@
+markdown: rdiscount
+pygments: true
+server: true
+server_port: 4444
+auto: true

@@ -1,0 +1,341 @@
+body {
+background-image: url(/images/background.gif);
+}
+p {
+margin: 0;
+}
+p + p {
+text-indent: 0;
+margin-top: 0;
+}
+table {
+margin-bottom: 0;
+}
+.container {
+background-color:white;
+border: 1px dotted lightgrey;
+padding: 10px;
+}
+tbody tr:nth-child(even) td, tbody tr.even td {
+background: white;
+}
+
+#header h1 a {
+font-size:46px;
+font-variant:small-caps;
+font-style: italic;
+font-weight:bold;
+color: #99C51C;
+font-family: "Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+font-variant: small-caps;
+text-decoration: none;
+text-shadow: rgba(100, 100, 100, 0.5) 2px 2px 2px;
+}
+#header h1 a:hover {
+text-shadow: rgba(119, 119, 119, 0.8) 2px 2px 2px;
+}
+
+#drapeaux {
+float:right;
+}
+
+/** menu see http://www.sohtanaka.com/web-design/mega-drop-downs-w-css-jquery/ */
+
+ul#menu {
+	margin: 0; 
+	padding: 0;
+	float:left;
+	width: 100%;
+	list-style: none;
+	height:33px;
+	padding:0;
+	font-family:verdana;
+	font-size:15px;
+	font-weight:bold;
+	color:white;
+	border: 1px solid #aaaaaa;
+	background: #344c22;
+	
+}
+ul#menu li {
+	float: left;
+	margin: 0; 
+	padding: 0;
+	position: relative;
+	list-style:none;
+	border-right:1px solid grey;
+	line-height:33px;
+	padding-left:22px;
+	padding-right:22px;
+}
+ul#menu li:hover {
+	color:#FFFFF;
+}
+ul#menu li a{
+	color:#e8e000;
+	text-decoration:none;
+	text-shadow: rgba(119, 119, 119, 0.8) 1px 1px 2px;
+}
+ul#menu li a:hover{
+	color:white;
+	text-decoration:none;
+	text-shadow: rgba(250, 250, 250, 0.8) 1px 1px 2px;
+}
+ul#menu li .sub {
+	position: absolute;	
+	top: 33px; 
+	left: 0;
+	font-size:10px;
+	background-color: #344c22;
+	border-top: 1px solid #aaaaaa;
+	border-left: 1px solid #aaaaaa;
+	border-right: 2px solid #aaaaaa;
+	border-bottom: 2px solid #aaaaaa;
+	padding-top: 10px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-bottom: 10px;
+	float: left;
+	display: none;
+	color:black;
+	
+
+	/*--Bottom right rounded corner--*/
+-moz-border-radius-bottomright: 5px;
+-khtml-border-radius-bottomright: 5px;
+-webkit-border-bottom-right-radius: 5px;
+/*--Bottom left rounded corner--*/
+	-moz-border-radius-bottomleft: 5px;
+	-khtml-border-radius-bottomleft: 5px;
+	-webkit-border-bottom-left-radius: 5px;
+}
+ul#menu li .row {
+	clear: both; 
+	float: left; 
+	width: 100%; 
+}
+ul#menu li .sub ul {
+	list-style: none;
+	margin: 0; 
+	padding: 0;
+	width: 150px;
+	float: left;
+}
+ul#menu .sub ul li {
+	width: 100%;
+	color: #fff;
+	font-size:10px;
+	text-transform: none;
+	padding: 0px 0px 0px 0px;
+	border-right: 0px;
+	border-left: 0px;
+	background-image:none;
+}
+ul#menu .sub ul li h2 {
+	padding: 0;  
+	margin: 0;
+	font-size:15px;
+	font-weight: normal;
+}
+ul#menu .sub ul li h2 a {
+	background-image: none;
+	color: #e8e000;
+}
+ul#menu .sub ul li a {
+	float: none; 
+	display: block;
+	text-decoration: none;
+	color: #fff;
+}
+ul#menu .sub ul li a:hover {
+	color:white;
+	text-decoration:none;
+	text-shadow: rgba(250, 250, 250, 0.8) 1px 1px 2px;
+}
+
+/** sidebar */
+#sidebar{
+background-color:#bbb;
+margin-top:5px;
+padding-top:5px;
+min-height:650px;
+}
+#sidebar h1 {
+font-size:17px;
+color:#424242;
+font-style:italic;
+font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+font-variant:small-caps;
+text-shadow: rgba(119, 119, 119, 0.7) 2px 2px 2px;
+text-align:center;
+font-style:normal;
+border-bottom: 1px solid #424242;
+}
+#sidebar  p {
+padding:5px 10px 0px 10px;
+text-align : left;
+}
+#sidebar a{
+color:#262626;
+text-decoration: underline;
+}
+#sidebar a:hover, #sidebar a:focus {
+color:#555555;
+text-decoration: underline;
+}
+
+/** main */
+#main h1 {
+font-size:30px;
+color:#99c51c;
+font-style:italic;
+font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+font-variant:small-caps;
+text-shadow: rgba(160, 160, 160, 0.5) 2px 2px 2px;
+font-style:normal;
+}
+#main h2 {
+padding-left:20px;
+font-size:18px;
+color:#99c51c;
+font-style:italic;
+font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+font-variant:small-caps;
+font-style:normal;
+}
+#main h3 {
+padding-left:30px;
+font-size:13px;
+color:#99c51c;
+font-style:italic;
+font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+font-variant:small-caps;
+font-style:normal;
+}
+#main a {
+color:#7ea218;
+}
+#main a:hover, #main a:focus {
+color:#85a330;
+text-shadow: rgba(160, 160, 160, 0.5) 2px 2px 2px;
+}
+#main ul li {
+margin-left:40px;
+padding:0;
+list-style:circle;
+text-align:justify;
+}
+
+#screen {
+padding:0 20px 20px 20px;
+}
+#screen img {
+border: 1px solid #CCC;
+padding: 2px;	
+margin: 0 5px 0 0;
+}
+
+
+.float-left {
+float:left;
+}
+
+/** disqus */
+div#disqus_thread ul li {
+margin-left: 0px;
+padding: 0;
+list-style: none;
+text-align: none;
+}
+
+#google_maps {
+width:60;
+border:1px solid #585858;
+padding:10px;
+text-align:center;
+}
+
+
+/** tarifs */
+table.tarifs thead tr th {
+background:#878787;
+width:10px;
+}
+
+table.tarifs thead tr td {
+background:#b7b7b7;
+width:120px;
+text-align:center;
+font-weight:bold;
+font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
+font-variant:small-caps;
+text-shadow: rgba(160, 160, 160, 0.5) 2px 2px 2px;
+font-style:normal;
+font-size:20px;
+}
+
+table.tarifs tbody tr.haute-saison th {
+background:#FE9A2E;
+text-align:left;
+}
+
+table.tarifs .haute-saison td,
+table.tarifs td.haute-saison {
+background:#F7BE81;
+text-align:center;
+}
+
+
+table.tarifs .pleine-saison th,
+table.tarifs th.pleine-saison  {
+background:#93bb88;
+text-align:left;
+}
+
+table.tarifs .pleine-saison td, 
+table.tarifs td.pleine-saison {
+background:#ccfabe;
+text-align:center;
+}
+
+table.tarifs .moyenne-saison th {
+background:#6896ca;
+text-align:left;
+}
+
+table.tarifs .moyenne-saison td,
+table.tarifs td.moyenne-saison {
+background:#a3bedc;
+text-align:center;
+}
+
+table.tarifs .basse-saison th {
+background:#df4f4f;
+text-align:left;
+}
+
+table.tarifs .basse-saison td, 
+table.tarifs td.basse-saison {
+background:#f5b8b8;
+text-align:center;
+}
+
+table.tarifs td.reserve {
+background:red;
+text-align:center;
+}
+
+/** tarifs */
+table.tarifs  {
+border: 1px solid grey;
+}
+
+/** footer */
+
+#footer {
+color:white;
+background: #344c22;
+font-weight:bold;
+text-align:center;
+border: 1px dotted grey;
+}
