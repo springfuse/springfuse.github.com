@@ -2,7 +2,7 @@ body {
 background-image: url(/images/background.gif);
 }
 p {
-margin: 0;
+margin: 5px;
 }
 p + p {
 text-indent: 0;
@@ -187,7 +187,7 @@ text-decoration: underline;
 /** main */
 #main h1 {
 font-size:30px;
-color:#99c51c;
+color:#508616;
 font-style:italic;
 font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
 font-variant:small-caps;
@@ -197,7 +197,7 @@ font-style:normal;
 #main h2 {
 padding-left:20px;
 font-size:18px;
-color:#99c51c;
+color:#508616;
 font-style:italic;
 font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
 font-variant:small-caps;
@@ -206,17 +206,19 @@ font-style:normal;
 #main h3 {
 padding-left:30px;
 font-size:13px;
-color:#99c51c;
+color:#508616;
 font-style:italic;
 font-family:"Lucida Grande","Lucida Sans","Lucida Sans Unicode","Helvetica Neue",Helvetica,Arial,Verdana,sans-serif;
 font-variant:small-caps;
 font-style:normal;
 }
-#main a {
-color:#7ea218;
+#main a,
+#footer a {
+color:#508616;
 }
-#main a:hover, #main a:focus {
-color:#85a330;
+#main a:hover, #main a:focus,
+#footer a:hover, #footer a:focus {
+color:#7ea218;
 text-shadow: rgba(160, 160, 160, 0.5) 2px 2px 2px;
 }
 #main ul li {
