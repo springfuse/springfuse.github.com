@@ -90,7 +90,7 @@ Without him, you would not benefit from it.
   when running the generated app in Tomcat/Eclipse, where by default a context is present)
 * Business Key and equals/hashCode: You can now use the businessKey attribute in your configuration. For example
 
-{% highlight %}
+{% highlight java %}
 	<entityConfig ...>
 		<columnConfig columnName="email" businessKey="true"/>
 		<columnConfig columnName="username" businessKey="true"/>

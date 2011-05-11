@@ -46,7 +46,7 @@ In the screenshot below, we set the linked address using auto-complete:
 
 You can configure Celerio to use Jodatime instead of java.util.Date. Here is an example of generated java code and a screen shot:
 
-{% highlight %}
+{% highlight java %}
 	@Column(name = "date_joda", length = 8)
 	@Type(type = "org.joda.time.contrib.hibernate.PersistentLocalDate")
 	@DateTimeFormat(iso = ISO.DATE)
