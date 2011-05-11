@@ -89,10 +89,14 @@ Without him, you would not benefit from it.
 * Fix some "context-less" link on the generated application homepage (was ok without context, but was problematic for example 
   when running the generated app in Tomcat/Eclipse, where by default a context is present)
 * Business Key and equals/hashCode: You can now use the businessKey attribute in your configuration. For example
+
+{% highlight %}
 	<entityConfig ...>
 		<columnConfig columnName="email" businessKey="true"/>
 		<columnConfig columnName="username" businessKey="true"/>
 	</entityConfig>
+{% endhighlight %}
+
 Celerio will generate the equals/hashCode methods accordingly. If no columnConfig is marked as a business key, convention will apply in this order:
 1. use the first unique constraint involving 1 column
 1. if none is found, use the first unique constraint involving more than 1 column

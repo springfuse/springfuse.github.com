@@ -87,63 +87,22 @@
 		        </li> 
 		        <li> 
 		        	<a href="/change-log.html">Changelog</a>
-		            <div class="sub" style="width:450px;"> 
-		            	<div class="row"> 
-			            	<ul> 
-			                	<li><h2><a href="/tourisme.html#semaine">Culture</a></h2></li> 
-			                	<li><a href="/tourisme.html">Cité de Carcassonne</a></li> 
-			                	<li><a href="/tourisme.html">Les châteaux cathares</a></li> 
-			                	<li><a href="/tourisme.html">Toulouse</a></li> 
-			                </ul> 
-			            	<ul> 
-			                	<li><h2><a href="/tourisme.html#semaine">Histoire</a></h2></li> 
-			                	<li><a href="/tourisme.html">Sorèze</a></li> 
-			                	<li><a href="/tourisme.html">Abbayes</a></li> 
-			                	<li><a href="/tourisme.html">Grottes</a></li> 
-			                </ul>
-			            	<ul> 
-			                	<li><h2><a href="/tourisme.html#semaine">Culinaire</a></h2></li> 
-			                	<li><a href="/tourisme.html">Castelnaudary</a></li> 
-			                	<li><a href="/tourisme.html">Vins du sud</a></li> 
-			                	<li><a href="/tourisme.html">Terroire</a></li> 
-			                </ul> 
-		            	</div>
-						<div class="row"> 
-			            	<ul> 
-			                	<li><h2><a href="/tourisme.html#semaine">Nature</a></h2></li> 
-			                	<li><a href="/tourisme.html">Le Canal du Midi</a></li> 
-			                	<li><a href="/tourisme.html">Saint-Ferréol</a></li> 
-			                	<li><a href="/tourisme.html">Lac du lampy</a></li> 
-			                </ul>
-			            	<ul> 
-			                	<li><h2><a href="/tourisme.html#semaine">Enfants</a></h2></li> 
-			                	<li><a href="/tourisme.html">Narbonne Plage</a></li> 
-			                	<li><a href="/tourisme.html">Cité de l'espace</a></li> 
-			                	<li><a href="/tourisme.html">Aqualand</a></li> 
-			                </ul> 
-			            	<ul>
-			                	<li><h2><a href="/tourisme.html#semaine">Sport</a></h2></li> 
-			                	<li><a href="/tourisme.html">Sports nautiques</a></li> 
-			                	<li><a href="/tourisme.html">Aqualand</a></li> 
-			                	<li><a href="/tourisme.html">Tennis</a></li> 
-			                </ul> 
-		            	</div> 
-					</div> 
 		        </li> 
 		        <li> 
 		        	<a href="/blog.html">Blog</a>
-		      		<div class="sub" style="width:250px;"> 
+		      		<div class="sub" style="width:400px;"> 
 		            	<div class="row"> 
-		                    <ul style="width: 225px;">
-			                	<li><h2><a href="/blog.html#semaine">Nos billets</a></h2></li>
+		                    <ul style="width: 400px;">
+			                	<li><h2><a href="/blog.html">Latest posts</a></h2></li>
 								{% for post in site.posts limit:5 %}
-								<li><a href="{{ post.url }}">{{ post.title }} {{ post.date | date_to_string }}</a></li>
+								<li><a href="{{ post.url }}">{{ post.date | date_to_string }}- {{ post.title }}</a></li>
 								{% endfor %}
+			                	<li><h2><a href="/blog.html">All posts</a></h2></li>
 		                    </ul> 
 		                </div> 
 		            </div>  
 		        </li>
-		        <li> 
+		        <li>
 		        	<a href="/acces.html">About-us</a> 
 		            <div class="sub" style="width:300px;"> 
 		            	<div class="row"> 

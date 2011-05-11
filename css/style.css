@@ -19,6 +19,13 @@ padding: 10px;
 tbody tr:nth-child(even) td, tbody tr.even td {
 background: white;
 }
+pre{
+border: 1px solid grey;
+}
+div pre{
+background:white;
+}
+
 
 #header h1 a {
 font-size:46px;

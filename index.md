@@ -19,7 +19,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 					<th>Springfuse version</th>
 					<td>
 						<select id="version" class="required" class="updateCommand">
-                            <option value="3.0.46" selected="selected">3.0.46</option>
+                            <option value="3.0.47" selected="selected">3.0.47</option>
 						</select>
 					</td>
 				</tr>				
