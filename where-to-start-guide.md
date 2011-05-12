@@ -35,7 +35,7 @@ For example to start the web application it uses the file <code>src/main/web/WEB
 ## H2 Database for the tutorial
 
 The tutorial uses the H2 database to keep things simpler. Thanks to H2, there is no need
-to install any database server. Please refer to <a target="_new" href="http://www.h2database.com/html/quickstart.html">H2 quickstart
+to install any database server. Please refer to <a href="http://www.h2database.com/html/quickstart.html">H2 quickstart
 guide</a> to know more about H2 database. During development it can be pretty convenient to work with H2 and to switch to
 a 'real' database later.
 
@@ -47,7 +47,7 @@ Maven central repository.
 
 Maven is a bit cumbersome at first. It takes time to get into it, so for the moment we recommend you to do not spend too much time
 on it. It works, you can learn it later. If you are really impatient, then check these
-<a target="_new" href="http://maven.apache.org/articles.html">Maven resources</a>.
+<a href="http://maven.apache.org/articles.html">Maven resources</a>.
 
 # The Spring Framework
 
@@ -59,7 +59,7 @@ is a really powerful framework. This framework allows to instanciate beans
 
 You may want to read a little bit about Spring before getting into the code.
 Check the Spring Reference Documentation (you may start with
-<a target="_new" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html">Chapter 3. The IoC container</a>)
+<a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/beans.html">Chapter 3. The IoC container</a>)
 
 
 You should also know that Spring uses Java annotations to simplify
@@ -80,7 +80,7 @@ simple it is compare to verbose configuration files.
 
 
 Once you have scratched the surface and you get the concept, you should
-watch this video <a target="_new" href="http://www.infoq.com/presentations/johnson-configuring-spring">on configuring Spring</a>.
+watch this video <a href="http://www.infoq.com/presentations/johnson-configuring-spring">on configuring Spring</a>.
 Do not resign yet, it takes time to digest Spring and to see the light. It is normal if you suffer here.
 
 
@@ -90,7 +90,7 @@ Take the time you need to understand how Spring wires together all the various '
 ## Spring MVC
 
 SpringFuse generates some code that uses the Spring Web MVC framework. Check
-<a target="_new" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html">Chapter 15. Web MVC framework</a>. 
+<a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/mvc.html">Chapter 15. Web MVC framework</a>. 
 You can also check the Spring Web MVC configuration files
 which are under <code>src/main/resources/spring</code>
 and also the famous <code>src/main/webapp/WEB-INF/web.xml</code> file.
@@ -108,12 +108,12 @@ It illustrates how Spring can provide a simple and elegant solution that address
 
 Declarative transaction management is possible thanks to the use of AOP.
 You may check the Spring Reference documentation about AOP 
-(<a target="_new" href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/aop.html">Chapter 7.
+(<a href="http://static.springsource.org/spring/docs/3.0.x/spring-framework-reference/html/aop.html">Chapter 7.
 Aspect Oriented Programming with Spring</a>) but it is a little bit complex.
 
 
 To know more about transaction management you should watch this great presentation:
-<a target="_new" href="http://www.infoq.com/presentations/transaction-management-strategies">Transaction Management Strategies in Mission Critical Applications</a>.
+<a href="http://www.infoq.com/presentations/transaction-management-strategies">Transaction Management Strategies in Mission Critical Applications</a>.
 Do not be scared by the title. Juergen Hoeller, one of the Spring Framework founders, is pretty pedagogic.
 The video last 1h30 and worth gold. You should take the time to watch it and understand some of the concepts Juergen covers.
 Listen carefully to the part that starts around 00:13:45 (hour:minutes:seconds) about Transaction Demarcation,
@@ -125,8 +125,8 @@ what it really does when the JDBC transaction manager is used.
 ## Open Entity Manager In View
 
 The generated code uses the Spring's
-<a target="_new" href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/orm/jpa/support/OpenEntityManagerInViewFilter.html">
-<code>OpenEntityManagerInViewFilter</code></a> that implements the <a target="_new" href="http://www.hibernate.org/43.html">Open Session In View</a> pattern.
+<a href="http://static.springsource.org/spring/docs/3.0.x/javadoc-api/org/springframework/orm/jpa/support/OpenEntityManagerInViewFilter.html">
+<code>OpenEntityManagerInViewFilter</code></a> that implements the <a href="http://www.hibernate.org/43.html">Open Session In View</a> pattern.
 Take the time to understand it, it is closely related to transaction management in a web environment.
 
 # JPA/Hibernate

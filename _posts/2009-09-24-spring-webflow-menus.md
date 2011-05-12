@@ -82,33 +82,33 @@ The code above relies on the following bean below:
 	    private Map&lt;String, FlowMenuItem&gt; menu = new LinkedHashMap&lt;String, FlowMenuItem&gt;();
 	
 	    /**
-	     * Create or update a menu entry.
-	     */
+	 * Create or update a menu entry.
+	 */
 	    public void updateFlowMenuItem(String flowExecutionUrl, String label) {
 	        menu.put(getFlowExecutionId(flowExecutionUrl), new FlowMenuItem(flowExecutionUrl, label));
 	    }
 	
 	    /**
-	     * Remove a menu entry.
-	     */
+	 * Remove a menu entry.
+	 */
 	    public void removeFlowMenuItem(String flowExecutionUrl) {
 	        menu.remove(getFlowExecutionId(flowExecutionUrl));
 	    }
 	
 	    /**
-	     * Extract string that represent the flow execution id, for example:
-	     * http://localhost:8080/flow/myflow?execution=e12s2 becomes
-	     * http://localhost:8080/flow/myflow?execution=e12
-	     */
+	 * Extract string that represent the flow execution id, for example:
+	 * http://localhost:8080/flow/myflow?execution=e12s2 becomes
+	 * http://localhost:8080/flow/myflow?execution=e12
+	 */
 	    private String getFlowExecutionId(String flowExecutionUrl) {
 	        return flowExecutionUrl.substring(0, flowExecutionUrl.lastIndexOf('s'));
 	    }
 	
 	    /**
-	     * In flow end-state, instead of redirecting to a fixed page,
-	     * you can call this method to redirect the user
-	     * to a flow that is not yet ended.
-	     */
+	 * In flow end-state, instead of redirecting to a fixed page,
+	 * you can call this method to redirect the user
+	 * to a flow that is not yet ended.
+	 */
 	    public String getEndStateRedirect() {
 	        if (menu.isEmpty()) {
 	            return defaultExternalRedirect;
@@ -118,15 +118,15 @@ The code above relies on the following bean below:
 	    }
 	
 	    /**
-	     * Called from the view in charge of displaying the menu.
-	     */
+	 * Called from the view in charge of displaying the menu.
+	 */
 	    public List&lt;FlowMenuItem&gt; getFlowMenuAsList() {
 	        return new ArrayList&lt;FlowMenuItem&gt;(menu.values());
 	    }
 	
 	    /**
-	     * Holds the label/url.
-	     */
+	 * Holds the label/url.
+	 */
 	    public class FlowMenuItem implements Serializable {
 	        static final private long serialVersionUID = 1L;
 	
@@ -164,7 +164,7 @@ The code above relies on the following bean below:
 
 Note that the listener is a singleton while the flowMenu bean must be a session bean. You must declare your flowMenu bean in your configuration file as a scoped-proxy.
 
-Please read <a taget="_new" href="http://static.springsource.org/spring/docs/2.5.x/reference/beans.html#beans-factory-scopes-other-injection">Spring documentation</a> for more information.
+Please read <a href="http://static.springsource.org/spring/docs/2.5.x/reference/beans.html#beans-factory-scopes-other-injection">Spring documentation</a> for more information.
 
 Beside that, if you are familiar with spring Web flow and Spring MVC, the configuration is trivial.
 
@@ -231,13 +231,13 @@ This is already implemented in the flowMenu bean, all you have to do is set the 
 Now you need to access the menu from the view, in a JSP you can do this:
 
 {% highlight xml %}
-    <li><a href="#">Active Flows</a>
-        <ul>
-        <c:forEach var="flowMenuItem" items="${flowMenu.flowMenuAsList}" >
-            <li><a href="${flowMenuItem.url}">${flowMenuItem.label}</a></li>
+* <a href="#">Active Flows</a>
+        
+        <c:forEach var="flowMenuItem" items="${flowMenu.flowMenuAsList}">
+        * <a href="${flowMenuItem.url}">${flowMenuItem.label}</a>
         </c:forEach>
-        </ul>
-    </li>
+        
+    
 {% endhighlight %}
 
 The only trick is that the flowMenu must be somehow set as a request attribute. In SpringFuse, we use a BeanInViewInterceptor, here it is:

@@ -17,9 +17,9 @@ To generate a project, adjust the settings below and execute the resulting comma
 			<th>Database</th>
 			<td>
 				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked">
-				<label for="archetypeArtifactId3" title="No need to have a database, <br/>we will create an embedded database for you, and reverse it">Reverse a sample database that we provide</label>
+				<label for="archetypeArtifactId3" title="No need to have a database, we will create an embedded database for you, and reverse it">Reverse a sample database that we provide</label>
 				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand">
-				<label for="archetypeArtifactId1" title="You just need to provide some basic info so our plugin can reverse your database. <br/> do not try this with production database, use your development database.">Reverse your own database</label>
+				<label for="archetypeArtifactId1" title="You just need to provide some basic info so our plugin can reverse your database.  do not try this with production database, use your development database.">Reverse your own database</label>
 			</td>
 		</tr>
 		<tr class="jdbc-properties" style="display: none">
@@ -29,9 +29,9 @@ To generate a project, adjust the settings below and execute the resulting comma
 					<tbody>
 						<tr>
 							<td colspan="2">
-								Which JDBC driver should springfuse plugin use to access your database ?				
+								Which JDBC driver should springfuse plugin use to access your database ?
 							</td>
-						</tr>							
+						</tr>
 						<tr>
 							<th><label for="dbType">Database Vendor</label></th>
 							<td>
@@ -44,7 +44,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 								</select>
 								<p id="oracle-database" style="display: none" class="important">
 									<a href="/install-oracle-jdbc-driver-in-maven-repository">You must install and configure your Oracle JDBC driver first</a>
-								</p>											
+								</p>
 							</td>
 						</tr>
 						<tr>
@@ -66,7 +66,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 					</tbody>
 				</table>
 			</td>
-		</tr>				
+		</tr>
 		<tr class="jdbc-properties"  style="display: none">
 			<th>Jdbc connectivity</th>
 			<td>
@@ -74,13 +74,13 @@ To generate a project, adjust the settings below and execute the resulting comma
 					<tbody class="no-border">
 						<tr>
 							<td colspan="2">
-								Please provide your database credentials so the springfuse plugin can connect to your database and reverse it.<br/>
+								Please provide your database credentials so the springfuse plugin can connect to your database and reverse it.
 								<p class="important">
 								Do not provide here your production database credentials. You should only reverse a database used for development.
-								</p>
+								
 								These settings will be used as well in the generated project to access your database.
 							</td>
-						</tr>							
+						</tr>
 						<tr>
 							<th><label for="jdbcUrl">Url</label></th>
 							<td><input type="text" name="jdbcUrl" id="jdbcUrl" value="" size="40" class="updateCommand"></td>
@@ -113,8 +113,8 @@ To generate a project, adjust the settings below and execute the resulting comma
 			<th>Front end technology</th>
 			<td>
 				<select id="frontEnd" class="required" class="updateCommand">
-                    <option value="jsf2Primefaces" selected="selected">JSF2 + PrimeFaces + Spring WebFlow</option>
-                    <option value="springMvc">Spring MVC + JQuery</option>
+					<option value="jsf2Primefaces" selected="selected">JSF2 + PrimeFaces + Spring WebFlow</option>
+					<option value="springMvc">Spring MVC + JQuery</option>
 					<option value="backendOnly">None, generate only the backend: JPA2 Entities, DAOs, etc.</option>
 				</select>
 			</td>
@@ -123,7 +123,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 			<th>Http Proxy</th>
 			<td>
 				<input type="radio" name="proxyEnable" id="proxyEnableFalse" value="false" class="updateCommand" checked="checked"> No
-				<input type="radio" name="proxyEnable" id="proxyEnableTrue" value="true" class="updateCommand"> Yes 									
+				<input type="radio" name="proxyEnable" id="proxyEnableTrue" value="true" class="updateCommand"> Yes
 			</td>
 		</tr>
 		<tr class="proxy-properties" style="display: none">
@@ -138,27 +138,27 @@ To generate a project, adjust the settings below and execute the resulting comma
 							</td>
 						</tr>
 						<tr>
-							<th><label for="proxyHost" >proxy hostname</label></th>
+							<th><label for="proxyHost">proxy hostname</label></th>
 							<td><input type="text" name="proxyHost" id="proxyHost" value="" size="40" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyPort" >proxy port</label></th>
+							<th><label for="proxyPort">proxy port</label></th>
 							<td><input type="text" name="proxyPort" id="proxyPort" value="8080" size="6" class="updateCommand"></td>
-						</tr>								
+						</tr>
 						<tr>
 							<th><label for="proxyUsername">username</label></th>
 							<td><input type="text" name="proxyUsername" id="proxyUsername" value="" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyPassword" >password</label></th>
+							<th><label for="proxyPassword">password</label></th>
 							<td><input type="password" name="proxyPassword" id="proxyPassword" value="" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyNtlmDomain" >domain (only if your proxy uses ntlm)</label></th>
+							<th><label for="proxyNtlmDomain">domain (only if your proxy uses ntlm)</label></th>
 							<td><input type="text" name="proxyNtlmDomain" id="proxyNtlmDomain" value="" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyNtlmWorkstation" >workstation (only if your proxy uses ntlm)</label></th>
+							<th><label for="proxyNtlmWorkstation">workstation (only if your proxy uses ntlm)</label></th>
 							<td><input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" value="" class="updateCommand"></td>
 						</tr>
 					</tbody>
@@ -174,43 +174,43 @@ To generate a project, adjust the settings below and execute the resulting comma
 		<tr>
 			<td colspan="2">
 				<h2>Maven Command to Execute</h2>
-			</td>								
+			</td>
 		<tr>
 			<td colspan="2">
-			    <p>Once you are done, copy-paste these maven commands lines in a console:</p>
+				Once you are done, copy-paste these maven commands lines in a console:
 				<textarea id="cmdLine" rows="3" cols="80" readonly="readonly" style="width:850px;height:110px" title="Cut and paste this command line to create your project"></textarea>
 				<p class="open-your-browser">
 					Then once all is ready you can open your browser and go to <a href="http://localhost:8080/">http://localhost:8080/</a>
 				</p>
 				<p class="tip">
 					If the remote generation fails (error, missing entities, etc.), please <a href="/faq#question_remote_generation_failed">read this faq entry</a>.
-				</p>					
+				</p>
 			</td>
 		</tr>
 	</tbody>
 </form>
 </table>
 <script type="text/javascript">
-	function updateDbTypeDefaultValues() {			
+	function updateDbTypeDefaultValues() {
 		var dbType = $("#dbType").val();
 
 		if (dbType == "h2") {
 			$("#jdbcUrl").val("jdbc:h2:~/.h2/DBNAME");
 			$("#jdbcGroupId").val("com.h2database");
-			$("#jdbcArtifactId").val("h2");				
-			$("#jdbcDriver").val("org.h2.Driver");				
+			$("#jdbcArtifactId").val("h2");
+			$("#jdbcDriver").val("org.h2.Driver");
 			$("#jdbcVersion").val("1.2.131");
 		} else if (dbType == "postgresql") {
 			$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
 			$("#jdbcGroupId").val("postgresql");
-			$("#jdbcArtifactId").val("postgresql");				
-			$("#jdbcDriver").val("org.postgresql.Driver");				
+			$("#jdbcArtifactId").val("postgresql");
+			$("#jdbcDriver").val("org.postgresql.Driver");
 			$("#jdbcVersion").val("8.2-504.jdbc3");
 		} else if (dbType == "oracle") {
 			$("#jdbcUrl").val("jdbc:oracle:thin:@localhost:1521:XE");
 			$("#jdbcGroupId").val("com.oracle");
-			$("#jdbcArtifactId").val("ojdbc14");				
-			$("#jdbcDriver").val("oracle.jdbc.driver.OracleDriver");				
+			$("#jdbcArtifactId").val("ojdbc14");
+			$("#jdbcDriver").val("oracle.jdbc.driver.OracleDriver");
 			$("#jdbcVersion").val("10.2.0.3");
 		} else if (dbType == "mysql") {
 			$("#jdbcUrl").val("jdbc:mysql://localhost/DBNAME");
@@ -227,7 +227,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 		}
 		
 		if (dbType == "oracle") {
-			$("#oracle-database").show();				
+			$("#oracle-database").show();
 			
 		} else {
 			$("#oracle-database").hide();
@@ -289,19 +289,19 @@ To generate a project, adjust the settings below and execute the resulting comma
 		var proxyNtlmWorkstation= $("#proxyNtlmWorkstation").val();
 
 		if (proxyEnable === "true" && proxyHost) {
-			cmd += "-DproxyEnable=true ";				
+			cmd += "-DproxyEnable=true ";
 			cmd += "-DproxyHost=" + proxyHost + " ";
-			cmd += "-DproxyPort=" + proxyPort + " ";			
+			cmd += "-DproxyPort=" + proxyPort + " ";
 
 			if (proxyUsername) {
-				cmd += "-DproxyUsername=" + proxyUsername + " ";					
+				cmd += "-DproxyUsername=" + proxyUsername + " ";
 				cmd += "-DproxyPassword=" + proxyPassword + " ";
 			}
 
 			if (proxyNtlmDomain) {
 				cmd += "-DproxyNtlmEnable=true ";
-				cmd += "-DproxyNtlmDomain=" + proxyNtlmDomain + " ";					
-				cmd += "-DproxyNtlmWorkstation=" + proxyNtlmWorkstation + " ";					
+				cmd += "-DproxyNtlmDomain=" + proxyNtlmDomain + " ";
+				cmd += "-DproxyNtlmWorkstation=" + proxyNtlmWorkstation + " ";
 			}
 		}
 
@@ -310,18 +310,18 @@ To generate a project, adjust the settings below and execute the resulting comma
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
 			cmd += 'mvn generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://'+$(location).attr('host')+'/remote/generate\n';
-	    } else {
+		} else {
 			cmd += 'mvn generate-sources\n';
-	    }
+		}
 		
-        cmd += 'cd ..\n';
-        cmd += 'cd ' + artifactId + '-generated\n';
+		cmd += 'cd ..\n';
+		cmd += 'cd ' + artifactId + '-generated\n';
 		if (frontEnd !== "backendOnly") {
 			$(".open-your-browser").show();
 			cmd += 'mvn jetty:run\n';
 		} else {
 			$(".open-your-browser").hide();
-			cmd += 'mvn install\n';				
+			cmd += 'mvn install\n';
 		}
 		$("#cmdLine").val(cmd);
 		$(".project-name").html(artifactId);
@@ -361,7 +361,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 * JDK 1.6
 * Maven 2 at least.
 
-<p class="tip">		
+<p class="tip"> 
 The first time you use Springfuse or Maven you may be disappointed by the time it takes to download all the jar dependencies. Just be patient...
 </p>
 
@@ -376,9 +376,9 @@ The first command creates an intermediary project able to:
 * reverse your database schema, or a database example we provide
 * send the reversed database schema, not the data, to our server
 * wait while our server generates your project
-* download the generated project from our server		
+* download the generated project from our server
 
-Then the last maven command starts the project. 
+Then the last maven command starts the project.
 
 For webapp project, it deploys it locally using the embedded jetty servlet container. 
 
@@ -389,6 +389,7 @@ For backend only project, it runs all the unit tests.
 Import in eclipse, and enjoy !
 
 <p class="important">
-    Do not import the intermediary project in your IDE. Instead, import the generated project, 
-    its folder name ends with '-generated'.
+Do not import the intermediary project in your IDE. Instead, import the generated project, 
+its folder name ends with '-generated'.
 </p>
+

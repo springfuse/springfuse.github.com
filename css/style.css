@@ -56,6 +56,24 @@ div pre {
 	box-shadow: 0 3px 7px gray;
 }
 
+/** icons */
+p.tip {
+	background-image: url(/images/tip.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 32px;
+	padding-top: 10px;
+	min-height: 25px;
+}
+p.important {
+	background-image: url(/images/important.png);
+	background-repeat: no-repeat;
+	background-position: left;
+	padding-left: 32px;
+	padding-top: 10px;
+	min-height: 25px;
+}
+
 /** header */
 h1#logo {
 	margin: 0;

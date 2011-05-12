@@ -23,4 +23,4 @@ We provide different support packages with specific service level agreements for
 
 You would like to attend a training class introducing Celerio and covering the code that it generates?
 
-You may be interested in our training offer with our partner <a href="http://www.zenika.com/formation_celerio.php" target="_blank">Zenika</p>
+You may be interested in our training offer with our partner <a href="http://www.zenika.com/formation_celerio.php">Zenika

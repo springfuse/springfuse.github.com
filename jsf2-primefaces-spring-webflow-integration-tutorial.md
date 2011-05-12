@@ -28,7 +28,7 @@ You can find numerous example in the generated pages under:
 * src/main/webapp/WEB-INF/taglib/flows-generated
 
 We have chosen PrimeFaces because the project is pretty active, 
-the <a href="http://www.primefaces.org/showcase" target="_new">components look great</a> and it was the first to really embrace JSF2.
+the <a href="http://www.primefaces.org/showcase">components look great</a> and it was the first to really embrace JSF2.
 
 
 ## JSF 2 & JBoss EL
@@ -93,7 +93,7 @@ We also rely on Spring for:
 
 ## Spring Web Flow "FlowScoped PersistenceContext" pattern	
 
-We are using a variation of the <a href="http://static.springsource.org/spring-webflow/docs/2.2.x/reference/html/ch07s02.html" target="_new">FlowScoped PersistenceContext</a> in all the flows we generate.
+We are using a variation of the <a href="http://static.springsource.org/spring-webflow/docs/2.2.x/reference/html/ch07s02.html">FlowScoped PersistenceContext</a> in all the flows we generate.
 Contrary to SWF default behavior, the persistence context is propagated to sub-flows. Note that this will become the default behavior starting with SWF 2.3, please refer to <a href="https://jira.springsource.org/browse/SWF-360">JIRA SWF-360</a>	 
 
 

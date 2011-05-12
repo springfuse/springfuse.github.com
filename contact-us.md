@@ -36,7 +36,7 @@ title: Contactez nous
 		</tr>
 		<tr>
 			<th colspan="2">
-				Votre message:<br/>
+				Votre message:
 				<textarea name="entry.4.single" style="width:500px;height: 150px;"></textarea>
 			</th>
 		</tr>

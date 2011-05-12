@@ -149,16 +149,16 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
 # 2.8.19 (2009-11-11)
 
 * Support case where @OneToMany's mappedBy attribute refers to an @EmbeddedId (occurs when the id is a composite primary key). 
-  Thanks to Olivier Huber from <a href="http://www.zenika.com" target="_new">Zenika</a> for reporting it.
+  Thanks to Olivier Huber from <a href="http://www.zenika.com">Zenika</a> for reporting it.
 * Fix a regression bug showing up in composite primary key class when one of the property is a Date. 
-  Thanks to Ahmad Sousak from <a href="http://www.steria.com" target="_new">Steria</a> for reporting it.
+  Thanks to Ahmad Sousak from <a href="http://www.steria.com">Steria</a> for reporting it.
 * Remove(Roll back) the default-lazy-init="true" that was recently added in applicationContext-scheduling.xml as it prevents the jobs from starting!. 
-  Thanks to <a href="http://www.hikage.be/" target="_new">Gildas Cuisinier</a> for taking the time to analyze it and report it.
+  Thanks to <a href="http://www.hikage.be/">Gildas Cuisinier</a> for taking the time to analyze it and report it.
 
 
 # 2.8.18 (2009-09-24)
 
-* New feature: generate flow menu. Please read <a target="_new" href="http://blog.springfuse.com/2009/09/spring-web-flow-menus.html">our blog entry</a> to know more.
+* New feature: generate flow menu. Please read <a href="http://blog.springfuse.com/2009/09/spring-web-flow-menus.html">our blog entry</a> to know more.
 * Support for hibernate filters in flows thanks to a special flow execution listener
 * Refactor: 'boolean hasXxx()' on domain's model changed to '@Transient boolean isXxxSet()' for better clarity and compatibility with EL (expression language) in JSP/Flows etc.
 * Refactor equals and hashCode
@@ -255,7 +255,7 @@ Other important changes are listed below.
 
 # 2.7.3 (2009-04-09)
 * Fix a case that was breaking compilation of the generated code: a composite foreign
-  key having one of its field also used as a foreign key (non-composite). (Thanks to <a target="_new" href="http://www.linkedin.com/in/marcelheemskerk">Marcel Heemskerk</a>).
+  key having one of its field also used as a foreign key (non-composite). (Thanks to <a href="http://www.linkedin.com/in/marcelheemskerk">Marcel Heemskerk</a>).
 * Isolate the use of URLEncoder.encode(string, "UTF-8") in a dedicated URLEncoderUtil class.
 * Cosmetic in XxxFormServiceImpl.java (use @Autowired on properties instead of constructor) and remove some unused dependencies.
 * Small changes in spring/springmvc-webapp.xml to make future Spring Web Flow integration smoother.
@@ -270,7 +270,7 @@ Other important changes are listed below.
 
 # 2.7.2 (2009-04-03)
 
-*  Use URLEncoder.encode(string, "UTF-8") to encode parameters that appears in search results' sort urls in XxxSearchForm.java files.
+* Use URLEncoder.encode(string, "UTF-8") to encode parameters that appears in search results' sort urls in XxxSearchForm.java files.
 
 
 # 2.7.1 (2009-03-30)
@@ -343,7 +343,7 @@ Other important changes are listed below.
 # Since 2009-02-27
 
 * Fix the currentAccountId type in HibernateFilterContext: it was hard coded to String, it has now the same type as the primary key of the 'account' table.
-* Circumvent a SpringJavascript bug similar to <a href="http://jira.springframework.org/browse/SJS-21" target="_new">http://jira.springframework.org/browse/SJS-21</a> (thanks to Ian Hendry for reporting it).
+* Circumvent a SpringJavascript bug similar to <a href="http://jira.springframework.org/browse/SJS-21">http://jira.springframework.org/browse/SJS-21</a> (thanks to Ian Hendry for reporting it).
 * SearchTemplateImpl setters now return SearchTemplateImpl instead of SearchTemplate so builder pattern can be used.
 
 

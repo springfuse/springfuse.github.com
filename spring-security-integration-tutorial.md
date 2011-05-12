@@ -47,9 +47,9 @@ Spring Security in your generated project:
 			<tr>
 				<td>src/main/resources/spring/applicationContext.xml</td>
 				<td>
-				    Use the Spring Security namespace to:<br/>
-					Set the user service bean expected by SpringSecurity.<br/>
-					Enable @RolesAllowed annotations (jsr250) and @Secured annotations on scanned components.<br/>
+				    Use the Spring Security namespace to:
+					Set the user service bean expected by SpringSecurity.
+					Enable @RolesAllowed annotations (jsr250) and @Secured annotations on scanned components.
 				</td>
 			</tr>
 			<tr>

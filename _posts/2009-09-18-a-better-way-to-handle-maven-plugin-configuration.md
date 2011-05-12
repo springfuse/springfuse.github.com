@@ -27,9 +27,9 @@ Or relying on simple nested structures like this :
 
 {% highlight java %}
     /**
-     * list of enabled modules
-     * @parameter
-     */
+ * list of enabled modules
+ * @parameter
+ */
    protected String[] enabledModules = new String[0];
 {% endhighlight %}
 
@@ -104,8 +104,8 @@ Then <a href="http://maven.apache.org/ref/2.0.8/maven-model/apidocs/org/apache/m
 
 {% highlight java %}
     /**
-     * Get The configuration as DOM object.
-     */
+ * Get The configuration as DOM object.
+ */
     public Object getConfiguration() {
      ...
      }
