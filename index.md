@@ -36,16 +36,16 @@ To generate a project, adjust the settings below and execute the resulting comma
 								<tr>
 									<td>
 										Are you accessing this site through a http proxy?<br/>
-										<input type="radio" name="proxyEnable" id="proxyEnableTrue" value="true" class="updateCommand"> Yes 									
 										<input type="radio" name="proxyEnable" id="proxyEnableFalse" value="false" class="updateCommand" checked="checked"> No
-									</td>
+										<input type="radio" name="proxyEnable" id="proxyEnableTrue" value="true" class="updateCommand"> Yes 									
+                                                                        </td>
 								</tr>
 							</tbody>
 						</table>
 					</td>
 				</tr>
 				<tr class="proxy-properties" style="display: none">
-					<th>Proxy settings (required only if you are behind an http proxy)</th>
+					<th>Proxy settings</th>
 					<td>
 						<table>
 							<tbody>
