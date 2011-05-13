@@ -180,7 +180,15 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 							<tr>
 								<th><label for="proxyNtlmWorkstation">Workstation</label></th>
 								<td>
-									<input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" value="" class="updateCommand">
+									<input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" value="" class="updateCommand" 
+										title="Under Windows, 
+										<ul>
+											<li>Open System by clicking the Start button,</li>
+											<li>click on Control Panel,</li>
+											<li>click on System and Maintenance,</li>
+											<li>click on System.</li>
+										</ul>
+										You can now find your computer's name">
 									<i>only if your proxy uses ntlm</i>
 								</td>
 							</tr>

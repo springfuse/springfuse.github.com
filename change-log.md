@@ -21,16 +21,16 @@ title: Springfuse change log
 ## Spring MVC 3 front option
 
 * Totally revisited the look'n'feel and the navigation... for the better :-). Many thanks to Frédéric Pernot from Unibail-Rodamco for his precious feedbacks
-* upgrade to jquery 1.5 http://jquery.org/
-* enable ajax history https://github.com/cowboy/jquery-bbq
-* use blueprint css framework http://www.blueprintcss.org/
-* use jquery-ui http://jqueryui.com/
-* upgrade jquery-validate https://github.com/jzaefferer/jquery-validation
+* upgrade to jquery 1.5 <http://jquery.org/>
+* enable ajax history <https://github.com/cowboy/jquery-bbq>
+* use blueprint css framework <http://www.blueprintcss.org/>
+* use jquery-ui <http://jqueryui.com/>
+* upgrade jquery-validate <https://github.com/jzaefferer/jquery-validation>
 
 
 ## JSF2/Primefaces front option
 
-* Use embedded flow to renderer search flows in primefaces popup dialog		
+* Use embedded flow to renderer search flows in primefaces popup dialog
 * File download/upload is now supported
 
 
@@ -59,7 +59,7 @@ Without him, you would not benefit from it.
 * Fix bidirectional one-to-one generated test (XxxDaoWithRealSessionTest)
 * Fix missing import when composite primary keys uses an Enum.
 * EnumType is no more mandatory on enumConfig
-* Fix enableOneToVirtualOne="true" option on columnConfig representing a foreign key		
+* Fix enableOneToVirtualOne="true" option on columnConfig representing a foreign key
 * Fix getByExampleExtraCriterions on entities with composite pk
 * Fix enum2xsd plugin when enum has a varargs argument
 * Fix oracle retrieve remarks
