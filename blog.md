@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Blogs
 ---
 # Posts 

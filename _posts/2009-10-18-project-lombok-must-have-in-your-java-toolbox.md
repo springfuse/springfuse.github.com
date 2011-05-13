@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Project lombok - a must have in your java toolbox !
 comments: true
 ---

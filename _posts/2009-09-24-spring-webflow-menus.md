@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Spring Web Flow Menus
 comments: true
 ---

@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Zenika announces a major Java JEE conference in Paris
 comments: true
 ---

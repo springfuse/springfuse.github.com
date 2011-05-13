@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Springfuse features 
 ---
 
@@ -36,12 +36,12 @@ Easy mock. Springfuse also generates test helper classes to create dummy domain 
 
 ## Dependency injection with Spring
 
-The generated components use the <code>@Autowired</code> annotation for dependency injection to
+The generated components use the `@Autowired` annotation for dependency injection to
 simplify the Spring configuration. Note that you can still override through the Spring XML configuration.
 
 ## <a href="/why/annotations">Transactions with Spring</a>
 
-We use the <code>@Transactional</code> annotation for transactions and as
+We use the `@Transactional` annotation for transactions and as
 the Spring team recommends we only annotate concrete classes and not interfaces.
 We also use the Open Session In View Filter.
 
@@ -77,18 +77,18 @@ Springfuse does not re-invent the wheel, the generated source code leverage exis
 ##<a href="/why/spring-security">Spring Security</a>
 
 Springfuse generates the required Spring Security configuration and an implementation of the
-<code>UserDetailsService</code> that loads the account information using the
+`UserDetailsService` that loads the account information using the
 generated account entity manager. It also generates a login page and some convenient methods to
 allow you to auto-login a user.
 
 Spring Security can also be used in your code to prevent certain roles from executing
-some methods thanks to the <code>@RolesAllowed</code> annotation.
+some methods thanks to the `@RolesAllowed` annotation.
 
 ## <a href="/why/spring-mvc">Spring MVC annotation-based Controllers</a>
 
 The web layer leverage Spring MVC 3.0.2. 
-All the generated controllers leverage the new Spring MVC annotation system, they use <code>@Controller</code>,
-<code>@InitBinder</code>, <code>@RequestMapping</code>, <code>@ModelAttribute</code>.
+All the generated controllers leverage the new Spring MVC annotation system, they use `@Controller`,
+`@InitBinder`, `@RequestMapping`, `@ModelAttribute`.
 For each domain class, Springfuse generates controllers that allow you to:
 
 * Perform CRUD operations with validation
@@ -126,14 +126,14 @@ not Springfuse's primary goal.
 
 All the JSP pages are localized. We provide generic properties files for 2 locales : English and French.
 You can easily switch from one locale to another thanks to some links in the generated page. Note that
-we leverage here Spring's <code>LocaleChangeInterceptor</code>.
+we leverage here Spring's `LocaleChangeInterceptor`.
 
 ## Account Context Interceptor
 
-Springfuse generates a <code>ContextInterceptor</code> which is responsible for binding on the
+Springfuse generates a `ContextInterceptor` which is responsible for binding on the
 current thread of each incoming http request some contextual information.
 For example, when the user is logged in, it binds the User model. This information is also binded
-on the Spring MVC <code>Model</code> so it can be easily available from the JSP view.
+on the Spring MVC `Model` so it can be easily available from the JSP view.
 This interceptor also enable some Hibernate filters, please refer to the main documentation.
 
 
@@ -146,22 +146,12 @@ Springfuse generates a simple URL rewrite configuration.
 
 This is the business layer that you code manually. But you do not start from scratch, you can use
 within your service implementation the entity managers that are generated. Note that Springfuse generates
-the following services. All service implementation are annotated with <code>@Service</code>.
+the following services. All service implementation are annotated with `@Service`.
 
 ## Password Service
 
 This is a simple service to allow users to reset or change their password.
 Upon password reset an email is sent to the end user.
-
-## Email Service with Javamail and Velocity
-
-Springfuse generates an Email sending interface and implementation that allows you to send
-template-based email messages. Email can be sent synchronously or asynchronously.
-It leverages JavaMail and Spring's <code>VelocityEngineUtils</code> class. Springfuse generates some velocity
-templates for the reset password service, as you would expect the email service supports localization.
-
-By default we provide a Javamail configuration ready to be used with Gmail, it uses SSL.
-
 
 ## Named Query Util Service
 

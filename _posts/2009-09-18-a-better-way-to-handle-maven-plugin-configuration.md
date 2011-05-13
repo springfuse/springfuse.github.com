@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: A better way to handle maven plugin configuration
 comments: true
 ---

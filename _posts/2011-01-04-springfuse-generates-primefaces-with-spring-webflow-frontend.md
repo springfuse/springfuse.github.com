@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Springfuse generates Primefaces with Spring Web Flow front end
 comments: true
 ---

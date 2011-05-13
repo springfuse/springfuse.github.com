@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Why we switched from jaxb to jibx
 comments: true
 ---

@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: JSF2, PrimeFaces, Spring Web Flow Integration Tutorial 
 ---
 

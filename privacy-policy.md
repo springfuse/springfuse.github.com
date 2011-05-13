@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Privacy policy 
 ---
 # Privacy policy

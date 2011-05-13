@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Generate Spring MVC3, JQuery, JPA2 CRUD Application
 comments: true
 ---

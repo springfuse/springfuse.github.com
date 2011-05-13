@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Testing various equals and hashCode strategies
 comments: true
 ---
