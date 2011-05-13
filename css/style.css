@@ -10,6 +10,7 @@ base color #0477BF
 */
 body {
 	background-color: #EFEFEF;
+	min-height: 480px;
 }
 
 p {
@@ -42,6 +43,12 @@ pre {
 div pre {
 	background: white;
 }
+label {
+	font-weight: normal;
+}
+th {
+font-weight: normal;
+}
 
 .container, .tooltip {
 	background: white;
@@ -57,7 +64,7 @@ div pre {
 }
 
 /** icons */
-p.tip {
+p.tip,span.tip {
 	background-image: url(/images/tip.png);
 	background-repeat: no-repeat;
 	background-position: left;
@@ -65,7 +72,8 @@ p.tip {
 	padding-top: 10px;
 	min-height: 25px;
 }
-p.important {
+
+p.important, span.important {
 	background-image: url(/images/important.png);
 	background-repeat: no-repeat;
 	background-position: left;
@@ -77,22 +85,6 @@ p.important {
 /** header */
 h1#logo {
 	margin: 0;
-}
-
-#header h1 a {
-	font-size: 46px;
-	color: #0477BF;
-	font-style: italic;
-	font-family: "Helvetica Neue", Helvetica, "Lucida Grande", "Lucida Sans",
-		"Lucida Sans Unicode", Arial, Verdana, sans-serif;
-	font-variant: small-caps;
-	text-shadow: rgba(160, 160, 160, 0.5) 1px 1px 1px;
-	font-style: normal;
-	text-decoration: none;
-}
-
-#header h1 a:hover {
-	text-shadow: lightgrey 1px 1px 1px;
 }
 
 /** menu see http://www.sohtanaka.com/web-design/mega-drop-downs-w-css-jquery/ */
@@ -142,7 +134,7 @@ ul#menu  a {
 }
 
 ul#menu  a:hover {
-	text-shadow: lightgrey 1px 1px 1px;
+	text-shadow: grey 1px 2px;
 }
 
 ul#menu li .sub {

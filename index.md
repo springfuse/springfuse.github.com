@@ -10,80 +10,57 @@ Springfuse reverses your database structure and generates top-quality source cod
 To generate a project, adjust the settings below and execute the resulting command lines in a console.
 
 <div>
-<table>
-<form>
-	<tbody class="green-border">
+<style>
+table#quickstart {
+	border: 1px solid gray;
+}
+table#quickstart tbody tr th, table#quickstart tbody tr td {
+	border: 1px dotted lightgray;
+}
+</style>
+<table id="quickstart">
+	<tbody>
 		<tr>
-			<th>Database</th>
-			<td>
-				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked">
-				<label for="archetypeArtifactId3" title="No need to have a database, we will create an embedded database for you, and reverse it">Reverse a sample database that we provide</label>
-				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand">
-				<label for="archetypeArtifactId1" title="You just need to provide some basic info so our plugin can reverse your database.  do not try this with production database, use your development database.">Reverse your own database</label>
-			</td>
-		</tr>
-		<tr class="jdbc-properties" style="display: none">
-			<th>Jdbc driver</th>
+			<th>Project</th>
 			<td>
 				<table>
 					<tbody>
 						<tr>
-							<td colspan="2">
-								Which JDBC driver should springfuse plugin use to access your database ?
-							</td>
+							<th style="width:120px;">Name</th>
+							<td><input type="text" id="artifactId" value="myproject" class="required lettersNumbers updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="dbType">Database Vendor</label></th>
-							<td>
-								<select id="dbType" name="dbType" class="updateCommand">
-									<option value="mysql">mysql</option>
-									<option value="oracle">oracle</option>
-									<option value="h2">h2</option>
-									<option value="postgresql">postgresql</option>
-									<option value="other">other</option>
-								</select>
-								<p id="oracle-database" style="display: none" class="important">
-									<a href="/install-oracle-jdbc-driver-in-maven-repository">You must install and configure your Oracle JDBC driver first</a>
-								</p>
-							</td>
-						</tr>
-						<tr>
-							<th><label for="jdbcGroupId">Maven groupId</label></th>
-							<td><input type="text" name="jdbcGroupId" id="jdbcGroupId" value="" class="updateCommand"></td>
-						</tr>
-						<tr>
-							<th><label for="jdbcArtifactId">Maven artifactId</label></th>
-							<td><input type="text" name="jdbcArtifactId" id="jdbcArtifactId" value="" class="updateCommand"></td>
-						</tr>
-						<tr>
-							<th><label for="jdbcGroupId">Version</label></th>
-							<td><input type="text" name="jdbcVersion" id="jdbcVersion" value="" class="updateCommand"></td>
-						</tr>
-						<tr>
-							<th><label for="jdbcDriver">Driver class</label></th>
-							<td><input type="text" name="jdbcDriver" id="jdbcDriver" value="" class="updateCommand"></td>
+							<th style="width:120px;">Root package</th>
+							<td><input type="text" id="groupId" size="40" value="com.company.project" class="required packageName updateCommand" title="Ex: com.company.project"></td>
 						</tr>
 					</tbody>
 				</table>
 			</td>
 		</tr>
-		<tr class="jdbc-properties"  style="display: none">
-			<th>Jdbc connectivity</th>
+		<tr>
+			<th>Database</th>
 			<td>
+				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked">
+				<label for="archetypeArtifactId3" title="No need to have a database, we will create an embedded database for you, and reverse it.<br/>
+														Everything is done on your computer.">
+					Reverse a sample database that we provide
+				</label>
+				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand">
+				<label for="archetypeArtifactId1" title="You just need to provide some basic info so our plugin can reverse your database.<br/> 
+														do not try this with production database, use your development database.">
+					Reverse your own database
+				</label>
+			</td>
+		</tr>
+		<tr class="jdbc-properties" style="display: none">
+			<th>Jdbc credentials</th>
+			<td>
+				Please provide your database credentials so the springfuse plugin can connect to your database and reverse it.
 				<table>
-					<tbody class="no-border">
+					<tbody
 						<tr>
-							<td colspan="2">
-								Please provide your database credentials so the springfuse plugin can connect to your database and reverse it.
-								<p class="important">
-								Do not provide here your production database credentials. You should only reverse a database used for development.
-								
-								These settings will be used as well in the generated project to access your database.
-							</td>
-						</tr>
-						<tr>
-							<th><label for="jdbcUrl">Url</label></th>
-							<td><input type="text" name="jdbcUrl" id="jdbcUrl" value="" size="40" class="updateCommand"></td>
+							<th style="width:120px;"><label for="jdbcUrl">Url</label></th>
+							<td><input type="text" name="jdbcUrl" id="jdbcUrl" value="" size="70" class="updateCommand"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcUser">User</label></th>
@@ -95,100 +72,139 @@ To generate a project, adjust the settings below and execute the resulting comma
 						</tr>
 					</tbody>
 				</table>
+				<p class="important">
+					Do not provide here your production database credentials. 
+					You should only reverse a database used for development.
+					<br/>
+					These settings will be used as well in the generated project to access your database.
+				</p>
 			</td>
 		</tr>
-		<tr>
-			<th>Project root package</th>
+		<tr class="jdbc-properties" style="display: none">
+			<th>Jdbc driver</th>
 			<td>
-				<input type="text" id="groupId" size="40" value="com.company.project" class="required packageName updateCommand">
-			</td>
-		</tr>
-		<tr>
-			<th>Project name</th>
-			<td>
-				<input type="text" id="artifactId" value="myproject" class="required lettersNumbers updateCommand">
-			</td>
-		</tr>
-		<tr>
-			<th>Front end technology</th>
-			<td>
-				<select id="frontEnd" class="required" class="updateCommand">
-					<option value="jsf2Primefaces" selected="selected">JSF2 + PrimeFaces + Spring WebFlow</option>
-					<option value="springMvc">Spring MVC + JQuery</option>
-					<option value="backendOnly">None, generate only the backend: JPA2 Entities, DAOs, etc.</option>
-				</select>
-			</td>
-		</tr>
-		<tr>
-			<th>Http Proxy</th>
-			<td>
-				<input type="radio" name="proxyEnable" id="proxyEnableFalse" value="false" class="updateCommand" checked="checked"> No
-				<input type="radio" name="proxyEnable" id="proxyEnableTrue" value="true" class="updateCommand"> Yes
-			</td>
-		</tr>
-		<tr class="proxy-properties" style="display: none">
-			<th>Proxy settings</th>
-			<td>
+				Which JDBC driver should springfuse plugin use to access your database ?
 				<table>
 					<tbody>
 						<tr>
-							<td colspan="2">
-								You must configure both maven (<a href="http://maven.apache.org/guides/mini/guide-proxies.html">instructions here</a>) 
-								and	the springfuse maven plugin (fill the necessary fields below) to use your proxy.
+							<th style="width:120px;"><label for="dbType">Database Vendor</label></th>
+							<td>
+								<select id="dbType" name="dbType" class="updateCommand">
+									<option value="mysql">mysql</option>
+									<option value="oracle">oracle</option>
+									<option value="h2">h2</option>
+									<option value="postgresql">postgresql</option>
+									<option value="other">other</option>
+								</select>
+								<span id="oracle-database" style="display: none">
+									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository">install it manually</a>.
+								</span>
 							</td>
 						</tr>
 						<tr>
-							<th><label for="proxyHost">proxy hostname</label></th>
-							<td><input type="text" name="proxyHost" id="proxyHost" value="" size="40" class="updateCommand"></td>
+							<th><label for="jdbcGroupId">Maven groupId</label></th>
+							<td><input type="text" name="jdbcGroupId" id="jdbcGroupId" value="" size="50" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyPort">proxy port</label></th>
-							<td><input type="text" name="proxyPort" id="proxyPort" value="8080" size="6" class="updateCommand"></td>
+							<th><label for="jdbcArtifactId">Maven artifactId</label></th>
+							<td><input type="text" name="jdbcArtifactId" id="jdbcArtifactId" value="" size="50" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyUsername">username</label></th>
-							<td><input type="text" name="proxyUsername" id="proxyUsername" value="" class="updateCommand"></td>
+							<th><label for="jdbcGroupId">Version</label></th>
+							<td><input type="text" name="jdbcVersion" id="jdbcVersion" value="" class="updateCommand"></td>
 						</tr>
 						<tr>
-							<th><label for="proxyPassword">password</label></th>
-							<td><input type="password" name="proxyPassword" id="proxyPassword" value="" class="updateCommand"></td>
-						</tr>
-						<tr>
-							<th><label for="proxyNtlmDomain">domain (only if your proxy uses ntlm)</label></th>
-							<td><input type="text" name="proxyNtlmDomain" id="proxyNtlmDomain" value="" class="updateCommand"></td>
-						</tr>
-						<tr>
-							<th><label for="proxyNtlmWorkstation">workstation (only if your proxy uses ntlm)</label></th>
-							<td><input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" value="" class="updateCommand"></td>
+							<th><label for="jdbcDriver">Driver class</label></th>
+							<td><input type="text" name="jdbcDriver" id="jdbcDriver" value="" size="50" class="updateCommand"></td>
 						</tr>
 					</tbody>
 				</table>
 			</td>
 		</tr>
 		<tr>
-			<th>Advanced Configuration</th>
-			<td>Once you get familiar with the generation process, 
-				   you can refer to <a href="/code-generation-configuration">Code Generation Configuration</a> to control more precisely the code generation.
+			<th>Generate</th>
+			<td>
+				<input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand">
+				<label for="springMvc" title="You have the basics, all the tables will have a domain object generated, and the jpa setup is done etc.<br/>
+												Use this option if you are new to Springfuse or java.">
+					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3
+				</label>
+				<br/>
+				<input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand">
+				<label for="springMvc" title="You have an out-of-the box working web application running spring mvc with the latest best practices.">
+					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3 + Spring MVC 3 + JQuery 1.5
+				</label>
+				<br/>
+				<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked">
+				<label for="jsf2Primefaces" title="Many enterprise applications have complex navigation and requirements.<br/>
+													For these type of applications MVC is too low level, JSF and Weflow are the way to go.<br/>
+													But these technologies are complex to master, use this generation option to learn how to set them up.">
+					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3 + JSF 2 + PrimeFaces 2.2 + Spring WebFlow 3
+				</label>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2">
-				<h2>Maven Command to Execute</h2>
+			<th>Http Proxy</th>
+			<td>
+				<input type="radio" name="proxyEnable" id="proxyEnableFalse" value="false" class="updateCommand" checked="checked">
+				<label for="proxyEnableFalse">No</label>
+
+				<input type="radio" name="proxyEnable" id="proxyEnableTrue" value="true" class="updateCommand">
+				<label for="proxyEnableTrue">Yes</label>
+				<div class="proxy-properties" style="display: none">
+					<table>
+						<tbody>
+							<tr>
+								<th style="width:120px;"><label for="proxyHost">Proxy hostname</label></th>
+								<td><input type="text" name="proxyHost" id="proxyHost" value="" size="50" class="updateCommand"></td>
+							</tr>
+							<tr>
+								<th><label for="proxyPort">Proxy port</label></th>
+								<td><input type="text" name="proxyPort" id="proxyPort" value="8080" size="6" class="updateCommand"></td>
+							</tr>
+							<tr>
+								<th><label for="proxyUsername">Username</label></th>
+								<td><input type="text" name="proxyUsername" id="proxyUsername" value="" class="updateCommand"></td>
+							</tr>
+							<tr>
+								<th><label for="proxyPassword">Password</label></th>
+								<td><input type="password" name="proxyPassword" id="proxyPassword" value="" class="updateCommand"></td>
+							</tr>
+							<tr>
+								<th><label for="proxyNtlmDomain">Domain</label></th>
+								<td>
+									<input type="text" name="proxyNtlmDomain" id="proxyNtlmDomain" value="" class="updateCommand">
+									<i>only if your proxy uses ntlm</i>
+								</td>
+							</tr>
+							<tr>
+								<th><label for="proxyNtlmWorkstation">Workstation</label></th>
+								<td>
+									<input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" value="" class="updateCommand">
+									<i>only if your proxy uses ntlm</i>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p class="important">
+						If not already done, please <a href="http://maven.apache.org/guides/mini/guide-proxies.html">configure  maven to use this proxy</a> too.
+					</p>
+				</div>
 			</td>
+		</tr>
 		<tr>
-			<td colspan="2">
-				Once you are done, copy-paste these maven commands lines in a console:
-				<textarea id="cmdLine" rows="3" cols="80" readonly="readonly" style="width:850px;height:110px" title="Cut and paste this command line to create your project"></textarea>
-				<p class="open-your-browser">
-					Then once all is ready you can open your browser and go to <a href="http://localhost:8080/">http://localhost:8080/</a>
-				</p>
-				<p class="tip">
-					If the remote generation fails (error, missing entities, etc.), please <a href="/faq#question_remote_generation_failed">read this faq entry</a>.
-				</p>
+			<th>Advanced Configuration</th>
+			<td>
+				Once you get familiar with the generation process, please refer to the <a href="/code-generation-configuration">code generation configuration</a> documentation to control more precisely the code generation.<br/>
+			</td>
+		</tr>
+		<tr>
+			<th><i>Your email</i></th>
+			<td>
+				<input type="text" id="email" value="" class="updateCommand" title="Used to send you personnalized tips, in case of generation failure for example."> <i>optional</i>
 			</td>
 		</tr>
 	</tbody>
-</form>
 </table>
 <script type="text/javascript">
 	function updateDbTypeDefaultValues() {
@@ -225,7 +241,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 			$("#jdbcDriver").val("");
 			$("#jdbcVersion").val("");
 		}
-		
+
 		if (dbType == "oracle") {
 			$("#oracle-database").show();
 			
@@ -238,6 +254,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var version= $("#version").val();
+		var email= $("#email").val();
 		var frontEnd= $("#frontEnd").val();
 		var archetypeArtifactId = $("input[name=archetypeArtifactId]:checked").val();
 		var proxyEnable = $("input[name=proxyEnable]:checked").val();
@@ -263,10 +280,11 @@ To generate a project, adjust the settings below and execute the resulting comma
 		cmd += '-DartifactId=' + artifactId + ' ';
 		cmd += '-Dversion=1.0.0 ';
 		cmd += '-DfrontEnd=' + frontEnd + ' ';
+		cmd += '-Demail=' + email + ' ';
 		
 		if(window.location.host.indexOf('localhost') == -1){
-	    	cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
-	    }
+			cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
+		}
 		if (archetypeArtifactId == "quickstart") {
 			cmd += '-DjdbcGroupId=' + $("#jdbcGroupId").val() + " ";
 			cmd += '-DjdbcArtifactId=' + $("#jdbcArtifactId").val() + " ";
@@ -309,7 +327,7 @@ To generate a project, adjust the settings below and execute the resulting comma
 		
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
-			cmd += 'mvn generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://'+$(location).attr('host')+'/remote/generate\n';
+			cmd += 'mvn generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://' + window.location.host + '/remote/generate\n';
 		} else {
 			cmd += 'mvn generate-sources\n';
 		}
@@ -355,6 +373,16 @@ To generate a project, adjust the settings below and execute the resulting comma
 </script>
 </div>
 
+# Maven Command to Execute
+
+Once you are done, copy-paste these maven commands lines in a console:
+<textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:130px" title="Cut and paste this command line to create your project"></textarea>
+<p class="open-your-browser">
+	Then once all is ready you can open your browser and go to <a href="http://localhost:8080/">http://localhost:8080/</a>
+</p>
+<p class="tip">
+	If the remote generation fails (error, missing entities, etc.), please <a href="/faq#question_remote_generation_failed">read this faq entry</a>.
+</p>
 
 ## Requirements
 
