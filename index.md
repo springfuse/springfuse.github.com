@@ -272,7 +272,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.47";
+		var version= "3.0.48-SNAPSHOT";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
@@ -307,9 +307,6 @@ input.error {
 		cmd += '-DfrontEnd=' + frontEnd + ' ';
 		cmd += quote('-Demail=' + email) + ' ';
 		
-		if(window.location.host.indexOf('localhost') == -1){
-			cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
-		}
 		if (archetypeArtifactId == "quickstart") {
 			$("#cmdLine").val("");
 			var jdbcGroupId = $("#jdbcGroupId").val();
@@ -363,16 +360,15 @@ input.error {
 				cmd += quote("-DproxyNtlmWorkstation=" + proxyNtlmWorkstation) + " ";
 			}
 		}
+		cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
 		cmd += "\n";
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
-			cmd += 'mvn generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://' + window.location.host + '/remote/generate\n';
+			cmd += 'mvn -f springfuse.xml generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://' + window.location.host + '/remote/generate\n';
 		} else {
-			cmd += 'mvn generate-sources\n';
+			cmd += 'mvn -f springfuse.xml generate-sources\n';
 		}
 		
-		cmd += 'cd ..\n';
-		cmd += 'cd ' + artifactId + '-generated\n';
 		if (frontEnd !== "backendOnly") {
 			$(".open-your-browser").show();
 			cmd += 'mvn jetty:run\n';
@@ -394,9 +390,9 @@ input.error {
 		$("#jdbcUrl").change(function() {
 			var dbType = $("#jdbcUrl").val().split(":")[1];
 			if ($("#dbType option:contains('" + dbType + "')").val()) {
-				$("#dbType").val(dbType);			
+				$("#dbType").val(dbType);
 			} else {
-				$("#dbType").val("other");			
+				$("#dbType").val("other")
 			}
 			updateDbTypeDefaultValues();
 			updateCommand();
@@ -427,7 +423,7 @@ input.error {
 # Maven Command to Execute
 
 Once you are done, copy-paste these maven commands lines in a console:
-<textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:130px" title="Cut and paste this command line to create your project"></textarea>
+<textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:95px" title="Cut and paste this command line to create your project"></textarea>
 <p class="open-your-browser">
 	Then once all is ready you can open your browser and go to <span id="destinationUrl"><a href="http://localhost:8080/myproject">http://localhost:8080/myproject</a></span>
 </p>
