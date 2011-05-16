@@ -9,64 +9,47 @@ title: Contact us
 		form#contact_form label {
 			display: inline-block;
 			width:100px;
-			text-align:right;
+			padding: 0;
+			text-align: right;
 		}
 		form#contact_form label.required {
-			font-weight:bold;
-		}
-		form#contact_form label.error {
-			width:200px;
-			margin-bottom: 0;
-			padding: 0;
-			
+			font-weight: bold;
 		}
 	</style>
 	<form action="https://spreadsheets.google.com/spreadsheet/formResponse?formkey=dDVxTzhZY0tfaXNoYWVCV0RvWHJWd1E6MQ&amp;theme=0AX42CRMsmRFbUy03NTAzM2Q4My03ODU1LTQ2NzItODI2YS1kZmU5YzdiMzZjOGQ" 
 			method="POST" id="contact_form" target="google_form" onsubmit="submitted=true;">
 		<input type="hidden" name="pageNumber" value="0"/>
-		<input type="hidden" name="backupCache" value=""/>
+		<input type="hidden" name="backupCache"/>
 		<fieldset>
 			<p>
 				<label for="firstname" class="required">Firstname</label>
-				<input id="firstname" type="text" name="entry.0.single" value=""/>
+				<input id="firstname" type="text" name="entry.0.single" placeholder="Required" required/>
+			</p>
+			<p>
 				<label for="lastname" class="required">Lastname *</label>
-				<input id="lastname" type="text" name="entry.2.single" value="" class="email"/>
+				<input id="lastname" type="text" name="entry.2.single" placeholder="Required" required/>
 			</p>
 			<p>
 				<label for="email" class="required">Email *</label>
-				<input id="email" type="text" name="entry.10.single" value=""/>
+				<input id="email" type="email" name="entry.4.single" placeholder="Required" required/>
+			</p>
+			<p>
+				<label for="title">Title</label>
+				<input id="title" type="text" name="entry.9.single" placeholder="Optional"/>
+				<label for="company">Company</label>
+				<input id="company" type="text" name="entry.11.single" placeholder="Optional"/>
 				<label for="phone">Phone</label>
-				<input id="phone" type="text" name="entry.8.single" value=""/>
+				<input id="phone" type="phone" name="entry.6.single" placeholder="Optional"/>
 			</p>
 			<p>
-				<label for="Message" class="required" style="vertical-align:top;">Message</label>
-				<textarea id="message" name="entry.4.single" style="width:500px;height: 150px;"></textarea>
+				<label for="message" class="required" style="vertical-align:top;">Message</label>
+				<textarea id="message" name="entry.8.single" placeholder="Please enter your message..." style="width:570px;height: 150px;" required></textarea>
 			</p>
 			<p>
-				<center>
-					<input type="submit" name="submit" value="Send" style="padding:5px;font-size:15px;width:150px;border: 1px solid #BEBEBE;background-color: white;"/>
-				</center>
+				<input type="submit" name="submit" value="Send" style="float:right;padding:5px;font-size:15px;width:200px;border: 1px solid #BEBEBE;background-color: white;"/><br>
 			</p>
 		</fieldset>
 	</form>
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#contact_form").validate({
-				rules: {
-					firstname: "required",
-					lastname: "required",
-					email: {
-						required: true,
-						email: true
-					},
-					message: {
-						required: true,
-						minlength: 5
-					}
-				}
-			});
-		});
-	</script>
 </div>
 <div id="confirmation" style="display: none" class="notice">
 We got your message, we will get back to you shortly.

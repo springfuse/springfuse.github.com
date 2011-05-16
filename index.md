@@ -17,8 +17,15 @@ table#quickstart {
 table#quickstart tbody tr th, table#quickstart tbody tr td {
 	border: 1px dotted lightgray;
 }
+input.error {
+	border: 1px dotted red;
+	margin: 0.5em 0;
+	padding: 0;
+}
 </style>
+<div id="debug"> </div>
 <table id="quickstart">
+<form class="form">
 	<tbody>
 		<tr>
 			<th>Project</th>
@@ -27,11 +34,11 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 					<tbody>
 						<tr>
 							<th style="width:120px;">Name</th>
-							<td><input type="text" id="artifactId" value="myproject" class="required lettersNumbers updateCommand"></td>
+							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand"></td>
 						</tr>
 						<tr>
 							<th style="width:120px;">Root package</th>
-							<td><input type="text" id="groupId" size="40" value="com.company.project" class="required packageName updateCommand" title="Ex: com.company.project"></td>
+							<td><input type="text" id="groupId" size="40" value="com.company.project" placeholder="ex: com.company.project" class="required updateCommand" title="Ex: com.company.project"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -60,15 +67,15 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 					<tbody
 						<tr>
 							<th style="width:120px;"><label for="jdbcUrl">Url</label></th>
-							<td><input type="text" name="jdbcUrl" id="jdbcUrl" value="" size="70" class="updateCommand"></td>
+							<td><input type="text" name="jdbcUrl" id="jdbcUrl" size="70" class="updateCommand" placeholder="ex: jdbc:mysql://localhost/DBNAME"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcUser">User</label></th>
-							<td><input type="text" name="jdbcUser" id="jdbcUser" value="" class="updateCommand"></td>
+							<td><input type="text" name="jdbcUser" id="jdbcUser" class="updateCommand" placeholder="ex: user"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcPassword">Password</label></th>
-							<td><input type="text" name="jdbcPassword" id="jdbcPassword" value="" class="updateCommand"></td>
+							<td><input type="text" name="jdbcPassword" id="jdbcPassword" class="updateCommand" placeholder="ex: password"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -97,25 +104,25 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 									<option value="other">other</option>
 								</select>
 								<span id="oracle-database" style="display: none">
-									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository">install it manually</a>.
+									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html">install it manually</a>.
 								</span>
 							</td>
 						</tr>
 						<tr>
 							<th><label for="jdbcGroupId">Maven groupId</label></th>
-							<td><input type="text" name="jdbcGroupId" id="jdbcGroupId" value="" size="50" class="updateCommand"></td>
+							<td><input type="text" name="jdbcGroupId" id="jdbcGroupId" size="50" class="updateCommand" placeholder="ex: mysql"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcArtifactId">Maven artifactId</label></th>
-							<td><input type="text" name="jdbcArtifactId" id="jdbcArtifactId" value="" size="50" class="updateCommand"></td>
+							<td><input type="text" name="jdbcArtifactId" id="jdbcArtifactId" size="50" class="updateCommand" placeholder="ex: mysql-connector-java"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcGroupId">Version</label></th>
-							<td><input type="text" name="jdbcVersion" id="jdbcVersion" value="" class="updateCommand"></td>
+							<td><input type="text" name="jdbcVersion" id="jdbcVersion" class="updateCommand" placeholder="ex: 5.1.6"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcDriver">Driver class</label></th>
-							<td><input type="text" name="jdbcDriver" id="jdbcDriver" value="" size="50" class="updateCommand"></td>
+							<td><input type="text" name="jdbcDriver" id="jdbcDriver" size="50" class="updateCommand" placeholder="ex: com.mysql.jdbc.Driver"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -124,7 +131,7 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 		<tr>
 			<th>Generate</th>
 			<td>
-				<input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand">
+				<input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand">
 				<label for="springMvc" title="You have the basics, all the tables will have a domain object generated, and the jpa setup is done etc.<br/>
 												Use this option if you are new to Springfuse or java.">
 					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3
@@ -144,7 +151,7 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 			</td>
 		</tr>
 		<tr>
-			<th>Http Proxy</th>
+			<th>Behing a proxy ?</th>
 			<td>
 				<input type="radio" name="proxyEnable" id="proxyEnableFalse" value="false" class="updateCommand" checked="checked">
 				<label for="proxyEnableFalse">No</label>
@@ -156,31 +163,31 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 						<tbody>
 							<tr>
 								<th style="width:120px;"><label for="proxyHost">Proxy hostname</label></th>
-								<td><input type="text" name="proxyHost" id="proxyHost" value="" size="50" class="updateCommand"></td>
+								<td><input type="text" name="proxyHost" id="proxyHost" size="50" class="updateCommand" placeholder="ex: intranet-proxy"></td>
 							</tr>
 							<tr>
 								<th><label for="proxyPort">Proxy port</label></th>
-								<td><input type="text" name="proxyPort" id="proxyPort" value="8080" size="6" class="updateCommand"></td>
+								<td><input type="text" name="proxyPort" id="proxyPort" size="8" class="updateCommand" placeholder="ex: 8080"></td>
 							</tr>
 							<tr>
 								<th><label for="proxyUsername">Username</label></th>
-								<td><input type="text" name="proxyUsername" id="proxyUsername" value="" class="updateCommand"></td>
+								<td><input type="text" name="proxyUsername" id="proxyUsername" class="updateCommand" placeholder="ex: user"></td>
 							</tr>
 							<tr>
 								<th><label for="proxyPassword">Password</label></th>
-								<td><input type="password" name="proxyPassword" id="proxyPassword" value="" class="updateCommand"></td>
+								<td><input type="password" name="proxyPassword" id="proxyPassword" class="updateCommand" placeholder="ex: password"></td>
 							</tr>
 							<tr>
 								<th><label for="proxyNtlmDomain">Domain</label></th>
 								<td>
-									<input type="text" name="proxyNtlmDomain" id="proxyNtlmDomain" value="" class="updateCommand">
+									<input type="text" name="proxyNtlmDomain" id="proxyNtlmDomain" class="updateCommand" placeholder="ex: mydomain">
 									<i>only if your proxy uses ntlm</i>
 								</td>
 							</tr>
 							<tr>
 								<th><label for="proxyNtlmWorkstation">Workstation</label></th>
 								<td>
-									<input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" value="" class="updateCommand" 
+									<input type="text" name="proxyNtlmWorkstation" id="proxyNtlmWorkstation" class="updateCommand" placeholder="ex: mymachine"
 										title="Under Windows, 
 										<ul>
 											<li>Open System by clicking the Start button,</li>
@@ -209,15 +216,15 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 		<tr>
 			<th><i>Your email</i></th>
 			<td>
-				<input type="text" id="email" value="" class="updateCommand" title="Used to send you personnalized tips, in case of generation failure for example."> <i>optional</i>
+				<input type="text" id="email" placeholder="Optional" class="updateCommand" title="Used to send you personnalized tips, in case of generation failure for example.">
 			</td>
 		</tr>
 	</tbody>
+</form>
 </table>
 <script type="text/javascript">
 	function updateDbTypeDefaultValues() {
 		var dbType = $("#dbType").val();
-
 		if (dbType == "h2") {
 			$("#jdbcUrl").val("jdbc:h2:~/.h2/DBNAME");
 			$("#jdbcGroupId").val("com.h2database");
@@ -249,24 +256,34 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 			$("#jdbcDriver").val("");
 			$("#jdbcVersion").val("");
 		}
-
 		if (dbType == "oracle") {
 			$("#oracle-database").show();
-			
 		} else {
 			$("#oracle-database").hide();
 		}
 	}
 
+	function quote(value) {
+		if (value.match(/[^\w-=.]/)) {
+			return "'" + value + "'"; 
+		} else { 
+			return value;
+		}
+	}
+
 	function updateCommand() {
+		var version= "3.0.47";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
-		var version= $("#version").val();
 		var email= $("#email").val();
-		var frontEnd= $("#frontEnd").val();
+		var frontEnd = $("input[name=frontEnd]:checked").val();
 		var archetypeArtifactId = $("input[name=archetypeArtifactId]:checked").val();
 		var proxyEnable = $("input[name=proxyEnable]:checked").val();
 
+		$("#groupId").toggleClass("error", !groupId.match(/^[\w\.\_\-]+$/));
+		$("#artifactId").toggleClass("error", !artifactId.match(/^[\w\.\-\_]+$/));
+		$("#email").toggleClass("error", email.length > 0 && !email.match(/^(\w\.\_\-])+\@([\w\.\_\-])+\.([A-Za-z]{2,4})$/));
+		
 		if (archetypeArtifactId == "quickstart") {
 			$(".jdbc-properties").show();
 		} else {
@@ -283,56 +300,70 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 		cmd += '-DarchetypeGroupId=com.springfuse.archetypes ';
 		cmd += '-DarchetypeArtifactId=' + archetypeArtifactId + ' ';
 		cmd += '-DarchetypeVersion=' + version + ' ';
-		cmd += '-DgroupId=' + groupId + ' ';
-		cmd += '-Dpackage=' + groupId + ' ';
-		cmd += '-DartifactId=' + artifactId + ' ';
+		cmd += quote('-DgroupId=' + groupId) + ' ';
+		cmd += quote('-Dpackage=' + groupId) + ' ';
+		cmd += quote('-DartifactId=' + artifactId) + ' ';
 		cmd += '-Dversion=1.0.0 ';
 		cmd += '-DfrontEnd=' + frontEnd + ' ';
-		cmd += '-Demail=' + email + ' ';
+		cmd += quote('-Demail=' + email) + ' ';
 		
 		if(window.location.host.indexOf('localhost') == -1){
 			cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
 		}
 		if (archetypeArtifactId == "quickstart") {
-			cmd += '-DjdbcGroupId=' + $("#jdbcGroupId").val() + " ";
-			cmd += '-DjdbcArtifactId=' + $("#jdbcArtifactId").val() + " ";
-			cmd += '-DjdbcVersion=' + $("#jdbcVersion").val() + " ";
-			cmd += '-DjdbcDriver=' + $("#jdbcDriver").val() + " ";
-			cmd += '-DjdbcUser=' + $("#jdbcUser").val() + " ";
-			cmd += '-DjdbcPassword=' + $("#jdbcPassword").val() + " ";
-			cmd += '-DjdbcUrl=' + $("#jdbcUrl").val() + " ";
+			$("#cmdLine").val("");
+			var jdbcGroupId = $("#jdbcGroupId").val();
+			var jdbcArtifactId = $("#jdbcArtifactId").val();
+			var jdbcVersion = $("#jdbcVersion").val();
+			var jdbcUrl = $("#jdbcUrl").val();
+			var jdbcDriver = $("#jdbcDriver").val();
+			var jdbcUser = $("#jdbcUser").val();
+			var jdbcPassword = $("#jdbcPassword").val();
+			
+			$("#jdbcGroupId").toggleClass("error", !jdbcGroupId.match(/^[\w\.\_\-]+$/));
+			$("#jdbcArtifactId").toggleClass("error", !jdbcArtifactId.match(/^[\w\.\_\-]+$/));
+			$("#jdbcVersion").toggleClass("error", !jdbcVersion.match(/^\w\.\_\-]+$/));
+			$("#jdbcUrl").toggleClass("error", !jdbcUrl.match(/^jdbc:.*/));
+			$("#jdbcDriver").toggleClass("error", !jdbcDriver.match(/^[\w\.\_\-]+$/));
+
+			cmd += '-DjdbcGroupId=' + quote(jdbcGroupId) + " ";
+			cmd += '-DjdbcArtifactId=' + quote(jdbcArtifactId) + " ";
+			cmd += '-DjdbcVersion=' + quote(jdbcVersion) + " ";
+			cmd += '-DjdbcDriver=' + quote(jdbcDriver) + " ";
+			cmd += '-DjdbcUser=' + quote(jdbcUser) + " ";
+			cmd += '-DjdbcPassword=' + quote(jdbcPassword) + " ";
+			cmd += '-DjdbcUrl=' + quote(jdbcUrl) + " ";
 			$("#cmdLine").attr("rows", "14");
 		} else {
 			$("#cmdLine").attr("rows", "12");
 		}
 		cmd += '-DinteractiveMode=false ';
-		
-		var proxyHost = $("#proxyHost").val();
-		var proxyPort = $("#proxyPort").val();
-		var proxyUsername= $("#proxyUsername").val();
-		var proxyPassword= $("#proxyPassword").val();
-		var proxyNtlmDomain= $("#proxyNtlmDomain").val();
-		var proxyNtlmWorkstation= $("#proxyNtlmWorkstation").val();
-
-		if (proxyEnable === "true" && proxyHost) {
+		// proxy
+		if (proxyEnable === "true") {
+			var proxyHost = $("#proxyHost").val();
+			var proxyPort = $("#proxyPort").val();
+			var proxyUsername= $("#proxyUsername").val();
+			var proxyPassword= $("#proxyPassword").val();
+			var proxyNtlmDomain= $("#proxyNtlmDomain").val();
+			var proxyNtlmWorkstation= $("#proxyNtlmWorkstation").val();
+			
+			$("#proxyHost").toggleClass("error", !proxyHost.match(/^[\w\.\_\-]+$/));
+			$("#proxyPort").toggleClass("error", !proxyPort.match(/^\d+$/));
+			
 			cmd += "-DproxyEnable=true ";
-			cmd += "-DproxyHost=" + proxyHost + " ";
+			cmd += quote("-DproxyHost=" + proxyHost) + " ";
 			cmd += "-DproxyPort=" + proxyPort + " ";
-
 			if (proxyUsername) {
-				cmd += "-DproxyUsername=" + proxyUsername + " ";
-				cmd += "-DproxyPassword=" + proxyPassword + " ";
+				cmd += quote("-DproxyUsername=" + proxyUsername) + " ";
+				cmd += quote("-DproxyPassword=" + proxyPassword) + " ";
 			}
-
 			if (proxyNtlmDomain) {
 				cmd += "-DproxyNtlmEnable=true ";
-				cmd += "-DproxyNtlmDomain=" + proxyNtlmDomain + " ";
-				cmd += "-DproxyNtlmWorkstation=" + proxyNtlmWorkstation + " ";
+				cmd += quote("-DproxyNtlmDomain=" + proxyNtlmDomain) + " ";
+				cmd += quote("-DproxyNtlmWorkstation=" + proxyNtlmWorkstation) + " ";
 			}
 		}
-
 		cmd += "\n";
-		
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
 			cmd += 'mvn generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://' + window.location.host + '/remote/generate\n';
@@ -351,12 +382,24 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 		}
 		$("#cmdLine").val(cmd);
 		$(".project-name").html(artifactId);
+		
+		$("#destinationUrl").html("<a href=\"http://localhost:8080/" + artifactId + "\">http://localhost:8080/" + artifactId + "</a>");
 	}
 	
 	$(document).ready(function() {
 		$(".updateCommand").change(updateCommand);
 		$("#cmdLine").click(function() {
 			$(this).select();
+		});
+		$("#jdbcUrl").change(function() {
+			var dbType = $("#jdbcUrl").val().split(":")[1];
+			if ($("#dbType option:contains('" + dbType + "')").val()) {
+				$("#dbType").val(dbType);			
+			} else {
+				$("#dbType").val("other");			
+			}
+			updateDbTypeDefaultValues();
+			updateCommand();
 		});
 		$("#dbType").change(function() {
 			updateDbTypeDefaultValues();
@@ -386,7 +429,7 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 Once you are done, copy-paste these maven commands lines in a console:
 <textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:130px" title="Cut and paste this command line to create your project"></textarea>
 <p class="open-your-browser">
-	Then once all is ready you can open your browser and go to <a href="http://localhost:8080/">http://localhost:8080/</a>
+	Then once all is ready you can open your browser and go to <span id="destinationUrl"><a href="http://localhost:8080/myproject">http://localhost:8080/myproject</a></span>
 </p>
 <p class="tip">
 	If the remote generation fails (error, missing entities, etc.), please <a href="/faq#question_remote_generation_failed">read this faq entry</a>.
@@ -403,7 +446,7 @@ The first time you use Springfuse or Maven you may be disappointed by the time i
 
 ## How It Works
 
-Filling the form below allows you to prepare few Maven 2 commands that ultimately run your generated project!
+Filling the form above allows you to prepare few Maven 2 commands that ultimately run your generated project!
 
 Let's go throw the various steps:
  
