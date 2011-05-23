@@ -132,7 +132,7 @@ input.error {
 			<th>Generate</th>
 			<td>
 				<input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand">
-				<label for="springMvc" title="You have the basics, all the tables will have a domain object generated, and the jpa setup is done etc.<br/>
+				<label for="backendOnly" title="You have the basics, all the tables will have a domain object generated, and the jpa setup is done etc.<br/>
 												Use this option if you are new to Springfuse or java.">
 					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3
 				</label>
@@ -210,7 +210,7 @@ input.error {
 		<tr>
 			<th>Advanced Configuration</th>
 			<td>
-				Once you get familiar with the generation process, please refer to the <a href="/code-generation-configuration">code generation configuration</a> documentation to control more precisely the code generation.<br/>
+				Once you get familiar with the generation process, please refer to the <a href="/documentation/springfuse.html">code generation configuration</a> documentation to control more precisely the code generation.<br/>
 			</td>
 		</tr>
 		<tr>

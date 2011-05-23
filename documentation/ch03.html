@@ -1,0 +1,186 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;3.&nbsp;Start a new project</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><meta name="keywords" content="&#xA;            java&#xA;            , &#xA;            generation&#xA;            , &#xA;            spring&#xA;            , &#xA;            jpa&#xA;            , &#xA;            oracle&#xA;            , &#xA;            maven&#xA;            "><link rel="start" href="celerio-guide.html" title="Celerio"><link rel="up" href="celerio-guide.html" title="Celerio"><link rel="prev" href="ch02.html" title="Chapter&nbsp;2.&nbsp;Installation"><link rel="next" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Database Schema extraction"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" id="top"><div id="header"><div class="projectlogo"><a href="./"><img class="logoImage" src="images/logo.png" alt="Springfuse" border="0"></a></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="mhSpacer"></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="d720e216"></a>Chapter&nbsp;3.&nbsp;Start a new project</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e219"></a>3.1.&nbsp;Bootstrap the skeleton</h2></div></div></div><p>
+            To create a new project skeleton, invoke the
+            <code class="literal">bootstrap</code>
+            goal of the <code class="literal">maven-bootstrap-plugin</code> from a command line as follow:
+        </p><p>
+            <span><strong class="command">mvn com.jaxio.celerio:maven-bootstrap-plugin:3.0.49-SNAPSHOT:bootstrap</strong></span>
+        </p><p>
+            When prompted, enter your application name and the desired root package and select the
+            desired type of application you want to generate (a SpringMVC project, a JSF/WebFlow project etc...).
+        </p><pre class="screen">
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Maven Default Project
+[INFO]    task-segment: [com.jaxio.celerio:maven-local-bootstrap-plugin:3.0.42-SNAPSHOT:bootstrap] (aggregator-style)
+[INFO] ------------------------------------------------------------------------
+[INFO] [local-bootstrap:bootstrap {execution: default-cli}]
+[INFO] 
+[INFO]         ______         __                  _          
+[INFO]       .' ___  |       [  |                (_)         
+[INFO]      / .'   \_| .---.  | | .---.  _ .--.  __   .--.   
+[INFO]      | |       / /__\\ | |/ /__\\[ `/'`\][  |/ .'`\ \ 
+[INFO]      \ `.___.'\| \__., | || \__., | |     | || \__. | 
+[INFO]       `.____ .' '.__.'[___]'.__.'[___]   [___]'.__.'    v3.0.42-SNAPSHOT
+[INFO] 
+[INFO]        (c) 2005-2011 Jaxio, http://www.jaxio.com
+[INFO]        Please report bugs/ideas/feedbacks to support@jaxio.com
+[INFO] 
+
+Enter your application name: [bootstrap]
+myapp
+
+Enter the Java root package of your application: [com.jaxio.demo.myapp]
+
+Enter the type of application you want to generate:
+ 1) [work in progress] JSF2, JPA2, with Spring WebFlow 2.2.1 and PrimeFaces 2.2.RC2
+ 2) [New] Backend only project with JPA 2 and Spring 3
+ 3) Application Java/JEE/Spring3/SpringMVC
+ 4) Ext-GWT
+</pre><p>
+            As soon as you select the type of application, it creates a new folder 
+            named after your application name and copies a minimal set of files required to run Celerio.
+            It also output on the console the command you should run.
+        </p><pre class="screen">
+[INFO] ============================================
+[INFO]  PLEASE EXECUTE THE FOLLOWING COMMANDS:
+[INFO] 
+[INFO]   cd myapp
+[INFO]   mvn -Ph2,db,metadata,gen jetty:run
+[INFO] 
+[INFO]  Then open the page http://localhost:8080/
+[INFO] 
+[INFO] ============================================
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESSFUL
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 9 seconds
+[INFO] Finished at: Thu Jan 27 18:09:23 CET 2011
+[INFO] Final Memory: 16M/81M
+[INFO] ------------------------------------------------------------------------
+</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e243"></a>3.2.&nbsp;Skeleton files</h2></div></div></div><p>
+            In general, the minimal files include at least:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+                        <code class="filename">pom.xml</code>
+                        : A complete Maven2 POM file.
+                    </p></li><li><p>
+                        <code class="filename">src/main/sql/h2/01-create.sql</code>
+                        : an SQL script to create,
+                        init and drop a local H2 database. 
+                        This is an example database that Celerio is going to reverse.
+                    </p></li><li><p>
+                        <code class="filename">src/main/config/maven-celerio-plugin/maven-celerio-plugin.xml</code>
+                        : A Celerio's configuration file.
+                    </p></li></ul></div><p>
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e268"></a>3.3.&nbsp;Reverse, generate and run</h2></div></div></div><div class="sidebar"><p class="title"><b>Convention over configuration</b></p><p>
+                Maven 2 by convention expects certain files to be present under certain location.
+                For example all resource files are expected to be under
+                src/main/resources.
+                Celerio follows these conventions to generate the various source code and configuration files.
+                As an immediate benefit, you can
+                rely entirely on Maven 2 to build the project generated by Celerio.
+            </p></div><p>
+            You are now ready to
+            </p><div class="itemizedlist"><ul type="disc"><li><p>create the database out of the sample SQL script provided,</p></li><li><p>reverse this database schema and generate the corresponding source code and configuration files,</p></li><li><p>build the generated project,</p></li><li><p>and run the resulting web application!</p></li></ul></div><p>
+        </p><p>
+            To do so, from your project folder execute the Maven command printed on the console, for example:
+        </p><p>
+            <span><strong class="command">C:\myapp&gt;mvn &#8211;Ph2,db,metadata,gen jetty:run</strong></span>
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/admons/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                Please note that this command may take a while to complete the first time as
+                Maven needs to download all the necessary plugins and
+                dependencies
+                to build and run the project.
+        	</p></td></tr></table></div><p>
+            The
+            <code class="literal">-P</code>
+            option stands for 'profile'. In the above command, we activate the 'db' profile to create a new database,
+            the 'metadata' profile to reverse it and
+            the 'gen' profile to generate the corresponding source code. All these profiles are
+            declared in the main
+            <code class="filename">pom.xml</code>
+            file. The
+            <code class="literal">jetty:run</code>
+            starts an embedded web server.
+        </p><p>
+            Now you can try out your new web application. Open
+            <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://localhost:8080/" target="_top">http://localhost:8080/</a>
+            in your browser.
+            Can you log in as admin/admin?
+            If yes, congratulations!, all went well...
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e318"></a>3.4.&nbsp;Unit Test</h2></div></div></div><p>
+            Celerio also generates some unit tests. To make sure they all pass, simply run:
+        </p><p>
+            <span><strong class="command">C:\myapp&gt;mvn test</strong></span>
+        </p><p>
+            As you can notice here, we have not set any profile since there is no need to re-extract the database meta data or re-generate the source code.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e330"></a>3.5.&nbsp;Import in Eclipse</h2></div></div></div><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/admons/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                We assume here that you have already configured Eclipse's Maven plugin. If not please refer to
+                <a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://m2eclipse.sonatype.org/" target="_top">http://m2eclipse.sonatype.org/</a>.
+            </p></td></tr></table></div><p>
+            You can now import your first generated project into Eclipse. Make sure to import it as an <span class="emphasis"><em>existing Maven project</em></span>.
+        </p><div class="mediaobject" align="center"><img src="./images/celerio-eclipse-import-as-maven-projet.png" align="middle"><div class="caption">Eclipse Maven 2 - Import as Maven project</div></div><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="images/admons/important.png"></td><th align="left">Important</th></tr><tr><td align="left" valign="top"><p>
+                Once imported please add manually to your build path the following Java folders
+                </p><div class="itemizedlist"><ul type="disc"><li><p>
+                            <code class="filename">src/main/generated-java</code>
+                        </p></li><li><p>
+                            <code class="filename">src/test/generated-java</code>
+                        </p></li></ul></div><p>
+                To do so, from Eclipse, simply right-click on each folder and select the menu 'Build Path' -&gt; 'Use as source folder'.
+            </p></td></tr></table></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e365"></a>3.6.&nbsp;Run Celerio from Eclipse</h2></div></div></div><p>Since
+            Celerio is a Maven plugin, you can invoke it as any other Maven plugin from Eclipse. Right-click on your project and
+            select the 'Run As'
+            -&gt; 'Run
+            Configurations...' menu. From there you can set the Maven command to invoke and save this setting in a
+            <code class="filename">.launch</code>
+            file
+            at the root of
+            your
+            project. This 'Run configuration' will appear in your top level menu.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="bootstrap.bootstrap"></a>3.7.&nbsp;bootstrap:bootstrap</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e376"></a>3.7.1.&nbsp;Full name</h3></div></div></div><p>
+         <code class="literal">com.jaxio.celerio:maven-bootstrap-plugin:3.0.44-SNAPSHOT:bootstrap</code>
+      </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bootstrap.bootstrap.description"></a>3.7.2.&nbsp;Description</h3></div></div></div><p>This plugin creates a default project folder layout following Maven
+conventions. 
+
+A Maven
+
+<code class="filename">pom.xml</code>
+
+is generated as well as default files to help you start from
+scratch a project. 
+
+These files represent the minimum required files to produce a
+project using Celerio.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bootstrap.bootstrap.dependency"></a>3.7.3.&nbsp;Dependency</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>Since version: <code class="literal">3.0.0</code>.</p></li><li><p>Binds by default to the lifecycle phase: <code class="literal">initialize</code>.</p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="bootstrap.bootstrap.attributes"></a>3.7.4.&nbsp;Attributes</h3></div></div></div><div class="itemizedlist"><a name="bootstrap.bootstrap.attributes.list"></a><ul type="disc"><li><p>
+               <code class="literal">defaultBootstrapPackName</code>
+						:
+						The bootstrap pack to use by default if none is specify or if
+running in non-interactive mode.</p></li><li><p>
+               <code class="literal">interactive</code>
+						:
+						Will the bootstrap ask interactively for appName and rootPackage?</p></li></ul></div><p><a name="bootstrap.bootstrap.attributes.table"></a>
+         </p><div class="table"><a name="d720e426"></a><p class="title"><b>Table&nbsp;3.1.&nbsp;
+               <code class="literal">bootstrap:bootstrap</code>
+				plugin attributes list
+			</b></p><div class="table-contents"><table summary="&#xA;               bootstrap:bootstrap&#xA;plugin attributes list&#xA;" border="1"><colgroup><col><col><col><col></colgroup><thead><tr><th>Name</th><th>Type</th><th>Expression</th><th>Default</th></tr></thead><tbody><tr><td>
+                        <code class="literal">defaultBootstrapPackName</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-bootstrap-plugin.defaultBootstrapPackName}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">pack-jsf-bootstrap</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">interactive</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-bootstrap-plugin.interactive}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">true</code>
+                        </code>
+                     </td></tr></tbody></table></div></div><p><br class="table-break">
+      </p></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch02.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="celerio-guide.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="ch04.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;2.&nbsp;Installation&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:85%;"><a href="http://www.Springfuse.com" title="Spring code generation">Springfuse</a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;4.&nbsp;Database Schema extraction</td></tr></table></div></body></html>

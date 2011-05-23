@@ -1,0 +1,132 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Celerio</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><meta name="description" content="Celerio Version 3.0.49-SNAPSHOT Reference Documentation"><meta name="keywords" content="&#xA;            java&#xA;            , &#xA;            generation&#xA;            , &#xA;            spring&#xA;            , &#xA;            jpa&#xA;            , &#xA;            oracle&#xA;            , &#xA;            maven&#xA;            "><link rel="start" href="celerio-guide.html" title="Celerio"><link rel="next" href="preface.html" title="Preface"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" id="top"><div id="header"><div class="projectlogo"><a href="./"><img class="logoImage" src="images/logo.png" alt="Springfuse" border="0"></a></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="mhSpacer"></div><div class="book" lang="en"><div class="titlepage"><div><div><h1 class="title"><a name="d720e1"></a>Celerio</h1></div><div><h2 class="subtitle">Reference Documentation</h2></div><div><h3 class="corpauthor">Jaxio</h3></div><div><p class="releaseinfo">
+        Version 3.0.49-SNAPSHOT
+    </p></div><div><p class="copyright">Copyright &copy; 2005-2011 Jaxio</p></div><div><div class="legalnotice"><a name="d720e16"></a><p class="legalnotice-title"><b>Legal notice</b></p><p>
+            No part of this publication may be reproduced, transmitted, transcribed, stored in a retrieval system, or translated into any language, in any
+            form or by any means, electronic, mechanical, photocopying, recording, or otherwise, without prior written permission from Jaxio.
+        </p><p>
+            All copyright, confidential information, patents, design rights and all other intellectual property rights of whatsoever nature contained
+            herein are and shall remain the sole and exclusive property of Jaxio SARL. The information furnished herein is believed to be accurate and
+            reliable. However, no responsibility is assumed by Jaxio for its use, or for any infringements of patents or other rights of third parties
+            resulting from its use.
+            </p><p> All other trademarks are the property of their respective owners.</p></div></div><div><div class="abstract"><p class="title"><b>Abstract</b></p><p>
+            Celerio Version 3.0.49-SNAPSHOT
+            Reference Documentation
+        </p></div></div></div><hr></div><div class="toc"><dl><dt><span class="preface"><a href="preface.html">Preface</a></span></dt><dt><span class="chapter"><a href="ch01.html">1. Introduction</a></span></dt><dd><dl><dt><span class="section"><a href="ch01.html#d720e58">1.1. Celerio</a></span></dt><dd><dl><dt><span class="section"><a href="ch01.html#d720e72">1.1.1. Database Schema Extractor tool</a></span></dt><dt><span class="section"><a href="ch01.html#d720e77">1.1.2. Celerio Engine</a></span></dt><dt><span class="section"><a href="ch01.html#d720e82">1.1.3. Template packs</a></span></dt></dl></dd><dt><span class="section"><a href="ch01.html#d720e105">1.2. When to use Celerio?</a></span></dt><dd><dl><dt><span class="section"><a href="ch01.html#d720e113">1.2.1. Application Rewriting</a></span></dt><dt><span class="section"><a href="ch01.html#d720e118">1.2.2. Rapid prototyping</a></span></dt><dt><span class="section"><a href="ch01.html#d720e123">1.2.3. New application</a></span></dt><dt><span class="section"><a href="ch01.html#d720e128">1.2.4. Spread your best practice and architecture </a></span></dt><dt><span class="section"><a href="ch01.html#d720e133">1.2.5. Training</a></span></dt></dl></dd><dt><span class="section"><a href="ch01.html#d720e138">1.3. What to expect from Celerio?</a></span></dt></dl></dd><dt><span class="chapter"><a href="ch02.html">2. Installation</a></span></dt><dd><dl><dt><span class="section"><a href="ch02.html#d720e151">2.1. JDK 6</a></span></dt><dt><span class="section"><a href="ch02.html#d720e176">2.2. Maven 2</a></span></dt><dt><span class="section"><a href="ch02.html#d720e200">2.3. Source control system</a></span></dt><dt><span class="section"><a href="ch02.html#d720e211">2.4. Celerio</a></span></dt></dl></dd><dt><span class="chapter"><a href="ch03.html">3. Start a new project</a></span></dt><dd><dl><dt><span class="section"><a href="ch03.html#d720e219">3.1. Bootstrap the skeleton</a></span></dt><dt><span class="section"><a href="ch03.html#d720e243">3.2. Skeleton files</a></span></dt><dt><span class="section"><a href="ch03.html#d720e268">3.3. Reverse, generate and run</a></span></dt><dt><span class="section"><a href="ch03.html#d720e318">3.4. Unit Test</a></span></dt><dt><span class="section"><a href="ch03.html#d720e330">3.5. Import in Eclipse</a></span></dt><dt><span class="section"><a href="ch03.html#d720e365">3.6. Run Celerio from Eclipse</a></span></dt><dt><span class="section"><a href="ch03.html#bootstrap.bootstrap">3.7. bootstrap:bootstrap</a></span></dt><dd><dl><dt><span class="section"><a href="ch03.html#d720e376">3.7.1. Full name</a></span></dt><dt><span class="section"><a href="ch03.html#bootstrap.bootstrap.description">3.7.2. Description</a></span></dt><dt><span class="section"><a href="ch03.html#bootstrap.bootstrap.dependency">3.7.3. Dependency</a></span></dt><dt><span class="section"><a href="ch03.html#bootstrap.bootstrap.attributes">3.7.4. Attributes</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="ch04.html">4. Database Schema extraction</a></span></dt><dd><dl><dt><span class="section"><a href="ch04.html#d720e496">4.1. Principle</a></span></dt><dt><span class="section"><a href="ch04.html#dbmetadata.extract-metadata">4.2. dbmetadata:extract-metadata</a></span></dt><dd><dl><dt><span class="section"><a href="ch04.html#d720e523">4.2.1. Full name</a></span></dt><dt><span class="section"><a href="ch04.html#dbmetadata.extract-metadata.description">4.2.2. Description</a></span></dt><dt><span class="section"><a href="ch04.html#dbmetadata.extract-metadata.dependency">4.2.3. Dependency</a></span></dt><dt><span class="section"><a href="ch04.html#dbmetadata.extract-metadata.attributes">4.2.4. Attributes</a></span></dt></dl></dd><dt><span class="section"><a href="ch04.html#d720e865">4.3. Examples</a></span></dt><dd><dl><dt><span class="section"><a href="ch04.html#d720e868">4.3.1. With explicit configuration</a></span></dt><dt><span class="section"><a href="ch04.html#d720e903">4.3.2. With maven properties</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="generation.html">5. Code generation</a></span></dt><dd><dl><dt><span class="section"><a href="generation.html#d720e948">5.1. Principle</a></span></dt><dt><span class="section"><a href="generation.html#celerio.generate">5.2. celerio:generate</a></span></dt><dd><dl><dt><span class="section"><a href="generation.html#d720e1023">5.2.1. Full name</a></span></dt><dt><span class="section"><a href="generation.html#celerio.generate.description">5.2.2. Description</a></span></dt><dt><span class="section"><a href="generation.html#celerio.generate.dependency">5.2.3. Dependency</a></span></dt><dt><span class="section"><a href="generation.html#celerio.generate.attributes">5.2.4. Attributes</a></span></dt></dl></dd><dt><span class="section"><a href="generation.html#d720e1509">5.3. generate goal examples</a></span></dt><dd><dl><dt><span class="section"><a href="generation.html#d720e1512">5.3.1. With explicit configuration</a></span></dt><dt><span class="section"><a href="generation.html#d720e1542">5.3.2. With maven properties</a></span></dt><dt><span class="section"><a href="generation.html#generic-logs">5.3.3. Generation logs</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="modification.html">6. Code modification, regeneration and collisions</a></span></dt><dd><dl><dt><span class="section"><a href="modification.html#d720e1614">6.1. Introduction</a></span></dt><dt><span class="section"><a href="modification.html#modification-java-files">6.2. Java files</a></span></dt><dd><dl><dt><span class="section"><a href="modification.html#d720e1632">6.2.1. Code modifications through reserved folders</a></span></dt><dt><span class="section"><a href="modification.html#d720e1669">6.2.2. Code modifications through 'Base' inheritance</a></span></dt></dl></dd><dt><span class="section"><a href="modification.html#d720e1795">6.3. Other files (non-Java)</a></span></dt><dd><dl><dt><span class="section"><a href="modification.html#d720e1798">6.3.1. Code modifications through reserved folders</a></span></dt><dt><span class="section"><a href="modification.html#d720e1839">6.3.2. Code modification through source control</a></span></dt><dd><dl><dt><span class="section"><a href="modification.html#d720e1842">6.3.2.1. Overwrite non-java generated file with your own content</a></span></dt><dt><span class="section"><a href="modification.html#generation-rule-summary">6.3.2.2. Generation rule summary for non-java file</a></span></dt></dl></dd></dl></dd><dt><span class="section"><a href="modification.html#collisions">6.4. Collisions and Merging</a></span></dt><dd><dl><dt><span class="section"><a href="modification.html#d720e1919">6.4.1. Collision folder</a></span></dt><dt><span class="section"><a href="modification.html#merging-manually-the-files">6.4.2. Merging manually the files</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="convention.html">7. Conventions and integration</a></span></dt><dd><dl><dt><span class="section"><a href="convention.html#camelCase">7.1. Camel case conventions</a></span></dt><dd><dl><dt><span class="section"><a href="convention.html#camel-case-underscore">7.1.1. Underscore '_' Enables Java Camel Case Syntax</a></span></dt><dt><span class="section"><a href="convention.html#camel-case-native-support">7.1.2. Native camel case support</a></span></dt></dl></dd><dt><span class="section"><a href="convention.html#primary-key-conventions">7.2. Primary key conventions</a></span></dt><dd><dl><dt><span class="section"><a href="convention.html#pk-convention-numerical">7.2.1. Numerical Primary Keys</a></span></dt><dt><span class="section"><a href="convention.html#pk-convention-char">7.2.2. Primary Keys with 32 characters</a></span></dt><dt><span class="section"><a href="convention.html#pk-convention-other">7.2.3. Other Primary Keys</a></span></dt></dl></dd><dt><span class="section"><a href="convention.html#account-table">7.3. The 'Account' table</a></span></dt><dt><span class="section"><a href="convention.html#role-table">7.4. The 'Role' table</a></span></dt><dt><span class="section"><a href="convention.html#other-special-account-columns">7.5. Other optional account's columns</a></span></dt><dd><dl><dt><span class="section"><a href="convention.html#d720e2124">7.5.1. The Email column</a></span></dt><dt><span class="section"><a href="convention.html#d720e2149">7.5.2. The Enabled column</a></span></dt></dl></dd><dt><span class="section"><a href="convention.html#file-upload-download">7.6. Special columns for file handling support</a></span></dt><dt><span class="section"><a href="convention.html#account-id-enables-hibernate-filters">7.7. ACCOUNT_ID column &amp; Hibernate Filter</a></span></dt><dt><span class="section"><a href="convention.html#version-column-and-optimistic-locking">7.8. Version column and Optimistic Locking</a></span></dt><dt><span class="section"><a href="convention.html#many-to-many">7.9. Many to many and inverse attribute</a></span></dt></dl></dd><dt><span class="chapter"><a href="configuration-file.html">8. Configuration File</a></span></dt><dd><dl><dt><span class="section"><a href="configuration-file.html#d720e2244">8.1. Main Configuration File</a></span></dt><dt><span class="section"><a href="configuration-file.html#d720e2259">8.2. Splitting the <code class="literal">entityConfigs</code> tag</a></span></dt><dt><span class="section"><a href="configuration-file.html#d720e2279">8.3. Template pack configuration file</a></span></dt></dl></dd><dt><span class="chapter"><a href="configuration.html">9. Configuration</a></span></dt><dd><dl><dt><span class="section"><a href="configuration.html#d720e2313">9.1. Id</a></span></dt><dd><dl><dt><span class="section"><a href="configuration.html#d720e2318">9.1.1. Use a SEQUENCE per TABLE</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2329">9.1.2. Use a custom Id generator</a></span></dt></dl></dd><dt><span class="section"><a href="configuration.html#d720e2340">9.2. Entity and property names</a></span></dt><dd><dl><dt><span class="section"><a href="configuration.html#d720e2343">9.2.1. Force an entity name</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2357">9.2.2. Force a property name</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2374">9.2.3. Advanced property name calculation</a></span></dt></dl></dd><dt><span class="section"><a href="configuration.html#d720e2394">9.3. Type Mapping</a></span></dt><dd><dl><dt><span class="section"><a href="configuration.html#d720e2399">9.3.1. Force a type mapping locally</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2410">9.3.2. Number mapping customization</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2427">9.3.3. Date mapping customization</a></span></dt></dl></dd><dt><span class="section"><a href="configuration.html#d720e2438">9.4. Associations</a></span></dt><dd><dl><dt><span class="section"><a href="configuration.html#d720e2441">9.4.1. @ManyToOne</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2519">9.4.2. @OneToMany</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2571">9.4.3. @OneToOne</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2593">9.4.4. Inverse @OneToOne</a></span></dt><dt><span class="section"><a href="configuration.html#d720e2614">9.4.5. @ManyToMany</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="template-packs.html">10. Template packs</a></span></dt><dd><dl><dt><span class="section"><a href="template-packs.html#d720e2647">10.1. Entity/DAO/Service template pack</a></span></dt><dt><span class="section"><a href="template-packs.html#d720e2652">10.2. Web template packs</a></span></dt><dd><dl><dt><span class="section"><a href="template-packs.html#d720e2655">10.2.1. JSF + Spring WebFlow template pack</a></span></dt></dl></dd></dl></dd><dt><span class="chapter"><a href="best-practices.html">11. Best practices</a></span></dt><dd><dl><dt><span class="section"><a href="best-practices.html#source-control">11.1. Source control</a></span></dt><dd><dl><dt><span class="section"><a href="best-practices.html#when-the-project-starts">11.1.1. When the project starts</a></span></dt><dt><span class="section"><a href="best-practices.html#java-files">11.1.2. Do not commit the generated Java files</a></span></dt><dt><span class="section"><a href="best-practices.html#jsp-controllers">11.1.3. Pages or Controllers</a></span></dt></dl></dd><dt><span class="section"><a href="best-practices.html#database">11.2. Use a 'Development' Database</a></span></dt></dl></dd><dt><span class="chapter"><a href="troubleshootings.html">12. Troubleshootings</a></span></dt><dd><dl><dt><span class="section"><a href="troubleshootings.html#compilation-error">12.1. Generated code does not compile</a></span></dt><dt><span class="section"><a href="troubleshootings.html#tomcat-coercion">12.2. Tomcat converts request parameters to 0, "" or true.</a></span></dt></dl></dd><dt><span class="chapter"><a href="xsd.defaults.html">13. XSD defaults</a></span></dt><dd><dl><dt><span class="section"><a href="xsd.defaults.html#xsd.simpleTypes">13.1. Simple types</a></span></dt><dd><dl><dt><span class="section"><a href="xsd.defaults.html#xsd.methodConvention">13.1.1. 
+      <code class="literal">MethodConvention</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.enumType">13.1.2. 
+      <code class="literal">EnumType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.module">13.1.3. 
+      <code class="literal">Module</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.classType">13.1.4. 
+      <code class="literal">ClassType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.cascadeType">13.1.5. 
+      <code class="literal">CascadeType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.generationType">13.1.6. 
+      <code class="literal">GenerationType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.tableType">13.1.7. 
+      <code class="literal">TableType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.wellKnownFolder">13.1.8. 
+      <code class="literal">WellKnownFolder</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.trueFalse">13.1.9. 
+      <code class="literal">TrueFalse</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.inheritanceType">13.1.10. 
+      <code class="literal">InheritanceType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.jdbcType">13.1.11. 
+      <code class="literal">JdbcType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.generatedPackage">13.1.12. 
+      <code class="literal">GeneratedPackage</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.associationDirection">13.1.13. 
+      <code class="literal">AssociationDirection</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.fetchType">13.1.14. 
+      <code class="literal">FetchType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.mappedType">13.1.15. 
+      <code class="literal">MappedType</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.collectionType">13.1.16. 
+      <code class="literal">CollectionType</code>
+   </a></span></dt></dl></dd><dt><span class="section"><a href="xsd.defaults.html#xsd.complexTypes">13.2. Complex types</a></span></dt><dd><dl><dt><span class="section"><a href="xsd.defaults.html#xsd.columnConfig">13.2.1. 
+      <code class="literal">columnConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.jdbcConnectivity">13.2.2. 
+      <code class="literal">jdbcConnectivity</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.index">13.2.3. 
+      <code class="literal">index</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.configuration">13.2.4. 
+      <code class="literal">configuration</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.manyToOneConfig">13.2.5. 
+      <code class="literal">manyToOneConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.wellKnownFolderOverride">13.2.6. 
+      <code class="literal">wellKnownFolderOverride</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.oneToOneConfig">13.2.7. 
+      <code class="literal">oneToOneConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.methodConventionOverride">13.2.8. 
+      <code class="literal">methodConventionOverride</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.generation">13.2.9. 
+      <code class="literal">generation</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.metadata">13.2.10. 
+      <code class="literal">metadata</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.include">13.2.11. 
+      <code class="literal">include</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.dateMapping">13.2.12. 
+      <code class="literal">dateMapping</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.numberMapping">13.2.13. 
+      <code class="literal">numberMapping</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.enumConfig">13.2.14. 
+      <code class="literal">enumConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.headerComment">13.2.15. 
+      <code class="literal">headerComment</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.implementsInterface">13.2.16. 
+      <code class="literal">implementsInterface</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.metaAttribute">13.2.17. 
+      <code class="literal">metaAttribute</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.classTypeOverride">13.2.18. 
+      <code class="literal">classTypeOverride</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.restriction">13.2.19. 
+      <code class="literal">restriction</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.entityConfig">13.2.20. 
+      <code class="literal">entityConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.cascade">13.2.21. 
+      <code class="literal">cascade</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.table">13.2.22. 
+      <code class="literal">table</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.generatedPackageOverride">13.2.23. 
+      <code class="literal">generatedPackageOverride</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.xmlFormatter">13.2.24. 
+      <code class="literal">xmlFormatter</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.manyToManyConfig">13.2.25. 
+      <code class="literal">manyToManyConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.databaseInfo">13.2.26. 
+      <code class="literal">databaseInfo</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.pattern">13.2.27. 
+      <code class="literal">pattern</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.enumValue">13.2.28. 
+      <code class="literal">enumValue</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.inheritance">13.2.29. 
+      <code class="literal">inheritance</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.conventions">13.2.30. 
+      <code class="literal">conventions</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.fieldNaming">13.2.31. 
+      <code class="literal">fieldNaming</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.extendsClass">13.2.32. 
+      <code class="literal">extendsClass</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.importedKey">13.2.33. 
+      <code class="literal">importedKey</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.constraintConfig">13.2.34. 
+      <code class="literal">constraintConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.celerio">13.2.35. 
+      <code class="literal">celerio</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.generatedValue">13.2.36. 
+      <code class="literal">generatedValue</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.oneToManyConfig">13.2.37. 
+      <code class="literal">oneToManyConfig</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.column">13.2.38. 
+      <code class="literal">column</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.ajax">13.2.39. 
+      <code class="literal">ajax</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.genericGenerator">13.2.40. 
+      <code class="literal">genericGenerator</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.pack">13.2.41. 
+      <code class="literal">pack</code>
+   </a></span></dt><dt><span class="section"><a href="xsd.defaults.html#xsd.customAnnotation">13.2.42. 
+      <code class="literal">customAnnotation</code>
+   </a></span></dt></dl></dd><dt><span class="section"><a href="xsd.defaults.html#d720e9089">13.3. Examples</a></span></dt></dl></dd></dl></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left">&nbsp;</td><td width="20%" align="center">&nbsp;</td><td width="40%" align="right">&nbsp;<a accesskey="n" href="preface.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:85%;"><a href="http://www.Springfuse.com" title="Spring code generation">Springfuse</a></span></td><td width="40%" align="right" valign="top">&nbsp;Preface</td></tr></table></div></body></html>

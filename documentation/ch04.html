@@ -1,0 +1,254 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;4.&nbsp;Database Schema extraction</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><meta name="keywords" content="&#xA;            java&#xA;            , &#xA;            generation&#xA;            , &#xA;            spring&#xA;            , &#xA;            jpa&#xA;            , &#xA;            oracle&#xA;            , &#xA;            maven&#xA;            "><link rel="start" href="celerio-guide.html" title="Celerio"><link rel="up" href="celerio-guide.html" title="Celerio"><link rel="prev" href="ch03.html" title="Chapter&nbsp;3.&nbsp;Start a new project"><link rel="next" href="generation.html" title="Chapter&nbsp;5.&nbsp;Code generation"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" id="top"><div id="header"><div class="projectlogo"><a href="./"><img class="logoImage" src="images/logo.png" alt="Springfuse" border="0"></a></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="mhSpacer"></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="d720e493"></a>Chapter&nbsp;4.&nbsp;Database Schema extraction</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e496"></a>4.1.&nbsp;Principle</h2></div></div></div><p>
+            The database schema extraction is a pretty basic step performed by the
+            <code class="literal">maven-dbmetadata-plugin</code>, a Maven 2 plugin
+            provided by Jaxio.
+        </p><p>
+            This plugin connects to your database, extracts all the valuable meta data information,
+            and dumps them into an XML file. That's all.
+        </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/admons/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                The metadata file produced by the plugin is not meant to be edited manually. If you need to change some settings, you should either change
+                your
+                database schema or use Celerio's configuration file.
+            </p></td></tr></table></div><p>
+            While pretty basic the extraction step may take several minutes on large database schema (e.g. more than 200 tables).
+            <span class="emphasis"><em>To prevent useless extraction</em></span>
+            , the simplest approach is to declare a Maven profile dedicated to database extraction and activate it only when needed. 
+            As an example you can use the <code class="filename">pom.xml</code> that Celerio <code class="literal">bootstrap</code> goal produces.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="dbmetadata.extract-metadata"></a>4.2.&nbsp;dbmetadata:extract-metadata</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e523"></a>4.2.1.&nbsp;Full name</h3></div></div></div><p>
+         <code class="literal">com.jaxio.celerio:maven-dbmetadata-plugin:3.0.44-SNAPSHOT:extract-metadata</code>
+      </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dbmetadata.extract-metadata.description"></a>4.2.2.&nbsp;Description</h3></div></div></div><p>This plugin connects to a relational database using JDBC and
+reverses the database schema meta data. The reverse engineering
+consists in serializing the information returned by the JDBC driver
+into an XML file (see the documentation of the 
+java.sql.DatabaseMetaData for more information). The
+<code class="literal">metadata.xml</code> file produced by this plugin is used by
+Celerio's generate goal. Please refer to the 
+
+<a href="generation.html#celerio.generate" title="5.2.&nbsp;celerio:generate">Section&nbsp;5.2, &#8220;celerio:generate&#8221;</a>
+
+.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dbmetadata.extract-metadata.dependency"></a>4.2.3.&nbsp;Dependency</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>Since version: <code class="literal">3.0.0</code>.</p></li><li><p>Binds by default to the lifecycle phase: <code class="literal">generate-sources</code>.</p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="dbmetadata.extract-metadata.attributes"></a>4.2.4.&nbsp;Attributes</h3></div></div></div><div class="itemizedlist"><a name="dbmetadata.extract-metadata.attributes.list"></a><ul type="disc"><li><p>
+               <code class="literal">jdbcCatalog</code>
+						:
+						Specify the JDBC catalog.</p></li><li><p>
+               <code class="literal">jdbcDriver</code>
+						:
+						Specify the JDBC driver class. 
+
+Example: <code class="literal">org.postgresql.Driver</code>
+            </p></li><li><p>
+               <code class="literal">jdbcOracleRetrieveRemarks</code>
+						:
+						Should the Oracle remarks be retrieved ? Please note that this will
+impact the speed of the reverse engineering of your database.</p></li><li><p>
+               <code class="literal">jdbcOracleRetrieveSynonyms</code>
+						:
+						Should the synonyms be retrieved ?</p></li><li><p>
+               <code class="literal">jdbcPassword</code>
+						:
+						Specify the JDBC password.</p></li><li><p>
+               <code class="literal">jdbcSchema</code>
+						:
+						Specify the JDBC schema.</p></li><li><p>
+               <code class="literal">jdbcUrl</code>
+						:
+						Specify the JDBC url to connect to your database. Make sure that
+you connect with enough privileges to access the meta data
+information. 
+
+Example: <code class="literal">jdbc:h2:~/.h2/sampledatabase</code>
+            </p></li><li><p>
+               <code class="literal">jdbcUser</code>
+						:
+						Specify the JDBC user, this user needs to have the privilege to
+access the database metadata.</p></li><li><p>
+               <code class="literal">skip</code>
+						:
+						Should the database meta data extraction be skipped ? 
+
+This is a common pattern in Maven, where you can skip plugins
+using profiles to fully adapt your build.</p></li><li><p>
+               <code class="literal">targetFilename</code>
+						:
+						The fully qualified name of the XML file created by this plugin.</p></li></ul></div><p><a name="dbmetadata.extract-metadata.attributes.table"></a>
+         </p><div class="table"><a name="d720e630"></a><p class="title"><b>Table&nbsp;4.1.&nbsp;
+               <code class="literal">dbmetadata:extract-metadata</code>
+				plugin attributes list
+			</b></p><div class="table-contents"><table summary="&#xA;               dbmetadata:extract-metadata&#xA;plugin attributes list&#xA;" border="1"><colgroup><col><col><col><col></colgroup><thead><tr><th>Name</th><th>Type</th><th>Expression</th><th>Default</th></tr></thead><tbody><tr><td>
+                        <code class="literal">jdbcCatalog</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.catalog}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcDriver</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.driver}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcOracleRetrieveRemarks</code>
+                     </td><td>
+                        <code class="literal">boolean</code>
+                     </td><td>
+                        <code class="literal">${jdbc.oracleRetrieveRemarks}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">false</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcOracleRetrieveSynonyms</code>
+                     </td><td>
+                        <code class="literal">boolean</code>
+                     </td><td>
+                        <code class="literal">${jdbc.oracleRetrieveSynonyms}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">true</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcPassword</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.password}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcSchema</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.schema}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcUrl</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.url}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcUser</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.user}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">skip</code>
+                     </td><td>
+                        <code class="literal">boolean</code>
+                     </td><td>
+                        <code class="literal">${maven-celerio-plugin.skip}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">false</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">targetFilename</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-metadata-plugin.targetFilename}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">${basedir}/src/main/config/maven-celerio-plugin/metadata.xml</code>
+                        </code>
+                     </td></tr></tbody></table></div></div><p><br class="table-break">
+      </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e865"></a>4.3.&nbsp;Examples</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e868"></a>4.3.1.&nbsp;With explicit configuration</h3></div></div></div><p>
+			To use <code class="literal">dbmetadata</code> plugin in your Maven build, add the plugin definition with the JDBC
+			information to access the database from which you want to extract the meta data.
+			</p><div class="programlistingco"><pre class="programlisting">&lt;<span class="hl-tag">plugin</span>&gt;
+  &lt;<span class="hl-tag">groupId</span>&gt;com.jaxio.celerio&lt;<span class="hl-tag">/groupId</span>&gt;
+  &lt;<span class="hl-tag">artifactId</span>&gt;maven-dbmetadata-plugin&lt;<span class="hl-tag">/artifactId</span>&gt;
+  &lt;<span class="hl-tag">version</span>&gt;3.0.11&lt;<span class="hl-tag">/version</span>&gt;
+  &lt;<span class="hl-tag">executions</span>&gt;
+    &lt;<span class="hl-tag">execution</span>&gt;
+      &lt;<span class="hl-tag">id</span>&gt;Extract the database schema.&lt;<span class="hl-tag">/id</span>&gt;                                              <span class="co"><img src="images/callouts/1.png" alt="(1)"></span>
+      &lt;<span class="hl-tag">goals</span>&gt;
+        &lt;<span class="hl-tag">goal</span>&gt;extract-metadata&lt;<span class="hl-tag">/goal</span>&gt;
+      &lt;<span class="hl-tag">/goals</span>&gt;
+    &lt;<span class="hl-tag">/execution</span>&gt;
+    &lt;<span class="hl-tag">configuration</span>&gt;                                                                      <span class="co"><img src="images/callouts/2.png" alt="(2)"></span>
+      &lt;<span class="hl-tag">jdbcUrl</span>&gt;jdbc:h2:~/.h2/sampledatabase&lt;<span class="hl-tag">/jdbcUrl</span>&gt;
+      &lt;<span class="hl-tag">jdbcUser</span>&gt;myuser&lt;<span class="hl-tag">/jdbcUser</span>&gt;
+      &lt;<span class="hl-tag">jdbcPassword</span>&gt;myuser&lt;<span class="hl-tag">/jdbcPassword</span>&gt;
+    &lt;<span class="hl-tag">/configuration</span>&gt;
+  &lt;<span class="hl-tag">/executions</span>&gt;
+  &lt;<span class="hl-tag">dependencies</span>&gt;
+    &lt;<span class="hl-tag">dependency</span>&gt;                                                                         <span class="co"><img src="images/callouts/3.png" alt="(3)"></span>
+      &lt;<span class="hl-tag">groupId</span>&gt;com.h2database&lt;<span class="hl-tag">/groupId</span>&gt;
+      &lt;<span class="hl-tag">artifactId</span>&gt;h2&lt;<span class="hl-tag">/artifactId</span>&gt;
+      &lt;<span class="hl-tag">version</span>&gt;1.2.125&lt;<span class="hl-tag">/version</span>&gt;
+    &lt;<span class="hl-tag">/dependency</span>&gt;
+  &lt;<span class="hl-tag">/dependencies</span>&gt;
+&lt;<span class="hl-tag">/plugin</span>&gt;</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><img src="images/callouts/1.png" alt="1" border="0"></td><td valign="top" align="left"><p>
+							The
+							<code class="literal">id</code>
+							element is mostly used for documentation as it is displayed during the build
+							process.
+						</p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/2.png" alt="2" border="0"></td><td valign="top" align="left"><p> Specification of the configuration by stating explicitly all the parameters
+						</p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/3.png" alt="3" border="0"></td><td valign="top" align="left"><p> Please note that you need to specify the dependency for your JDBC driver to
+							the plugin.</p></td></tr></table></div></div><p>
+		</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="images/admons/important.png"></td><th align="left">Important</th></tr><tr><td align="left" valign="top"><p>
+				The
+				<code class="literal">jdbcUser</code>
+				must have enough privileges to access the database meta-information. Otherwise
+				Celerio cannot reverse the database and generate the code.
+			</p></td></tr></table></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e903"></a>4.3.2.&nbsp;With maven properties</h3></div></div></div><p> The metadata plugin can get its data from the maven properties.</p><p>
+			This allows you to keep the plugin configuration short and reuse the
+			<code class="literal">jdbc.user</code>
+			property elsewhere, for example when working with the
+			<code class="literal">sql-maven-plugin</code>
+			to recreate your database schema.
+		</p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="images/admons/important.png"></td><th align="left">Important</th></tr><tr><td align="left" valign="top"><p>
+				Using properties is really convenient so you can switch configuration using
+				<a xmlns:xlink="http://www.w3.org/1999/xlink" href="http://maven.apache.org/guides/introduction/introduction-to-profiles.html" target="_top">maven profiles</a>
+			</p></td></tr></table></div><p>
+			You can refer to the 
+			<a href="ch04.html#dbmetadata.extract-metadata" title="4.2.&nbsp;dbmetadata:extract-metadata">list of configuration</a> elements.
+			.			
+		</p><p>
+			Celerio can get its jdbc information from your current properties
+			</p><div class="programlistingco"><pre class="programlisting">&lt;<span class="hl-tag">properties</span>&gt;                                                                             <span class="co"><img src="images/callouts/1.png" alt="(1)"></span>
+  &lt;<span class="hl-tag">jdbc.driver</span>&gt;org.h2.Driver&lt;<span class="hl-tag">/jdbc.driver</span>&gt;
+  &lt;<span class="hl-tag">jdbc.url</span>&gt;jdbc:h2:~/.h2/sampledatabase&lt;<span class="hl-tag">/jdbc.url</span>&gt;
+  &lt;<span class="hl-tag">jdbc.user</span>&gt;myuser&lt;<span class="hl-tag">/jdbc.user</span>&gt;
+  &lt;<span class="hl-tag">jdbc.password</span>&gt;myuser&lt;<span class="hl-tag">/jdbc.password</span>&gt;
+&lt;<span class="hl-tag">/properties</span>&gt;
+&lt;<span class="hl-tag">build</span>&gt;
+  &lt;<span class="hl-tag">plugins</span>&gt;
+    &lt;<span class="hl-tag">plugin</span>&gt;
+      &lt;<span class="hl-tag">groupId</span>&gt;com.jaxio.celerio&lt;<span class="hl-tag">/groupId</span>&gt;
+      &lt;<span class="hl-tag">artifactId</span>&gt;maven-dbmetadata-plugin&lt;<span class="hl-tag">/artifactId</span>&gt;
+      &lt;<span class="hl-tag">version</span>&gt;3.0.0&lt;<span class="hl-tag">/version</span>&gt;
+      &lt;<span class="hl-tag">executions</span>&gt;
+        &lt;<span class="hl-tag">execution</span>&gt;
+          &lt;<span class="hl-tag">id</span>&gt;Extract the database schema.&lt;<span class="hl-tag">/id</span>&gt;
+          &lt;<span class="hl-tag">goals</span>&gt;
+            &lt;<span class="hl-tag">goal</span>&gt;extract-metadata&lt;<span class="hl-tag">/goal</span>&gt;
+          &lt;<span class="hl-tag">/goals</span>&gt;
+        &lt;<span class="hl-tag">/execution</span>&gt;
+      &lt;<span class="hl-tag">/executions</span>&gt;                                                                      <span class="co"><img src="images/callouts/2.png" alt="(2)"></span>
+      &lt;<span class="hl-tag">dependencies</span>&gt;
+        &lt;<span class="hl-tag">dependency</span>&gt;
+          &lt;<span class="hl-tag">groupId</span>&gt;com.h2database&lt;<span class="hl-tag">/groupId</span>&gt;
+          &lt;<span class="hl-tag">artifactId</span>&gt;h2&lt;<span class="hl-tag">/artifactId</span>&gt;
+          &lt;<span class="hl-tag">version</span>&gt;1.2.125&lt;<span class="hl-tag">/version</span>&gt;
+        &lt;<span class="hl-tag">/dependency</span>&gt;
+      &lt;<span class="hl-tag">/dependencies</span>&gt;
+    &lt;<span class="hl-tag">/plugin</span>&gt;
+  &lt;<span class="hl-tag">/plugins</span>&gt;
+&lt;<span class="hl-tag">/build</span>&gt;</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><img src="images/callouts/1.png" alt="1" border="0"></td><td valign="top" align="left"><p> Specify maven properties, they will be picked-up by the metadata plugin.
+						</p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/2.png" alt="2" border="0"></td><td valign="top" align="left"><p> No need of configuration, as all the required properties are available as
+							maven properties.</p></td></tr></table></div></div><p>
+		</p><p>This configuration has the same effect as the previous example.</p></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch03.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="celerio-guide.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="generation.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;3.&nbsp;Start a new project&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:85%;"><a href="http://www.Springfuse.com" title="Spring code generation">Springfuse</a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;5.&nbsp;Code generation</td></tr></table></div></body></html>

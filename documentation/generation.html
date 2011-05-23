@@ -1,0 +1,390 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;5.&nbsp;Code generation</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><meta name="keywords" content="&#xA;            java&#xA;            , &#xA;            generation&#xA;            , &#xA;            spring&#xA;            , &#xA;            jpa&#xA;            , &#xA;            oracle&#xA;            , &#xA;            maven&#xA;            "><link rel="start" href="celerio-guide.html" title="Celerio"><link rel="up" href="celerio-guide.html" title="Celerio"><link rel="prev" href="ch04.html" title="Chapter&nbsp;4.&nbsp;Database Schema extraction"><link rel="next" href="modification.html" title="Chapter&nbsp;6.&nbsp;Code modification, regeneration and collisions"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" id="top"><div id="header"><div class="projectlogo"><a href="./"><img class="logoImage" src="images/logo.png" alt="Springfuse" border="0"></a></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="mhSpacer"></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="generation"></a>Chapter&nbsp;5.&nbsp;Code generation</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e948"></a>5.1.&nbsp;Principle</h2></div></div></div><p>
+            The code generation step is performed by the
+            <code class="literal">generate</code>
+            goal of the
+            <code class="literal">maven-celerio-plugin</code>
+            provided by Jaxio.
+        </p><p>
+            The code generation step is driven by several factors:
+            </p><div class="itemizedlist"><ul type="disc"><li><p>
+                        <span class="emphasis"><em>The database meta data:</em></span>
+                        It serves as a main entry model. The various column's constraints such as
+                        <code class="literal">NOT NULL</code>
+                        , the foreign keys, etc. are exploited by Celerio in the code generation process.
+                    </p></li><li><p>
+                        <span class="emphasis"><em>Celerio conventions:</em></span>
+                        Please refer to <a href="convention.html" title="Chapter&nbsp;7.&nbsp;Conventions and integration">Chapter&nbsp;7, <i xmlns:xlink="http://www.w3.org/1999/xlink">Conventions and integration</i></a>.                        
+                    </p></li><li><p>
+                        <span class="emphasis"><em>Celerio configuration:</em></span>
+                        Please refer to <a href="configuration.html" title="Chapter&nbsp;9.&nbsp;Configuration">Chapter&nbsp;9, <i xmlns:xlink="http://www.w3.org/1999/xlink">Configuration</i></a>.                        
+                    </p></li><li><p>
+                        <span class="emphasis"><em>Celerio template packs:</em></span>
+                        Please refer to <a href="template-packs.html" title="Chapter&nbsp;10.&nbsp;Template packs">Chapter&nbsp;10, <i xmlns:xlink="http://www.w3.org/1999/xlink">Template packs</i></a>.                        
+                    </p></li><li><p>
+                        <span class="emphasis"><em>Generated code modifications:</em></span>
+                        Please refer to <a href="modification.html" title="Chapter&nbsp;6.&nbsp;Code modification, regeneration and collisions">Chapter&nbsp;6, <i xmlns:xlink="http://www.w3.org/1999/xlink">Code modification, regeneration and collisions</i></a>.                        
+                    </p></li></ul></div><p>
+        </p><div class="mediaobject" align="center"><img src="./images/celerio-generation.png" align="middle"><div class="caption">Source code generation is driven by several factors</div></div><p>
+            As for database schema extraction, the code generation step does not need to be performed at each build.
+            <span class="emphasis"><em>To prevent useless generation</em></span>
+            , the simplest approach is to declare a Maven profile dedicated to code generation. As an example you can use the
+            <code class="filename">pom.xml</code>
+            that the Celerio
+            <code class="literal">bootstrap</code> goal
+            produces.
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="celerio.generate"></a>5.2.&nbsp;celerio:generate</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1023"></a>5.2.1.&nbsp;Full name</h3></div></div></div><p>
+         <code class="literal">com.jaxio.celerio:maven-celerio-plugin:3.0.44-SNAPSHOT:generate</code>
+      </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="celerio.generate.description"></a>5.2.2.&nbsp;Description</h3></div></div></div><p>The core Celerio Engine is invoked by this plugin. This plugin can
+either connect directly to a database and extract the metadata
+information or use the metadata.xml file produced by the
+maven-dbmetadata-plugin:extract-metadata goal. Please refer to 
+
+<a href="ch04.html#dbmetadata.extract-metadata" title="4.2.&nbsp;dbmetadata:extract-metadata">Section&nbsp;4.2, &#8220;dbmetadata:extract-metadata&#8221;</a>.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="celerio.generate.dependency"></a>5.2.3.&nbsp;Dependency</h3></div></div></div><div class="itemizedlist"><ul type="disc"><li><p>Since version: <code class="literal">1.0.0</code>.</p></li><li><p>Binds by default to the lifecycle phase: <code class="literal">generate-sources</code>.</p></li></ul></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="celerio.generate.attributes"></a>5.2.4.&nbsp;Attributes</h3></div></div></div><div class="itemizedlist"><a name="celerio.generate.attributes.list"></a><ul type="disc"><li><p>
+               <code class="literal">baseDir</code>
+						:
+						The current folder</p></li><li><p>
+               <code class="literal">jdbcCatalog</code>
+						:
+						Specify the JDBC catalog.</p></li><li><p>
+               <code class="literal">jdbcDriver</code>
+						:
+						Specify the JDBC driver. 
+
+Example: <code class="literal">org.postgresql.Driver</code>
+            </p></li><li><p>
+               <code class="literal">jdbcOracleRetrieveRemarks</code>
+						:
+						Should the Oracle remarks be retrieved ? Please note that this will
+impact the speed of the reverse engineering of your database.</p></li><li><p>
+               <code class="literal">jdbcOracleRetrieveSynonyms</code>
+						:
+						Should the synonyms be retrieved ?</p></li><li><p>
+               <code class="literal">jdbcPassword</code>
+						:
+						Specify the JDBC password.</p></li><li><p>
+               <code class="literal">jdbcSchema</code>
+						:
+						Specify the JDBC schema.</p></li><li><p>
+               <code class="literal">jdbcUrl</code>
+						:
+						Specify the JDBC url. 
+
+Example: <code class="literal">jdbc:h2:~/.h2/sampledatabase</code>
+            </p></li><li><p>
+               <code class="literal">jdbcUser</code>
+						:
+						Specify the JDBC user, this user needs to have the privilege to
+access the database metadata.</p></li><li><p>
+               <code class="literal">outputDirectory</code>
+						:
+						The output folder.</p></li><li><p>
+               <code class="literal">project</code>
+						:
+						Maven project, this is by default the current maven project.</p></li><li><p>
+               <code class="literal">skip</code>
+						:
+						Should the source code generation be skipped ? 
+
+This is a common pattern in Maven, where you can skip plugins
+using profiles to fully adapt your build.</p></li><li><p>
+               <code class="literal">xmlConfiguration</code>
+						:
+						The relative path to the Maven Celerio configuration file. 
+
+The default value is
+
+<code class="filename">
+src/main/config/maven-celerio-plugin/maven-celerio-plugin.xml</code>
+            </p></li><li><p>
+               <code class="literal">xmlMetadata</code>
+						:
+						The relative path to the metadata.xml file produced by the
+maven-dbmetadata-plugin:extract-metadata goal. 
+
+If this file exists it will be used, otherwise Celerio will
+access the database directly.
+
+The main purpose of this file is to speed-up the generation
+process, as for large database schema the reverse engineering takes
+time. An other very important benefit of this feature is to store
+the file in your source control, thus having a reproducible
+build.</p></li><li><p>
+               <code class="literal">xmlTemplatePacksOverride</code>
+						:
+						The relative path to a Maven Celerio configuration file dedicated
+to override the template packs definition present in the main xml
+configuration file. This configuration file is useful when working
+on multi-modules project. Indeed you can set for each module
+exactly the template packs that should be used. Keep in mind that
+only the template packs definition will be extracted from this
+file. 
+
+The default value is
+
+<code class="filename">
+src/main/config/maven-celerio-plugin/celerio-template-packs.xml</code>
+            </p></li></ul></div><p><a name="celerio.generate.attributes.table"></a>
+         </p><div class="table"><a name="d720e1162"></a><p class="title"><b>Table&nbsp;5.1.&nbsp;
+               <code class="literal">celerio:generate</code>
+				plugin attributes list
+			</b></p><div class="table-contents"><table summary="&#xA;               celerio:generate&#xA;plugin attributes list&#xA;" border="1"><colgroup><col><col><col><col></colgroup><thead><tr><th>Name</th><th>Type</th><th>Expression</th><th>Default</th></tr></thead><tbody><tr><td>
+                        <code class="literal">baseDir</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${basedir}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcCatalog</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.catalog}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcDriver</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.driver}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcOracleRetrieveRemarks</code>
+                     </td><td>
+                        <code class="literal">boolean</code>
+                     </td><td>
+                        <code class="literal">${jdbc.oracleRetrieveRemarks}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">false</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcOracleRetrieveSynonyms</code>
+                     </td><td>
+                        <code class="literal">boolean</code>
+                     </td><td>
+                        <code class="literal">${jdbc.oracleRetrieveSynonyms}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">true</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcPassword</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.password}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcSchema</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.schema}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcUrl</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.url}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">jdbcUser</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${jdbc.user}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">outputDirectory</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-celerio-plugin.directory}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">${basedir}</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">project</code>
+                     </td><td>
+                        <code class="literal">MavenProject</code>
+                     </td><td>
+                        <code class="literal">${project}</code>
+                     </td><td>
+                        <code class="literal"></code>
+                     </td></tr><tr><td>
+                        <code class="literal">skip</code>
+                     </td><td>
+                        <code class="literal">boolean</code>
+                     </td><td>
+                        <code class="literal">${maven-celerio-plugin.skip}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">false</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">xmlConfiguration</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-celerio-plugin.configuration}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">${basedir}/src/main/config/maven-celerio-plugin/maven-celerio-plugin.xml</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">xmlMetadata</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-celerio-plugin.xml.metadata}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">${basedir}/src/main/config/maven-celerio-plugin/metadata.xml</code>
+                        </code>
+                     </td></tr><tr><td>
+                        <code class="literal">xmlTemplatePacksOverride</code>
+                     </td><td>
+                        <code class="literal">String</code>
+                     </td><td>
+                        <code class="literal">${maven-celerio-plugin.packs.configuration}</code>
+                     </td><td>
+                        <code class="literal">
+                           <code class="literal">${basedir}/src/main/config/maven-celerio-plugin/celerio-template-packs.xml</code>
+                        </code>
+                     </td></tr></tbody></table></div></div><p><br class="table-break">
+      </p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e1509"></a>5.3.&nbsp;generate goal examples</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1512"></a>5.3.1.&nbsp;With explicit configuration</h3></div></div></div><p>
+            To use metadata plugin in your maven build, add the plugin definition with the jdbc
+            information to access the database from which you want to
+            extract the model in xml.
+            </p><div class="programlistingco"><pre class="programlisting">&lt;<span class="hl-tag">plugin</span>&gt;
+  &lt;<span class="hl-tag">groupId</span>&gt;com.jaxio.celerio&lt;<span class="hl-tag">/groupId</span>&gt;
+  &lt;<span class="hl-tag">artifactId</span>&gt;maven-celerio-plugin&lt;<span class="hl-tag">/artifactId</span>&gt;
+  &lt;<span class="hl-tag">version</span>&gt;3.0.0&lt;<span class="hl-tag">/version</span>&gt;
+  &lt;<span class="hl-tag">executions</span>&gt;
+    &lt;<span class="hl-tag">execution</span>&gt;
+      &lt;<span class="hl-tag">id</span>&gt;Generates files using the extracted database schema.&lt;<span class="hl-tag">/id</span>&gt;                      <span class="co"><img src="images/callouts/1.png" alt="(1)"></span>
+      &lt;<span class="hl-tag">goals</span>&gt;
+        &lt;<span class="hl-tag">goal</span>&gt;generate&lt;<span class="hl-tag">/goal</span>&gt;
+      &lt;<span class="hl-tag">/goals</span>&gt;
+    &lt;<span class="hl-tag">/execution</span>&gt;
+    &lt;<span class="hl-tag">configuration</span>&gt;                                                                      <span class="co"><img src="images/callouts/2.png" alt="(2)"></span>
+      &lt;<span class="hl-tag">jdbcUrl</span>&gt;jdbc:h2:~/.h2/sampledatabase&lt;<span class="hl-tag">/jdbcUrl</span>&gt;
+      &lt;<span class="hl-tag">jdbcUser</span>&gt;myuser&lt;<span class="hl-tag">/jdbcUser</span>&gt;
+      &lt;<span class="hl-tag">jdbcPassword</span>&gt;myuser&lt;<span class="hl-tag">/jdbcPassword</span>&gt;
+    &lt;<span class="hl-tag">/configuration</span>&gt;
+  &lt;<span class="hl-tag">/executions</span>&gt;
+  &lt;<span class="hl-tag">dependencies</span>&gt;
+    &lt;<span class="hl-tag">dependency</span>&gt;                                                                         <span class="co"><img src="images/callouts/3.png" alt="(3)"></span>
+      &lt;<span class="hl-tag">groupId</span>&gt;com.jaxio.celerio.packs&lt;<span class="hl-tag">/groupId</span>&gt;
+      &lt;<span class="hl-tag">artifactId</span>&gt;backend&lt;<span class="hl-tag">/artifactId</span>&gt;
+      &lt;<span class="hl-tag">version</span>&gt;3.0.0&lt;<span class="hl-tag">/version</span>&gt;
+    &lt;<span class="hl-tag">/dependency</span>&gt;
+    &lt;<span class="hl-tag">dependency</span>&gt;                                                                         <span class="co"><img src="images/callouts/4.png" alt="(4)"></span>
+      &lt;<span class="hl-tag">groupId</span>&gt;com.h2database&lt;<span class="hl-tag">/groupId</span>&gt;
+      &lt;<span class="hl-tag">artifactId</span>&gt;h2&lt;<span class="hl-tag">/artifactId</span>&gt;
+      &lt;<span class="hl-tag">version</span>&gt;1.2.125&lt;<span class="hl-tag">/version</span>&gt;
+    &lt;<span class="hl-tag">/dependency</span>&gt;
+  &lt;<span class="hl-tag">/dependencies</span>&gt;
+&lt;<span class="hl-tag">/plugin</span>&gt;</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><img src="images/callouts/1.png" alt="1" border="0"></td><td valign="top" align="left"><p>
+                            The
+                            <code class="literal">id</code>
+                            element is mostly used for documentation as it is displayed during the build
+                            process.
+                        </p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/2.png" alt="2" border="0"></td><td valign="top" align="left"><p> Specification of the configuration by stating explicitly all the parameters
+						</p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/3.png" alt="3" border="0"></td><td valign="top" align="left"><p> Specify the dependency on the packs to be used when producing the files.
+						</p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/4.png" alt="4" border="0"></td><td valign="top" align="left"><p> Please note that you need to specify the dependency for your jdbc driver to
+                            the plugin.</p></td></tr></table></div></div><p>
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1542"></a>5.3.2.&nbsp;With maven properties</h3></div></div></div><p>
+            </p><div class="programlistingco"><pre class="programlisting">&lt;<span class="hl-tag">properties</span>&gt;                                                                             <span class="co"><img src="images/callouts/1.png" alt="(1)"></span>
+  &lt;<span class="hl-tag">jdbc.driver</span>&gt;org.h2.Driver&lt;<span class="hl-tag">/jdbc.driver</span>&gt;
+  &lt;<span class="hl-tag">jdbc.url</span>&gt;jdbc:h2:~/.h2/sampledatabase&lt;<span class="hl-tag">/jdbc.url</span>&gt;
+  &lt;<span class="hl-tag">jdbc.user</span>&gt;myuser&lt;<span class="hl-tag">/jdbc.user</span>&gt;
+  &lt;<span class="hl-tag">jdbc.password</span>&gt;myuser&lt;<span class="hl-tag">/jdbc.password</span>&gt;
+&lt;<span class="hl-tag">/properties</span>&gt;
+&lt;<span class="hl-tag">build</span>&gt;
+  &lt;<span class="hl-tag">plugins</span>&gt;
+    &lt;<span class="hl-tag">plugin</span>&gt;
+      &lt;<span class="hl-tag">groupId</span>&gt;com.jaxio.celerio&lt;<span class="hl-tag">/groupId</span>&gt;
+      &lt;<span class="hl-tag">artifactId</span>&gt;maven-celerio-plugin&lt;<span class="hl-tag">/artifactId</span>&gt;
+      &lt;<span class="hl-tag">version</span>&gt;3.0.0&lt;<span class="hl-tag">/version</span>&gt;
+      &lt;<span class="hl-tag">executions</span>&gt;
+        &lt;<span class="hl-tag">execution</span>&gt;
+          &lt;<span class="hl-tag">id</span>&gt;Generates files using the extracted database schema.&lt;<span class="hl-tag">/id</span>&gt;
+          &lt;<span class="hl-tag">goals</span>&gt;
+            &lt;<span class="hl-tag">goal</span>&gt;generate&lt;<span class="hl-tag">/goal</span>&gt;
+          &lt;<span class="hl-tag">/goals</span>&gt;
+        &lt;<span class="hl-tag">/execution</span>&gt;
+      &lt;<span class="hl-tag">/executions</span>&gt;                                                                      <span class="co"><img src="images/callouts/2.png" alt="(2)"></span>
+      &lt;<span class="hl-tag">dependencies</span>&gt;
+        &lt;<span class="hl-tag">dependency</span>&gt;
+          &lt;<span class="hl-tag">groupId</span>&gt;com.jaxio.celerio.packs&lt;<span class="hl-tag">/groupId</span>&gt;
+          &lt;<span class="hl-tag">artifactId</span>&gt;backend&lt;<span class="hl-tag">/artifactId</span>&gt;
+          &lt;<span class="hl-tag">version</span>&gt;3.0.0&lt;<span class="hl-tag">/version</span>&gt;
+        &lt;<span class="hl-tag">/dependency</span>&gt;
+        &lt;<span class="hl-tag">dependency</span>&gt;
+          &lt;<span class="hl-tag">groupId</span>&gt;com.h2database&lt;<span class="hl-tag">/groupId</span>&gt;
+          &lt;<span class="hl-tag">artifactId</span>&gt;h2&lt;<span class="hl-tag">/artifactId</span>&gt;
+          &lt;<span class="hl-tag">version</span>&gt;1.2.125&lt;<span class="hl-tag">/version</span>&gt;
+        &lt;<span class="hl-tag">/dependency</span>&gt;
+      &lt;<span class="hl-tag">/dependencies</span>&gt;
+    &lt;<span class="hl-tag">/plugin</span>&gt;
+  &lt;<span class="hl-tag">/plugins</span>&gt;
+&lt;<span class="hl-tag">/build</span>&gt;</pre><div class="calloutlist"><table border="0" summary="Callout list"><tr><td width="5%" valign="top" align="left"><img src="images/callouts/1.png" alt="1" border="0"></td><td valign="top" align="left"><p> Specify maven properties, they will be picked-up by the metadata plugin.
+						</p></td></tr><tr><td width="5%" valign="top" align="left"><img src="images/callouts/2.png" alt="2" border="0"></td><td valign="top" align="left"><p> No need of configuration, as all the required properties are available as
+                            maven properties.</p></td></tr></table></div></div><p>
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="generic-logs"></a>5.3.3.&nbsp;Generation logs</h3></div></div></div><p>
+	        For each file generated, the Celerio
+	        <code class="literal">generate</code>
+	        goal writes a one-line
+	        log message giving status information. The status line has the
+	        following format:
+	         [&lt;template pack&gt;][&lt;message&gt;:&lt;generated file path&gt;] 
+	    </p><p>
+	        The template pack is simply the template pack name.
+	    </p><p>
+	        The message indicates how the generation went; it could be of the
+	        form
+	        </p><div class="itemizedlist"><ul type="disc"><li><p>
+	                    <code class="literal">GENERATE</code>
+	                    : The target file does not exists yet, Celerio generates it normaly.
+	                </p></li><li><p>
+	                    <code class="literal">GENERATE AND REPLACE</code>
+	                    : The target file is already present, it is not under
+	                    user's control, and it is different from the one that Celerio wants to generate.
+	                    Celerio replaces the file with its new version.
+	                </p></li><li><p>
+	                    <code class="literal">GENERATE IN COLLISIONS FODLER</code>
+	                    : The target file is already present, it is under user's
+	                    control, and it is different from the one that Celerio wants to generate.
+	                    Celerio leaves the user's file where it is and generate its file's version in the
+	                    collisions folder.
+	                </p></li><li><p>
+	                    <code class="literal">IDENTICAL EXISTS</code>
+	                    : The file already exists and is indentical to the file
+	                    that should have been generated. Celerio does not
+	                    replace it to preserve the
+	                    timestamp of the original
+	                    file and for obvious performance reasons.
+	                </p></li><li><p>
+	                    <code class="literal">COPY</code>
+	                    : The target file, a static resource such an image, does not exist yet. Celerio copy it normally.
+	                </p></li><li><p>
+	                    <code class="literal">COPY IN COLLISION FOLDER</code>
+	                    : The target file is already present, it is under user
+	                    control and it is different from the one that Celerio wants to copy.
+	                    Celerio leaves the user's file where it is and copy its file's version in the
+	                    collisions folder.
+	                </p></li></ul></div><p>
+	    </p></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="ch04.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="celerio-guide.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="modification.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;4.&nbsp;Database Schema extraction&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:85%;"><a href="http://www.Springfuse.com" title="Spring code generation">Springfuse</a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;6.&nbsp;Code modification, regeneration and collisions</td></tr></table></div></body></html>

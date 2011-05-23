@@ -1,0 +1,235 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;6.&nbsp;Code modification, regeneration and collisions</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><meta name="keywords" content="&#xA;            java&#xA;            , &#xA;            generation&#xA;            , &#xA;            spring&#xA;            , &#xA;            jpa&#xA;            , &#xA;            oracle&#xA;            , &#xA;            maven&#xA;            "><link rel="start" href="celerio-guide.html" title="Celerio"><link rel="up" href="celerio-guide.html" title="Celerio"><link rel="prev" href="generation.html" title="Chapter&nbsp;5.&nbsp;Code generation"><link rel="next" href="convention.html" title="Chapter&nbsp;7.&nbsp;Conventions and integration"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" id="top"><div id="header"><div class="projectlogo"><a href="./"><img class="logoImage" src="images/logo.png" alt="Springfuse" border="0"></a></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="mhSpacer"></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="modification"></a>Chapter&nbsp;6.&nbsp;Code modification, regeneration and collisions</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e1614"></a>6.1.&nbsp;Introduction</h2></div></div></div><p>One of the most important feature of a code generator is its ability to preserve manual code modifications across re-generations.
+            To solve this
+            challenge, Celerio proposes various pragmatic solutions depending on the nature of the generated file.        
+        </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="modification-java-files"></a>6.2.&nbsp;Java files</h2></div></div></div><p>
+            By default, Celerio generates the main Java file under the directory
+            <code class="filename">src/main/generated-java</code>
+            .
+        </p><p>
+            In this section you will learn how to modify a generated Java file without loosing your modifications.
+            The first approach consists in simply moving
+            the file in a user reserved folder.
+            The second approach involves inheritance of a base class. Both approaches have pros and cons.
+        </p><div class="important" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Important"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Important]" src="images/admons/important.png"></td><th align="left">Important</th></tr><tr><td align="left" valign="top"><p>
+                In any case, you should never modify directly the generated Java file as you will loose your changes
+                as soon as you regenerate the code.
+        </p></td></tr></table></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1632"></a>6.2.1.&nbsp;Code modifications through reserved folders</h3></div></div></div><p>
+                Before modifying the generated Java file, move it to the
+                <code class="filename">src/main/java</code>
+                folder.
+                For example, if you want to edit the generated
+                <code class="filename">BankAccount.java</code>
+                file, move it from
+                <code class="filename">src/main/generated-java/&lt;package path&gt;/BankAccount.java</code>
+                to
+                <code class="filename">src/main/java/&lt;package path&gt;/BankAccount.java</code>
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/admons/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>When you copy the file make sure you preserve the package directory structure.</p></td></tr></table></div><p>
+                Since all files under the
+                <code class="filename">src/main/java</code>
+                are considered as user reserved files, Celerio will not interfere with them.
+                Next time you run Celerio, Celerio will detect the presence of
+                BankAccount.java under
+                <code class="filename">src/main/java/&lt;package path&gt;</code>
+                , leave it
+                untouched, and will not generate it here.
+            </p><p>The main advantage of this approach is that, you now can do whatever you want with the file, in particular you can modify
+                any method's body
+                etc.</p><p>
+                The main drawback may show up if your database schema changes. You may have to reflect those changes
+                in the file that you now own as a regular
+                file. Hopefully, to help you in this task, Celerio generates the file in a dedicated collision folder under the
+                <code class="filename">target</code>
+                folder.
+                Please refer to
+                <a href="modification.html#collisions" title="6.4.&nbsp;Collisions and Merging">Section&nbsp;6.4, &#8220;Collisions and Merging&#8221;</a>
+                .
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1669"></a>6.2.2.&nbsp;Code modifications through 'Base' inheritance</h3></div></div></div><p> Celerio enables you to extend a generated Java class without modifying the
+                generated Java code or the generated resources files.</p><p>
+                Let&#8217;s take an example with the
+                <code class="literal">Account</code>
+                class which maps the
+                <code class="literal">Account</code>
+                table of your database schema.
+            </p><p>
+                Let's assume the <code class="literal">Account</code>
+                source file is located at
+                <code class="filename">src/main/generated-java/com/example/demo/domain/Account.java</code>
+                It looks like this:
+                </p><pre class="programlisting"><span class="hl-keyword">package</span> com.example.demo.domain;
+@Entity
+@Table(name = <span class="hl-string">"ACCOUNT"</span>)
+<span class="hl-keyword">public</span> <span class="hl-keyword">class</span> Account <span class="hl-keyword">implements</span> Serializable {
+    <span class="hl-comment">//...   </span>
+    <span class="hl-keyword">private</span> String firstName;
+    <span class="hl-keyword">private</span> String lastName;
+    <span class="hl-comment">//... skipped for clarity</span>
+}
+</pre><p>
+            </p><p>
+                Let&#8217;s assume from a JSP you want to display, using a single method call, the full name
+                of the user. One solution would be to add the following
+                method to the Account
+                class:
+                </p><pre class="programlisting">
+    <span class="hl-keyword">public</span> String getFullName() {
+        <span class="hl-keyword">return</span> getFirstName()+ <span class="hl-string">" "</span> + getLastName();
+    }
+</pre><p>
+            </p><p> Instead of adding this method in the generated file, where it would be mixed with
+                generated code, Celerio supports a cleaner solution that
+                enables you to extend the
+                generated class of you choice and at the same time preserve the same class name!</p><p>This technique has two major benefits:</p><p> No need to modify the existing files (Java, xml, etc.) that reference the Java
+                class that you want to extend.</p><p> The hand written code is isolated in a separated class, in a separated file,
+                which greatly improves the clarity of your code.</p><p>Best way to understand how it works is to try it:</p><p>
+                Create a new
+                <code class="literal">Account.java</code>
+                file and save it in the directory:
+                <code class="filename">src/main/java/com/example/demo/domain</code>
+            </p><p>Add this file under source control</p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/admons/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                    Note that the new path is almost the same as the old path. The only difference
+                    is that the file is now under
+                    <code class="filename">src/main/java</code>
+                    and not
+                    <code class="filename">generated-java</code>
+                    .
+                </p></td></tr></table></div><p>
+                Open the newly created
+                <code class="literal">Account.java</code>
+                file and copy paste the following code:
+                </p><pre class="programlisting">
+<span class="hl-keyword">package</span> com.example.demo.domain;
+
+@Entity
+@Table(name = <span class="hl-string">"ACCOUNT"</span>)
+<span class="hl-keyword">public</span> <span class="hl-keyword">class</span> Account <span class="hl-keyword">extends</span> AccountBase <span class="hl-keyword">implements</span> Serializable {
+    <span class="hl-keyword">public</span> String getFullName() {
+        <span class="hl-keyword">return</span> getFirstName()+ <span class="hl-string">" "</span> + getLastName();
+    }
+}
+</pre><p>
+            </p><p>
+                This
+                <code class="literal">Account</code>
+                class now extends a class that does not exist yet!
+            </p><p>
+                Next time you run Celerio, it will detect your new <code class="filename">Account.java</code> file and will also
+                detect that the
+                <code class="literal">Account</code>
+                class extends a class that has the same name plus the
+                <code class="literal">Base</code>
+                suffix.
+            </p><p>
+                This is enough for Celerio to assume that you want to impersonate the class, and that
+                it should generate the code corresponding to Account table
+                in a class called
+                <code class="literal">AccountBase</code>
+                instead of a class called
+                <code class="literal">Account</code>
+                .
+            </p><p>
+                The source code of
+                <code class="literal">AccountBase</code>
+                is generated in the file
+                <code class="filename">src/main/generated-java/com/example/demo/domain/AccountBase.java</code>
+                .
+                Since this class is an entity, the class level annotations that were present on the original
+                <code class="classname">Account</code>
+                class must copied to your own
+                <code class="classname">Account</code>
+                class. Hopefully if you read the source code of
+                the 'Base' class, you will find these annotations. Here is how a snapshot of the generated
+                <code class="classname">AccountBase</code>
+                code.
+            </p><pre class="programlisting">
+@MappedSuperclass
+<span class="hl-comment">/* Copy paste these annotations as is in your subclass
+@Entity
+@Table(name = "ACCOUNT")
+*/</span>
+<span class="hl-keyword">public</span> <span class="hl-keyword">abstract</span> <span class="hl-keyword">class</span> AccountBase <span class="hl-keyword">implements</span> Serializable {
+    <span class="hl-comment">// code skipped for concision</span>
+}
+</pre><p>
+                As you can notice the
+                <code class="literal">@MappedSuperclass</code>
+                is properly generated and the other annotations are commented. Also the base class
+                is made abstract to prevent you from instanciating it .
+            </p><div class="note" style="margin-left: 0.5in; margin-right: 0.5in;"><table border="0" summary="Note"><tr><td rowspan="2" align="center" valign="top" width="25"><img alt="[Note]" src="images/admons/note.png"></td><th align="left">Note</th></tr><tr><td align="left" valign="top"><p>
+                    Always check the source code of the 'Base' class, you may find some instructions related to some annotations that must
+                    be added to your
+                    class.
+                </p></td></tr></table></div><p>During the generation process, if Celerio encounters the old file</p><p>
+                <code class="filename">src/main/generated-java/com/example/demo/domain/Account.java</code>
+                file, it deletes it to prevent class duplication.
+            </p><p>You can proceed by analogy to override other Java classes.</p></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e1795"></a>6.3.&nbsp;Other files (non-Java)</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1798"></a>6.3.1.&nbsp;Code modifications through reserved folders</h3></div></div></div><p>
+                Ideally all generated files should be under a
+                <code class="filename">generated</code>
+                folder.
+                In practice, this is not really convenient or possible as certain files
+                are expected to
+                be in a well known location (ex:
+                <code class="filename">web.xml</code>
+                )
+            </p><p>Whenever possible and pertinent, we keep the generated by under a generated folder. This is specially useful for entity bound files as there
+                could be a lot of them.
+            </p><p>
+                This strategy is currently used for localization properties files. The two folders are:
+                <code class="filename">src/main/resources/localization/domain</code>
+                and
+                <code class="filename">src/main/resources/localization/domain-generated</code>
+                . The Spring's
+                <code class="varname">messageSource</code>
+                configuration allow us to first lookup resources first in the domain folder
+                and then in the domain-generated folder. This simple fact allows you to change a property
+                key without modifying any generated file under
+                <code class="filename">domain-generated</code>
+                . You just have to create a properties file under
+                the
+                <code class="filename">domain</code>
+                folder and 'override' your properties here. Do not forget to configure the message
+                source to take your new file into account though.
+            </p><p>
+                The same applies for generated Spring Web Flow xhtml files, they are generated under
+                <code class="filename">src/main/webapp/WEB-INF/flows-generated</code>
+                but by configuration, Spring Web Flow will first look up a flow by id in the
+                <code class="filename">src/main/webapp/WEB-INF/flows</code>
+                user's reserved folder. So, do not modify the generated flows, instead simply copy the files you need under
+                <code class="filename">src/main/webapp/WEB-INF/flows</code>
+                and then modify the copied version.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1839"></a>6.3.2.&nbsp;Code modification through source control</h3></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="d720e1842"></a>6.3.2.1.&nbsp;Overwrite non-java generated file with your own content</h4></div></div></div><p> To overwrite the content of the non-java generated file with your own content, first add add this file to your
+                    your source control system
+                    and then modify it as you want.</p><p> Next time Celerio runs, it will detect that this file is under source control and
+                    will not overwrite it.</p><p> In a sense, the generated code is frozen for this file: Celerio does not control
+                    it anymore, it is under your control.</p><p>
+                    Since you may need to have access to the orignal generated file for merging purposes, Celerio still generates it, but under the
+                    <code class="filename">target</code>
+                    folder.
+                    Please refer to
+                    <a href="modification.html#collisions" title="6.4.&nbsp;Collisions and Merging">Section&nbsp;6.4, &#8220;Collisions and Merging&#8221;</a>
+                    .
+                </p><p> If you change your mind and want Celerio to generate the file again, simply
+                    remove the file from your source control and regenerate your
+                    code.</p></div><div class="section" lang="en"><div class="titlepage"><div><div><h4 class="title"><a name="generation-rule-summary"></a>6.3.2.2.&nbsp;Generation rule summary for non-java file</h4></div></div></div><p> Before generating a non-java file, Celerio applies the following rules:</p><div class="table"><a name="d720e1865"></a><p class="title"><b>Table&nbsp;6.1.&nbsp;Generations rule summary for non-java file</b></p><div class="table-contents"><table summary="Generations rule summary for non-java file" border="1"><colgroup><col><col><col><col></colgroup><thead><tr><th>File is already present on disk</th><th>File is under source control</th><th>File is the same</th><th>Celerio action</th></tr></thead><tbody><tr><td>No</td><td>n/a</td><td>n/a</td><td>File is generated</td></tr><tr><td>Yes</td><td>Yes or No</td><td>Yes</td><td>File is not generated</td></tr><tr><td>Yes</td><td>Yes</td><td>No</td><td>File is generated in the collision directory</td></tr><tr><td>Yes</td><td>No</td><td>No</td><td>File is overwritten</td></tr></tbody></table></div></div><br class="table-break"></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="collisions"></a>6.4.&nbsp;Collisions and Merging</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="d720e1919"></a>6.4.1.&nbsp;Collision folder</h3></div></div></div><p> When Celerio detects that a file which should be generated is already present and
+                under source control, it does not overwrite your file.
+            </p><p>
+                When it can, it merges the file or apply some advance rules. When it cannot resolve the
+                conflicts Celerio generates the files in conflict in the
+                collision folder:
+                <code class="filename">target/maven-celerio-plugin/collisions</code>
+            </p><p>
+                All files generated in that folder have the same path as if they had been generated
+                normally, except for the
+                <code class="filename">target/maven-celerio-plugin/collisions</code>
+                path prefix.
+            </p><p>
+                So, whenever appropriate, Celerio generates the original file, under the expected path,
+                in the collision folder
+                <code class="filename">target/maven-celerio-plugin/collisions</code>
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h3 class="title"><a name="merging-manually-the-files"></a>6.4.2.&nbsp;Merging manually the files</h3></div></div></div><p> To merge the files in conflict, you can use a tool such as WinMerge.</p><p> Since, the files that led to some conflict are located in the collision folder
+                under the same relative path, you can use the recursive
+                directory comparison feature.
+        </p><p> To do so, you just have to specify in WinMerge, your project root directory and
+                the collision directory</p><p> Then, you can keep track of changes you made and eventually merge some of the
+                newly generated code into your existing file.</p></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="generation.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="celerio-guide.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="convention.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;5.&nbsp;Code generation&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:85%;"><a href="http://www.Springfuse.com" title="Spring code generation">Springfuse</a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;7.&nbsp;Conventions and integration</td></tr></table></div></body></html>

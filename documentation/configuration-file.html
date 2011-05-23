@@ -1,0 +1,53 @@
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+   <title>Chapter&nbsp;8.&nbsp;Configuration File</title><link rel="stylesheet" href="css/html.css" type="text/css"><meta name="generator" content="DocBook XSL Stylesheets V1.72.0"><meta name="keywords" content="&#xA;            java&#xA;            , &#xA;            generation&#xA;            , &#xA;            spring&#xA;            , &#xA;            jpa&#xA;            , &#xA;            oracle&#xA;            , &#xA;            maven&#xA;            "><link rel="start" href="celerio-guide.html" title="Celerio"><link rel="up" href="celerio-guide.html" title="Celerio"><link rel="prev" href="convention.html" title="Chapter&nbsp;7.&nbsp;Conventions and integration"><link rel="next" href="configuration.html" title="Chapter&nbsp;9.&nbsp;Configuration"></head><body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF"><div xmlns:fo="http://www.w3.org/1999/XSL/Format" id="top"><div id="header"><div class="projectlogo"><a href="./"><img class="logoImage" src="images/logo.png" alt="Springfuse" border="0"></a></div></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="mhSpacer"></div><div class="chapter" lang="en"><div class="titlepage"><div><div><h2 class="title"><a name="configuration-file"></a>Chapter&nbsp;8.&nbsp;Configuration File</h2></div></div></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e2244"></a>8.1.&nbsp;Main Configuration File</h2></div></div></div><p>
+                The main Celerio configuration file is by convention located under
+                <code class="filename">${basedir}/src/main/config/maven-celerio-plugin/maven-celerio-plugin.xml</code>
+                The bootstrap goal creates one that you can customize.
+                This configuration file must respect the
+                <code class="filename">celerio.xsd</code>
+                schema.
+            </p><p>
+                Please refer to
+                <a href="xsd.defaults.html" title="Chapter&nbsp;13.&nbsp;XSD defaults">Chapter&nbsp;13, <i xmlns:xlink="http://www.w3.org/1999/xlink">XSD defaults</i></a>
+                for a complete XSD reference.
+            </p></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e2259"></a>8.2.&nbsp;Splitting the <code class="literal">entityConfigs</code> tag</h2></div></div></div><p>
+                The <code class="literal">entityConfigs</code> tag can be declared in the main Celerio configuration file AND/OR in
+                sub-configuration files that are included in the main configuration file.
+                Note that, for such included files, only the <code class="literal">entityConfigs</code> tag is loaded by Celerio. Here is an
+                example:
+            </p><pre class="programlisting">&lt;<span class="hl-tag">celerio</span>&gt;
+ &lt;<span class="hl-tag">includes</span>&gt;
+  &lt;<span class="hl-tag">include</span> <span class="hl-attribute">filename</span>=<span class="hl-value">"maven-celerio-plugin-secondary.xml"</span>/&gt;
+ &lt;<span class="hl-tag">/includes</span>&gt;
+ &lt;<span class="hl-tag">entityConfigs</span>&gt;
+  &lt;<span class="hl-tag">entityConfig</span> <span class="hl-attribute">tableName</span>=<span class="hl-value">"BOOK"</span> <span class="hl-attribute">subPackage</span>=<span class="hl-value">"fromMainConfig"</span>/&gt;
+ &lt;<span class="hl-tag">/entityConfigs</span>&gt;                    
+&lt;<span class="hl-tag">/celerio</span>&gt;</pre><p>And here is the included file</p><pre class="programlisting">&lt;<span class="hl-tag">celerio</span>&gt;
+ &lt;<span class="hl-tag">entityConfigs</span>&gt;
+  &lt;<span class="hl-tag">entityConfig</span> <span class="hl-attribute">tableName</span>=<span class="hl-value">"ACCOUNT"</span> <span class="hl-attribute">subPackage</span>=<span class="hl-value">"fromIncludeConfig"</span>/&gt;
+ &lt;<span class="hl-tag">/entityConfigs</span>&gt;
+&lt;<span class="hl-tag">/celerio</span>&gt;</pre></div><div class="section" lang="en"><div class="titlepage"><div><div><h2 class="title" style="clear: both"><a name="d720e2279"></a>8.3.&nbsp;Template pack configuration file</h2></div></div></div><p>
+                The template packs can be declared in the main Celerio configuration file OR in
+                the file
+                <code class="filename">${basedir}/src/main/config/maven-celerio-plugin/celerio-template-packs.xml</code>
+                .
+                When this file is present Celerio loads from it the <code class="literal">packs</code> tag instead of loading it from the main Celerio configuration file.
+            </p><pre class="programlisting">&lt;<span class="hl-tag">celerio</span>&gt;  
+ &lt;<span class="hl-tag">configuration</span>&gt;
+  &lt;<span class="hl-tag">packs</span>&gt;
+   &lt;<span class="hl-tag">pack</span> <span class="hl-attribute">name</span>=<span class="hl-value">"pack-backend"</span> <span class="hl-attribute">enable</span>=<span class="hl-value">"true"</span>&gt;
+    &lt;<span class="hl-tag">filenames</span>&gt;&lt;<span class="hl-comment">!-- do not generate these files --</span>&gt;
+     &lt;<span class="hl-tag">filename</span> <span class="hl-attribute">include</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">pattern</span>=<span class="hl-value">"src/main/resources/database.properties"</span> /&gt;
+     &lt;<span class="hl-tag">filename</span> <span class="hl-attribute">include</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">pattern</span>=<span class="hl-value">"src/main/resources/hibernate.properties"</span> /&gt;
+     &lt;<span class="hl-tag">filename</span> <span class="hl-attribute">include</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">pattern</span>=<span class="hl-value">"src/main/resources/log4j.properties"</span> /&gt;
+     &lt;<span class="hl-tag">filename</span> <span class="hl-attribute">include</span>=<span class="hl-value">"false"</span> <span class="hl-attribute">pattern</span>=<span class="hl-value">"src/main/resources/ehcache/local.xml"</span> /&gt;
+    &lt;<span class="hl-tag">/filenames</span>&gt;
+   &lt;<span class="hl-tag">/pack</span>&gt;            
+  &lt;<span class="hl-tag">/packs</span>&gt;    
+ &lt;<span class="hl-tag">/configuration</span>&gt;    
+&lt;<span class="hl-tag">/celerio</span>&gt;</pre><p>
+            This separated file was mainly introduced for multi-module maven projects. The various modules (e.g. core and web) 
+            shares the same <code class="filename">maven-celerio-plugin.xml</code> configuration file but uses their own 
+            <code class="filename">celerio-template-packs.xml</code> configuration file.
+        </p></div></div><div xmlns:fo="http://www.w3.org/1999/XSL/Format" class="navfooter"><hr><table width="100%" summary="Navigation footer"><tr><td width="40%" align="left"><a accesskey="p" href="convention.html">Prev</a>&nbsp;</td><td width="20%" align="center"><a accesskey="h" href="celerio-guide.html">Home</a></td><td width="40%" align="right">&nbsp;<a accesskey="n" href="configuration.html">Next</a></td></tr><tr><td width="40%" align="left" valign="top">Chapter&nbsp;7.&nbsp;Conventions and integration&nbsp;</td><td width="20%" align="center"><span style="color:white;font-size:85%;"><a href="http://www.Springfuse.com" title="Spring code generation">Springfuse</a></span></td><td width="40%" align="right" valign="top">&nbsp;Chapter&nbsp;9.&nbsp;Configuration</td></tr></table></div></body></html>
