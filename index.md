@@ -272,7 +272,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.48-SNAPSHOT";
+		var version= "3.0.49-SNAPSHOT";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
@@ -360,11 +360,13 @@ input.error {
 				cmd += quote("-DproxyNtlmWorkstation=" + proxyNtlmWorkstation) + " ";
 			}
 		}
-		cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
+		if(window.location.host.indexOf('localhost') != 0){
+		        cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
+                }
 		cmd += "\n";
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
-			cmd += 'mvn -f springfuse.xml generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://' + window.location.host + '/remote/generate\n';
+			cmd += 'mvn -f springfuse.xml generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://localhost:9999/remote/generate\n';
 		} else {
 			cmd += 'mvn -f springfuse.xml generate-sources\n';
 		}
