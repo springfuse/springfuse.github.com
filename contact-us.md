@@ -26,11 +26,11 @@ title: Contact us
 				<input id="firstname" type="text" name="entry.0.single" placeholder="Required" required/>
 			</p>
 			<p>
-				<label for="lastname" class="required">Lastname *</label>
+				<label for="lastname" class="required">Lastname</label>
 				<input id="lastname" type="text" name="entry.2.single" placeholder="Required" required/>
 			</p>
 			<p>
-				<label for="email" class="required">Email *</label>
+				<label for="email" class="required">Email</label>
 				<input id="email" type="email" name="entry.4.single" placeholder="Required" required/>
 			</p>
 			<p>

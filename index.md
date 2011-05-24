@@ -272,7 +272,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.49-SNAPSHOT";
+		var version= "3.0.49";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
