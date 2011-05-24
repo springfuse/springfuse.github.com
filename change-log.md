@@ -2,10 +2,43 @@
 layout: english
 title: Springfuse change log 
 ---
+# 3.0.49 (2011-05-24)
+## General
+
+* no longer skip table without pk. Instead, look for:
+
+  1. first non null unique column
+  2. or first unique column
+  3. or fall back to first column
+
+* better logging message for property name clash and duplicate columns in metadata (Thanks to Lisa from Qualcomm)
+* add getPackageNodeUp facility.
+
+## Improvements
+
+* Specify mime types in web.xml (thanks to Björn Johansson)
+
+## maven-springfuse-plugin:
+
+* dump reversed metadata to target/reversed-metadata.xml
+
+
+# 3.0.48 (2011-05-18)
+## Fixes
+
+* Fix file move (see 3.0.47) when a file with the same name is already present in the collision folder. Classes not located in the project root package would not have been picked up
+
 
 # 3.0.47 (2011-05-11)
 ## General
 * The springfuse remote generation plugin now streams the generation logs from our server.
+* better logging message for property name clash and duplicate columns in metadata (Thanks to Lisa from Qualcomm)
+* Fix @Column mapping for reserved column name whose var name is the same as the column name
+{% highlight java %}
+@Column(name ="`VALUE`")  //
+  public String getValue()...
+{% endhighlight %}
+
 
 # 3.0.46 (2011-05-04)
 ## General
