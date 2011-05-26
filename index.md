@@ -319,7 +319,7 @@ input.error {
 			
 			$("#jdbcGroupId").toggleClass("error", !jdbcGroupId.match(/^[\w\.\_\-]+$/));
 			$("#jdbcArtifactId").toggleClass("error", !jdbcArtifactId.match(/^[\w\.\_\-]+$/));
-			$("#jdbcVersion").toggleClass("error", !jdbcVersion.match(/^\w\.\_\-]+$/));
+			$("#jdbcVersion").toggleClass("error", !jdbcVersion.match(/^[\w\.\_\-]+$/));
 			$("#jdbcUrl").toggleClass("error", !jdbcUrl.match(/^jdbc:.*/));
 			$("#jdbcDriver").toggleClass("error", !jdbcDriver.match(/^[\w\.\_\-]+$/));
 
