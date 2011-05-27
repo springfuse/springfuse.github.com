@@ -224,27 +224,37 @@ input.error {
 </table>
 <script type="text/javascript">
 	function updateDbTypeDefaultValues() {
+		var urlDbType = $("#jdbcUrl").val().split(":")[1];
+                
 		var dbType = $("#dbType").val();
 		if (dbType == "h2") {
-			$("#jdbcUrl").val("jdbc:h2:~/.h2/DBNAME");
+                        if (urlDbType != "h2") {
+        			$("#jdbcUrl").val("jdbc:h2:~/.h2/DBNAME");
+                        }
 			$("#jdbcGroupId").val("com.h2database");
 			$("#jdbcArtifactId").val("h2");
 			$("#jdbcDriver").val("org.h2.Driver");
 			$("#jdbcVersion").val("1.2.131");
 		} else if (dbType == "postgresql") {
-			$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
+                        if (urlDbType != "postgresql") {
+        			$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
+                        }
 			$("#jdbcGroupId").val("postgresql");
 			$("#jdbcArtifactId").val("postgresql");
 			$("#jdbcDriver").val("org.postgresql.Driver");
 			$("#jdbcVersion").val("8.2-504.jdbc3");
 		} else if (dbType == "oracle") {
-			$("#jdbcUrl").val("jdbc:oracle:thin:@localhost:1521:XE");
+                        if (urlDbType != "oracle") {
+        			$("#jdbcUrl").val("jdbc:oracle:thin:@localhost:1521:XE");
+                        }
 			$("#jdbcGroupId").val("com.oracle");
 			$("#jdbcArtifactId").val("ojdbc14");
 			$("#jdbcDriver").val("oracle.jdbc.driver.OracleDriver");
 			$("#jdbcVersion").val("10.2.0.3");
 		} else if (dbType == "mysql") {
-			$("#jdbcUrl").val("jdbc:mysql://localhost/DBNAME");
+                        if (urlDbType != "mysql") {
+        			$("#jdbcUrl").val("jdbc:mysql://localhost/DBNAME");
+                        }
 			$("#jdbcGroupId").val("mysql");
 			$("#jdbcArtifactId").val("mysql-connector-java");
 			$("#jdbcDriver").val("com.mysql.jdbc.Driver");
@@ -396,7 +406,7 @@ input.error {
 			} else {
 				$("#dbType").val("other")
 			}
-			updateDbTypeDefaultValues();
+                        updateDbTypeDefaultValues();
 			updateCommand();
 		});
 		$("#dbType").change(function() {
