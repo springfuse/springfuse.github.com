@@ -20,4 +20,4 @@ Since the online version is a one-shot tool, you should rename or delete the fol
 
 The example project comes with a configuration file that declares a one-to-many relationship, an enum, and rename some properties. You should first play around with this file and rerun the code generation.
 
-Please refer to <a href="http://www.springfuse.com/static/documentation/html/springfuse.html">SpringFuse reference documentation</a>
+Please refer to <a href="http://www.springfuse.com/documentation/springfuse.html">SpringFuse reference documentation</a>
