@@ -52,6 +52,7 @@ input.error {
 														Everything is done on your computer.">
 					Reverse a sample database that we provide
 				</label>
+				<br/>
 				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand">
 				<label for="archetypeArtifactId1" title="You just need to provide some basic info so our plugin can reverse your database.<br/> 
 														do not try this with production database, use your development database.">
@@ -131,23 +132,21 @@ input.error {
 		<tr>
 			<th>Generate</th>
 			<td>
-				<input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand">
-				<label for="backendOnly" title="You have the basics, all the tables will have a domain object generated, and the jpa setup is done etc.<br/>
-												Use this option if you are new to Springfuse or java.">
-					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3
-				</label>
-				<br/>
-				<input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand">
-				<label for="springMvc" title="You have an out-of-the box working web application running spring mvc with the latest best practices.">
-					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3 + Spring MVC 3 + JQuery 1.5
-				</label>
-				<br/>
-				<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked">
-				<label for="jsf2Primefaces" title="Many enterprise applications have complex navigation and requirements.<br/>
-													For these type of applications MVC is too low level, JSF and Weflow are the way to go.<br/>
-													But these technologies are complex to master, use this generation option to learn how to set them up.">
-					Maven 3 + Java entities + Spring 3 + JPA 2 + Spring Security 3 + JSF 2 + PrimeFaces 2.2 + Spring WebFlow 3
-				</label>
+				<table>
+					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
+						<td width="280">JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>				
+						<td>Ideal for large enterprise application requiring complex navigation, 
+						    extended persistence context and nice look and feel.<br/></td></tr>
+					
+					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
+						<td>Spring MVC 3, jQuery 1.5<br/>JPA 2 Entities/DAO/Service layers</td>
+						<td>A classic web stack, ideal for MDM projects.</td></tr>
+
+					<tr><td><input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand"></td>
+						<td>JPA 2 Entities/DAO/Service layers</td>
+						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
+				</table>
+				<p>All projects uses Maven 3, Hibernate 3.5, Spring 3, Spring Security 3, Ehcache, Bean Validation etc.</p>
 			</td>
 		</tr>
 		<tr>
