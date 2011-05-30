@@ -18,9 +18,9 @@ table#quickstart tbody tr th, table#quickstart tbody tr td {
 	border: 1px dotted lightgray;
 }
 input.error {
-	border: 1px dotted red;
 	margin: 0.5em 0;
 	padding: 0;
+	background-color: red;
 }
 </style>
 <div id="debug"> </div>
@@ -34,7 +34,7 @@ input.error {
 					<tbody>
 						<tr>
 							<th style="width:120px;">Name</th>
-							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand"></td>
+							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand" title="Use simple characters a-z, A-Z, 0-9"></td>
 						</tr>
 						<tr>
 							<th style="width:120px;">Root package</th>
@@ -80,7 +80,7 @@ input.error {
 						</tr>
 					</tbody>
 				</table>
-				<p class="important">
+				<p class="tip">
 					Do not provide here your production database credentials. 
 					You should only reverse a database used for development.
 					<br/>
@@ -105,7 +105,14 @@ input.error {
 									<option value="other">other</option>
 								</select>
 								<span id="oracle-database" style="display: none">
-									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html">install it manually</a>.
+								<p class="tip"> 
+									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html" target="_new">install it manually</a>.
+								</p>	
+								</span>
+								<span id="other-database" style="display: none">
+								<p class="tip"> 
+									Please replace the JDBC driver informations below with your own values.
+								</p>	
 								</span>
 							</td>
 						</tr>
@@ -162,11 +169,11 @@ input.error {
 						<tbody>
 							<tr>
 								<th style="width:120px;"><label for="proxyHost">Proxy hostname</label></th>
-								<td><input type="text" name="proxyHost" id="proxyHost" size="50" class="updateCommand" placeholder="ex: intranet-proxy"></td>
+								<td><input type="text" name="proxyHost" id="proxyHost" size="50" class="updateCommand" value="intranet-proxy"></td>
 							</tr>
 							<tr>
 								<th><label for="proxyPort">Proxy port</label></th>
-								<td><input type="text" name="proxyPort" id="proxyPort" size="8" class="updateCommand" placeholder="ex: 8080"></td>
+								<td><input type="text" name="proxyPort" id="proxyPort" size="8" class="updateCommand" value="8080"></td>
 							</tr>
 							<tr>
 								<th><label for="proxyUsername">Username</label></th>
@@ -200,8 +207,8 @@ input.error {
 							</tr>
 						</tbody>
 					</table>
-					<p class="important">
-						If not already done, please <a href="http://maven.apache.org/guides/mini/guide-proxies.html">configure  maven to use this proxy</a> too.
+					<p class="info">
+						If not already done, please <a href="http://maven.apache.org/guides/mini/guide-proxies.html" target="_new">configure  maven to use this proxy</a> too.
 					</p>
 				</div>
 			</td>
@@ -209,7 +216,7 @@ input.error {
 		<tr>
 			<th>Advanced Configuration</th>
 			<td>
-				Once you get familiar with the generation process, please refer to the <a href="/documentation/springfuse.html">code generation configuration</a> documentation to control more precisely the code generation.<br/>
+				Once you get familiar with the generation process, please refer to the <a href="/documentation/springfuse.html" target="_new">code generation configuration</a> documentation to control more precisely the code generation.<br/>
 			</td>
 		</tr>
 		<tr>
@@ -258,18 +265,19 @@ input.error {
 			$("#jdbcArtifactId").val("mysql-connector-java");
 			$("#jdbcDriver").val("com.mysql.jdbc.Driver");
 			$("#jdbcVersion").val("5.1.6");
-		} else {
-			$("#jdbcUrl").val("");
-			$("#jdbcGroupId").val("");
-			$("#jdbcArtifactId").val("");
-			$("#jdbcDriver").val("");
-			$("#jdbcVersion").val("");
 		}
+		
 		if (dbType == "oracle") {
 			$("#oracle-database").show();
 		} else {
 			$("#oracle-database").hide();
 		}
+		
+		if (dbType == "other") {
+			$("#other-database").show();
+		} else {
+			$("#other-database").hide();
+		}		
 	}
 
 	function quote(value) {
@@ -289,8 +297,8 @@ input.error {
 		var archetypeArtifactId = $("input[name=archetypeArtifactId]:checked").val();
 		var proxyEnable = $("input[name=proxyEnable]:checked").val();
 
-		$("#groupId").toggleClass("error", !groupId.match(/^[\w\.\_\-]+$/));
-		$("#artifactId").toggleClass("error", !artifactId.match(/^[\w\.\-\_]+$/));
+		$("#groupId").toggleClass("error", !groupId.match(/^([a-zA-Z]+){1}(\.[a-zA-Z0-9_]+)*$/));
+		$("#artifactId").toggleClass("error", !artifactId.match(/^[a-zA-Z0-9]+$/));
 		$("#email").toggleClass("error", email.length > 0 && !email.match(/^(\w\.\_\-])+\@([\w\.\_\-])+\.([A-Za-z]{2,4})$/));
 		
 		if (archetypeArtifactId == "quickstart") {
@@ -326,7 +334,7 @@ input.error {
 			var jdbcUser = $("#jdbcUser").val();
 			var jdbcPassword = $("#jdbcPassword").val();
 			
-			$("#jdbcGroupId").toggleClass("error", !jdbcGroupId.match(/^[\w\.\_\-]+$/));
+			$("#jdbcGroupId").toggleClass("error", !jdbcGroupId.match(/^\w+(\.\w+)*$/));
 			$("#jdbcArtifactId").toggleClass("error", !jdbcArtifactId.match(/^[\w\.\_\-]+$/));
 			$("#jdbcVersion").toggleClass("error", !jdbcVersion.match(/^[\w\.\_\-]+$/));
 			$("#jdbcUrl").toggleClass("error", !jdbcUrl.match(/^jdbc:.*/));
@@ -391,6 +399,12 @@ input.error {
 		$(".project-name").html(artifactId);
 		
 		$("#destinationUrl").html("<a href=\"http://localhost:8080/" + artifactId + "\">http://localhost:8080/" + artifactId + "</a>");
+		
+		if($(".error:visible").length > 0) {
+			$("#cmdLine").css({"background-color": "red"});		
+		} else {
+			$("#cmdLine").css({"background-color": "#ffffff"});		
+		}
 	}
 	
 	$(document).ready(function() {
@@ -434,12 +448,13 @@ input.error {
 # Maven Command to Execute
 
 Once you are done, copy-paste these maven commands lines in a console:
+
 <textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:95px" title="Cut and paste this command line to create your project"></textarea>
 <p class="open-your-browser">
 	Then once all is ready you can open your browser and go to <span id="destinationUrl"><a href="http://localhost:8080/myproject">http://localhost:8080/myproject</a></span>
 </p>
 <p class="tip">
-	If the remote generation fails (error, missing entities, etc.), please <a href="/faq#question_remote_generation_failed">read this faq entry</a>.
+	If the remote generation fails (error, missing entities, etc.), please <a href="/faq.html#question_remote_generation_failed" target="_new">read this faq entry</a>.
 </p>
 
 ## Requirements
@@ -474,7 +489,7 @@ For backend only project, it runs all the unit tests.
 
 Import in eclipse, and enjoy !
 
-<p class="important">
+<p class="tip">
 Do not import the intermediary project in your IDE. Instead, import the generated project, 
 its folder name ends with '-generated'.
 </p>
