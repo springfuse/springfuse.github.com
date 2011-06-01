@@ -317,12 +317,12 @@ input.error {
 		cmd += '-DarchetypeGroupId=com.springfuse.archetypes ';
 		cmd += '-DarchetypeArtifactId=' + archetypeArtifactId + ' ';
 		cmd += '-DarchetypeVersion=' + version + ' ';
-		cmd += quote('-DgroupId=' + groupId) + ' ';
-		cmd += quote('-Dpackage=' + groupId) + ' ';
-		cmd += quote('-DartifactId=' + artifactId) + ' ';
+		cmd += '-DgroupId=' + quote(groupId) + ' ';
+		cmd += '-Dpackage=' + quote(groupId) + ' ';
+		cmd += '-DartifactId=' + quote(artifactId) + ' ';
 		cmd += '-Dversion=1.0.0 ';
 		cmd += '-DfrontEnd=' + frontEnd + ' ';
-		cmd += quote('-Demail=' + email) + ' ';
+		cmd += '-Demail=' + quote(email) + ' ';
 		
 		if (archetypeArtifactId == "quickstart") {
 			$("#cmdLine").val("");
