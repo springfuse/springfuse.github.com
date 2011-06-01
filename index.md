@@ -365,16 +365,16 @@ input.error {
 			$("#proxyPort").toggleClass("error", !proxyPort.match(/^\d+$/));
 			
 			cmd += "-DproxyEnable=true ";
-			cmd += quote("-DproxyHost=" + proxyHost) + " ";
+			cmd += '-DproxyHost=' + quote(proxyHost) + " ";
 			cmd += "-DproxyPort=" + proxyPort + " ";
 			if (proxyUsername) {
-				cmd += quote("-DproxyUsername=" + proxyUsername) + " ";
-				cmd += quote("-DproxyPassword=" + proxyPassword) + " ";
+				cmd += "-DproxyUsername=" + quote(proxyUsername) + " ";
+				cmd += "-DproxyPassword=" + quote(proxyPassword) + " ";
 			}
 			if (proxyNtlmDomain) {
 				cmd += "-DproxyNtlmEnable=true ";
-				cmd += quote("-DproxyNtlmDomain=" + proxyNtlmDomain) + " ";
-				cmd += quote("-DproxyNtlmWorkstation=" + proxyNtlmWorkstation) + " ";
+				cmd += "-DproxyNtlmDomain=" + quote(proxyNtlmDomain) + " ";
+				cmd += "-DproxyNtlmWorkstation=" + quote(proxyNtlmWorkstation) + " ";
 			}
 		}
 		if(window.location.host.indexOf('localhost') != 0){
