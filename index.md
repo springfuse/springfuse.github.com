@@ -285,7 +285,11 @@ input.error {
 	}
 
 	function param(key, value) {
-		return "-D" + key + "=" + value.replace(/ /gi, "\\ ") + " ";
+                if (!value) {
+                        value = "";
+                }
+                window.alert(key + " " + value);
+		return "-D" + key + "=" + value.replace(" ", "\\ ") + " ";
 	}
 
 	function updateCommand() {
