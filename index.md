@@ -288,7 +288,7 @@ input.error {
                 if (!value) {
                         value = "";
                 }
-		return "-D" + key + "=" + value.replace(" ", "\\ ") + " ";
+		return "-D" + key + "=" + value.replace(/ /gi, "\\ ") + " ";
 	}
 
 	function updateCommand() {
