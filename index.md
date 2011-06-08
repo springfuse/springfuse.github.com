@@ -321,8 +321,7 @@ input.error {
 		cmd += param("archetypeArtifactId", archetypeArtifactId);
 		cmd += param("archetypeVersion", version);
 		cmd += param("groupId", groupId);
-		cmd += param("package", "com.springfuse.archetypes");
-		cmd += param("archetypeGroupId", groupId);
+		cmd += param("package", groupId);
 		cmd += param("artifactId", artifactId);
 		cmd += param("version", "1.0.0");
 		cmd += param("frontEnd", frontEnd);
@@ -355,7 +354,7 @@ input.error {
 		} else {
 			$("#cmdLine").attr("rows", "12");
 		}
-		cmd += param("interactiveMode", false);
+		cmd += param("interactiveMode", "false");
 		// proxy
 		if (proxyEnable === "true") {
 			var proxyHost = $("#proxyHost").val();
