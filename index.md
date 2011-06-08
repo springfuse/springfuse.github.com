@@ -17,10 +17,15 @@ table#quickstart {
 table#quickstart tbody tr th, table#quickstart tbody tr td {
 	border: 1px dotted lightgray;
 }
+
+input {
+	color: black;
+}
 input.error {
 	margin: 0.5em 0;
 	padding: 0;
 	background-color: red;
+	color: white;
 }
 </style>
 <div id="debug"> </div>
@@ -105,14 +110,14 @@ input.error {
 									<option value="other">other</option>
 								</select>
 								<span id="oracle-database" style="display: none">
-								<p class="tip"> 
+								<p class="tip">
 									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html" target="_new">install it manually</a>.
-								</p>	
+								</p>
 								</span>
 								<span id="other-database" style="display: none">
-								<p class="tip"> 
+								<p class="tip">
 									Please replace the JDBC driver informations below with your own values.
-								</p>	
+								</p>
 								</span>
 							</td>
 						</tr>
@@ -141,9 +146,9 @@ input.error {
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>				
+						<td width="280">JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
 						<td>Ideal for large enterprise application requiring complex navigation, 
-						    extended persistence context and nice look and feel.<br/></td></tr>
+							extended persistence context and nice look and feel.<br/></td></tr>
 					
 					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
 						<td>Spring MVC 3, jQuery 1.5<br/>JPA 2 Entities/DAO/Service layers</td>
@@ -231,42 +236,41 @@ input.error {
 <script type="text/javascript">
 	function updateDbTypeDefaultValues() {
 		var urlDbType = $("#jdbcUrl").val().split(":")[1];
-                
 		var dbType = $("#dbType").val();
 		if (dbType == "h2") {
-                        if (urlDbType != "h2") {
-        			$("#jdbcUrl").val("jdbc:h2:~/.h2/DBNAME");
-                        }
+			if (urlDbType != "h2") {
+				$("#jdbcUrl").val("jdbc:h2:~/.h2/DBNAME");
+			}
 			$("#jdbcGroupId").val("com.h2database");
 			$("#jdbcArtifactId").val("h2");
 			$("#jdbcDriver").val("org.h2.Driver");
 			$("#jdbcVersion").val("1.2.131");
 		} else if (dbType == "postgresql") {
-                        if (urlDbType != "postgresql") {
-        			$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
-                        }
+			if (urlDbType != "postgresql") {
+				$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
+			}
 			$("#jdbcGroupId").val("postgresql");
 			$("#jdbcArtifactId").val("postgresql");
 			$("#jdbcDriver").val("org.postgresql.Driver");
 			$("#jdbcVersion").val("8.2-504.jdbc3");
 		} else if (dbType == "oracle") {
-                        if (urlDbType != "oracle") {
-        			$("#jdbcUrl").val("jdbc:oracle:thin:@localhost:1521:XE");
-                        }
+			if (urlDbType != "oracle") {
+				$("#jdbcUrl").val("jdbc:oracle:thin:@localhost:1521:XE");
+			}
 			$("#jdbcGroupId").val("com.oracle");
 			$("#jdbcArtifactId").val("ojdbc14");
 			$("#jdbcDriver").val("oracle.jdbc.driver.OracleDriver");
 			$("#jdbcVersion").val("10.2.0.3");
 		} else if (dbType == "mysql") {
-                        if (urlDbType != "mysql") {
-        			$("#jdbcUrl").val("jdbc:mysql://localhost/DBNAME");
-                        }
+			if (urlDbType != "mysql") {
+				$("#jdbcUrl").val("jdbc:mysql://localhost/DBNAME");
+			}
 			$("#jdbcGroupId").val("mysql");
 			$("#jdbcArtifactId").val("mysql-connector-java");
 			$("#jdbcDriver").val("com.mysql.jdbc.Driver");
 			$("#jdbcVersion").val("5.1.6");
 		}
-		
+
 		if (dbType == "oracle") {
 			$("#oracle-database").show();
 		} else {
@@ -277,15 +281,11 @@ input.error {
 			$("#other-database").show();
 		} else {
 			$("#other-database").hide();
-		}		
+		}
 	}
 
-	function quote(value) {
-		if (value.match(/[^\w-=.]/)) {
-			return "'" + value + "'"; 
-		} else { 
-			return value;
-		}
+	function param(key, value) {
+		return "-D" + key + "=" + value.replace(/ /gi, "\\ ") + " ";
 	}
 
 	function updateCommand() {
@@ -312,18 +312,19 @@ input.error {
 		} else {
 			$(".proxy-properties").hide();
 		}
-		
+
 		var cmd = 'mvn archetype:generate ';
-		cmd += '-DarchetypeGroupId=com.springfuse.archetypes ';
-		cmd += '-DarchetypeArtifactId=' + archetypeArtifactId + ' ';
-		cmd += '-DarchetypeVersion=' + version + ' ';
-		cmd += '-DgroupId=' + quote(groupId) + ' ';
-		cmd += '-Dpackage=' + quote(groupId) + ' ';
-		cmd += '-DartifactId=' + quote(artifactId) + ' ';
-		cmd += '-Dversion=1.0.0 ';
-		cmd += '-DfrontEnd=' + frontEnd + ' ';
-		cmd += '-Demail=' + quote(email) + ' ';
-		
+		cmd += param("archetypeGroupId", "com.springfuse.archetypes");
+		cmd += param("archetypeArtifactId", archetypeArtifactId);
+		cmd += param("archetypeVersion", version);
+		cmd += param("groupId", groupId);
+		cmd += param("package", "com.springfuse.archetypes");
+		cmd += param("archetypeGroupId", groupId);
+		cmd += param("artifactId", artifactId);
+		cmd += param("version", "1.0.0");
+		cmd += param("frontEnd", frontEnd);
+		cmd += param("email", email);
+
 		if (archetypeArtifactId == "quickstart") {
 			$("#cmdLine").val("");
 			var jdbcGroupId = $("#jdbcGroupId").val();
@@ -333,53 +334,53 @@ input.error {
 			var jdbcDriver = $("#jdbcDriver").val();
 			var jdbcUser = $("#jdbcUser").val();
 			var jdbcPassword = $("#jdbcPassword").val();
-			
+
 			$("#jdbcGroupId").toggleClass("error", !jdbcGroupId.match(/^\w+(\.\w+)*$/));
 			$("#jdbcArtifactId").toggleClass("error", !jdbcArtifactId.match(/^[\w\.\_\-]+$/));
 			$("#jdbcVersion").toggleClass("error", !jdbcVersion.match(/^[\w\.\_\-]+$/));
 			$("#jdbcUrl").toggleClass("error", !jdbcUrl.match(/^jdbc:.*/));
 			$("#jdbcDriver").toggleClass("error", !jdbcDriver.match(/^[\w\.\_\-]+$/));
 
-			cmd += '-DjdbcGroupId=' + quote(jdbcGroupId) + " ";
-			cmd += '-DjdbcArtifactId=' + quote(jdbcArtifactId) + " ";
-			cmd += '-DjdbcVersion=' + quote(jdbcVersion) + " ";
-			cmd += '-DjdbcDriver=' + quote(jdbcDriver) + " ";
-			cmd += '-DjdbcUser=' + quote(jdbcUser) + " ";
-			cmd += '-DjdbcPassword=' + quote(jdbcPassword) + " ";
-			cmd += '-DjdbcUrl=' + quote(jdbcUrl) + " ";
+			cmd += param("jdbcGroupId", jdbcGroupId);
+			cmd += param("jdbcArtifactId", jdbcArtifactId);
+			cmd += param("jdbcVersion", jdbcVersion);
+			cmd += param("jdbcDriver", jdbcDriver);
+			cmd += param("jdbcUser", jdbcUser);
+			cmd += param("jdbcPassword", jdbcPassword);
+			cmd += param("jdbcUrl", jdbcUrl);
 			$("#cmdLine").attr("rows", "14");
 		} else {
 			$("#cmdLine").attr("rows", "12");
 		}
-		cmd += '-DinteractiveMode=false ';
+		cmd += param("interactiveMode", false);
 		// proxy
 		if (proxyEnable === "true") {
 			var proxyHost = $("#proxyHost").val();
 			var proxyPort = $("#proxyPort").val();
-			var proxyUsername= $("#proxyUsername").val();
-			var proxyPassword= $("#proxyPassword").val();
-			var proxyNtlmDomain= $("#proxyNtlmDomain").val();
-			var proxyNtlmWorkstation= $("#proxyNtlmWorkstation").val();
-			
+			var proxyUsername = $("#proxyUsername").val();
+			var proxyPassword = $("#proxyPassword").val();
+			var proxyNtlmDomain = $("#proxyNtlmDomain").val();
+			var proxyNtlmWorkstation = $("#proxyNtlmWorkstation").val();
+
 			$("#proxyHost").toggleClass("error", !proxyHost.match(/^[\w\.\_\-]+$/));
 			$("#proxyPort").toggleClass("error", !proxyPort.match(/^\d+$/));
-			
-			cmd += "-DproxyEnable=true ";
-			cmd += '-DproxyHost=' + quote(proxyHost) + " ";
-			cmd += "-DproxyPort=" + proxyPort + " ";
+
+			cmd += param("proxyEnable", "true")
+			cmd += param("proxyHost", "proxyHost")
+			cmd += param("proxyPort", "proxyPort")
 			if (proxyUsername) {
-				cmd += "-DproxyUsername=" + quote(proxyUsername) + " ";
-				cmd += "-DproxyPassword=" + quote(proxyPassword) + " ";
+				cmd += param("proxyUsername", "proxyUsername")
+				cmd += param("proxyPassword", "proxyPassword")
 			}
 			if (proxyNtlmDomain) {
-				cmd += "-DproxyNtlmEnable=true ";
-				cmd += "-DproxyNtlmDomain=" + quote(proxyNtlmDomain) + " ";
-				cmd += "-DproxyNtlmWorkstation=" + quote(proxyNtlmWorkstation) + " ";
+				cmd += param("proxyNtlmEnable", "true")
+				cmd += param("proxyNtlmDomain", "proxyNtlmDomain")
+				cmd += param("proxyNtlmWorkstation", "proxyNtlmWorkstation")
 			}
 		}
 		if(window.location.host.indexOf('localhost') != 0){
-		        cmd += '-DarchetypeRepository=http://maven2.springfuse.com/ ';
-                }
+			cmd += param("archetypeRepository", "http://maven2.springfuse.com/")
+		}
 		cmd += "\n";
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
@@ -387,7 +388,7 @@ input.error {
 		} else {
 			cmd += 'mvn -f springfuse.xml generate-sources\n';
 		}
-		
+
 		if (frontEnd !== "backendOnly") {
 			$(".open-your-browser").show();
 			cmd += 'mvn jetty:run\n';
@@ -397,16 +398,16 @@ input.error {
 		}
 		$("#cmdLine").val(cmd);
 		$(".project-name").html(artifactId);
-		
+
 		$("#destinationUrl").html("<a href=\"http://localhost:8080/" + artifactId + "\">http://localhost:8080/" + artifactId + "</a>");
-		
+
 		if($(".error:visible").length > 0) {
-			$("#cmdLine").css({"background-color": "red"});		
+			$("#cmdLine").css({"background-color": "red","color": "white"});
 		} else {
-			$("#cmdLine").css({"background-color": "#ffffff"});		
+			$("#cmdLine").css({"background-color": "white", "color": "black"});
 		}
 	}
-	
+
 	$(document).ready(function() {
 		$(".updateCommand").change(updateCommand);
 		$("#cmdLine").click(function() {
@@ -419,7 +420,7 @@ input.error {
 			} else {
 				$("#dbType").val("other")
 			}
-                        updateDbTypeDefaultValues();
+			updateDbTypeDefaultValues();
 			updateCommand();
 		});
 		$("#dbType").change(function() {
