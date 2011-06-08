@@ -288,7 +288,6 @@ input.error {
                 if (!value) {
                         value = "";
                 }
-                window.alert(key + " " + value);
 		return "-D" + key + "=" + value.replace(" ", "\\ ") + " ";
 	}
 
