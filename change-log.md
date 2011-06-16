@@ -2,6 +2,29 @@
 layout: english
 title: Springfuse change log 
 ---
+
+# 3.0.50 (2011-06-16)
+
+##Celerio engine:
+* compilation fix for default value when the numeric type maps to BigInteger or BigDecimal
+{% highlight java %}
+  // we had for example (compilation error)
+  setPrice(0.0000);
+  // we now generate:
+  setPrice(new BigDecimal("0.0000"));
+{% endhighlight %}
+
+## backend:
+* jpa: generate @DateTimeFormat(pattern = DATE_FORMAT_PATTERN) instead of @DateTimeFormat(iso = DATE) to ease global modification of the formatted date. The DATE_FORMAT_PATTERN is statically imported from ResourcesUtil.
+
+## spring mvc 3 front:
+* fix auto complete for many to one: in certain case, the binding was not working on the server side
+* fix the contact us link in the generated app
+
+## jsf2-primefaces front:
+* fix the contact us link in the generated app
+
+
 # 3.0.49 (2011-05-24)
 ## General
 
