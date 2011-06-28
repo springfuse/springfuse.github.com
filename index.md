@@ -49,6 +49,13 @@ input.error {
 				</table>
 			</td>
 		</tr>
+		
+		<tr>
+			<th><i>Your email</i></th>
+			<td>
+				<input type="text" id="email" placeholder="Optional" class="updateCommand" title="Used to send you personnalized tips, in case of generation failure for example.">
+			</td>
+		</tr>		
 		<tr>
 			<th>Database</th>
 			<td>
@@ -224,12 +231,6 @@ input.error {
 				Once you get familiar with the generation process, please refer to the <a href="/documentation/springfuse.html" target="_new">code generation configuration</a> documentation to control more precisely the code generation.<br/>
 			</td>
 		</tr>
-		<tr>
-			<th><i>Your email</i></th>
-			<td>
-				<input type="text" id="email" placeholder="Optional" class="updateCommand" title="Used to send you personnalized tips, in case of generation failure for example.">
-			</td>
-		</tr>
 	</tbody>
 </form>
 </table>
@@ -368,16 +369,16 @@ input.error {
 			$("#proxyPort").toggleClass("error", !proxyPort.match(/^\d+$/));
 
 			cmd += param("proxyEnable", "true")
-			cmd += param("proxyHost", "proxyHost")
-			cmd += param("proxyPort", "proxyPort")
+			cmd += param("proxyHost", proxyHost)
+			cmd += param("proxyPort", proxyPort)
 			if (proxyUsername) {
-				cmd += param("proxyUsername", "proxyUsername")
-				cmd += param("proxyPassword", "proxyPassword")
+				cmd += param("proxyUsername", proxyUsername)
+				cmd += param("proxyPassword", proxyPassword)
 			}
 			if (proxyNtlmDomain) {
 				cmd += param("proxyNtlmEnable", "true")
-				cmd += param("proxyNtlmDomain", "proxyNtlmDomain")
-				cmd += param("proxyNtlmWorkstation", "proxyNtlmWorkstation")
+				cmd += param("proxyNtlmDomain", proxyNtlmDomain)
+				cmd += param("proxyNtlmWorkstation", proxyNtlmWorkstation)
 			}
 		}
 		if(window.location.host.indexOf('localhost') != 0){
