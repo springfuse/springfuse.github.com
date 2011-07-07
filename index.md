@@ -305,7 +305,6 @@ input.error {
 
 		$("#groupId").toggleClass("error", !groupId.match(/^([a-zA-Z]+){1}(\.[a-zA-Z0-9_]+)*$/));
 		$("#artifactId").toggleClass("error", !artifactId.match(/^[a-zA-Z0-9]+$/));
-		$("#email").toggleClass("error", email.length > 0 && !email.match(/^(\w\.\_\-])+\@([\w\.\_\-])+\.([A-Za-z]{2,4})$/));
 		
 		if (archetypeArtifactId == "quickstart") {
 			$(".jdbc-properties").show();
