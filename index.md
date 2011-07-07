@@ -1,13 +1,15 @@
 ---
 layout: english
-title: Quickstart
+title: SpringFuse - Online Java Code Generator
 ---
 
-# Quickstart
+# SpringFuse generation form
 
-Springfuse reverses your database structure and generates top-quality source code that you can use immediately as the foundation of your web application.
+Springfuse reverses your database structure and generates top-quality Java source code that you can use immediately as the foundation of your web application.
 	
-To generate a project, adjust the settings below and execute the resulting command lines in a console.
+<strong>To generate a project, adjust the settings below and execute the resulting command lines in a console.</strong>
+
+Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
 <div>
 <style>
@@ -53,7 +55,7 @@ input.error {
 		<tr>
 			<th><i>Your email</i></th>
 			<td>
-				<input type="text" id="email" placeholder="Optional" class="updateCommand" title="Used to send you personnalized tips, in case of generation failure for example.">
+				<input type="text" id="email" class="updateCommand">
 			</td>
 		</tr>		
 		<tr>
@@ -149,20 +151,20 @@ input.error {
 			</td>
 		</tr>
 		<tr>
-			<th>Generate</th>
+			<th>Generation Output</th>
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
+						<td width="280">Web application project using: <br/>JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
 						<td>Ideal for large enterprise application requiring complex navigation, 
 							extended persistence context and nice look and feel.<br/></td></tr>
 					
 					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
-						<td>Spring MVC 3, jQuery 1.5<br/>JPA 2 Entities/DAO/Service layers</td>
+						<td>Web application project using: <br/>Spring MVC 3, jQuery 1.5<br/>JPA 2 Entities/DAO/Service layers</td>
 						<td>A classic web stack, ideal for MDM projects.</td></tr>
 
 					<tr><td><input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand"></td>
-						<td>JPA 2 Entities/DAO/Service layers</td>
+						<td>Backend only project using: <br/>JPA 2 Entities/DAO/Service layers</td>
 						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
 				</table>
 				<p>All projects uses Maven 3, Hibernate 3.5, Spring 3, Spring Security 3, Ehcache, Bean Validation etc.</p>
@@ -293,7 +295,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.50";
+		var version= "3.0.51";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
@@ -449,7 +451,7 @@ input.error {
 </script>
 </div>
 
-# Maven Command to Execute
+# Execute this command to Create, Reverse, Generate, Download and Run your project
 
 Once you are done, copy-paste these maven commands lines in a console:
 
@@ -461,11 +463,6 @@ Once you are done, copy-paste these maven commands lines in a console:
 	If the remote generation fails (error, missing entities, etc.), please <a href="/faq.html#question_remote_generation_failed" target="_new">read this faq entry</a>.
 </p>
 
-## Requirements
-
-* JDK 1.6
-* Maven 2 at least.
-
 <p class="tip"> 
 The first time you use Springfuse or Maven you may be disappointed by the time it takes to download all the jar dependencies. Just be patient...
 </p>
@@ -476,7 +473,7 @@ Filling the form above allows you to prepare few Maven 2 commands that ultimatel
 
 Let's go throw the various steps:
  
-The first command creates an intermediary project able to:
+The first command creates a project able to:
 
 * reverse your database schema, or a database example we provide
 * send the reversed database schema, not the data, to our server
@@ -488,13 +485,4 @@ Then the last maven command starts the project.
 For webapp project, it deploys it locally using the embedded jetty servlet container. 
 
 For backend only project, it runs all the unit tests.
-
-## Eclipse 
-
-Import in eclipse, and enjoy !
-
-<p class="tip">
-Do not import the intermediary project in your IDE. Instead, import the generated project, 
-its folder name ends with '-generated'.
-</p>
 

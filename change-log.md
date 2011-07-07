@@ -3,6 +3,31 @@ layout: english
 title: Springfuse change log 
 ---
 
+# 3.0.51 (2011-07-07)
+
+## Celerio engine:
+* Leverage IS_AUTOINCREMENT column metadata when the jdbc driver supports it. 
+  It is used to determine if we should annotate simple pk field witn @GeneratedValue or not. 
+  If the driver does not support this metadata, we do as before: numeric pk are annotated 
+  by default with @GeneratedValue.
+
+* Introduce back support for composite foreign key with the following limitations:
+  * Only composite @ManyToOne and its inverse @OneToMany are supported
+  * Such composite relations are not yet supported/tested in front-end views
+
+* DB2 support:
+  * Fix db reverse when foreign key are duplicated (observed with SAMPLE schema shipped with DB2 distribution)
+  * When connecting to the database, force schema name to current username
+   
+* Fix composite primary key error, when a date is present in the composite PK.
+  Was due to missing import of org.springframework.format.annotation.DateTimeFormat
+
+* Upgrade all H2 versions used in the examples or template pack bootstraps to 1.3.157
+
+## spring mvc 3 front:
+* Move up the character encoding filter and apply it to /** (thanks to unibail for tip)
+
+
 # 3.0.50 (2011-06-16)
 
 ##Celerio engine:
