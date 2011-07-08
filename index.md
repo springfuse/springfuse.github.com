@@ -140,7 +140,7 @@ input.error {
 						</tr>
 						<tr>
 							<th><label for="jdbcGroupId">Version</label></th>
-							<td><input type="text" name="jdbcVersion" id="jdbcVersion" class="updateCommand" placeholder="ex: 5.1.6"></td>
+							<td><input type="text" name="jdbcVersion" id="jdbcVersion" class="updateCommand" placeholder="ex: 5.1.17"></td>
 						</tr>
 						<tr>
 							<th><label for="jdbcDriver">Driver class</label></th>
@@ -271,7 +271,7 @@ input.error {
 			$("#jdbcGroupId").val("mysql");
 			$("#jdbcArtifactId").val("mysql-connector-java");
 			$("#jdbcDriver").val("com.mysql.jdbc.Driver");
-			$("#jdbcVersion").val("5.1.6");
+			$("#jdbcVersion").val("5.1.17");
 		}
 
 		if (dbType == "oracle") {
