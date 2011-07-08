@@ -114,6 +114,7 @@ input.error {
 								<select id="dbType" name="dbType" class="updateCommand">
 									<option value="mysql">mysql</option>
 									<option value="oracle">oracle</option>
+									<option value="db2">db2</option>
 									<option value="h2">h2</option>
 									<option value="postgresql">postgresql</option>
 									<option value="other">other</option>
@@ -121,6 +122,11 @@ input.error {
 								<span id="oracle-database" style="display: none">
 								<p class="tip">
 									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html" target="_new">install it manually</a>.
+								</p>
+								</span>
+								<span id="db2-database" style="display: none">
+								<p class="tip">
+									If you do not have an DB2 driver already in your maven repository please <a href="/reverse-db2-database-schema.html" target="_new">install it manually</a>.
 								</p>
 								</span>
 								<span id="other-database" style="display: none">
@@ -264,6 +270,14 @@ input.error {
 			$("#jdbcArtifactId").val("ojdbc14");
 			$("#jdbcDriver").val("oracle.jdbc.driver.OracleDriver");
 			$("#jdbcVersion").val("10.2.0.3");
+		} else if (dbType == "db2") {
+			if (urlDbType != "db2") {
+				$("#jdbcUrl").val("jdbc:db2://localhost:50000/DBNAME");
+			}
+			$("#jdbcGroupId").val("com.ibm.db2");
+			$("#jdbcArtifactId").val("db2jcc4");
+			$("#jdbcDriver").val("com.ibm.db2.jcc.DB2Driver");
+			$("#jdbcVersion").val("9.7.0.4");
 		} else if (dbType == "mysql") {
 			if (urlDbType != "mysql") {
 				$("#jdbcUrl").val("jdbc:mysql://localhost/DBNAME");
@@ -278,6 +292,11 @@ input.error {
 			$("#oracle-database").show();
 		} else {
 			$("#oracle-database").hide();
+		}
+		if (dbType == "db2") {
+			$("#db2-database").show();
+		} else {
+			$("#db2-database").hide();
 		}
 		
 		if (dbType == "other") {
