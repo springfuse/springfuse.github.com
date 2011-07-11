@@ -46,7 +46,8 @@ title: Contact us
 				<textarea id="message" name="entry.8.single" placeholder="Please enter your message..." style="width:570px;height: 150px;" required></textarea>
 			</p>
 			<p>
-				<input type="submit" name="submit" value="Send" style="float:right;padding:5px;font-size:15px;width:200px;border: 1px solid #BEBEBE;background-color: white;"/><br>
+				<label for="sendit" style="vertical-align:top;">&nbsp;</label>
+				<input id="sendit" type="submit" name="submit" value="Send" style="padding:5px;font-size:15px;width:200px;border: 1px solid #BEBEBE;background-color: white;"/><br>
 			</p>
 		</fieldset>
 	</form>
