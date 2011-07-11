@@ -55,7 +55,7 @@ input.error {
 		<tr>
 			<th><i>Your email</i></th>
 			<td>
-				<input type="text" id="email" class="updateCommand"> We will send generation logs to this address, please make sure it is valid.
+				<input type="text" id="email" class="updateCommand"> We will send generation logs and extracted metadata to this address, please make sure it is valid.
 			</td>
 		</tr>		
 		<tr>
