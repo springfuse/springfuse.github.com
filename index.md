@@ -44,8 +44,8 @@ input.error {
 							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand" title="Use simple characters a-z, A-Z, 0-9"></td>
 						</tr>
 						<tr>
-							<th style="width:120px;">Root package</th>
-							<td><input type="text" id="groupId" size="40" value="com.company.project" placeholder="ex: com.company.project" class="required updateCommand" title="Ex: com.company.project"></td>
+							<th style="width:120px;">Java root package</th>
+							<td><input type="text" id="groupId" size="40" value="com.yourcompany.yourproject" placeholder="ex: com.company.project" class="required updateCommand" title="Ex: com.company.project"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -55,7 +55,7 @@ input.error {
 		<tr>
 			<th><i>Your email</i></th>
 			<td>
-				<input type="text" id="email" class="updateCommand">
+				<input type="text" id="email" class="updateCommand"> We will send generation logs to this address, please make sure it is valid.
 			</td>
 		</tr>		
 		<tr>
@@ -312,6 +312,10 @@ input.error {
                 }
 		return "-D" + key + "=" + value.replace(/ /gi, "\\ ") + " ";
 	}
+	function isValidEmailAddress(emailAddress) {
+		var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+		return pattern.test(emailAddress);
+	}
 
 	function updateCommand() {
 		var version= "3.0.51";
@@ -324,7 +328,8 @@ input.error {
 
 		$("#groupId").toggleClass("error", !groupId.match(/^([a-zA-Z]+){1}(\.[a-zA-Z0-9_]+)*$/));
 		$("#artifactId").toggleClass("error", !artifactId.match(/^[a-zA-Z0-9]+$/));
-		
+		$("#email").toggleClass("error", email.length > 0 && !isValidEmailAddress(email));
+
 		if (archetypeArtifactId == "quickstart") {
 			$(".jdbc-properties").show();
 		} else {
@@ -337,7 +342,7 @@ input.error {
 			$(".proxy-properties").hide();
 		}
 
-		var cmd = 'mvn archetype:generate ';
+		var cmd = 'mvn -U archetype:generate ';
 		cmd += param("archetypeGroupId", "com.springfuse.archetypes");
 		cmd += param("archetypeArtifactId", archetypeArtifactId);
 		cmd += param("archetypeVersion", version);
