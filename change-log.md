@@ -3,6 +3,12 @@ layout: english
 title: Springfuse change log 
 ---
 
+# 3.0.52 (2011-07-11)
+
+## Remote logs:
+* Generation logs are now sent by email along with extracted metadata.
+* Fix archetype to take into account email entered in springfuse generation form.
+
 # 3.0.51 (2011-07-07)
 
 ## Celerio engine:
