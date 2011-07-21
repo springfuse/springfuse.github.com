@@ -16,26 +16,27 @@ It is of a great help to learn JSF2, PrimeFaces, Spring Web Flow through a real 
 This technical stack was chosen to develop enterprise applications.
 It would certainly not fit any kind of application.
 However, we believe it perfectly fits applications having hundreds of pages/views that rely on a database schema whose tables naturally represent the domain layer.
-	
 
+We have chosen PrimeFaces because the project is pretty active, 
+the <a href="http://www.primefaces.org/showcase">components look great</a> and it was the first to really embrace JSF2.
+	
 ## JSF2 &amp; PrimeFaces	
 
-Primefaces's integration is pretty straightforward, all you need is to add Primefaces jar file as a dependency in your pom.xml file and start using the components from your pages.
-You can find numerous example in the generated pages under: 		 		  
+Primefaces's integration is pretty straightforward, the generated pom.xml declares a dependency to primefaces jar file.
+
+You can find numerous example of Primefaces components usage in the generated pages under: 		 		  
 
 * src/main/webapp/WEB-INF/views
 * src/main/webapp/WEB-INF/taglib/components
 * src/main/webapp/WEB-INF/taglib/flows-generated
 
-We have chosen PrimeFaces because the project is pretty active, 
-the <a href="http://www.primefaces.org/showcase">components look great</a> and it was the first to really embrace JSF2.
-
 
 ## JSF 2 & JBoss EL
 
 Default EL implementation is pretty restrictive. For example your cannot invoke methods having parameters. 
-Hopefully JBoss EL circumvent this limitation. JBoss EL integration is easy, you need to add jboss-el dependency in your pom.xml file and
-declare it in your web.xml
+Hopefully JBoss EL circumvents this limitation. 
+
+JBoss EL integration is easy, the generated pom.xml file declares a jboss-el dependency and the web.xml uses it.
 
 
 ## JSF 2 & Spring Web Flow
@@ -44,7 +45,7 @@ JSF2 is great but we believe its navigation system is still poor compare to what
 
 Hopefully we are not reinventing the wheel here, Spring Web Flow (SWF) team has done an amazing job at integrating SWF with JSF 1 &amp; 2.
 
-Here are the various important files for the Spring Web Flow integration	
+Here are the various important generated files to look at for the Spring Web Flow integration	
 <table class="list">
 	<thead>
 		<tr>

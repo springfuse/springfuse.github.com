@@ -3,6 +3,7 @@ layout: english
 title: SpringFuse - Online Java Code Generator
 ---
 
+
 # SpringFuse generation form
 
 Springfuse reverses your database structure and generates top-quality Java source code that you can use immediately as the foundation of your web application.
@@ -16,9 +17,14 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 table#quickstart {
 	border: 1px solid gray;
 }
-table#quickstart tbody tr th, table#quickstart tbody tr td {
+table#quickstart tbody tr th {
 	border: 1px dotted lightgray;
+	font-weight:bold;
 }
+
+table#quickstart tbody tr td {
+	border: 1px dotted lightgray;
+} 
 
 input {
 	color: black;
@@ -34,6 +40,12 @@ input.error {
 <table id="quickstart">
 <form class="form">
 	<tbody>
+		<tr>
+			<th><i>Your email</i></th>
+			<td>
+				<input type="text" id="email" class="updateCommand"> Optional. We send to this email the code generation logs and the extracted metadata.
+			</td>
+		</tr>		
 		<tr>
 			<th>Project</th>
 			<td>
@@ -51,20 +63,13 @@ input.error {
 				</table>
 			</td>
 		</tr>
-		
-		<tr>
-			<th><i>Your email</i></th>
-			<td>
-				<input type="text" id="email" class="updateCommand"> Optional. If provided, we will send you generation logs and extracted metadata.
-			</td>
-		</tr>		
 		<tr>
 			<th>Database</th>
 			<td>
 				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked">
 				<label for="archetypeArtifactId3" title="No need to have a database, we will create an embedded database for you, and reverse it.<br/>
 														Everything is done on your computer.">
-					Reverse a sample database that we provide
+					Reverse a sample H2 database that we provide
 				</label>
 				<br/>
 				<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand">
@@ -74,34 +79,7 @@ input.error {
 				</label>
 			</td>
 		</tr>
-		<tr class="jdbc-properties" style="display: none">
-			<th>Jdbc credentials</th>
-			<td>
-				Please provide your database credentials so the springfuse plugin can connect to your database and reverse it.
-				<table>
-					<tbody
-						<tr>
-							<th style="width:120px;"><label for="jdbcUrl">Url</label></th>
-							<td><input type="text" name="jdbcUrl" id="jdbcUrl" size="70" class="updateCommand" placeholder="ex: jdbc:mysql://localhost/DBNAME"></td>
-						</tr>
-						<tr>
-							<th><label for="jdbcUser">User</label></th>
-							<td><input type="text" name="jdbcUser" id="jdbcUser" class="updateCommand" placeholder="ex: user"></td>
-						</tr>
-						<tr>
-							<th><label for="jdbcPassword">Password</label></th>
-							<td><input type="text" name="jdbcPassword" id="jdbcPassword" class="updateCommand" placeholder="ex: password"></td>
-						</tr>
-					</tbody>
-				</table>
-				<p class="tip">
-					Do not provide here your production database credentials. 
-					You should only reverse a database used for development.
-					<br/>
-					These settings will be used as well in the generated project to access your database.
-				</p>
-			</td>
-		</tr>
+
 		<tr class="jdbc-properties" style="display: none">
 			<th>Jdbc driver</th>
 			<td>
@@ -156,18 +134,51 @@ input.error {
 				</table>
 			</td>
 		</tr>
+		<tr class="jdbc-properties" style="display: none">
+			<th>Jdbc credentials</th>
+			<td>
+				Please provide your database credentials so the springfuse plugin can connect to your database and reverse it.
+				<table>
+					<tbody
+						<tr>
+							<th style="width:120px;"><label for="jdbcUrl">Url</label></th>
+							<td><input type="text" name="jdbcUrl" id="jdbcUrl" size="70" class="updateCommand" placeholder="ex: jdbc:mysql://localhost/DBNAME"></td>
+						</tr>
+						<tr>
+							<th><label for="jdbcUser">User</label></th>
+							<td><input type="text" name="jdbcUser" id="jdbcUser" class="updateCommand" placeholder="ex: user"></td>
+						</tr>
+						<tr>
+							<th><label for="jdbcPassword">Password</label></th>
+							<td><input type="text" name="jdbcPassword" id="jdbcPassword" class="updateCommand" placeholder="ex: password"></td>
+						</tr>
+					</tbody>
+				</table>
+				<p class="tip">
+					Do not provide here your production database credentials. 
+					You should only reverse a database used for development.
+					<br/>
+					These settings will be used as well in the generated project to access your database.
+				</p>
+			</td>
+		</tr>		
 		<tr>
-			<th>Generation Output</th>
+			<th>Generation&nbsp;Output</th>
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
 						<td width="280">Web application project using: <br/>JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
 						<td>Ideal for large enterprise application requiring complex navigation, 
-							extended persistence context and nice look and feel.<br/></td></tr>
-					
+							extended persistence context and nice look and feel.<br/>
+							
+							Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
+							and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.
+							</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
 						<td>Web application project using: <br/>Spring MVC 3, jQuery 1.5<br/>JPA 2 Entities/DAO/Service layers</td>
-						<td>A classic web stack, ideal for MDM projects.</td></tr>
+						<td>A classic web stack.<br/>
+						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
+						</td></tr>
 
 					<tr><td><input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand"></td>
 						<td>Backend only project using: <br/>JPA 2 Entities/DAO/Service layers</td>
@@ -231,12 +242,6 @@ input.error {
 						If not already done, please <a href="http://maven.apache.org/guides/mini/guide-proxies.html" target="_new">configure  maven to use this proxy</a> too.
 					</p>
 				</div>
-			</td>
-		</tr>
-		<tr>
-			<th>Advanced Configuration</th>
-			<td>
-				Once you get familiar with the generation process, please refer to the <a href="/documentation/springfuse.html" target="_new">code generation configuration</a> documentation to control more precisely the code generation.<br/>
 			</td>
 		</tr>
 	</tbody>
@@ -343,6 +348,7 @@ input.error {
 		}
 
 		var cmd = 'mvn -U archetype:generate ';
+		var cmd2 = '';
 		cmd += param("archetypeGroupId", "com.springfuse.archetypes");
 		cmd += param("archetypeArtifactId", archetypeArtifactId);
 		cmd += param("archetypeVersion", version);
@@ -376,9 +382,9 @@ input.error {
 			cmd += param("jdbcUser", jdbcUser);
 			cmd += param("jdbcPassword", jdbcPassword);
 			cmd += param("jdbcUrl", jdbcUrl);
-			$("#cmdLine").attr("rows", "14");
-		} else {
 			$("#cmdLine").attr("rows", "12");
+		} else {
+			$("#cmdLine").attr("rows", "10");
 		}
 		cmd += param("interactiveMode", "false");
 		// proxy
@@ -412,19 +418,20 @@ input.error {
 		cmd += "\n";
 		cmd += 'cd ' + artifactId + '\n';
 		if(window.location.host.indexOf('localhost') == 0){
-			cmd += 'mvn -f springfuse.xml generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://localhost:9999/remote/generate\n';
+			cmd2 = 'mvn -f springfuse.xml generate-sources -Dmaven-remote-generation-plugin.generationServiceLocation=http://localhost:9999/remote/generate\n';
 		} else {
-			cmd += 'mvn -f springfuse.xml generate-sources\n';
+			cmd2 = 'mvn -f springfuse.xml generate-sources\n';
 		}
 
 		if (frontEnd !== "backendOnly") {
 			$(".open-your-browser").show();
-			cmd += 'mvn jetty:run\n';
+			cmd2 += 'mvn jetty:run\n';
 		} else {
 			$(".open-your-browser").hide();
-			cmd += 'mvn install\n';
+			cmd2 += 'mvn install\n';
 		}
 		$("#cmdLine").val(cmd);
+		$("#cmdLine2").val(cmd2);
 		$(".project-name").html(artifactId);
 
 		$("#destinationUrl").html("<a href=\"http://localhost:8080/" + artifactId + "\">http://localhost:8080/" + artifactId + "</a>");
@@ -439,6 +446,9 @@ input.error {
 	$(document).ready(function() {
 		$(".updateCommand").change(updateCommand);
 		$("#cmdLine").click(function() {
+			$(this).select();
+		});
+		$("#cmdLine2").click(function() {
 			$(this).select();
 		});
 		$("#jdbcUrl").change(function() {
@@ -474,38 +484,35 @@ input.error {
 </script>
 </div>
 
-# Execute this command to Create, Reverse, Generate, Download and Run your project
+# Reverse, Generate, Download and Run your project
 
-Once you are done, copy-paste these maven commands lines in a console:
+Once you are done, copy-paste sequentially these maven commands from step 1 and 3 in a console:
 
-<textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:95px" title="Cut and paste this command line to create your project"></textarea>
-<p class="open-your-browser">
-	Then once all is ready you can open your browser and go to <span id="destinationUrl"><a href="http://localhost:8080/myproject">http://localhost:8080/myproject</a></span>
-</p>
+## Step 1/3: Bootstrap
+Copy paste this first command in a console to create the minimal set of files required to reverse the database.
+<textarea id="cmdLine" rows="4" cols="80" readonly="readonly" style="width:850px;height:85px; font-weight: bold" title="Cut and paste this command line to create your project"></textarea>
+
+## Step 2/3:  Configuration (Optional)
+Once you become familiar with Springfuse, you may want to <a href="/code-generation-configuration.html" target="_new">configure the code generation</a>.
+
+## Step 3/3: Reverse and Code Generation
+
+Copy paste these commands in a console to: 
+
+* reverse your database schema, or the H2 database example we provide
+* send the reversed database schema, not the data, to our server
+* (generation duration depends on the number of tables)
+* download the generated project from our server and unzip it.
+* deploy the project locally using Jetty servlet container (<a href="http://localhost:8080/">http://localhost:8080/</a>) or, for backend project run all the unit tests.
+
+<textarea id="cmdLine2" rows="2" cols="80" readonly="readonly" style="width:850px;height:40px;font-weight: bold"></textarea>
+
 <p class="tip">
 	If the remote generation fails (error, missing entities, etc.), please <a href="/faq.html#question_remote_generation_failed" target="_new">read this faq entry</a>.
+	You should also provide a valid email in the form above to obtain the generation logs.
 </p>
 
 <p class="tip"> 
-The first time you use Springfuse or Maven you may be disappointed by the time it takes to download all the jar dependencies. Just be patient...
+	The first time you use Springfuse or Maven you may be disappointed by the time Maven takes to download all the jar dependencies. Just be patient...
 </p>
-
-## How It Works
-
-Filling the form above allows you to prepare few Maven 2 commands that ultimately run your generated project!
-
-Let's go throw the various steps:
- 
-The first command creates a project able to:
-
-* reverse your database schema, or a database example we provide
-* send the reversed database schema, not the data, to our server
-* wait while our server generates your project
-* download the generated project from our server
-
-Then the last maven command starts the project.
-
-For webapp project, it deploys it locally using the embedded jetty servlet container. 
-
-For backend only project, it runs all the unit tests.
 
