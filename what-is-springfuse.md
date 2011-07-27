@@ -3,8 +3,13 @@ layout: english
 title: What is Springfuse ? 
 ---
 
+# What is SpringFuse
 
-Springfuse is a code generator that generates __in a few seconds__ web applications that leverage various open source technologies, such as Spring Framework and Hibernate.
+SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>, a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">JAXIO</a>.
+
+Springfuse relies on Celerio to generate __in a few seconds__ web applications that leverage various open source technologies, such as Spring Framework and Hibernate.
+
+# How Springfuse works
 
 Springfuse uses the structure of __your database as an entry point__.
 
@@ -12,12 +17,12 @@ The generation process is done in <b>very easy steps</b>.
 
 <img src="/images/springfuse/how-springfuse-works.png"/>
 
-* You run locally on your computer, our Springfuse Maven plugin. 
+1. You run locally on your computer, our Springfuse Maven plugin. 
   It <strong>extracts</strong> the meta-data information from your database,
   such as the table names, the column names and the various integrity constraints.
-* Springfuse plugin <strong>uploads</strong> the result of this extraction to Springfuse site. 
-  In a few seconds the Celerio code generator generates your project and zip it.
-* It then <strong>downloads</strong> your project source code. 
+2. Springfuse plugin <strong>uploads</strong> the result of this extraction to Springfuse site. 
+  In a few seconds the <a href="http://www.jaxio.com/en/celerio.html" target="_new">Celerio</a> code generator generates your project and zip it.
+3. Springfuse plugin then <strong>downloads</strong> your project source code. 
   Here you go : you have your first release!
 
 
@@ -94,37 +99,3 @@ But it is too much work, you would need a second team, but there is no budget fo
 
 
 __Springfuse helps your existing team make the first move toward your application rewriting.__
-
-
-# Why is it different ?
-
-## Simple Simple Simple
-
-Springfuse is pragmatic and goes straight to the point.
-There is no UML, no new language to learn, no new esoteric concepts understand, no specific IDE to use.
-Springfuse leverages existing technologies as you do as a developer.
-
-
-## Does one thing well
-
-Springfuse is not trying to address all technologies, all applications.
-We target Java Web applications based on Spring technologies and Hibernate and we do it well.
-
-
-## Goes beyond the trivial
-
-Springfuse generates some source code that address advanced topics such as
- 
-* security,
-* persistence,
-* 2d level cache,
-* distribution,
-* contextual logs,
-* internationalization,
-* etc.
-
-
-## No runtime dependency 
-
-There is no Springfuse library or runtime.
-
