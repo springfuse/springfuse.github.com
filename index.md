@@ -14,6 +14,9 @@ can use immediately as the foundation of your web application.
 Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
 # SpringFuse generation form
+
+Current version: 3.0.55 (<a href="/change-log.html">changelog</a>)
+
 <div>
 <style>
 table#quickstart {
@@ -325,7 +328,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.52";
+		var version= "3.0.55";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();

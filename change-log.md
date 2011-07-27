@@ -3,6 +3,24 @@ layout: english
 title: Springfuse change log 
 ---
 
+
+
+# 3.0.55 (2011-07-27)
+
+## Database reverse:
+* Make database reverse work for DB2 on Z/OS system
+* Catalog and schema name were ignored (was working most of the time as we provide sensitive default for Oracle and DB2
+
+## backend pack
+* Fix default value for attribute mapped to enum.
+  For example assuming the civility colunm is mapped to CivilityEnum and its default valude in the database in "MR",
+  instead of generating setCivility("MR"), we now generate setCivility(CivilityEnum.MR). Thanks to Aram Murguía.
+* Fix SearchTemplate constructor by copy. List were passed by reference instead of being cloned.
+* Fix some var name clashes occurring when a non foreign key attribute var name matches the var name used by convention for an x-to-one relation.  
+
+## jsf2 primefaces pack
+* Fix url-pattern in web.xml ('*' ==> '/*'), thanks to Aram Murguía
+
 # 3.0.52 (2011-07-11)
 
 ## Remote logs:
