@@ -15,7 +15,9 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
 # SpringFuse generation form
 
-Current version: 3.0.55 (<a href="/change-log.html">changelog</a>)
+Current version: 3.0.55 (<a href="/change-log.html">changelog</a>).
+
+We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
 <div>
 <style>
