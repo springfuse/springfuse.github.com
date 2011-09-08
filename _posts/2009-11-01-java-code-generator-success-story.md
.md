@@ -1,5 +1,5 @@
 ---
-layout: main
+layout: english
 title: Java Code Generator Success Story
 comments: true
 ---
