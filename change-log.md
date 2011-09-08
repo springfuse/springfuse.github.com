@@ -4,6 +4,20 @@ title: Springfuse change log
 ---
 
 
+#3.0.56 (2011-09-08)
+
+## jsf2-primefaces front:
+* Upgrade to PrimeFaces 3.0.RC1-SNAPSHOT
+* Remove selectionMode="single" from p:dataTable as webflow datamodel does not support it.
+* Change the way we display askForUpdateDialog
+* Change the way we display the search popup faced this issue: http://forum.primefaces.org/viewtopic.php?f=3&t=14597
+* Use p:selectOneMenu in search form
+* Use JSF2 resources facility instead of spring one.
+* Clean up our CSS (keep it minimal)
+* Use new primefaces maven repo & tag lib namespace uri
+* Use 'redmond' theme (see pom.xml and web.xml)
+* accessibility: add 'for' attribute to label in the inputText component
+* accessibility: use hidden commandButton instead of hidden commandLink in panelMenu component
 
 # 3.0.55 (2011-07-27)
 
