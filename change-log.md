@@ -3,6 +3,16 @@ layout: english
 title: Springfuse change log 
 ---
 
+#3.0.56 (2011-09-19)
+
+## jsf2-primefaces front:
+* pay special attention to keyboard navigation and focus for accessibility concern
+* fix some page and layout to please achecker accessibility tool.
+* use p:layout
+* make dialogs modal
+* do partial rendering when removing item from x-to-many dataTable
+* rename various ids for better clarity
+
 
 #3.0.56 (2011-09-08)
 
