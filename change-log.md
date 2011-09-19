@@ -3,7 +3,7 @@ layout: english
 title: Springfuse change log 
 ---
 
-#3.0.56 (2011-09-19)
+#3.0.57 (2011-09-19)
 
 ## jsf2-primefaces front:
 * pay special attention to keyboard navigation and focus for accessibility concern
