@@ -3,6 +3,23 @@ layout: english
 title: Springfuse change log 
 ---
 
+#3.0.60 (2011-10-07)
+
+## jsf2-primefaces front:
+* remove bunch of facelet to keep things simpler
+* some wai-aria integration (search, form error message, etc.) 
+* use PrimeFaces 3.0.M4-SNAPSHOT
+* server side pagination using LazyDataModel
+* tweak p:layout to make it work with ChromeShades plugin
+* custom composite component to display boolean value
+* re-introduce active flow menu to switch from flow to flow (in progress)
+* use ajax for save call
+* use p:spinner for integer and long (fixed recently by primefaces)
+* no longer need hack under web/el Use instead MessageBundle which is declared in faces-config
+
+## jsf2-primefaces and spring-mvc-3 front:
+* upgrade from jetty 6 to jetty 7 
+
 #3.0.57 (2011-09-19)
 
 ## jsf2-primefaces front:
