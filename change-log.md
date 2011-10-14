@@ -3,6 +3,23 @@ layout: english
 title: Springfuse change log 
 ---
 
+#3.0.61 (2011-10-14)
+
+## jsf2-primefaces front:
+* Fix datatable selection for Firefox and Safari (was OK with Chrome) 
+* Replace Select subflow in popup (not accessible enough) by regular Select subflow.
+* Introduce auto-complete for Select as an alternative to regular Select subflow
+* Refactor the view to use only 1 form and avoid the bug https://jira.springsource.org/browse/SWF-1492
+* Since we now use 1 form, remove some useless JavaScript code
+* Active flow menu is now fully operational
+* Refactor askForSaveDialog appearance logic: remove decision-state from XxxEditFlow.xml and use instead
+  Primefaces RequestContext.getCurrentInstance().execute("some javascript") to decide if it should 
+  be displayed or not. See generated PrimeFacesUtil.java
+* Fix menuitem label in main.css (was not displayed!)
+
+## backend
+* Remove @Transactional annotation from DAO methods (redundant with the one on Service methods)
+
 #3.0.60 (2011-10-07)
 
 ## jsf2-primefaces front:
