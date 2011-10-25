@@ -17,6 +17,8 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
 Current version: 3.0.61 (<a href="/change-log.html">change logs</a>).
 
+ATTENTION: We use primefaces 3.0 M4 SNAPSHOT which is not fully stable. In 3.0.61 generated project, you must replace all primefaces 'divider' occurrences by 'separator'. This will be fixed in 3.0.62.
+
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
 <div>
