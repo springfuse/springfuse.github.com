@@ -330,7 +330,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.61";
+		var version= "3.0.62";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
