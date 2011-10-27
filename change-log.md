@@ -3,6 +3,28 @@ layout: english
 title: Springfuse change log 
 ---
 
+#3.0.62 (2011-10-27)
+
+## jsf2-primefaces front:
+* upgrade to bean validation 4.2.0.Final (was 4.1.0.Final)
+* use bean validation instead of webflow validation. No longer generate XxxValidator...
+* upgrade to mojarra 2.1.3
+* fix char encoding for partial ajax response + IE8
+* fix aria-live region (we must use 'additions' instead of 'assertive'... took me weeks to realize that!)
+* fix validation for sub edition
+* use 'separator' instead of 'divider' in toolbar
+* use callback param to update searchResultsRegion aria live region
+* use tabview and tab for x-to-many relations
+* move dialog down so the command button are not used by default by IE
+* webflow simplification: no longer need action-state, instead use event handler and js call using primefaces js server api
+* remove bottom buttons in sub edit page (less links for accessibility)
+* clean up navigation bar for sub edit and sub select
+* remove startup listener
+* in edit flow: fix removeXxx and ajax update (using tabs)
+* better usage of ajaxStatus (no mix between facet and attribute)
+* paginator look and feel harmonization
+* in pom.xml remove plugins we don't really care of
+
 #3.0.61 (2011-10-14)
 
 ## jsf2-primefaces front:
