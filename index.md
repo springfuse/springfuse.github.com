@@ -13,6 +13,10 @@ can use immediately as the foundation of your web application.
 
 Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
+<div>
+	<g:plusone></g:plusone>
+</div>
+
 # SpringFuse generation form
 
 Current version: 3.0.62 (<a href="/change-log.html">change logs</a>).
