@@ -3,6 +3,26 @@ layout: english
 title: Springfuse change log 
 ---
 
+#3.0.63 (2011-11-10)
+
+## jsf2-primefaces front:
+* upgrade to primefaces 3.0.M4 and themes 1.0.2 
+* introduce and use an accessible datePicker composite component. It supports bean validation, joda time, etc.
+* introduce and use an accessible messages component
+* fix mains.js to make the layout work when chromeshades is used
+* reduce dependency on SWF (messageUtil no longer depends on messageContext)
+* get rid of all XxxItems class (the 'getLabel' is replaced by 'print' in GenericConverter)
+* get rid of XxxConverter class (actually, they are now regrouped in EntityConverterConfig)
+* use SPEL to print entity as string (see GenericConverter)
+* deleteButton now appear once a new entity is saved (and may be deleted)
+* finally found why enable/disable was not working in flow menu
+  ==> fix it and refactor it for better clarity => simpler code/logic
+* introduce TabBean to track tab activeIndex
+* fix tricky issue with bean validation localization message (i.e. need empty english file)
+
+## backend
+* fix compilation bug when pk is an enum (thanks to Stéphane Cros for reporting it)
+
 #3.0.62 (2011-10-27)
 
 ## jsf2-primefaces front:

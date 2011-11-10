@@ -19,7 +19,7 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
 # SpringFuse generation form
 
-Current version: 3.0.62 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.63 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -334,7 +334,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.62";
+		var version= "3.0.63";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
