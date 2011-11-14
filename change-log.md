@@ -2,6 +2,13 @@
 layout: english
 title: Springfuse change log 
 ---
+#3.0.64 (2011-11-14)
+
+## jsf2-primefaces front:
+* fix datePicker composite component
+* remove useless code related to webflow menus.
+* light refactor in entity's root flow
+
 
 #3.0.63 (2011-11-10)
 
