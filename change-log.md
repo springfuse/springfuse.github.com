@@ -2,6 +2,15 @@
 layout: english
 title: Springfuse change log 
 ---
+#3.0.65 (2011-11-14)
+
+## jsf2-primefaces front:
+* display a contextual info message each time the model is changed but no saved in database
+* move language switch to the top right corner
+* rename GenericEntityService 'autoComplete' method to 'find' for consistency
+* fix many to one autocomplete (itemValue was removed in 3.0.64, it is now back)
+* generate labels for onetomany relation
+
 #3.0.64 (2011-11-14)
 
 ## jsf2-primefaces front:
