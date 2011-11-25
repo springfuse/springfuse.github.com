@@ -3,7 +3,7 @@ layout: english
 title: SpringFuse - Online Java Code Generator
 ---
 
-# SpringFuse
+# SpringFuse: Online Java Code Generator
 
 SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>. It reverses your database structure and generates top-quality Java source code that you 
@@ -19,7 +19,7 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 
 # SpringFuse generation form
 
-Current version: 3.0.65 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.66 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -178,7 +178,7 @@ input.error {
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">Web application project using: <br/>JSF 2, Primefaces 2.2.1, Spring Web Flow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
+						<td width="280">Web application project using: <br/>JSF 2, Primefaces 3.0, Spring WebFlow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
 						<td>Ideal for large enterprise application requiring complex navigation, 
 							extended persistence context and nice look and feel.<br/>
 							
@@ -334,7 +334,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.65";
+		var version= "3.0.66";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();

@@ -2,6 +2,17 @@
 layout: english
 title: Springfuse change log 
 ---
+#3.0.66 (2011-11-25)
+
+## jsf2-primefaces front:
+* Capture 'Enter' keypress and use it to trigger click() on the expected submit button
+* Move Save/Submit and Search buttons below input/select fields (introduce saveButton tag)
+* Move 'Active Flows' menu to the right
+* Aria landmarks revisited (simpler)
+* Remove fieldset around x-to-one association
+* Remove some useless 'fId' attributes from tags
+* On home page, we now omit links to flows that can only be used as subflows.
+
 #3.0.65 (2011-11-17)
 
 ## jsf2-primefaces front:

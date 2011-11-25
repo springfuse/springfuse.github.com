@@ -17,23 +17,22 @@ All the generated pages pass the  WCAG 2.0 (Level AAA) with <strong>0 known prob
 
 Achieving it is not really complicated, the key is to use standard HTML components. 
 
-Hopefully, PrimeFaces the JSF 2 component library we use is pretty clean in that respect.
+Hopefully, PrimeFaces, the JSF 2 component library that we use is pretty clean in that respect.
 
 ## keyboard
 
-Our next focus was to unplug our mouse to ensure our generated application is entirely usable with the keyboad only.
+Our next focus was to unplug the mouse to ensure that the generated application is entirely usable with the keyboad.
 
 The result is pretty good with all major browsers except with IE8 which randomly select the default submit button when the user presses enter.
 
 If you have any hints on how we could fix it, please drop us a line.
+(Note: SpringFuse v. 3.0.66 resolves this issue).
 
 ## Screen readers and Aria
 
-Then we started to support ARIA and specially ARIA live region.
+Then we started to leverage ARIA and specially ARIA live region.
 
-For the screencast, we use Mac OSX Lion, which ship with new version of VoiceOver (a screen reader) with a nice French voice (sorry for the accent :-)
-
-VoiceOver reads region that are updated after a user interaction such as pressing a button which trigger an ajax request and refresh a part of the screen (the live region)
+For the screencast, we use Mac OSX Lion, which includes a new version of VoiceOver (a screen reader) with a nice French voice (sorry for the accent :-)
 
 The generated app uses live regions for two main purposes:
 
