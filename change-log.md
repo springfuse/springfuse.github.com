@@ -2,6 +2,42 @@
 layout: english
 title: Springfuse change log 
 ---
+#3.0.67 (2011-12-01)
+
+## jsf2-primefaces front:
+* clean up localization files messages.properties and messages_fr.properties
+* set main title depending on context (ie entity name)
+* add contextual title to all command button for accessibility concern
+* better accessibility and look for messages composite component (voice reading race condition fixed)
+* better accessibility for dialogs 'ask for save' and 'ask for delete'.
+* give the focus back to delete menu button when user click no inside ask for delete dialog
+* better accessibility for datePicker composite component
+* login page is now localized 
+* fix 'redmond' background (make it white and not kind of pseudo white)
+* messages composite component: fix error count (there could be more than 1 error per field...)
+* messages composite component: use ordered list for errors
+* messages composite component: fix tricky date bug (visible only for days > 28) in DatePickerHelper
+* remove pure one-to-one 'contact info' from example
+
+## jsf2 without webflow (private front)
+* support save (using merge)
+* add custom spring scope (ViewScope)
+ 
+## backend:
+* rename all 'logger' to 'log', in case we want to leverage lombok
+* add 'merge' to generic DAO
+* extract DAOHibernate.getCriteria redundant code to HibernateUtil
+* add links to javadoc
+* fix compilation bug when a column is unique and mapped to an Enum 
+
+## misc
+* normalize Logger initialization
+* renamed PaddingConverter.NOTASTRING to PaddingConverter.NOT_A_STRING
+
+## celerio engine
+* better convention for searchResult to avoid listing redundant parent in one to many list
+
+
 #3.0.66 (2011-11-25)
 
 ## jsf2-primefaces front:
