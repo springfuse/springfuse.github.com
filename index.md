@@ -112,6 +112,9 @@ input.error {
 								<p class="tip">
 									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html" target="_new">install it manually</a>.
 								</p>
+								<p>
+									If you rely on sequences to generate your PK ids, you must configure Celerio during 'Step 3/4' below. Please refer to 'Use a SEQUENCE per TABLE' section in the <a target="_new" href="http://www.springfuse.com/documentation/pdf/springfuse.pdf">documentation</a>.
+								</p>								
 								</span>
 								<span id="db2-database" style="display: none">
 								<p class="tip">
