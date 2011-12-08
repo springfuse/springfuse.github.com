@@ -2,6 +2,13 @@
 layout: english
 title: Springfuse change log 
 ---
+#3.0.68 (2011-12-08)
+
+## jsf2-primefaces front:
+* Introduce SimpleExceptionHandler.java to handle exception during webflow event (ajax request) or transition (non ajax request). When the exception occurs during an event, an error message is displayed. When an exception occurs during a transition, we force a transition to the 'error' state which in turn ends the flow and display an error page
+* Better general exception handling using ExceptionFilter.java.
+* ExceptionFilter also handles gracefully session expiration during ajax request and send a JSF2 partial redirect to the login page.  
+
 #3.0.67 (2011-12-01)
 
 ## jsf2-primefaces front:

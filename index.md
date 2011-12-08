@@ -17,11 +17,11 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 	<g:plusone></g:plusone>
 </div>
 
-# SpringFuse generation form
-
-Current version: 3.0.67 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.68 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
+
+## Step 1/4: Fill the code generation form 
 
 <div>
 <style>
@@ -68,7 +68,7 @@ input.error {
 						</tr>
 						<tr>
 							<th style="width:120px;">Java root package</th>
-							<td><input type="text" id="groupId" size="40" value="com.yourcompany.yourproject" placeholder="ex: com.company.project" class="required updateCommand" title="Ex: com.company.project"></td>
+							<td><input type="text" id="groupId" size="40" value="com.jaxio.demo" placeholder="ex: com.jaxio.demo" class="required updateCommand" title="Ex: com.company.project"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -334,7 +334,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.67";
+		var version= "3.0.68";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
@@ -495,18 +495,16 @@ input.error {
 </script>
 </div>
 
-# Reverse, Generate, Download and Run your project
+Once you are done, copy-paste sequentially these maven commands from step 2 and from step 4 in a console:
 
-Once you are done, copy-paste sequentially these maven commands from step 1 and 3 in a console:
-
-## Step 1/3: Bootstrap
+## Step 2/4: Bootstrap
 Copy paste this first command in a console to create the minimal set of files required to reverse the database.
 <textarea id="cmdLine" rows="4" cols="80" readonly="readonly" style="width:850px;height:85px; font-weight: bold" title="Cut and paste this command line to create your project"></textarea>
 
-## Step 2/3:  Configuration (Optional)
+## Step 3/4:  Configuration (Optional)
 Once you become familiar with Springfuse, you may want to <a href="/code-generation-configuration.html" target="_new">configure the code generation</a>.
 
-## Step 3/3: Reverse and Code Generation
+## Step 4/4: Reverse and Code Generation
 
 Copy paste these commands in a console to: 
 
