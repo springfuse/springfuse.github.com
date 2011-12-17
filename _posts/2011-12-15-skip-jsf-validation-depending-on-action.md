@@ -94,7 +94,7 @@ Of course the code above may be improved to fit your need and your security requ
 Then, to use it from your view, you simply do as follow:
 
 {% highlight html %}
-  <h:form>
+  <h:form id="form">
   	<f:validateBean disabled="true"> 
   	
     	<!-- ... skip for clarity ... -->
