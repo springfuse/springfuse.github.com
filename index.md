@@ -17,7 +17,7 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 	<g:plusone></g:plusone>
 </div>
 
-Current version: 3.0.68 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.69 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -337,7 +337,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.68";
+		var version= "3.0.69";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();

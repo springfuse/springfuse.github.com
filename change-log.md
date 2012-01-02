@@ -2,6 +2,21 @@
 layout: english
 title: Springfuse change log 
 ---
+#3.0.69 (2012-01-02)
+
+## jsf2-primefaces front:
+* Better JSF navigation with possibility to conditionally skip bean validation. Please <a href="/2011/12/15/skip-jsf-validation-depending-on-action.html">read our blog entry</a> related to this major change. 
+* Upgrade to PrimeFaces 3.0
+* Better readonly view support (use outputText instead of disabled="true")
+* Validate not null many to one association (unless inverse is present)
+
+## backend:
+* Use @Size annotation instead of @Length annotation when javax.validation is present
+
+## maven (pom.xml)
+* Use Hibernate validator annotation processor
+
+
 #3.0.68 (2011-12-08)
 
 ## jsf2-primefaces front:

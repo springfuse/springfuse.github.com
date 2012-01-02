@@ -5,7 +5,9 @@ title: Code Generation Configuration
 
 # Code Generation Configuration
 
-The code generation configuration file is located here: 
+Please refer to Chapter 3 of <a href="/documentation/pdf/springfuse.pdf">SpringFuse Reference Documentation</a>								
+
+The Celerio code generation configuration file is located here: 
 
 	yourproject/src/main/config/maven-celerio-plugin/maven-celerio-plugin.xml
 
@@ -21,4 +23,3 @@ The configuration allows you to:
 * use Joda Time, 
 * etc.
 
-Please refer to Chapter 3 of <a href="/documentation/pdf/springfuse.pdf">SpringFuse Reference Documentation</a>								
