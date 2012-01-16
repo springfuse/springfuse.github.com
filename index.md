@@ -113,7 +113,8 @@ input.error {
 									If you do not have an Oracle driver already in your maven repository please <a href="/install-oracle-jdbc-driver-in-maven-repository.html" target="_new">install it manually</a>.
 								</p>
 								<p class="tip">
-									If you rely on sequences to generate your PK ids, you must configure Celerio during 'Step 3/4' below. Please refer to 'Use a SEQUENCE per TABLE' section in the <a target="_new" href="http://www.springfuse.com/documentation/pdf/springfuse.pdf">documentation</a>.
+									If you rely on sequences to generate your PK ids, 
+									you must configure Celerio during 'Step 3/4' below. Please refer to <a href="documentation/configuration.html#seq_per_table" target="_new">'Use a SEQUENCE per TABLE'</a> 
 								</p>								
 								</span>
 								<span id="db2-database" style="display: none">
@@ -505,7 +506,7 @@ Copy paste this first command in a console to create the minimal set of files re
 <textarea id="cmdLine" rows="4" cols="80" readonly="readonly" style="width:850px;height:85px; font-weight: bold" title="Cut and paste this command line to create your project"></textarea>
 
 ## Step 3/4:  Configuration (Optional)
-Once you become familiar with Springfuse, you may want to <a href="/code-generation-configuration.html" target="_new">configure the code generation</a>.
+Once you become familiar with Springfuse, you may want to <a href="documentation/configuration.html" target="_new">configure the code generation</a>.
 
 ## Step 4/4: Reverse and Code Generation
 
