@@ -54,7 +54,7 @@ If you rely on conventions, you do not need to configure anything regarding Ids.
  
 {% highlight xml %}
 <entityConfigs>
-  <entityConfig tableName="ADDRESS" sequenceName="ADDRESS_SEQ"/>
+	<entityConfig tableName="ADDRESS" sequenceName="ADDRESS_SEQ"/>
 </entityConfigs>
 {% endhighlight %}
 
@@ -77,16 +77,16 @@ In certain cases, generally when you work with legacy databases, you may need to
 in order to be consistent with the legacy system. Here is an example:
 {% highlight xml %}
 <entityConfig tableName="ADDRESS">
-  <columnConfigs>
-    <columnConfig columnName="ADDRESS_ID">
-      <generatedValue generator="myCustomerGenerator" />
-      <genericGenerator name="myCustomerGenerator" strategy="com.yourcompany.appli.customgen.CustomerGenerator">
-        <parameters>
-          <parameter name="sequence" value="YOUR_EVNTUAL_SEQ" />
-        </parameters>
-      </genericGenerator>
-    </columnConfig>
-  </columnConfigs>
+	<columnConfigs>
+    	<columnConfig columnName="ADDRESS_ID">
+      		<generatedValue generator="myCustomerGenerator" />
+      		<genericGenerator name="myCustomerGenerator" strategy="com.yourcompany.appli.customgen.CustomerGenerator">
+        		<parameters>
+          			<parameter name="sequence" value="YOUR_EVNTUAL_SEQ" />
+        		</parameters>
+      		</genericGenerator>
+		</columnConfig>
+	</columnConfigs>
 </entityConfig>
 {% endhighlight %}
 
@@ -95,15 +95,13 @@ leads to:
 {% highlight java %}
 @Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
 @GeneratedValue(generator = "myCustomerGenerator")
-@GenericGenerator(name = "myCustomerGenerator", 
- strategy = "com.yourcompany.appli.customgen.CustomerGenerator", 
- parameters = @Parameter(name = "sequence", value = "YOUR_EVNTUAL_SEQ"))
+@GenericGenerator(name = "myCustomerGenerator", strategy = "com.yourcompany.appli.customgen.CustomerGenerator", 
+	parameters = @Parameter(name = "sequence", value = "YOUR_EVNTUAL_SEQ"))
 @Id
 public Integer getAddressId() {
   return addressId;
 }          
 {% endhighlight %}
-
 
 <a name="naming"></a>
 # Entity and property names
@@ -116,8 +114,8 @@ By default, an entity name is deduced from the Table name. To force the entity n
 
 {% highlight xml %}
 <entityConfigs>
-  <entityConfig tableName="ACCOUNT" entityName="UserAccount"/>    
- </entityConfigs>
+	<entityConfig tableName="ACCOUNT" entityName="UserAccount"/>    
+</entityConfigs>
 {% endhighlight %}
 
 <a name="property_name"></a>
@@ -128,11 +126,11 @@ By default, a property name is deduced from the column name. To force the proper
 
 {% highlight xml %}
 <entityConfigs>
-  <entityConfig tableName="ACCOUNT">
-    <columnConfigs>
-      <columnConfig columnName="user_dob" fieldName="birthDate"/>
-    </columnConfigs>
-  </entityConfig>
+	<entityConfig tableName="ACCOUNT">
+		<columnConfigs>
+			<columnConfig columnName="user_dob" fieldName="birthDate"/>
+    	</columnConfigs>
+  	</entityConfig>
 </entityConfigs>
 {% endhighlight %}
 
@@ -151,9 +149,9 @@ to calculate the default field names. The example below removes well known prefi
 
 {% highlight xml %}
 <configuration>
-  <conventions>
-    <fieldNaming regexp="^.{3}_{1}" replace=""/>
-  </conventions>
+	<conventions>
+    	<fieldNaming regexp="^.{3}_{1}" replace=""/>
+  	</conventions>
 </configuration>
 {% endhighlight %}
 
@@ -173,12 +171,12 @@ a mapping to an Integer you would do:
 
 {% highlight xml %}
 <entityConfigs>
-  <entityConfig tableName="ACCOUNT">
-    <columnConfigs>
-      <columnConfig columnName="year" mappedType="M_INTEGER"/>
-    </columnConfigs>
-  </entityConfig>
- </entityConfigs>
+	<entityConfig tableName="ACCOUNT">
+    	<columnConfigs>
+			<columnConfig columnName="year" mappedType="M_INTEGER"/>
+    	</columnConfigs>
+  	</entityConfig>
+</entityConfigs>
 {% endhighlight %}
 
 <a name="rule_number_mapping"></a>
@@ -189,9 +187,9 @@ proceed as follow:
 
 {% highlight xml %}
 <configuration>
-  <numberMappings>
-    <numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="1" columnDecimalDigitsMin="1"/>  
-  </numberMappings>
+	<numberMappings>
+    	<numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="1" columnDecimalDigitsMin="1"/>  
+	</numberMappings>
 </configuration>
 {% endhighlight %}
 
@@ -199,11 +197,13 @@ First rule that matches is used. For example to map to either Boolean, Double or
 
 {% highlight xml %}
 <configuration>
-  <numberMappings>
-    <numberMapping mappedType="M_BOOLEAN" columnSizeMin="1" columnSizeMax="2" columnDecimalDigitsMin="0" columnDecimalDigitsMax="1"/>    
-    <numberMapping mappedType="M_DOUBLE" columnSizeMin="1" columnSizeMax="11" columnDecimalDigitsMin="1" columnDecimalDigitsMax="4"/>
-    <numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="11" columnDecimalDigitsMin="4"/>  
-  </numberMappings>
+	<numberMappings>
+		<numberMapping mappedType="M_BOOLEAN" 
+					   columnSizeMin="1" columnSizeMax="2" columnDecimalDigitsMin="0" columnDecimalDigitsMax="1"/>    
+		<numberMapping mappedType="M_DOUBLE" 
+					   columnSizeMin="1" columnSizeMax="11" columnDecimalDigitsMin="1" columnDecimalDigitsMax="4"/>
+		<numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="11" columnDecimalDigitsMin="4"/>  
+	</numberMappings>
 </configuration>              
 {% endhighlight %}
 
@@ -216,9 +216,9 @@ You can configure date mapping rules globally. For example, to map all date/time
 
 {% highlight xml %}
 <configuration>
-  <dateMappings>
-    <dateMapping mappedType="M_JODA_LOCALDATETIME" />  
-  </dateMappings>
+	<dateMappings>
+    	<dateMapping mappedType="M_JODA_LOCALDATETIME" />  
+  	</dateMappings>
 </configuration>
 {% endhighlight %}
 
@@ -226,10 +226,10 @@ And for example to map differently the columns whose name is VERSION you can add
 
 {% highlight xml %}
 <configuration>
-  <dateMappings>
-    <dateMapping mappedType="M_UTILDATE" columnNameRegExp="VERSION"/>  
-    <dateMapping mappedType="M_JODA_LOCALDATETIME" />  
-  </dateMappings>
+  	<dateMappings>
+		<dateMapping mappedType="M_UTILDATE" columnNameRegExp="VERSION"/>  
+		<dateMapping mappedType="M_JODA_LOCALDATETIME" />  
+  	</dateMappings>
 </configuration>
 {% endhighlight %}
 
@@ -263,7 +263,7 @@ In any case, use the `manyToOneConfig` element to force a different variable nam
 
 {% highlight xml %}
 <columnConfig columnName="addr_id">
-    <manyToOneConfig var="myAddress"/>
+	<manyToOneConfig var="myAddress"/>
 </columnConfig>
 {% endhighlight %}
 
@@ -305,8 +305,7 @@ Celerio generates the code for one to many association when a many to one associ
                 
 {% highlight xml %}
 <entityConfig tableName="Account">
-    <columnConfig columnName="address_id" 
-                  associationDirection="BIDIRECTIONAL"/>
+    <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL"/>
 </entityConfig>
 {% endhighlight %}
 
@@ -332,8 +331,7 @@ to control the name of the associated helper methods that Celerio generates (add
 
 {% highlight xml %}
 <entityConfig tableName="Account">
-    <columnConfig columnName="address_id" 
-                  associationDirection="BIDIRECTIONAL">
+    <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL">
         <oneToManyConfig var="people" elementVar="resident"/>
     </columnConfig>
 </entityConfig>
@@ -388,14 +386,14 @@ You can use the `inverse` attribute to force the inverse side of the association
            
 {% highlight xml %}
 <entityConfig tableName="account_role" associationDirection="BIDIRECTIONAL">
- <columnConfigs>
-  <columnConfig columnName="account_id">
-   <manyToManyConfig var="theAccounts" elementVar="anAccount"/>
-  </columnConfig>
-  <columnConfig columnName="role_id" inverse="true">
-   <manyToManyConfig var="theRoles" elementVar="aRole"/>                
-  </columnConfig>
- </columnConfigs>
+	<columnConfigs>
+  		<columnConfig columnName="account_id">
+   			<manyToManyConfig var="theAccounts" elementVar="anAccount"/>
+  		</columnConfig>
+  		<columnConfig columnName="role_id" inverse="true">
+   			<manyToManyConfig var="theRoles" elementVar="aRole"/>                
+  		</columnConfig>
+ 	</columnConfigs>
 </entityConfig>
 {% endhighlight %}
 
