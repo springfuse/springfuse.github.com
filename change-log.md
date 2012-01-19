@@ -2,6 +2,19 @@
 layout: english
 title: Springfuse change log 
 ---
+
+#3.0.70 (2012-01-19)
+
+## jsf2-primefaces front:
+
+* Remove all render fragments from flows as the update attribute on the command button is enough.
+* Set "javax.faces.validator.BeanValidator.MESSAGE_detail={0}" in ValidationMessage properties files
+* Remove workaround when "yes" is clicked inside askForSaveDialog (proper fix found)
+* Remove deprecated "lazy" attribute in dataTable (see primefaces #2993)
+
+## pom.xml
+* Downgrade maven plugin from 2.7 to 2.6
+
 #3.0.69 (2012-01-02)
 
 ## jsf2-primefaces front:
