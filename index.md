@@ -17,7 +17,7 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 	<g:plusone></g:plusone>
 </div>
 
-Current version: 3.0.70 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.71 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -54,7 +54,13 @@ input.error {
 		<tr>
 			<th><i>Your email</i></th>
 			<td>
-				<input type="text" id="email" class="required updateCommand"> We send to this email the code generation logs and the extracted metadata.
+				<input type="text" id="email" class="required updateCommand"> Your email. You will be asked to validate during first generation process.
+			</td>
+		</tr>		
+		<tr>
+			<th><i>Your password</i></th>
+			<td>
+				<input type="text" id="password" class="required updateCommand"> If you are a first time user, provide the desired password.
 			</td>
 		</tr>		
 		<tr>
@@ -181,23 +187,33 @@ input.error {
 			<th>Generation&nbsp;Output</th>
 			<td>
 				<table>
-					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">Web application project using: <br/>JSF 2, Primefaces 3.0, Spring WebFlow 2.3.0<br/>JPA 2 Entities/DAO/Service layers</td>
+					<tr><td><input type="radio" name="frontEnd" id="jsf2PrimefacesSd" value="jsf2PrimefacesSd" class="updateCommand" checked="checked"></td>
+						<td width="280">Web application project using: <br/>JSF 2, Primefaces 3.0, Spring WebFlow 2.3.0<br/>JPA 2 with Spring Data 1.0.2</td>
 						<td>Ideal for large enterprise application requiring complex navigation, 
 							extended persistence context and nice look and feel.<br/>
 							
 							Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
 							and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.
 							</td></tr>
-					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
-						<td>Web application project using: <br/>Spring MVC 3, jQuery 1.5<br/>JPA 2 Entities/DAO/Service layers</td>
+					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand"></td>
+						<td width="280">same as above but without Spring Data</td>
+						<td></td></tr>
+
+					<tr><td><input type="radio" name="frontEnd" id="springMvcSd" value="springMvcSd" class="updateCommand"></td>
+						<td>Web application project using: <br/>Spring MVC 3, jQuery 1.5<br/>JPA 2 with Spring Data 1.0.2</td>
 						<td>A classic web stack.<br/>
 						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
 						</td></tr>
+					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
+						<td width="280">same as above but without Spring Data</td>
+						<td></td></tr>
 
-					<tr><td><input type="radio" name="frontEnd"	 value="backendOnly" class="updateCommand"></td>
-						<td>Backend only project using: <br/>JPA 2 Entities/DAO/Service layers</td>
+					<tr><td><input type="radio" name="frontEnd" id="backendOnlySd" value="backendOnlySd" class="updateCommand"></td>
+						<td>Backend only project using: <br/>JPA 2 with Spring Data 1.0.2</td>
 						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
+					<tr><td><input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand"></td>
+						<td width="280">same as above but without Spring Data</td>
+						<td></td></tr>
 				</table>
 				<p>All projects uses Maven 3, Hibernate 3.5, Spring 3, Spring Security 3, Ehcache, Bean Validation etc.</p>
 			</td>
@@ -338,10 +354,11 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.70";
+		var version= "3.0.71";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
+		var password= $("#password").val();
 		var frontEnd = $("input[name=frontEnd]:checked").val();
 		var archetypeArtifactId = $("input[name=archetypeArtifactId]:checked").val();
 		var proxyEnable = $("input[name=proxyEnable]:checked").val();
@@ -373,6 +390,7 @@ input.error {
 		cmd += param("version", "1.0.0");
 		cmd += param("frontEnd", frontEnd);
 		cmd += param("email", email);
+		cmd += param("password", password);
 
 		if (archetypeArtifactId == "quickstart") {
 			$("#cmdLine").val("");
@@ -440,10 +458,8 @@ input.error {
 
 		if (frontEnd !== "backendOnly") {
 			$(".open-your-browser").show();
-			cmd2 += 'mvn jetty:run\n';
 		} else {
 			$(".open-your-browser").hide();
-			cmd2 += 'mvn install\n';
 		}
 		$("#cmdLine").val(cmd);
 		$("#cmdLine2").val(cmd2);
@@ -528,4 +544,3 @@ Copy paste these commands in a console to:
 <p class="tip"> 
 	The first time you use Springfuse or Maven you may be disappointed by the time Maven takes to download all the jar dependencies. Just be patient...
 </p>
-

@@ -3,6 +3,34 @@ layout: english
 title: Springfuse change log 
 ---
 
+
+#3.0.71 (2012-02-09)
+
+## Generation workflow update
+It is now required to provide a valid email address.
+During the first project generation you will be asked to validate your email address.
+
+
+## Spring Data support
+The generated code is now using Spring Data 1.0.2 for backend, spring mvc and primefaces projects.
+For the moment, we still provide some options to generate backend, spring mvc and primefaces projects as before.
+
+## Noticable upgrades
+
+### backend
+* upgrade to hibernate 3.6.9.Final
+* upgrade to joda time 2.0
+* upgrade to ehcache 2.4.3
+
+### jsf2-primefaces front:
+* Upgrade to mojara 2.1.6
+* Upgrade to primefaces 3.0.1
+
+### spring mvc
+* upgrade to urlrewrite 3.2
+
+
+
 #3.0.70 (2012-01-19)
 
 ## jsf2-primefaces front:

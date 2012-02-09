@@ -17,7 +17,7 @@ Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
 	<g:plusone></g:plusone>
 </div>
 
-Current version: 3.0.71-SNAPSHOT (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.71 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -354,7 +354,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.71-SNAPSHOT";
+		var version= "3.0.71";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
@@ -458,10 +458,8 @@ input.error {
 
 		if (frontEnd !== "backendOnly") {
 			$(".open-your-browser").show();
-			cmd2 += 'mvn jetty:run\n';
 		} else {
 			$(".open-your-browser").hide();
-			cmd2 += 'mvn install\n';
 		}
 		$("#cmdLine").val(cmd);
 		$("#cmdLine2").val(cmd2);
