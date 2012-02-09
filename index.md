@@ -60,7 +60,7 @@ input.error {
 		<tr>
 			<th><i>Your password</i></th>
 			<td>
-				<input type="text" id="password" class="required updateCommand"> If you are a first time user, provide the desired password.
+				<input type="password" id="password" class="required updateCommand"> If you are a first time user, provide the desired password.
 			</td>
 		</tr>		
 		<tr>
