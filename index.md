@@ -54,7 +54,7 @@ input.error {
 		<tr>
 			<th><i>Your email</i></th>
 			<td>
-				<input type="text" id="email" class="required updateCommand"> Your email. You will be asked to validate during first generation process.
+				<input type="text" id="email" class="required updateCommand"> Your email. You will be asked to validate it during first generation process.
 			</td>
 		</tr>		
 		<tr>
