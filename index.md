@@ -8,18 +8,25 @@ title: SpringFuse - Online Java Code Generator
 SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>. It reverses your database structure and generates top-quality Java source code that you 
 can use immediately as the foundation of your web application.
-	
-<strong>To generate a project, adjust the settings below and execute the resulting command lines in a console.</strong>
-
-Requirements: Have at least Java 1.6 and Maven 2 installed on your machine.
-
-<div>
-	<g:plusone></g:plusone>
-</div>
 
 Current version: 3.0.71 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
+<div>
+	<g:plusone></g:plusone>
+</div>
+	
+## Browse a generated project example on Github
+* <a href="https://github.com/jaxio/generated-projects/tree/master/demoprime">Primefaces example</a>
+* springmvc example (coming)
+* backend example (coming)
+
+## Generate a project yourself
+<strong>To generate a project</strong>, adjust the settings below and execute the resulting command lines in a console.
+
+## Requirements
+Have at least Java 1.6 and Maven 2 installed on your machine.
+
 
 ## Step 1/4: Fill the code generation form 
 
