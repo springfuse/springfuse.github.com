@@ -19,7 +19,7 @@ We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@
 ## Browse a generated project example on Github
 * <a href="https://github.com/jaxio/generated-projects/tree/master/demoprime">Primefaces example</a>
 * springmvc example (coming)
-* backend example (coming)
+* <a href="https://github.com/jaxio/generated-projects/tree/master/demospringdata">Backend only example</a>
 
 ## Generate a project yourself
 <strong>To generate a project</strong>, adjust the settings below and execute the resulting command lines in a console.
