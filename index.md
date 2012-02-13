@@ -9,7 +9,7 @@ SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.htm
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>. It reverses your database structure and generates top-quality Java source code that you 
 can use immediately as the foundation of your web application.
 
-Current version: 3.0.71 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.72 (<a href="/change-log.html">change logs</a>).
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 <div>
@@ -361,7 +361,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.71";
+		var version= "3.0.72";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();

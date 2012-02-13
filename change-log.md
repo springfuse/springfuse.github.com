@@ -3,6 +3,19 @@ layout: english
 title: Springfuse change log 
 ---
 
+#3.0.72 (2012-02-14)
+
+## jsf2-primefaces webapp (with spring data backend)
+* upgrade to Spring Data 1.0.3
+* upgrade to PrimeFaces 3.1
+* upgrade to PrimeFaces Theme 1.0.3
+
+## spring mvc webapp (with spring data backend)
+* upgrade to Spring Data 1.0.3
+
+## backend (with spring data)
+* upgrade to Spring Data 1.0.3
+* fix compilation issue if no 'account' table is found
 
 #3.0.71 (2012-02-09)
 
