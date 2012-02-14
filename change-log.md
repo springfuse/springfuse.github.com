@@ -3,7 +3,11 @@ layout: english
 title: Springfuse change log 
 ---
 
-#3.0.72 (2012-02-14)
+# 3.0.73 (2012-02-14)
+* fix typo in panelMenu.xml (jsf2 front, without spring data)
+* Fix bootstrapring for certain pack.
+
+# 3.0.72 (2012-02-14)
 
 ## jsf2-primefaces webapp (with spring data backend)
 * upgrade to Spring Data 1.0.3
@@ -17,7 +21,7 @@ title: Springfuse change log
 * upgrade to Spring Data 1.0.3
 * fix compilation issue if no 'account' table is found
 
-#3.0.71 (2012-02-09)
+# 3.0.71 (2012-02-09)
 
 ## Generation workflow update
 It is now required to provide a valid email address.
