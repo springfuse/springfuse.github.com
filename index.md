@@ -59,9 +59,9 @@ input.error {
 <form class="form">
 	<tbody>
 		<tr>
-			<th><i>Your email</i></th>
+			<th>Email</th>
 			<td>
-				<input type="text" id="email" class="required updateCommand"> Your email. You will be asked to validate it during first generation process.
+				<input type="text" id="email" class="required updateCommand" title="You will be asked to validate your email during the first generation process">We use your mail to send you the generation logs.
 			</td>
 		</tr>		
 		<tr>
@@ -71,11 +71,12 @@ input.error {
 					<tbody>
 						<tr>
 							<th style="width:120px;">Name</th>
-							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand" title="Use simple characters a-z, A-Z, 0-9"></td>
+							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand" title="Use simple characters a-z, A-Z, 0-9<br/>
+																																									  ex: myproject"></td>
 						</tr>
 						<tr>
 							<th style="width:120px;">Java root package</th>
-							<td><input type="text" id="groupId" size="40" value="com.jaxio.demo" placeholder="ex: com.jaxio.demo" class="required updateCommand" title="Ex: com.company.project"></td>
+							<td><input type="text" id="groupId" size="40" value="com.company.demo" placeholder="ex: com.jaxio.demo" class="required updateCommand" title="Ex: com.company.project"></td>
 						</tr>
 					</tbody>
 				</table>
@@ -189,19 +190,18 @@ input.error {
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0, JPA 2</td>
-						<td>Ideal for large enterprise application requiring complex navigation, 
-							extended persistence context and nice look and feel.<br/>
+						<td width="280">JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0,<br/>Spring security, JPA 2, Spring 3</td>
+						<td>Ideal for large enterprise application requiring complex navigation and nice look and feel.<br/>
 							Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
 							and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.
 							</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
-						<td>Spring MVC 3, jQuery 1.5, JPA 2</td>
+						<td>Spring MVC 3, jQuery 1.5,<br/>Spring security, JPA 2, Spring 3</td>
 						<td>A classic mvc web stack with ajax and Rest support.<br/>
 						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
 						</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand"></td>
-						<td>JPA 2 backend</td>
+						<td>JPA 2, Spring 3</td>
 						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
 					<tr><td><input type="checkbox" name="springData" id="springData" checked="true" class="updateCommand"></td>
 						<td colspan="2">Use Spring Data JPA</td></tr>
