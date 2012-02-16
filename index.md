@@ -190,23 +190,23 @@ input.error {
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0,<br/>Spring security, JPA 2, Spring 3</td>
+						<td width="280">JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0</td>
 						<td>Ideal for large enterprise application requiring complex navigation and nice look and feel.<br/>
 							Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
 							and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.
 							</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
-						<td>Spring MVC 3, jQuery 1.5,<br/>Spring security, JPA 2, Spring 3</td>
+						<td>Spring MVC 3, Rest, jQuery 1.5</td>
 						<td>A classic mvc web stack with ajax and Rest support.<br/>
 						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
 						</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand"></td>
-						<td>JPA 2, Spring 3</td>
+						<td>JPA 2 only</td>
 						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
 					<tr><td><input type="checkbox" name="springData" id="springData" checked="true" class="updateCommand"></td>
 						<td colspan="2">Use Spring Data JPA</td></tr>
 				</table>
-				<p>All projects uses Maven 3, Hibernate 3.5, Spring 3, Spring Security 3, Ehcache, Bean Validation etc.</p>
+				<p>All projects uses Maven 3, Hibernate 3.6, Spring 3, Spring Security 3, Bean Validation etc.</p>
 			</td>
 		</tr>
 		<tr>
