@@ -65,12 +65,6 @@ input.error {
 			</td>
 		</tr>		
 		<tr>
-			<th><i>Your password</i></th>
-			<td>
-				<input type="password" id="password" class="required updateCommand"> If you are a first time user, provide the desired password.
-			</td>
-		</tr>		
-		<tr>
 			<th>Project</th>
 			<td>
 				<table>
@@ -365,7 +359,6 @@ input.error {
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
-		var password= $("#password").val();
 		var frontEnd = $("input[name=frontEnd]:checked").val();
 		var archetypeArtifactId = $("input[name=archetypeArtifactId]:checked").val();
 		var proxyEnable = $("input[name=proxyEnable]:checked").val();
@@ -397,7 +390,7 @@ input.error {
 		cmd += param("version", "1.0.0");
 		cmd += param("frontEnd", frontEnd);
 		cmd += param("email", email);
-		cmd += param("password", password);
+		cmd += param("password", "temp");
 
 		if (archetypeArtifactId == "quickstart") {
 			$("#cmdLine").val("");
