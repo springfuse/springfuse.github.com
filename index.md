@@ -22,7 +22,7 @@ We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@
 * <a href="https://github.com/jaxio/generated-projects/tree/master/demospringdata">Backend only using Spring Data JPA...</a>
 
 ## Generate a project yourself
-<strong>To generate a project</strong>, adjust the settings below and execute the resulting command lines in a console.
+To <strong>generate a project</strong>, adjust the settings below and execute the resulting command lines in a console.
 
 ## Requirements
 Have at least Java 1.6 and Maven 2 installed on your machine.
@@ -189,14 +189,14 @@ input.error {
 			<td>
 				<table>
 					<tr><td><input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"></td>
-						<td width="280">Web application project using: <br/>JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0<br/>JPA 2</td>
+						<td width="280">JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0, JPA 2</td>
 						<td>Ideal for large enterprise application requiring complex navigation, 
 							extended persistence context and nice look and feel.<br/>
 							Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
 							and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.
 							</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
-						<td>Web application project using: <br/>Spring MVC 3, jQuery 1.5<br/>JPA 2</td>
+						<td>Spring MVC 3, jQuery 1.5, JPA 2</td>
 						<td>A classic mvc web stack with ajax and Rest support.<br/>
 						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
 						</td></tr>
@@ -204,7 +204,7 @@ input.error {
 						<td>JPA 2 backend</td>
 						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
 					<tr><td><input type="checkbox" name="springData" id="springData" checked="true" class="updateCommand"></td>
-						<td>Need SpringData awesomeness ? Check this !</td></tr>
+						<td colspan="2">Use Spring Data JPA</td></tr>
 				</table>
 				<p>All projects uses Maven 3, Hibernate 3.5, Spring 3, Spring Security 3, Ehcache, Bean Validation etc.</p>
 			</td>
@@ -385,6 +385,7 @@ input.error {
 		cmd += param("version", "1.0.0");
 		cmd += param("frontEnd", frontEnd);
 		cmd += param("email", email);
+		cmd += param("password", "none");
 
 		if (archetypeArtifactId == "quickstart") {
 			$("#cmdLine").val("");
@@ -523,9 +524,8 @@ Once you become familiar with Springfuse, you may want to <a href="documentation
 Copy paste these commands in a console to: 
 
 * reverse your database schema, or the H2 database example we provide
-* send the reversed database schema, not the data, to our server
-* (generation duration depends on the number of tables)
-* download the generated project from our server and unzip it.
+* send the only the database schema to our server
+* download the generated project from our server and unzip it
 * deploy the project locally using Jetty servlet container (<a href="http://localhost:8080/">http://localhost:8080/</a>) or, for backend project run all the unit tests.
 
 <textarea id="cmdLine2" rows="2" cols="80" readonly="readonly" style="width:850px;height:40px;font-weight: bold"></textarea>
