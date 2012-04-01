@@ -18,12 +18,16 @@ title: Springfuse change log
 ## JSF front
 * upgrade to spring webflow 2.3.1
 * upgrade to mojarra 2.1.7
-* upgrade to Primefaces 3.2
+* upgrade to Primefaces 3.2 and theme 1.0.4
+* changes in exception handling (refer to SimpleExceptionHandler.java)
+* better focus managment on home (useful for accessibility)
+* fix fileUpload and Ajax (see https://jira.springsource.org/browse/SWF-1526 )
 * remove spel from converters
 * add caching in ResourcesUtil
 * rename ```GenericConverter``` to ```GenericJsfConverter```
 * use prod config mode instead of slowly dev mode
 * disable webflow snapshoting by default
+* fix typo in {TotalPages} in paginator template
 * selenium support 
 * remove PRIMEFACES_FILE_HANDLER module, use PRIMEFACES instead
 
