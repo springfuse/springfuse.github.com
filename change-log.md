@@ -25,7 +25,7 @@ title: Springfuse change log
 
 ## versions updates
 * upgrade to mojarra 2.1.7
-* upgrade to maven 3.0.7.RELEASE
+* upgrade to springframework 3.0.7.RELEASE
 * upgrade to Primefaces 3.1.1
 * upgrade maven-jxr-plugin from 2.1 to 2.3
 * upgrade maven-pmd-plugin from 2.4 to 2.7
