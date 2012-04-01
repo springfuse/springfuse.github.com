@@ -5,7 +5,8 @@ title: Springfuse change log
 
 # 3.0.74 (2012-04-01)
 
-## backend
+## backend common to all projects
+* upgrade to springframework 3.0.7.RELEASE
 * do not specify nullable = false and unique = true in the column specifying a simple PK to please topLink ddl generation
 * dos2unix on all resources
 * add missing @Override
@@ -14,30 +15,39 @@ title: Springfuse change log
 ## Spring data
 * refactoring of the support classes
 
-## JSF
-* remove PRIMEFACES_FILE_HANDLER module, use PRIMEFACES instead
+## JSF front
+* upgrade to spring webflow 2.3.1
+* upgrade to mojarra 2.1.7
+* upgrade to Primefaces 3.2
 * remove spel from converters
 * add caching in ResourcesUtil
 * rename ```GenericConverter``` to ```GenericJsfConverter```
 * use prod config mode instead of slowly dev mode
-* disable snapshoting by default
-* selenium support
+* disable webflow snapshoting by default
+* selenium support 
+* remove PRIMEFACES_FILE_HANDLER module, use PRIMEFACES instead
 
-## versions updates
-* upgrade to springwebflow 2.3.1
-* upgrade to mojarra 2.1.7
-* upgrade to springframework 3.0.7.RELEASE
-* upgrade to Primefaces 3.1.1
+## Other versions updates
+* upgrade junit from 4.8.1 to 4.10
+* upgrade jackson from 1.5.2 to 1.9.4
+* upgrade xstream from 1.2.2 to 1.4.2
+* upgrade hibernate-jpa-2.0-api from 1.0.0.Final to 1.0.1.Final
+* upgrade commons-lang version from 2.5 to 2.6
+* upgrade h2 version from 1.3.157 to 1.3.164
+* upgrade commons-fileupload from 1.2.1 to 1.2.2
+* upgrade commons-io from 1.4 to 2.1 
+* upgrade commons-codec from 1.4 to 1.6
+* upgrade commons-digester from 2.0. to 2.1
+* upgrade aspectj version from 1.6.8 to to 1.6.12
+* upgrade mockito version from 1.8.5 to 1.9.0
+
+## Maven related update (generated pom)
 * upgrade maven-jxr-plugin from 2.1 to 2.3
 * upgrade maven-pmd-plugin from 2.4 to 2.7
 * upgrade cobertura plugin to 2.5.1
 * upgrade findbugs-maven-plugin from 2.3.1 to 2.4.0
 * upgrade build-helper-maven-plugin from 1.5 to 1.7
 * upgrade maven-antrun-plugin from 1.6 to 1.7
-* upgrade junit from 4.8.1 to 4.10
-* upgrade jackson from 1.5.2 to 1.9.4
-* upgrade xstream from 1.2.2 to 1.4.2
-* upgrade hibernate-jpa-2.0-api from 1.0.0.Final to 1.0.1.Final
 * upgrade maven-enforcer-plugin from 1.0 to 1.0.1
 * upgrade maven-surefire-plugin from 2.4.3 to 2.12
 * upgrade maven-javadoc-plugin from 2.6.1 to 2.8.1
@@ -48,15 +58,7 @@ title: Springfuse change log
 * upgrade maven-resource-plugin from 2.4.1 to 2.5
 * upgrade sql-maven-plugin from 1.4 to 1.5
 * upgrade maven-war-plugin from 2.1-beta-1 to 2.2
-* upgrade commons-lang version from 2.5 to 2.6
-* upgrade h2 version from 1.3.157 to 1.3.164
-* upgrade commons-fileupload from 1.2.1 to 1.2.2
-* upgrade aspectj version from 1.6.8 to to 1.6.12
-* upgrade commons-io from 1.4 to 2.1 
-* upgrade commons-codec from 1.4 to 1.6
-* upgrade commons-digester from 2.0. to 2.1
 * upgrade maven eclipse plugin from 2.6 to 2.9
-* upgrade mockito version from 1.8.5 to 1.9.0
 
 # 3.0.73 (2012-02-14)
 * fix typo in panelMenu.xml (jsf2 front, without spring data)
