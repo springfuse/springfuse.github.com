@@ -24,6 +24,7 @@ title: Springfuse change log
 * selenium support
 
 ## versions updates
+* upgrade to springwebflow 2.3.1
 * upgrade to mojarra 2.1.7
 * upgrade to springframework 3.0.7.RELEASE
 * upgrade to Primefaces 3.1.1
