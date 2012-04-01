@@ -9,7 +9,7 @@ SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.htm
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>. It reverses your database structure and generates top-quality Java source code that you 
 can use immediately as the foundation of your web application.
 
-Current version: 3.0.73 (<a href="/change-log.html">change logs</a>).
+Current version: 3.0.74 <a href="/change-log.html">change logs</a>.
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 <div>
@@ -201,8 +201,8 @@ input.error {
 						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
 						</td></tr>
 					<tr><td><input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand"></td>
-						<td>JPA 2 only</td>
-						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.</td></tr>
+						<td>JPA 2 backend only</td>
+						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don&#130;t need one.</td></tr>
 					<tr><td><input type="checkbox" name="springData" id="springData" checked="true" class="updateCommand"></td>
 						<td colspan="2">Use Spring Data JPA</td></tr>
 				</table>
@@ -280,7 +280,7 @@ input.error {
 			$("#jdbcGroupId").val("com.h2database");
 			$("#jdbcArtifactId").val("h2");
 			$("#jdbcDriver").val("org.h2.Driver");
-			$("#jdbcVersion").val("1.2.131");
+			$("#jdbcVersion").val("1.3.165");
 		} else if (dbType == "postgresql") {
 			if (urlDbType != "postgresql") {
 				$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
@@ -334,9 +334,9 @@ input.error {
 	}
 
 	function param(key, value) {
-                if (!value) {
-                        value = "";
-                }
+		if (!value) {
+			value = "";
+		}
 		return "-D" + key + "=" + value.replace(/ /gi, "\\ ") + " ";
 	}
 	function isValidEmailAddress(emailAddress) {
@@ -345,7 +345,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.73";
+		var version= "3.0.74";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
