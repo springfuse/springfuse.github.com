@@ -9,7 +9,7 @@ SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.htm
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>. It reverses your database structure and generates top-quality Java source code that you 
 can use immediately as the foundation of your web application.
 
-Current version: 3.0.74 <a href="/change-log.html">change logs</a>.
+Current version: 3.0.78 <a href="/change-log.html">change logs</a>.
 
 We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 <div>
@@ -61,7 +61,7 @@ input.error {
 		<tr>
 			<th>Email</th>
 			<td>
-				<input type="text" id="email" class="required updateCommand" title="You will be asked to validate your email during the first generation process">We use your mail to send you the generation logs.
+				<input type="text" id="email" class="required updateCommand" title="You will be asked to validate your email during the first generation process"> We use your mail to send you the generation logs.
 			</td>
 		</tr>		
 		<tr>
@@ -71,8 +71,7 @@ input.error {
 					<tbody>
 						<tr>
 							<th style="width:120px;">Name</th>
-							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand" title="Use simple characters a-z, A-Z, 0-9<br/>
-																																									  ex: myproject"></td>
+							<td><input type="text" id="artifactId" value="myproject" placeholder="ex: myproject" class="required lettersNumbers updateCommand"> Use simple characters a-z, A-Z, 0-9, ex: myproject</td>
 						</tr>
 						<tr>
 							<th style="width:120px;">Java root package</th>
@@ -195,18 +194,11 @@ input.error {
 							Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
 							and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.
 							</td></tr>
-					<tr><td><input type="radio" name="frontEnd" id="springMvc" value="springMvc" class="updateCommand"></td>
-						<td>Spring MVC 3, Rest, jQuery 1.5</td>
-						<td>A classic mvc web stack with ajax and Rest support.<br/>
-						Wondering how it looks? <a href="/2011/05/04/generate-spring-mvc3-jquery-jpa2-crud-applications.html" target="_new">Check this blog</a>.
-						</td></tr>
-					<tr><td><input type="radio" name="frontEnd" id="backendOnly" value="backendOnly" class="updateCommand"></td>
+					<tr><td><input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"></td>
 						<td>JPA 2 backend only</td>
 						<td>Just the backend... Ideal if you want to develop your own front end stack or if you simply don&#130;t need one.</td></tr>
-					<tr><td><input type="checkbox" name="springData" id="springData" checked="true" class="updateCommand"></td>
-						<td colspan="2">Use Spring Data JPA</td></tr>
 				</table>
-				<p>All projects uses Maven 3, Hibernate 3.6, Spring 3, Spring Security 3, Bean Validation etc.</p>
+				<p>All projects uses Maven 3, Hibernate 4, Spring 3, Spring Security 3, Bean Validation etc.</p>
 			</td>
 		</tr>
 		<tr>
@@ -345,7 +337,7 @@ input.error {
 	}
 
 	function updateCommand() {
-		var version= "3.0.74";
+		var version= "3.0.78";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
@@ -451,7 +443,7 @@ input.error {
 			cmd2 = 'mvn -f springfuse.xml generate-sources\n';
 		}
 
-		if (frontEnd !== "backendOnly") {
+		if (frontEnd !== "backendJpa") {
 			$(".open-your-browser").show();
 		} else {
 			$(".open-your-browser").hide();

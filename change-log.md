@@ -3,6 +3,30 @@ layout: english
 title: Springfuse change log 
 ---
 
+# 3.0.78 (2012-08-31)
+
+We have decided to focus our effort on JPA2 backend and JSF2/PrimeFaces front.
+So currently other options (spring data, spring mvc/jquery) are not available. 
+
+## JPA2 backend
+* Upgrade to Hibernate 4.1.4.Final
+* Upgrade to Spring Framework 3.1.2.RELEASE
+* Upgrade to Spring Security 3.1.1.RELEASE
+* Search by example using JPA2
+* Search by range for all types (BigInteger, Date, Integer, etc.)
+* No more Interface for DAOs
+* Rename all XxxService classes to XxxRepository
+* Generate Entity metamodel (@StaticMetamodel)
+* Simplify the use of spring security context
+* First basic support of Hibernate Search
+
+## JSF2 WebFlow Primefaces
+* Upgrade to primefaces 3.3.1
+* Upgrade to Spring Web Flow 2.3.1.RELEASE
+* Use flow inheritance to reduce the amount of webflow code
+* Support search by range for all types (BigInteger, Date, Integer, etc.)
+* Introduce some facelets components
+
 # 3.0.74 (2012-04-01)
 
 ## backend common to all projects
