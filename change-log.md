@@ -19,7 +19,7 @@ title: Springfuse change log
 # 3.0.78 (2012-08-31)
 
 We have decided to focus our effort on JPA2 backend and JSF2/PrimeFaces front.
-So currently other options (spring data, spring mvc/jquery) are not available. 
+So currently other options (spring data, spring mvc/jquery) are no longer available, if you need these, please contact us.
 
 ## JPA2 backend
 * Upgrade to Hibernate 4.1.4.Final
