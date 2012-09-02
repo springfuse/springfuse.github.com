@@ -3,6 +3,19 @@ layout: english
 title: Springfuse change log 
 ---
 
+# 3.0.79 (2012-09-02)
+
+## JPA2 backend
+* Upgrade jadira usertype from 3.0.RC1 to 3.0.RC3
+* Fix package-info.java for repository subpackage
+* Upgrade to spring security 3.1.2
+
+## JSF2 WebFlow Primefaces
+* Upgrade to primefaces 3.4-SNAPSHOT
+* Use primefaces twitter bootstrap theme 1.0.8
+* Upgrade to mojara 2.1.10 (as on prime labs demo site)
+* Better partial rendering with dataTable when a row is deleted (see prime enhancement http://blog.primefaces.org/?p=2119)
+
 # 3.0.78 (2012-08-31)
 
 We have decided to focus our effort on JPA2 backend and JSF2/PrimeFaces front.
