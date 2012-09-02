@@ -15,7 +15,7 @@ We announce new version on twitter: <a href="http://twitter.com/#!/springfuse">@
 <div>
 	<g:plusone></g:plusone>
 </div>
-	
+
 ## Browse a generated project example on Github
 * <a href="https://github.com/jaxio/generated-projects/tree/master/crud-jsf2-jpa2-spring">Web app using Primefaces / Spring WebFlow / Spring Data JPA...</a>
 
