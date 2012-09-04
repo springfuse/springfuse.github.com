@@ -3,13 +3,13 @@ layout: english
 title: What is Springfuse ? 
 ---
 
-# What is SpringFuse
+## What is SpringFuse
 
 SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>, a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">JAXIO</a>.
 
 Springfuse relies on Celerio to generate __in a few seconds__ web applications that leverage various open source technologies, such as Spring Framework and Hibernate.
 
-# How Springfuse works
+## How Springfuse works
 
 Springfuse uses the structure of __your database as an entry point__.
 
@@ -30,20 +30,16 @@ With Springfuse you <strong>save weeks of developments</strong> and you <strong>
 faster</strong> the Open Source technologies that Springfuses leverages.
 
 
-# When to use Springfuse?
-## Eliminate repetitive tasks
-
+## When to use Springfuse?
+### Eliminate repetitive tasks
 
 When you identify a repetitive task, your duty is to automate it.
 Springfuse automates the tedious and repetitive task of writing the first piece of code of a new Java project.
 
-
 Actually this first piece of code that Springfuse generates constitute the backbone of your application. It goes way beyond a simple copy paste.
 It covers subject such as persistence, 2d level cache, security, dependency injection, distribution, localization, unit tests, etc.
 
-
 In just a few seconds, Springfuse relieves you from the burden of coding all this not-so-funny part of your application.
-
 
 Therefore
 
@@ -53,8 +49,7 @@ Therefore
 * You can focus on developing real features.
 * You deliver on time.
 
-
-## Learn faster new technologies
+### Learn faster new technologies
 
 There are so many Java technologies around! It is moving so fast!
 Which ones to choose ? And then, what are the associated best practices ?
@@ -64,18 +59,15 @@ In most cases, Spring is a must have technology.
 Still, Spring can be complex to apprehend.
 Springfuse's mission is to deliver world-class project built on SpringSource technologies that follows SpringSource best practices, in a few seconds.
 
-
 Therefore
 
 * You reduce your maintenance costs.
 * Developers learn faster and better with concrete code.
 * You improve the overall quality of your project.
 
-
-## Make it possible !
+### Make it possible !
 
 Cost cuttings, lack of resources, lack of training, impossible dead lines, you name it.
-
 
 When the wall in front of you is too high, you just cannot climb it without help.
 Springfuse can be a precious ladder. Here are two use cases:

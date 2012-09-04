@@ -3,25 +3,29 @@ layout: english
 title: Springfuse change log 
 ---
 
-# 3.0.79 (2012-09-02)
+## SpringFuse Change Logs
 
-## JPA2 backend
+### 3.0.79 (2012-09-02)
+
+#### JPA2 backend
 * Upgrade jadira usertype from 3.0.RC1 to 3.0.RC3
 * Fix package-info.java for repository subpackage
 * Upgrade to spring security 3.1.2
 
-## JSF2 WebFlow Primefaces
+#### JSF2 WebFlow Primefaces
 * Upgrade to primefaces 3.4-SNAPSHOT
 * Use primefaces twitter bootstrap theme 1.0.8
 * Upgrade to mojara 2.1.10 (as on prime labs demo site)
 * Better partial rendering with dataTable when a row is deleted (see prime enhancement http://blog.primefaces.org/?p=2119)
 
-# 3.0.78 (2012-08-31)
+<hr/>
+
+### 3.0.78 (2012-08-31)
 
 We have decided to focus our effort on JPA2 backend and JSF2/PrimeFaces front.
 So currently other options (spring data, spring mvc/jquery) are no longer available, if you need these, please contact us.
 
-## JPA2 backend
+#### JPA2 backend
 * Upgrade to Hibernate 4.1.4.Final
 * Upgrade to Spring Framework 3.1.2.RELEASE
 * Upgrade to Spring Security 3.1.1.RELEASE
@@ -33,26 +37,28 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * Simplify the use of spring security context
 * First basic support of Hibernate Search
 
-## JSF2 WebFlow Primefaces
+#### JSF2 WebFlow Primefaces
 * Upgrade to primefaces 3.3.1
 * Upgrade to Spring Web Flow 2.3.1.RELEASE
 * Use flow inheritance to reduce the amount of webflow code
 * Support search by range for all types (BigInteger, Date, Integer, etc.)
 * Introduce some facelets components
 
-# 3.0.74 (2012-04-01)
+<hr/>
 
-## backend common to all projects
+### 3.0.74 (2012-04-01)
+
+#### backend common to all projects
 * upgrade to springframework 3.0.7.RELEASE
 * do not specify nullable = false and unique = true in the column specifying a simple PK to please topLink ddl generation
 * dos2unix on all resources
 * add missing @Override
 * better javadocs
 
-## Spring data
+#### Spring data
 * refactoring of the support classes
 
-## JSF front
+#### JSF front
 * upgrade to spring webflow 2.3.1
 * upgrade to mojarra 2.1.7
 * upgrade to Primefaces 3.2 and theme 1.0.4
@@ -68,7 +74,7 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * selenium support 
 * remove PRIMEFACES_FILE_HANDLER module, use PRIMEFACES instead
 
-## Other versions updates
+#### Other versions updates
 * upgrade junit from 4.8.1 to 4.10
 * upgrade jackson from 1.5.2 to 1.9.4
 * upgrade xstream from 1.2.2 to 1.4.2
@@ -82,7 +88,7 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * upgrade aspectj version from 1.6.8 to to 1.6.12
 * upgrade mockito version from 1.8.5 to 1.9.0
 
-## Maven related update (generated pom)
+#### Maven related update (generated pom)
 * upgrade maven-jxr-plugin from 2.1 to 2.3
 * upgrade maven-pmd-plugin from 2.4 to 2.7
 * upgrade cobertura plugin to 2.5.1
@@ -101,25 +107,31 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * upgrade maven-war-plugin from 2.1-beta-1 to 2.2
 * upgrade maven eclipse plugin from 2.6 to 2.9
 
-# 3.0.73 (2012-02-14)
+<hr/>
+
+### 3.0.73 (2012-02-14)
 * fix typo in panelMenu.xml (jsf2 front, without spring data)
 * Fix bootstrapring for certain pack.
 
-# 3.0.72 (2012-02-14)
+<hr/>
 
-## jsf2-primefaces webapp (with spring data backend)
+### 3.0.72 (2012-02-14)
+
+#### jsf2-primefaces webapp (with spring data backend)
 * upgrade to Spring Data 1.0.3
 * upgrade to PrimeFaces 3.1
 * upgrade to PrimeFaces Theme 1.0.3
 
-## spring mvc webapp (with spring data backend)
+#### spring mvc webapp (with spring data backend)
 * upgrade to Spring Data 1.0.3
 
-## backend (with spring data)
+#### backend (with spring data)
 * upgrade to Spring Data 1.0.3
 * fix compilation issue if no 'account' table is found
 
-# 3.0.71 (2012-02-09)
+<hr/>
+
+### 3.0.71 (2012-02-09)
 
 ## Generation workflow update
 It is now required to provide a valid email address.

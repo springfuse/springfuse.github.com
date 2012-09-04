@@ -1,59 +1,81 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<head>{% include head.html %}
-	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
-</head>
-<body>
-	<div class="container">
-		<header id="header">
-			<nav>
-				<h1 id="logo" style="height:77px;">
-					<a href="/"><img src="/images/logo/springfuse.png"></a>
-				</h1>
-				<ul id="menu">
-					<li class="first-line">
-						<a href="/">SpringFuse</a>
-						<div class="sub" style="width: 250px">
-							<ul style="width: 250px">
-								<li><a href="/what-is-springfuse.html">What is SpringFuse ?</a></li>
-								<li><a href="/documentation/configuration.html">Documentation</a></li>								
-								<li><a href="/spring-security-integration-tutorial.html">Spring security tutorial</a></li>
-								<li><a href="/change-log.html">Changelog</a></li>
-								<li><a href="/faq.html">FAQ</a></li>
-							</ul>
-						</div>
-					</li>
-					<li class="first-line">
-						<a href="/blog.html">Blog</a>
-						<div class="sub" style="width: 455px;">
-							<div class="row">
-								<ul style="width: 455px;">
-									<li><h2><a href="/blog.html">Latest posts</a></h2></li>
-									{% for post in site.posts limit:5 %}
-									<li><a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }}</a></li>
-									{% endfor %}
-									<li><h2><a href="/blog.html">All posts</a></h2></li>
-								</ul>
-							</div>
-						</div>
-					</li>
-					<li class="first-line"><a href="http://www.jaxio.com/en/services.html">Services</a></li>					
-					<li class="first-line"><a href="http://www.jaxio.com/en/">Jaxio</a></li>
-					<li class="first-line"><a href="/contact-us.html">Contact us</a></li>					
-				</ul>
-			</nav>
-		</header>
-		<section id="main">
-			{{ content }} {% if page.comments %}
-			<aside>
-				<div id="disqus_thread"></div>
-			</aside>
-			{% endif %}
-		</section>
-		<footer id="footer">
-			All rights reserved &copy; 2012 <a href="http://www.jaxio.com/en/">Jaxio</a> | twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a> | <a href="/privacy-policy.html">Privacy policy</a>
-		</footer>
+  {% include head.html %}
+  <body>
+  
+<div class="navbar navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+     		<a class="brand" href="/"></a>        
+			<ul class="nav nav-pills">
+				<li class="dropdown">
+    				<a class="dropdown-toggle" data-toggle="dropdown" href="">SpringFuse</a>
+   					<ul class="dropdown-menu">
+						<li><a href="/what-is-springfuse.html">What is SpringFuse ?</a></li>
+						<li><a href="/documentation/configuration.html">Documentation</a></li>								
+						<li><a href="/spring-security-integration-tutorial.html">Spring security tutorial</a></li>
+						<li><a href="/change-log.html">Changelog</a></li>
+						<li><a href="/faq.html">FAQ</a></li>
+				    </ul>
+			  </li>
+			  <li class="dropdown">			  
+				<a class="dropdown-toggle" data-toggle="dropdown" href="">Blog</a>
+				<ul class="dropdown-menu">
+{% for post in site.posts limit:5 %}
+					<li><a href="{{ post.url }}">{{ post.date | date_to_string }} - {{ post.title }}</a></li>
+{% endfor %}
+					<li><a href="/blog.html">All posts</a></li>
+				</ul>						
+			  </li>
+				<li class="dropdown">
+    				<a class="dropdown-toggle" data-toggle="dropdown" href="">Services</a>
+   					<ul class="dropdown-menu">
+						<li><a href="http://www.jaxio.com/en/services.html">Consulting/Support/Training by Jaxio</a></li>
+    				</ul>
+				</li>
+			  	<li><a href="/contact-us.html">Contact us</a></li>					
+			</ul>
+		</div>
 	</div>
-	{% include javascript.html %}
-</body>
+</div>
+<!-- after nav but before content... -->
+	<script type="text/javascript" src="/js/jquery-1.8.1.min.js"></script>
+
+<div class="container">
+{{content}}
+      <hr>
+      <footer class="offset2">
+		All rights reserved &copy; 2012 <a href="http://www.jaxio.com/en/">Jaxio</a> | twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a> | <a href="/privacy-policy.html">Privacy policy</a>
+      </footer>
+    </div> <!-- /container -->
+
+	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>	
+{% if page.comments %}
+	<script type="text/javascript">
+	    var disqus_shortname = 'springfuse';
+	    var disqus_title = '{{ page.title | replace:"'","\\'" }}';
+	    var disqus_url = "http://springfuse.github.com{{ page.url }}";
+	    (function() {
+	        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	    })();
+	</script>
+{% endif %}
+	<script>
+	 var _gaq = _gaq || [];
+	     _gaq.push(['_setAccount', 'UA-166864-24']);
+	     _gaq.push(['_trackPageview']);
+	
+	
+	     (function() {
+	       var ga = document.createElement('script');
+	       ga.src = ('https:' == document.location.protocol ? 'https://ssl' :
+	           'http://www') + '.google-analytics.com/ga.js';
+	       ga.setAttribute('async', 'true');
+	       document.documentElement.firstChild.appendChild(ga);
+	     })();
+	</script>
+  </body>
 </html>
