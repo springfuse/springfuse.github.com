@@ -83,7 +83,7 @@ __Requirements__
       <label class="radio">
       <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend only
 		<span class="help-block">      
-      		Just the backend... Ideal if you want to develop your own front end stack or if you simply don&#130;t need one
+      		Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one
 		</span>
       </label>
     </div>
