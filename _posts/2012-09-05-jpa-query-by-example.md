@@ -9,8 +9,12 @@ In this post, we present our work on providing Query By Example for JPA 2 in pro
 
 The code uses JPA 2 standard only, it does not rely on any JPA implementation.
 
-To get the code, <a href="/#gen">generate a project</a> or <a href="https://github.com/jaxio/generated-projects/tree/master/crud-jsf2-jpa2-spring">browse the code on github</a>
+__More Resources__
 
+* <a href="https://www.facebook.com/video/video.php?v=524162864265905&notif_t=video_processed">Watch a demo of the generated application</a>
+* <a href="https://github.com/jaxio/generated-projects/tree/master/crud-jsf2-jpa2-spring">Browse the code on GitHub</a>
+* <a href="/#gen">Generate a project yourself</a> 
+ 
 ### What is Query By Example?
 
 The idea is to use an entity as a parameter holder when doing query on an entity.
