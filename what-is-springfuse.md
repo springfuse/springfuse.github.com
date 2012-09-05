@@ -17,14 +17,15 @@ The generation process is done in <b>very easy steps</b>.
 
 <img src="/images/springfuse/how-springfuse-works.png"/>
 
-1. You run locally on your computer, our Springfuse Maven plugin. 
-  It <strong>extracts</strong> the meta-data information from your database,
-  such as the table names, the column names and the various integrity constraints.
-2. Springfuse plugin <strong>uploads</strong> the result of this extraction to Springfuse site. 
-  In a few seconds the <a href="http://www.jaxio.com/en/celerio.html" target="_new">Celerio</a> code generator generates your project and zip it.
-3. Springfuse plugin then <strong>downloads</strong> your project source code. 
-  Here you go : you have your first release!
+<span class="badge badge-info">1</span> You run locally on your computer, our Springfuse Maven plugin.
+It <strong>extracts</strong> the meta-data information from your database,
+such as the table names, the column names and the various integrity constraints.
 
+<span class="badge badge-info">2</span> Springfuse plugin <strong>uploads</strong> the result of this extraction to Springfuse site. 
+In a few seconds the <a href="http://www.jaxio.com/en/celerio.html" target="_new">Celerio</a> code generator generates your project and zip it.
+
+<span class="badge badge-info">3</span> Springfuse plugin then <strong>downloads</strong> your project source code. 
+Here you go : you have your first release!
 
 With Springfuse you <strong>save weeks of developments</strong> and you <strong>learn
 faster</strong> the Open Source technologies that Springfuses leverages.
