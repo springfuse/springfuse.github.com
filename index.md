@@ -6,10 +6,12 @@ title: SpringFuse - Online Java Code Generator
 <div class="hero-unit">
     <h1>SpringFuse</h1>
     <h3>Code generation for humans</h3>
-	<div><g:plusone></g:plusone></div>
 	<p>Reverse your database structure and generate a full J2EE web application stack in seconds</p>
     <p><a href="https://github.com/jaxio/generated-projects/tree/master/crud-jsf2-jpa2-spring" class="btn btn-primary btn-large">Show me some generated code &raquo;</a></p>
     <p><a href="#gen" class="btn btn-primary btn-large">Let me generate a project online &raquo;</a></p>
+	<div><g:plusone></g:plusone></div>
+	<div><a href="https://twitter.com/springfuse" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @springfuse</a></div>
+	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 </div>
 
 <br/>
