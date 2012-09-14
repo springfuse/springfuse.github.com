@@ -36,6 +36,8 @@ __Requirements__
 
 <span class="label label-info">To generate a project</span>, adjust the settings below and execute the resulting command lines in a console.
 
+Before doing so, if you are totally new to SpringFuse, you should <a href="/what-is-springfuse.html">understand how it works</a>.
+
 ### Step 1/4: Fill the code generation form 
 
 <form class="form-horizontal">
