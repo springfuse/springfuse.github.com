@@ -12,7 +12,7 @@ The code uses JPA 2 standard only, it does not rely on any JPA implementation.
 __More Resources__
 
 * <a href="https://www.facebook.com/video/video.php?v=524162864265905&notif_t=video_processed">Watch a demo of the generated application</a>
-* <a href="https://github.com/jaxio/generated-projects/tree/master/crud-jsf2-jpa2-spring">Browse the code on GitHub</a>
+* <a href="https://github.com/jaxio/generated-projects">Browse the code on GitHub</a>
 * <a href="/#gen">Generate a project yourself</a> 
  
 ### What is Query By Example?
@@ -180,7 +180,7 @@ where
 
 ### GenericDao Implementation
 
-<a href="https://github.com/jaxio/generated-projects/tree/master/crud-jsf2-jpa2-spring">The full implementation is available on github</a> or in any generated project.
+<a href="https://github.com/jaxio/generated-projects/">The full implementation is available on github</a> or in any generated project.
 
 Here are few excepts
 
