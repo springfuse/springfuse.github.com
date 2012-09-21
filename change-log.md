@@ -3,7 +3,94 @@ layout: english
 title: Springfuse change log 
 ---
 
-## SpringFuse Change Logs
+## SpringFuse/Celerio Change Logs
+ 
+### 3.0.83 (2012-09-20)
+
+#### JPA2 backend
+* add byNamedQuery in namedQueryUtil
+* prevent var clash when self referencing entity
+* support for localization in db schema. Ex: columns such as text_fr, text_en are detected by celerio 
+which generate a getText() method which invoke the getter corresponding to the current locale.
+* fix backend-jpa pom
+* HTML content detection based on column name: contains '_html' instead of endsWith 'html'. It is also configurable ("html" attribute in columnConfig)
+* SafeHtml annotation is now disabled by default. It is configurable (safeHtml element, child of columnConfig)
+* entity: in copyTo remove the copy of the relations' ids
+
+#### Hibernate Search support
+* generate transverse hibernate search code only if at least one entity is indexed
+* generate XxxPkBridge only if needed
+* remove tika dependencies and code (too specific)
+* FieldBridge is configurable (use the 'brigdeImpl' attribute of the 'indexField' element)
+* introduce findTerm in Respository (use full text search). It is not wired in the view, it is up to the developer 
+to change it from find to findTerm... easy
+
+#### JSF2 WebFlow Primefaces
+* add a reset button: unfortunately does not work with all components
+* remove c:if from select page (use rendered instead)
+* dynamic layout in selectManyEnum depending on items list size
+
+#### Celerio
+* collision is now under target/maven-celerio-plugin/collisions, in any circumstance
+* we now generate bootstrap as all regular file (so pom get into collision)
+
+
+### 3.0.82 (2012-09-17)
+
+#### JPA2 backend
+* change the maven resource substitution pattern from ${value} to @value@ so it does not interfer with the spring one
+* enforce java 1.6.0-26 and above, as jpa2 utils we use will not compile
+* fix domain localization if we do not generate in the same folder
+
+#### JSF2 WebFlow Primefaces
+* fix quit navigation (for case where new is pressed from an edit page and then quit is pressed)
+* set severity to error for unique validator message
+
+### 3.0.81 (2012-09-14)
+
+#### JPA2 backend
+* improve JPA search by example: take many-to-many association into account
+* fix NPE on null booleans (regression)
+
+#### JSF2 WebFlow Primefaces
+* add jpa unique validator for jsf forms
+* introduce XxxController  to do business validation and other conditional checks that are easier to implement in Java than in webflow's xml syntax
+* contextual messages for status_saved_ok and status_deleted_ok
+* better text for error message (take plural into account): there is one error / there are x errors
+* use multiple autoComplete in search form for many-to-many associations.
+
+### 3.0.80 (2012-09-11)
+
+#### JPA2 backend
+* Improve JPA search by example: take x-to-one association into account
+* you can now add custom annotations on entities using celerio configuration
+
+#### Hibernate Search support
+* Hibernate Search is now configurable per entity and per column. In your entity config, 
+use the 'indexed' property to index the entity and use the 'field' element to annotate a field.
+Here is an example:
+{% highlight xml %}
+<entityConfig tableName="ACCOUNT" indexed="true">
+	<columnConfigs>
+        <columnConfig columnName="email">
+                <indexedField store="YES" />
+        </columnConfig>
+	</columnConfigs>        
+</entityConfig>
+{% endhighlight %}
+
+
+#### JSF2 WebFlow Primefaces
+* upgrade to PrimeFaces 3.4
+* changes in webflow navigation: after'close' or 'save' you go back to search page
+* make faces message survive multiple redirections
+* split EntityConfigConverter (customer demand, to ease overriding)
+* outputBoolean component: no longer display cross icon when value is null
+* rename xxxAutocomplete component to xxxAutoComplete, by analogy with primefaces.
+* use multiple autoComplete in search form for x-to-one associations.
+* Boolean are multi selectable in form
+* Enums are multi selectable in form
+* add icon for environment name depending on 'env_name' var
 
 ### 3.0.79 (2012-09-02)
 
