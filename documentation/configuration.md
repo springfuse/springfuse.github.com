@@ -31,7 +31,9 @@ Here are the main configuration points (this is a work in progress):
 	* [@OneToOne](#o2o)
 	* [Inverse @OneToOne](#io2o)
 	* [@ManyToMany](#m2m)
-
+* [Conventions](#conventions)
+	* [File Upload and Download](#file)
+ 
 <a name="xsd"></a>
 # Inline documentation through XSD
 Before editing your configuration file, make sure that Eclipse displays the documentation present in the
@@ -401,10 +403,32 @@ In case Celerio does not detect the join table, for example if an extra column i
 to `true` the `middleTable` attribute of the `entityConfig` element.
 
 
+<a name="conventions"></a>
+# Conventions
 
+<a name="file"></a>
+## File Upload and Download
 
+When the following columns are present simultaneously in a
+table, Celerio generates various helper methods to ease file
+manipulation from the web tier to the persistence layer.
 
+* 'prefix'_FILE_NAME (String)
+* 'prefix'_CONTENT_TYPE (String)</para>
+* 'prefix_SIZE or 'prefix'_LENGTH (int)
+* 'prefix'_BINARY (blob)
 
+Example: Here is the corresponding SQL code using 'mydoc' as a 'prefix'
+
+{% highlight sql %}
+mydoc_content_type	varchar(255)    not null,
+mydoc_size			integer         not null,
+mydoc_file_name		varchar(255)    not null,
+mydoc_binary		bytea,
+{% endhighlight %}
+
+This convention allows you to upload a file transparently, 
+save it to the corresponding table, then download it using a simple URL.
 
 
 
