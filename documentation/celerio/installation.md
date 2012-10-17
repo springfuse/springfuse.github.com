@@ -6,8 +6,10 @@ title: Celerio Guide - Installation
 Installation
 ============
 
-JDK 6 or above
---------------
+Requirements
+------------
+
+### JDK 6 or above
 
 Celerio and the generated code require at least JDK 1.6.0_24 to compile and run.
 *Download and install the latest JDK from [](http://java.oracle.com)*
@@ -21,8 +23,7 @@ You should get a result similar to this:
 
     javac 1.6.0_37
 
-Maven 2
--------
+### Maven 2
 
 Celerio and the generated code require Maven 2.
 
@@ -39,8 +40,7 @@ You should get a result similar to this:
     Java version: 1.6.0_18
     OS name: "windows xp" version: "5.1" arch: "x86" Family: "windows"
 
-Source control system
----------------------
+### Source control system
 
 Celerio leverages source control (SVN and CVS) usage to provide features
 allowing the user to take control over certain generated file.
