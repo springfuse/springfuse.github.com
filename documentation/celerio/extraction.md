@@ -38,6 +38,7 @@ Plugin details
 
 * name: com.jaxio.celerio:maven-dbmetadata-plugin:3.0.86
 * goal: extract-metadata
+* maven phase: generate-sources
 
 ### Attributes
 
