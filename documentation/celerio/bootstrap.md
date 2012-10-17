@@ -12,7 +12,7 @@ Bootstrap the skeleton
 To create a new project skeleton, invoke the `bootstrap` goal of the
 `maven-bootstrap-plugin` from a command line as follow:
 
-`mvn com.jaxio.celerio:maven-bootstrap-plugin:`
+	mvn com.jaxio.celerio:maven-bootstrap-plugin:3.0.86
 
 When prompted, enter your application name and the desired root package
 and select the desired type of application you want to generate (a
@@ -81,6 +81,9 @@ In general, the minimal files include at least:
     is going to reverse.
 
 -   `src/main/config/maven-celerio-plugin/maven-celerio-plugin.xml` : A
+    Celerio's configuration file.
+
+-   `src/main/config/maven-celerio-plugin/celerio-template-packs.xml` : A
     Celerio's configuration file.
 
 Reverse, generate and run

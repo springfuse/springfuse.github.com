@@ -238,14 +238,40 @@ code.
 
 Before generating a non-java file, Celerio applies the following rules:
 
-  File is already present on disk   File is under source control   File is the same   Celerio action
-  --------------------------------- ------------------------------ ------------------ ----------------------------------------------
-  No                                n/a                            n/a                File is generated
-  Yes                               Yes or No                      Yes                File is not generated
-  Yes                               Yes                            No                 File is generated in the collision directory
-  Yes                               No                             No                 File is overwritten
+<table class="table">
+	<tr>
+		<th>File is already present on disk</th>
+		<th>File is the same </th>
+		<th>File is under source control</th>
+		<th>Celerio action</th>
+	</tr>
+	<tr>
+		<td>No</td>
+		<td>n/a</td>
+		<td>n/a</td>
+		<td>File is generated</td>
+	</tr>
+	<tr>
+		<td>Yes</td>
+		<td>Yes or No</td>
+		<td>Yes</td>
+		<td>File is not generated</td>
+	</tr>
+	<tr>
+		<td>Yes</td>
+		<td>Yes</td>
+		<td>No</td>
+		<td>File is generated in the collision directory</td>
+	</tr>
+	<tr>
+		<td>Yes</td>
+		<td>No</td>
+		<td>No</td>
+		<td>File is overwritten</td>
+	</tr>
+</table>
 
-  : Generations rule summary for non-java file
+: Generations rule summary for non-java file
 
 Collisions and Merging
 ----------------------
