@@ -9,17 +9,17 @@ Installation
 JDK 6 or above
 --------------
 
-Celerio and the generated code require JDK 6 to compile and run.
-*Download and install the latest JDK from [](http://java.sun.com)*
+Celerio and the generated code require at least JDK 1.6.0_24 to compile and run.
+*Download and install the latest JDK from [](http://java.oracle.com)*
 
 Once installed, make sure you can run `javac` from the command line.
 Open a command line and run:
 
-`javac –version`
+	javac –version
 
 You should get a result similar to this:
 
-    javac 1.6.0_18
+    javac 1.6.0_37
 
 Maven 2
 -------
@@ -31,7 +31,7 @@ Celerio and the generated code require Maven 2.
 Once installed, make sure you can run Maven 2 from the command line.
 Open a command line and run:
 
-`mvn –v`
+	mvn –v
 
 You should get a result similar to this:
 
