@@ -29,10 +29,16 @@ or java.lang.Boolean to `""` or `false`.
 Please edit your `catalina.properties` file and add the following
 property:
 
-{% highlight java %}
-org.apache.el.parser.COERCE_TO_ZERO=false
-{% endhighlight %}
+	org.apache.el.parser.COERCE_TO_ZERO=false
 
 Please refer to [Tomcat System
 properties](http://tomcat.apache.org/tomcat-6.0-doc/config/systemprops.html)
 for more information.
+
+PermGen when running Jetty
+--------------------------
+
+Increase the memory:
+
+	export MAVEN_OPTS="-Xmx2048m -XX:MaxPermSize=128m"
+ 
