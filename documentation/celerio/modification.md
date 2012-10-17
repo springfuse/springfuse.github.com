@@ -57,7 +57,7 @@ The main drawback may show up if your database schema changes. You may
 have to reflect those changes in the file that you now own as a regular
 file. Hopefully, to help you in this task, Celerio generates the file in
 a dedicated collision folder under the `target` folder. Please refer to
-? .
+[Collisions and merging](#collisions-merging) section.
 
 ### Code modifications through 'Base' inheritance
 
@@ -228,7 +228,7 @@ control it anymore, it is under your control.
 
 Since you may need to have access to the orignal generated file for
 merging purposes, Celerio still generates it, but under the `target`
-folder. Please refer to ? .
+folder. Please refer to 
 
 If you change your mind and want Celerio to generate the file again,
 simply remove the file from your source control and regenerate your
@@ -272,6 +272,8 @@ Before generating a non-java file, Celerio applies the following rules:
 </table>
 
 : Generations rule summary for non-java file
+
+<a name="collisions-merging"></a>
 
 Collisions and Merging
 ----------------------

@@ -18,13 +18,13 @@ The code generation step is driven by several factors:
     various column's constraints such as `NOT NULL` , the foreign keys,
     etc. are exploited by Celerio in the code generation process.
 
--   *Celerio conventions
+-   *Celerio conventions*
 
--   *Celerio configuration
+-   *Celerio configuration*
 
--   *Celerio template packs
+-   *Celerio template packs*
 
--   *Generated code modifications
+-   *Generated code modifications*
 
 ![Source code generation is driven by several
 factors](images/celerio-generation.png)
