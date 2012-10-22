@@ -2,9 +2,6 @@
 layout: english
 title: Configuration 
 ---
-* tralala
-{:toc}
-
 
 # Celerio Configuration
 
