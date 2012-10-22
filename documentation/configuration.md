@@ -2,6 +2,9 @@
 layout: english
 title: Configuration 
 ---
+* tralala
+{:toc}
+
 
 # Celerio Configuration
 
@@ -415,7 +418,7 @@ manipulation from the web tier to the persistence layer.
 
 * 'prefix'_FILE_NAME (String)
 * 'prefix'_CONTENT_TYPE (String)</para>
-* 'prefix_SIZE or 'prefix'_LENGTH (int)
+* 'prefix'_SIZE or 'prefix'_LENGTH (int)
 * 'prefix'_BINARY (blob)
 
 Example: Here is the corresponding SQL code using 'mydoc' as a 'prefix'
