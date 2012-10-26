@@ -18,61 +18,67 @@ Manual Modification Detection
 -----------------------------
 
 Celerio keeps track of all the file it generates in the file `.celerio/generated.xml`.
-Do not commit this file to your SCM as it is different for each developer.
+Do not commit this file to your Source Control System as it is different for each developer.
 
 Each time Celerio regenerates a file it checks first if the file has been modified since the last generation.
 `If yes`, Celerio takes no risk, it generates the file in the collision folder (details are provided further).
 `If no`,   Celerio replaces the file with the new generated content.
 
-Note that in case the generated file has the same content as the old one, Celerio does not regenerate it in order to preserve the file timestamp.
+Note that if the generated file has the same content as the old one, Celerio does not regenerate it in order to preserve the file's timestamp.
 
 > ** Important **
 > 
 > If you delete the `.celerio/generated.xml file` Celerio has no way to determine if a file has been manually modified or not and you may loose 
-> your modifications unless the file is committed to your SCM.
+> your modifications unless the file has been committed to your Source Control System.
 
 
 Java files
 ----------
 
 By default, Celerio generates the main Java file under the directory
-`src/main/generated-java`.
+`${maven-celerio-plugin.outputDir}/src/main/generated-java` or `${maven-celerio-plugin.outputDir}/src/main/java`
+depending on Celerio's outputDir [Please refer to Code Generation chapter](generation.html)
 
 In this section you will learn how to modify a generated Java file
-without loosing your modifications. The first approach consists in
-simply moving the file in a user reserved folder. The second approach
-involves inheritance of a base class. Both approaches have pros and
-cons.
+without loosing your modifications. The first approach consists 
+simply in moving the file to ${baseDir}/src/main/java. 
+
+The second approach involves inheritance of a base class. Both approaches have pros and cons.
 
 > **Important**
 >
 > In any case, you should avoid to modify directly the generated Java file
 > as you may loose your changes as soon as you regenerate the code.
 
-### Code modifications through reserved folders
+### Moving the file to ${baseDir}/src/main/java
 
-Before modifying the generated Java file, move it to the `src/main/java`
+Before modifying the generated Java file, move it to the `${baseDir}/src/main/java`
 folder. For example, if you want to edit the generated
 `BankAccount.java` file, move it from
+
+__if outputDir equals baseDir__
 `src/main/generated-java/<package path>/BankAccount.java` to
 `src/main/java/<package path>/BankAccount.java`
 
+__if outputDir different from baseDir__
+`${maven-celerio-plugin.outputDir}/src/main/java/<package path>/BankAccount.java` to
+`${baseDir}/src/main/java/<package path>/BankAccount.java`
+
 > **Note**
 >
-> When you copy the file make sure you preserve the package directory
-> structure.
+> When copying the file you must use the same relative path.
 
-Since all files under the `src/main/java` are considered as user
+Since all the files under the `${baseDir}/src/main/java` are considered as user
 reserved files, Celerio will not interfere with them. Next time you run
 Celerio, Celerio will detect the presence of BankAccount.java under
-`src/main/java/<package path>` , leave it untouched, and will not
+`${baseDir}/src/main/java/<package path>`, leave it untouched, and will not
 generate it here.
 
 The `main advantage` of this approach is that, you now can do whatever you
 want with the file, in particular you can modify any method's body etc.
 
 The `main drawback` may show up if your database schema changes. You may
-have to reflect those changes in the file that you now own as a regular
+have to reflect those changes manually in the file that you now own as a regular
 file. Hopefully, to help you in this task, Celerio generates the file in
 a dedicated collision folder under the `target` folder. Please refer to
 [Collisions and merging](#collisions-merging) section.
@@ -80,13 +86,15 @@ a dedicated collision folder under the `target` folder. Please refer to
 ### Code modifications through 'Base' inheritance
 
 Celerio enables you to extend a generated Java class without modifying
-the generated Java code or the generated resources files.
+the generated Java code.
 
 Let’s take an example with the `Account` entity which maps the `Account`
-table of your database schema.
+table of our database schema example.
 
 Let's assume the generated `Account` source file is located at
-`src/main/generated-java/com/example/demo/domain/Account.java` It looks
+`${maven-celerio-plugin.outputDir}/src/main/(generated-)java/com/example/demo/domain/Account.java` 
+
+It looks
 like this:
 
 {% highlight java %}
@@ -112,28 +120,30 @@ public String getFullName() {
 {% endhighlight %}
 
 Instead of adding this method in the generated file, where it would be
-mixed with generated code, Celerio supports a another solution that
+mixed with generated code and potentially overwritten, Celerio supports another solution that
 enables you to extend the generated class of you choice and at the same
-time preserve the same class name!
+time preserve the same class name.
 
-This technique has two major benefits:
+This technique has three major benefits:
 
 * No need to modify the existing files (Java, xml, etc.) that reference the 
   Java class that you want to extend.
 * The hand written code is isolated in a separated class, in a separated 
   file, which greatly improves the clarity of your code.
+* The generated files can be overwritten by Celerio to take into account your most recent Database schema changes. 
 
 Best way to understand how it works is to try it:
 
-Create a new `Account.java` file and save it in the directory:
-`src/main/java/com/example/demo/domain`
+Create a new `Account.java` file and save it in the folder:
+`${baseDir}/src/main/java/com/example/demo/domain`
 
 > **Note**
 >
-> Note that the new path is almost the same as the old path. The only
-> difference is that the file is now under `src/main/java` and not
-> `generated-java` .
+> Note that the new Account.java must be in the same package as the old one.
 
+At this stage, we have exactly 2 Account classes, which is forbidden by Java.
+Let's continue, you will see how Celerio fixes this.
+ 
 Open the newly created `Account.java` file and copy paste the following
 code:
 
@@ -156,16 +166,16 @@ and will also detect that the `Account` class extends a class that has
 the same name plus the `Base` suffix.
 
 This is enough for Celerio to assume that you want to impersonate the
-class, and that it should generate the code corresponding to Account
+class and that it should generate the code corresponding to the Account
 table in a class called `AccountBase` instead of a class called
 `Account` .
 
 The source code of `AccountBase` is generated in the file
-`src/main/generated-java/com/example/demo/domain/AccountBase.java` .
+`${maven-celerio-plugin.outputDir}/src/main/(generated-)java/com/example/demo/domain/AccountBase.java` .
 Since this class is an entity, the class level annotations that were
 present on the original Account class must copied to your own Account
 class. Hopefully if you read the source code of the 'Base' class, you
-will find these annotations. Here is how a snapshot of the generated
+will find these annotations in the comments. Here is how a snapshot of the generated
 AccountBase code.
 
 {% highlight java %}
@@ -189,23 +199,20 @@ prevent you from instanciating it .
 > instructions related to some annotations that must be added to your
 > class.
 
-During the generation process, if Celerio encounters the old file
-
-`src/main/generated-java/com/example/demo/domain/Account.java` file, it
-deletes it to prevent class duplication.
+During the generation process, if Celerio encounters the old 
+`${maven-celerio-plugin.outputDir}/src/main/(generated-)java/com/example/demo/domain/Account.java` 
+file, it deletes it to prevent class duplication.
 
 You can proceed by analogy to override other Java classes.
 
-Other files (non-Java)
-----------------------
-
-### Code modifications through reserved folders
+Other files (non-Java) when baseDir equals Celerio's outputDir
+-----------------------------------------------------------------
 
 Ideally all generated files should be under a `generated` folder. In
 practice, this is not really convenient or possible as certain files are
 expected to be in a well known location (ex: `web.xml` )
 
-Whenever possible and pertinent, we keep the generated by under a
+If possible and pertinent, we keep the generated files under a
 generated folder. This is specially useful for entity bound files as
 there could be a lot of them.
 
@@ -216,37 +223,37 @@ Do not modify the generated flows, instead simply copy the files you need under
 By configuration, Spring Web Flow will first look up a flow by id in the
 `src/main/webapp/WEB-INF/flows` user's reserved folder.
 
-### Code modification through source control
+### Take ownership of a generated file
 
-#### Overwrite non-java generated file with your own content
+In order to tell Celerio to do not overwrite a generated file, you must add this file to your source control system.
 
-To overwrite the content of the non-java generated file with your own
-content, first add add this file to your your source control system and
-then modify it as you want.
-
-Next time Celerio runs, it will detect that this file is under source
+Next time Celerio runs, it will detect that your file is under source
 control and will not overwrite it.
 
-In a sense, the generated code is frozen for this file: Celerio does not
+In a sense, the code generation is frozen for this file: Celerio does not
 control it anymore, it is under your control.
 
-Since you may need to have access to the orignal generated file for
-merging purposes, Celerio generates it under the `target`
+Since you may be interested in the file Celerio would have generated if you had not added your file to your Source Control System, Celerio generates it under the `target`
 folder. Please refer to [Collisions and merging](#collisions-merging) section.
 
 If you change your mind and want Celerio to generate the file again,
 simply remove the file from your source control and regenerate your
 code.
 
-#### Generation rule summary for non-java file
+#### Generation rule summary for non-java file (baseDir == outputDir)
 
 Before generating a non-java file, Celerio applies the following rules:
 
 <table class="table">
+	<tfoot>
+		<tr>
+			<td colspan="4">Generations rule summary for non-java file (baseDir same as Celerio's outputDir)</td>
+		</tr>
+	</tfoot>	
 	<tr>
 		<th>File is already present on disk</th>
-		<th>File is the same </th>
 		<th>File is under source control</th>
+		<th>Generated file would be the same </th>
 		<th>Celerio action</th>
 	</tr>
 	<tr>
@@ -257,8 +264,8 @@ Before generating a non-java file, Celerio applies the following rules:
 	</tr>
 	<tr>
 		<td>Yes</td>
-		<td>No</td>
 		<td>Yes</td>
+		<td>No</td>
 		<td>File is generated in the collision folder</td>
 	</tr>
 	<tr>
@@ -275,13 +282,62 @@ Before generating a non-java file, Celerio applies the following rules:
 	</tr>
 	<tr>
 		<td>Yes</td>
-		<td>Yes</td>
 		<td>No</td>
+		<td>Yes</td>
 		<td>File is not generated</td>
 	</tr>
 </table>
 
-: Generations rule summary for non-java file
+
+Other files (non-Java) when baseDir is different from Celerio's outputDir
+-------------------------------------------------------------------------
+
+In the case when baseDir is different from Celerio's outputDir, all is much simpler as
+by definition all the files present under the ${baseDir} folder cannot be overwritten by Celerio.
+
+If you want to take ownership of a file, let's say the web.xml file, you should simply move the file from
+the ${maven-celerio-plugin.outputDir} to the ${baseDir}. In this process you should preserve the file's relative path.
+
+For example move:
+
+* ${maven-celerio-plugin.outputDir}/src/main/webapp/WEB-INF/web.xml to
+* ${baseDir}/src/main/webapp/WEB-INF/web.xml
+
+Once you re-run Celerio, it will detect the file under ${baseDir} and therefore will no longer generate it in the ${maven-celerio-plugin.outputDir}.
+Instead, it will generate it in the collision folder.  Please refer to [Collisions and merging](#collisions-merging) section.
+
+#### Generation rule summary for non-java file (baseDir =/= outputDir)
+
+Before generating a non-java file, Celerio applies the following rules:
+
+<table class="table">
+	<tfoot>
+		<tr>
+			<td colspan="4">Generations rule summary for non-java file (baseDir different from Celerio's outputDir)</td>
+		</tr>
+	</tfoot>	
+	<tr>
+		<th>File is present under baseDir</th>
+		<th>Generated file would be the same </th>
+		<th>Celerio action</th>
+	</tr>
+	<tr>
+		<td>No</td>
+		<td>n/a</td>
+		<td>File is generated under outputDir</td>
+	</tr>
+	<tr>
+		<td>Yes</td>
+		<td>No</td>
+		<td>File is generated in the collision folder</td>
+	</tr>
+	<tr>
+		<td>Yes</td>
+		<td>Yes</td>
+		<td>File is not generated</td>
+	</tr>
+</table>
+
 
 <a name="collisions-merging"></a>
 
@@ -315,3 +371,8 @@ directory and the collision directory
 
 Then, you can keep track of changes you made and eventually merge some
 of the newly generated code into your existing file.
+
+#### Merging Tools
+
+* [WinMerge](http://winmerge.org/)
+* [Araxis Merge](http://www.araxis.com/merge/)
