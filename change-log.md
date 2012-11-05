@@ -4,6 +4,76 @@ title: Springfuse change log
 ---
 
 ## SpringFuse/Celerio Change Logs
+
+
+### 3.0.88 (in progress)
+
+* fix jpauniquevalidator when a proxy is used
+* when composite unique keys names are available, use them
+* validate simple and composite unique constraints in the controller
+* add search mass indexer
+* no longer need to override getByCompositePkPredicate when you have a composite pk
+
+### 3.0.87 (2012-10-22)
+
+* remove erroneous legend for edit form
+* fix spring application context hierarchy,
+* fix converters when pk is a date
+* restore row selection (onclick)
+
+
+### 3.0.86 (2012-10-17)
+
+* fix cache names!
+* fix invalid orm xsd url
+* facelet tag refactoring
+* when closing edit form, now go back to the select view instead of homepage.
+* rename PersistableHashBuilder to IdentifiableHashBuilder
+* when using app:selectManyBoolean and app:selectManyEnum display the null values only if the attribute is not required
+* use printers (replace formatters)
+* move JpaUniqueSupport to backend and rename it to JpaUniqueUtil
+
+
+### 3.0.85 (2012-10-09)
+
+* no longer use c:if and c:forEach in messages component. Instead use rendered and ui:repeat
+* use div instead of span to please html checker
+* keep track of flow even in sub flows
+* remove useless css settings
+* change font size from 11 to 12
+* use primefaces tag for selectOneRadio
+* for better code factorization : introduce toSearchParameters in XxxForm
+* save search feature (relies on conventions)
+* maxResults simplification: -1 means no limit
+* use facelet tag instead of composite component for outputLabel as it insert an intermediate id in certain cases.
+* cleanup flowsMenuHandler, reuse Entityconverters in a TypeAwarePrinter
+* introduce getPluralableProperty in PropertyUtils. Use it to localize searchResultsRegion. Use it to localize form error intro
+* enable by default pre-post-annotations security
+* work on audit log using hibernate listener
+* add audit panel to see the last modification date/author
+* do not try to be smart with @Column(name), always set the name as found  
+  in the metadata, as oracle is case sensitive when using collision column names
+* In default database example, add audit info in account entity.
+* sort search result by many-to-one property  
+* search on many-to-one field
+
+### 3.0.84 (2012-09-26)
+
+* Upgrade jibx from 1.2.1 to 1.2.3. Only Eclipse elements (related to code formatting) are namespaceless.
+* No longer generate Primefaces code related to file upload/download in entity. 
+  Instead we rely on the controller + a dedicated class XxxUploadHandler
+* fix flow: from the same flow, doing 0/ search 1/select 2/close 3/new was 
+  loading the item selected during step 1 instead of proposing a fresh empty bean.
+* fix charset encoding for non-ajax request!
+* provide our own form reset as default one is not complete.
+* remove find(String) methods from repository.
+* add complete(String) method in controller
+* remove flowExecutionContext from flows, use instead RequestContextHolder from java
+* order by business key when relevant in XxxLazyDataModel and XxxController
+* upgrade to PrimeFaces 3.4.1
+* automatically create the Xxx_.java file (in regular user folder src/main/java) in case the corresponding entity Xxx.java is taken over.
+* remove a System.out.println in maven-celerio-plugin
+* rename Entity_.e.vm.java to EntityMeta_.e.vm.java to make sure it is executed after Entity.e.vm.java
  
 ### 3.0.83 (2012-09-20)
 
