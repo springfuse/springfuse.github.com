@@ -5,8 +5,28 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.89 (2012-12-20)
 
-### 3.0.88 (in progress)
+NEW!
+* introduce a new option without spring web flow. We encourage you to switch to it and report us feedbacks.
+
+Back end
+* Possibility to configure left Join in search by example
+* composite pk var name changed to 'id'.
+* provide oracle script for sample db and create-db-user profile
+* rename persistence.xml to cope with jboss
+* remove contains method in entity
+
+Front end
+* all remove/delete dialogs are now contextual
+* rename SearchFormBase to GenericSearchForm
+* cache resources ( com.sun.faces.defaultResourceMaxAge context-param in web.xml)
+* remove before/after placeholder in tags (was a bad idea)
+* fix component not found error due to invalid for attribute in label component
+* better ask for delete dialog placement (no longer present in layout)
+* upgrade to theme 1.0.9
+ 
+### 3.0.88 (2012-11-14)
 
 * fix jpauniquevalidator when a proxy is used
 * when composite unique keys names are available, use them

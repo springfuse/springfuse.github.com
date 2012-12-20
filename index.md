@@ -26,7 +26,7 @@ title: SpringFuse - Online Java Code Generator
 SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>.
 
-Current version: 3.0.83 | <a href="/change-log.html">Read change logs</a>.
+Current version: 3.0.89-SNAPSHOT | <a href="/change-log.html">Read change logs</a>.
 
 We announce new release on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -74,16 +74,22 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 
 <hr/>
 <div class="control-group">
-	<label class="control-label" for="jsf2Primefaces">Project type</label>
+	<label class="control-label" for="frontEnd">Project type</label>
     <div class="controls">
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.1, Spring WebFlow 2.3.0
+		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
 			<span class="help-block">
 				Ideal for large enterprise application requiring complex navigation and nice look and feel.<br/>
 				Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
 				and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.			
 			</span>		
 	  </label>
+      <label class="radio">
+		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.4
+			<span class="help-block">
+				Same as above, but without Spring Web Flow
+			</span>
+	  </label>	  
       <label class="radio">
       <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend only
 		<span class="help-block">      
@@ -399,7 +405,7 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 	}
 
 	function updateCommand() {
-		var version= "3.0.83";
+		var version= "3.0.89-SNAPSHOT";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
