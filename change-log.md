@@ -7,17 +7,17 @@ title: Springfuse change log
 
 ### 3.0.89 (2012-12-20)
 
-NEW!
+#### NEW!
 * introduce a new option without spring web flow. We encourage you to switch to it and report us feedbacks.
 
-Back end
+#### Back end
 * Possibility to configure left Join in search by example
 * composite pk var name changed to 'id'.
 * provide oracle script for sample db and create-db-user profile
 * rename persistence.xml to cope with jboss
 * remove contains method in entity
 
-Front end
+#### Front end
 * all remove/delete dialogs are now contextual
 * rename SearchFormBase to GenericSearchForm
 * cache resources ( com.sun.faces.defaultResourceMaxAge context-param in web.xml)
