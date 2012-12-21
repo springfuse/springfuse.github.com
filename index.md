@@ -77,23 +77,21 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 	<label class="control-label" for="frontEnd">Project type</label>
     <div class="controls">
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
-			<span class="help-block">
-				Ideal for large enterprise application requiring complex navigation and nice look and feel.<br/>
-				Hesitating? You should read <a href="/2011/01/04/springfuse-generates-primefaces-with-spring-webflow-frontend.html" target="_new">this blog (/w screenshots)</a>
-				and eventually <a href="/jsf2-primefaces-spring-webflow-integration-tutorial.html" target="_new">JSF2/Primefaces/SpringWebflow</a> integration notes.			
-			</span>		
-	  </label>
-      <label class="radio">
 		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.4
 			<span class="help-block">
-				Same as above, but without Spring Web Flow
+				Ideal for large enterprise application requiring complex navigation, nice look and feel and development productivity.				
 			</span>
 	  </label>	  
       <label class="radio">
+		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
+			<span class="help-block">			
+				Same as above except that it uses Spring Web Flow. Note that this option is going to be removed in the coming months. 
+			</span>		
+	  </label>
+      <label class="radio">
       <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend only
 		<span class="help-block">      
-      		Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one
+      		Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.
 		</span>
       </label>
     </div>
