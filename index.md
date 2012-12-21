@@ -79,7 +79,7 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
       <label class="radio">
 		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.4
 			<span class="help-block">
-				Ideal for large enterprise application requiring complex navigation, nice look and feel and development productivity.				
+				Ideal for large enterprise application requiring complex navigation, nice look&amp;feel and development productivity.				
 			</span>
 	  </label>	  
       <label class="radio">
