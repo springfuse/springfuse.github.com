@@ -5,6 +5,19 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.90 (2013-01-10)
+
+#### Front End (without spring web flow)
+* upgrade mojarra from 2.1.10 to 2.1.17 (this was helpful http://forum.primefaces.org/viewtopic.php?f=3&t=25822)
+* upgrade omnifaces from 1.2 to 1.3 
+* refactor the web.conversation package for the better
+
+#### Front End (with spring web flow)
+* upgrade mojarra from 2.1.10 to 2.1.17 (this was helpful http://forum.primefaces.org/viewtopic.php?f=3&t=25822)
+
+#### JPA2 Backend
+* no changes
+
 ### 3.0.89 (2012-12-20)
 
 #### NEW!
