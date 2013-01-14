@@ -18,8 +18,9 @@ Its usage requires a commercial license.
 7. [Conventions](convention.html)
 8. [Configuration file](configuration-file.html)
 9. [Configuration](configuration.html)
-10. [Best practices](best-practices.html)
-11. [Troubleshooting](troubleshooting.html)
+10. [Writing templates](templates.html)
+11. [Best practices](best-practices.html)
+12. [Troubleshooting](troubleshooting.html)
 
 *All copyright, confidential information, patents, design rights and all other 
 intellectual property rights of whatsoever nature contained herein are and 
