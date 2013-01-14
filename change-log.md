@@ -5,6 +5,22 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+
+### 3.0.91 (2013-01-14)
+
+#### Front End (without spring web flow)
+* use breadCrumb in conversation
+* align label with css (not js)
+
+#### Front End (with spring web flow)
+* align label with css (not js) 
+
+#### JPA2 Backend
+* no changes
+
+#### Core Celerio
+* introduce celerioTemplateContext (pro user only)
+
 ### 3.0.90 (2013-01-10)
 
 #### Front End (without spring web flow)
