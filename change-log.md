@@ -5,6 +5,10 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.92 (2013-01-22)
+
+#### Front End (without spring web flow)
+* important code refactoring
 
 ### 3.0.91 (2013-01-14)
 
