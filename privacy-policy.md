@@ -10,7 +10,7 @@ We can be reached
 
 * via our postal address
   Jaxio SARL
-  51 rue Le Peletier
+  41 rue de Maubeuge
   75009 Paris
   France
 * via e-mail at support@jaxio.com
