@@ -5,8 +5,8 @@ title: SpringFuse - Online Java Code Generator
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
     <h1>SpringFuse</h1>
-    <h3>Source Code Generator for Java</h3>
-	<p>Reverse your database schema and generate online a full J2EE web application stack in seconds</p>
+    <h3>Java Code Generator for Data Driven Application</h3>
+	<p>Reverse your database schema and generate online a JavaEE web application</p>
     <p><a href="https://github.com/jaxio/generated-projects" class="btn btn-primary btn-large">Show me some generated code &raquo;</a></p>
     <p><a href="#gen" class="btn btn-primary btn-large">Let me generate a project online &raquo;</a></p>
 	<div><g:plusone></g:plusone></div>
