@@ -38,21 +38,12 @@ __Requirements__
 
 Before doing so, if you are totally new to SpringFuse, you should <a href="/what-is-springfuse.html">understand how it works</a>.
 
-### Step 1/4: Fill the code generation form 
+### Step 1/4: Configure your project 
 
 <form class="form-horizontal">
 
 <div class="alert alert-info">
 	Project informations
-</div>
-
-<!-- email -->
-<div class="control-group email">
-    <label class="control-label" for="email">Email</label>
-    <div class="controls">
-		<input type="text" id="email" class="required updateCommand"/>
-		<span class="help-inline">It will be verified during the first generation process</span>
-    </div>
 </div>
 
 <!-- artifactId -->
@@ -69,6 +60,15 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
     <label class="control-label" for="groupId">Java root package</label>
     <div class="controls">
 		<input type="text" id="groupId" size="40" value="com.company.demo" placeholder="ex: com.jaxio.demo" class="required updateCommand" title="Ex: com.company.project"/>
+    </div>
+</div>
+
+<!-- email -->
+<div class="control-group email">
+    <label class="control-label" for="email">Email</label>
+    <div class="controls">
+		<input type="text" id="email" class="required updateCommand"/>
+		<span class="help-inline">It will be verified during the first generation process</span>
     </div>
 </div>
 
