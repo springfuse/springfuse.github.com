@@ -5,6 +5,20 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.93 (2013-01-29)
+
+#### Front End (without spring web flow)
+* minor refactoring (no longer use preRenderView event)
+* log context info are now set properly
+* uses Primefaces datatable multi selection for many to many association
+* fix: selectOneMenu is referencing selectOneRadio
+* fix: configuring an enum as ordinal breaks compilation
+
+#### Front End (with spring web flow)
+* fix: selectOneMenu is referencing selectOneRadio
+* fix: configuring an enum as ordinal breaks compilation
+
+
 ### 3.0.92 (2013-01-22)
 
 #### Front End (without spring web flow)

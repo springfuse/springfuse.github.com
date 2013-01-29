@@ -5,8 +5,8 @@ title: SpringFuse - Online Java Code Generator
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
     <h1>SpringFuse</h1>
-    <h3>Code generation for humans</h3>
-	<p>Reverse your database structure and generate a full J2EE web application stack in seconds</p>
+    <h3>Source Code Generator for Java</h3>
+	<p>Reverse your database schema and generate online a full J2EE web application stack in seconds</p>
     <p><a href="https://github.com/jaxio/generated-projects" class="btn btn-primary btn-large">Show me some generated code &raquo;</a></p>
     <p><a href="#gen" class="btn btn-primary btn-large">Let me generate a project online &raquo;</a></p>
 	<div><g:plusone></g:plusone></div>
@@ -26,7 +26,7 @@ title: SpringFuse - Online Java Code Generator
 SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>.
 
-Current version: 3.0.92 | <a href="/change-log.html">Read change logs</a>.
+Current version: 3.0.93 | <a href="/change-log.html">Read change logs</a>.
 
 We announce new release on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
 
@@ -312,7 +312,7 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 <span class="label label-info">Copy paste</span> these commands in a console to: 
 
 * reverse your database schema, or the H2 database example we provide
-* send the only the database schema to our server
+* send only the database schema to our server
 * download the generated project from our server and unzip it
 * deploy the project locally using Jetty servlet container (<a href="http://localhost:8080/">http://localhost:8080/</a>) or, for backend project run all the unit tests.
 
@@ -403,7 +403,7 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 	}
 
 	function updateCommand() {
-		var version= "3.0.92";
+		var version= "3.0.93";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
