@@ -6,9 +6,9 @@ title: SpringFuse - Online Java Code Generator
 <div class="hero-unit">
     <h1>SpringFuse</h1>
     <h3>Java Code Generator for Data Driven Application</h3>
-	<p>Reverse your database schema and generate online a JavaEE web application</p>
-    <p><a href="https://github.com/jaxio/generated-projects" class="btn btn-primary btn-large">Show me some generated code &raquo;</a></p>
-    <p><a href="#gen" class="btn btn-primary btn-large">Let me generate a project online &raquo;</a></p>
+	<p>Reverse your database schema and generate a JavaEE application</p>
+    <p><a href="https://github.com/jaxio/generated-projects" class="btn btn-primary btn-large">Review some generated code &raquo;</a></p>
+    <p><a href="#gen" class="btn btn-primary btn-large">Generate an application now &raquo;</a></p>
 	<div><g:plusone></g:plusone></div>
 	<div><a href="https://twitter.com/springfuse" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @springfuse</a></div>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
@@ -118,7 +118,7 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 <!-- dbType -->
 <div class="jdbc-properties" style="display: none">
 <p>
-	<b>Ok tell us more about your database:</b>
+	<b>Database to reverse:</b>
 </p>
 <div class="control-group">
 	<label class="control-label" for="dbType">Database Vendor</label>	
@@ -132,7 +132,7 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 			<option value="other">other</option>
 		</select>
 	</div>
-</div>	
+</div>
 
 <p>
 	<b>Adjust the Jdbc Driver settings if needed:</b>
