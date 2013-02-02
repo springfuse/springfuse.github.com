@@ -5,7 +5,30 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.94 (2013-02-02)
+
+[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/ad9dbb6350a5af601b9798638d46149a37c71637) 
+
+#### Front End (without spring web flow)
+* use omnifaces gzip filter instead of ehcache one
+* fix: release Jdbc connection when pausing the conversation, see PersistenceContextConversationListener
+* fix: selectOneMenu is now referencing p:selectOneRadio + css fix
+* upgrade schema version in faces-config.xml
+* use proper JSTL path in panel/search.xhtml (bug found using my faces which is less tolerant than mojarra...)
+* fix little details to make it work nicely with MyFaces
+
+#### Front End (with spring web flow)
+* fix: introduce AvoidLeakJpaFlowExecutionListener to circumvent https://jira.springsource.org/browse/SWF-1525
+* fix: selectOneMenu is now referencing p:selectOneRadio + css fix
+
+#### JPA2 Backend
+* leverage QueryParser.escape in HibernateSearchUtil
+* add extraParameters in SearchParameters + typo fix
+
+
 ### 3.0.93 (2013-01-29)
+
+[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/dcb20404903ed585d65510b9e952138ebc0577c9) 
 
 #### Front End (without spring web flow)
 * minor refactoring (no longer use preRenderView event)
@@ -21,10 +44,14 @@ title: Springfuse change log
 
 ### 3.0.92 (2013-01-22)
 
+[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/b61febe3b9d8e7f87a4a2f75271bda44326ea5d6) 
+
 #### Front End (without spring web flow)
 * important code refactoring
 
 ### 3.0.91 (2013-01-14)
+
+[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/5d46df4459c73250c1e6da43c95fe668bb27f1aa) 
 
 #### Front End (without spring web flow)
 * use breadCrumb in conversation
