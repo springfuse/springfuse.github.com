@@ -22,7 +22,7 @@ title: SpringFuse - Online Java Code Generator
 <br/>
 <br/>
 <br/>
-### Generate a project online
+### Generate a JavaEE application online
 
 SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
 a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>.
