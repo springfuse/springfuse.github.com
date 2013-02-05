@@ -5,6 +5,27 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.95 (2013-02-06)
+
+[Sample generated app diff]() 
+
+#### Front End (without spring web flow)
+* upgrade from primefaces 3.4.2. to primefaces 3.5
+* rename the various public pushXxx to setNextContextXxx for better clarity
+* no longer lazy load xToMany list data model (to please jrebel)
+* defer pop until we pause conversation to avoid bean recreation
+* remove the contextPopped from conversation listener as we cannot fully guess the future functional need
+* remove isDirtyCheck as it leads to freaky insert
+* provide a conversationDebug tag for debug/learning purposes
+* no longer create entityManager during conversation creation => instead let conversation resuming handle it
+* prevent npe during potential ajax race condition
+
+#### Front End (with spring web flow)
+* no changes
+
+#### JPA2 Backend
+* no changes
+
 ### 3.0.94 (2013-02-02)
 
 [Sample generated app diff](https://github.com/jaxio/generated-projects/commit/ad9dbb6350a5af601b9798638d46149a37c71637) 
