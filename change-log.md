@@ -7,7 +7,7 @@ title: Springfuse change log
 
 ### 3.0.95 (2013-02-06)
 
-[Sample generated app diff]() 
+[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/2cb13258e2a137cae3b12dcf1fb4aa49d6bef3cf) 
 
 #### Front End (without spring web flow)
 * upgrade from primefaces 3.4.2. to primefaces 3.5
