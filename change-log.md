@@ -5,6 +5,32 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.96 (2013-02-14)
+
+[Sample generated app diff]() 
+
+#### Front End (without spring web flow)
+* do not use conversation's entity manager for search pages
+* skip entityManager binding for ajax request coming from x-to-one auto-complete source
+* rename PersistenceContextConversationListener to EntityManagerConversationListener and other renamings
+* leverage org.springframework.web.filter.DelegatingFilterProxy so we can inject beans in our filter
+* Introduce ConversationHolder to store the current Conversation in a static ThreadLocal field.
+* Leverage @PostConstruct in XxxEditForm and no longer create XxxEditForm manually. It simplifies ConversationScope class.
+* fix onSelected callback of bidirectional many-to-many
+* popCurrentContextOnNextPause is now an int to count the number of contextes to pop. New name is popContextOnNextPauseCounter. You can pop more than 1 context during a request process.
+* ConversationContext.getVar is now public
+* make GenericLazyDataModel.edit(E selectedRow) and select(E selectedRow) protected
+* downgrade primefaces from 3.5 to 3.4.2
+* remove 'send' action and button as it confuses people
+
+#### Front End (with spring web flow)
+* no changes
+
+#### JPA2 Backend
+* use hibernate.connection.release_mode=after_transaction to prevent connection leak
+* default jdbc pool size set to 1 to detect upfront any jdbc leak
+* derby profile uses derby version 10.9.1.0
+
 ### 3.0.95 (2013-02-06)
 
 [Sample generated app diff](https://github.com/jaxio/generated-projects/commit/2cb13258e2a137cae3b12dcf1fb4aa49d6bef3cf) 
