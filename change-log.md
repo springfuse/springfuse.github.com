@@ -7,7 +7,7 @@ title: Springfuse change log
 
 ### 3.0.96 (2013-02-14)
 
-[Sample generated app diff]() 
+[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/b839b156fa7e9143efd20a72bffaac5a481394aa) 
 
 #### Front End (without spring web flow)
 * do not use conversation's entity manager for search pages
