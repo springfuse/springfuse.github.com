@@ -7,7 +7,7 @@ title: Springfuse change log
 
 ### 3.0.96 (2013-02-14)
 
-[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/b839b156fa7e9143efd20a72bffaac5a481394aa) 
+[Sample generated app diff 3.0.95-3.0.96](https://github.com/jaxio/generated-projects/commit/b839b156fa7e9143efd20a72bffaac5a481394aa) 
 
 Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vincent Beretti for their ideas, feedbacks and patches.
 
@@ -36,7 +36,7 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 ### 3.0.95 (2013-02-06)
 
-[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/2cb13258e2a137cae3b12dcf1fb4aa49d6bef3cf) 
+[Sample generated app diff 3.0.94-3.0.95](https://github.com/jaxio/generated-projects/commit/2cb13258e2a137cae3b12dcf1fb4aa49d6bef3cf) 
 
 #### Front End (without spring web flow)
 * upgrade from primefaces 3.4.2. to primefaces 3.5
@@ -57,7 +57,7 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 ### 3.0.94 (2013-02-02)
 
-[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/ad9dbb6350a5af601b9798638d46149a37c71637) 
+[Sample generated app diff 3.0.93-3.0.94](https://github.com/jaxio/generated-projects/commit/ad9dbb6350a5af601b9798638d46149a37c71637) 
 
 #### Front End (without spring web flow)
 * use omnifaces gzip filter instead of ehcache one
@@ -78,7 +78,7 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 ### 3.0.93 (2013-01-29)
 
-[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/dcb20404903ed585d65510b9e952138ebc0577c9) 
+[Sample generated app diff 3.0.92-3.0.93](https://github.com/jaxio/generated-projects/commit/dcb20404903ed585d65510b9e952138ebc0577c9) 
 
 #### Front End (without spring web flow)
 * minor refactoring (no longer use preRenderView event)
@@ -94,7 +94,7 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 ### 3.0.92 (2013-01-22)
 
-[Sample generated app diff](https://github.com/jaxio/generated-projects/commit/b61febe3b9d8e7f87a4a2f75271bda44326ea5d6) 
+[Sample generated app diff 3.0.91-3.0.92](https://github.com/jaxio/generated-projects/commit/b61febe3b9d8e7f87a4a2f75271bda44326ea5d6) 
 
 #### Front End (without spring web flow)
 * important code refactoring
