@@ -27,6 +27,7 @@ title: Springfuse change log
 * no changes
 
 #### JPA2 Backend
+* upgrade from hibernate 4.1.4.Final to 4.1.9.Final
 * use hibernate.connection.release_mode=after_transaction to prevent connection leak
 * default jdbc pool size set to 1 to detect upfront any jdbc leak
 * derby profile uses derby version 10.9.1.0
