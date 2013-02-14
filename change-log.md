@@ -9,6 +9,8 @@ title: Springfuse change log
 
 [Sample generated app diff](https://github.com/jaxio/generated-projects/commit/b839b156fa7e9143efd20a72bffaac5a481394aa) 
 
+Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vincent Beretti for their ideas, feedbacks and patches.
+
 #### Front End (without spring web flow)
 * do not use conversation's entity manager for search pages
 * skip entityManager binding for ajax request coming from x-to-one auto-complete source
