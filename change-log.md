@@ -5,6 +5,88 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.97 (2013-03-04)
+
+[Sample generated app diff 3.0.96-3.0.97](https://github.com/jaxio/generated-projects/commit/dfaf72437db6b4da9c6c0c21aeb58d0bbf983d9a) 
+
+#### Front End (without spring web flow)
+* Audit information, when present, is displayed only if not null
+
+#### JPA2 Backend
+* query By Example using Many to Many uses 'AND' by default, but it is configurable using useANDInManyToMany in SearchParameters.
+* introduce useDistinct in SearchParameters
+* in SearchParameters rename getLeftJoinAttributes to getLeftJoins
+* fix isNull handling in ByRangeUtil
+* make Range.setIncludeNull java bean complient
+
+#### Selenium (pro users only)
+* remove jquery notification as we will be using primefaces growl (for selenium tests)
+* upgrade selenium from 2.24.1 to 2.29.1
+
+#### Celerio reverse engine
+* fix duplicate column reverse ( http://stackoverflow.com/questions/1601203/jdbc-databasemetadata-getcolumns-returns-duplicate-columns )
+
+#### Celerio configuration
+* 2d level cache is now fully configurable. It is disabled by default.
+* fetch type is now configurable globally
+* cascade type is now configurable globally
+* orphanRemoval is now configurable globally
+
+Here is an example extracted from the default maven-celerio-plugin.xml configuration file:
+{% highlight xml %}
+<configuration>
+	<!-- ... skip stuff ... -->
+        <defaultEntityCacheConfig usage="NONE" />
+        
+        <defaultManyToOneConfig fetch="LAZY">
+            <cascades>
+                <cascade type="PERSIST"/>
+                <cascade type="MERGE"/>
+            </cascades>
+            <cacheConfig usage="NONE" />
+        </defaultManyToOneConfig>
+        
+        <defaultOneToManyConfig orphanRemoval="true">
+            <cascades>
+                <cascade type="ALL"/>
+            </cascades>
+            <cacheConfig usage="NONE" />
+        </defaultOneToManyConfig>
+        
+        <defaultOneToOneConfig fetch="LAZY">
+            <cascades>
+                <cascade type="NONE"/>
+            </cascades>
+            <cacheConfig usage="NONE" />
+        </defaultOneToOneConfig>
+        
+        <defaultInverseOneToOneConfig fetch="LAZY">
+            <cascades>
+                <cascade type="ALL"/>
+            </cascades>
+            <cacheConfig usage="NONE" />        
+        </defaultInverseOneToOneConfig>
+        
+        <defaultManyToManyConfig>
+            <cascades>
+                <cascade type="PERSIST"/>
+                <cascade type="MERGE"/>
+            </cascades>
+            <cacheConfig usage="NONE" />        
+        </defaultManyToManyConfig>
+        
+        <defaultInverseManyToManyConfig>
+            <cascades>
+                <cascade type="ALL"/>
+            </cascades>
+            <cacheConfig usage="NONE" />
+        </defaultInverseManyToManyConfig>
+	<!-- ... skip stuff ... -->
+	</configuration>
+{% endhighlight %}
+
+
+
 ### 3.0.96 (2013-02-14)
 
 [Sample generated app diff 3.0.95-3.0.96](https://github.com/jaxio/generated-projects/commit/b839b156fa7e9143efd20a72bffaac5a481394aa) 
