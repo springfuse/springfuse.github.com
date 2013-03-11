@@ -5,38 +5,86 @@ title: SpringFuse - Online Java Code Generator
 <!-- Main hero unit for a primary marketing message or call to action -->
 <div class="hero-unit">
     <h1>SpringFuse</h1>
-    <h3>Java Code Generator for Data Driven Application</h3>
-	<p>Reverse your database schema and generate a JavaEE application</p>
+    <h3>Java Code Generator for Data Driven Applications</h3>
+	<p>Reverse your database schema and generate a Java EE application</p>
     <p><a href="https://github.com/jaxio/generated-projects" class="btn btn-primary btn-large">Review some generated code &raquo;</a></p>
     <p><a href="#gen" class="btn btn-primary btn-large">Generate an application now &raquo;</a></p>
 	<div><g:plusone></g:plusone></div>
 	<div><a href="https://twitter.com/springfuse" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @springfuse</a></div>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+	Current version: 3.0.97 | <a href="/change-log.html">Change Logs</a>	
 </div>
 
-<br/>
-<br/>
-<br/>
+## When to use Springfuse?
+
+<a name="repet"></a>
+### ![great](/images/green-check.gif) Eliminate repetitive tasks
+
+When you identify a repetitive task, your duty is to automate it.
+Springfuse automates the tedious and repetitive task of writing the first piece of code of a new Java project.
+
+Actually this first piece of code that Springfuse generates constitute the backbone of your application. It goes way beyond a simple copy paste.
+It covers subject such as persistence, 2d level cache, security, dependency injection, distribution, localization, unit tests, etc.
+
+In just a few seconds, Springfuse relieves you from the burden of coding all this not-so-funny part of your application.
+
+Therefore
+
+* You save weeks.
+* You reduce your risks.
+* You learn from the generated code.
+* You can focus on developing real features.
+* You deliver on time.
+
+### ![great](/images/green-check.gif) Learn faster technologies
+
+There are so many Java technologies around! It is moving so fast!
+Which ones to choose ? And then, what are the associated best practices ?
+You do not always have the time to answer these questions.
+
+Springfuse's mission is to deliver world-class project built on standard or de facto standard technologies following industry best practices
+
+Therefore
+
+* You reduce your maintenance costs.
+* Developers learn faster and better with concrete code.
+* You improve the overall quality of your project.
+
+### ![great](/images/green-check.gif) Make it possible !
+
+Cost cuttings, lack of resources, lack of training, impossible dead lines, you name it.
+
+When the wall in front of you is too high, you just cannot climb it without help.
+Springfuse can be a precious ladder. Here are two use cases:
+
+### ![great](/images/green-check.gif) Prototyping
+
+Writing a prototype for free is a common practice in the industry.
+You have to work fast, for free, and deliver top notch quality to get the deal.
+
+__Springfuse increases drastically your chances to succeed.__
+
+### ![great](/images/green-check.gif) Application rewriting
+
+Deciding to rewrite an application is a tough decision. 
+There are often many risks.
+However, when your customer ask for patches and features that you cannot deliver in time because of some some old code that nobody understand anymore, you do not have many choices. 
+But it is too much work, you would need a second team, but there is no budget for that.
+
+
+__Springfuse helps your existing team make the first move toward your application rewriting.__
+
 <a name="gen"></a>
-<br/>
-<br/>
-<br/>
-### Generate a JavaEE application online
+<br/><br/><br/>
+## Steps to generate a Java EE application
 
-SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
-a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">Jaxio</a>.
-
-Current version: 3.0.97 | <a href="/change-log.html">Read change logs</a>.
-
-We announce new release on twitter: <a href="http://twitter.com/#!/springfuse">@springfuse</a>
+Before starting, if you are totally new to SpringFuse, you should take a few moment to <a href="/what-is-springfuse.html">understand how it works</a>.
 
 __Requirements__
 
 * Have at least Java 1.6 and Maven 2 installed on your machine.
 
 <span class="label label-info">To generate a project</span>, adjust the settings below and execute the resulting command lines in a console.
-
-Before doing so, if you are totally new to SpringFuse, you should <a href="/what-is-springfuse.html">understand how it works</a>.
 
 ### Step 1/4: Configure your project 
 
@@ -77,9 +125,9 @@ Before doing so, if you are totally new to SpringFuse, you should <a href="/what
 	<label class="control-label" for="frontEnd">Project type</label>
     <div class="controls">
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.4
+		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.4.2
 			<span class="help-block">
-				Ideal for large enterprise application requiring complex navigation, nice look&amp;feel and development productivity.				
+				Ideal for large enterprise application requiring complex navigation, nice look&amp;feel and development productivity.
 			</span>
 	  </label>	  
       <label class="radio">
