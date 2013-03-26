@@ -5,6 +5,92 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+### 3.0.100-SNAPSHOT
+
+#### pack backend-jpa
+* remove repository interfaces
+
+### 3.0.99 (2013-03-26)
+
+##### pack jsf2-spring-conversation
+* move code to generics
+* separate XxxGraphLoader in a dedicated file.
+
+##### pack jsf2-spring-simple
+* move code to generics
+* separate XxxGraphLoader in a dedicated file.
+
+##### pack jsf2-spring-webflow
+* no changes
+
+##### pack backend-jpa
+* no changes
+
+### 3.0.98 (2013-03-25)
+
+#### pack jsf2-spring-simple
+New front end option, without conversation, just plain JSF2/Spring/Primefaces.
+
+#### pack jsf2-spring-conversation
+
+Major change: we no longer keep an entityManager instance in the Conversation, instead we work with detached entities.
+
+* update jsf-api from 2.1.17 to 2.1.20
+* fix compilation in SearchEditForm when JPA inheritance is used
+* byEntitySelector now relies on real xToOne field, not the fk
+* make jsf page non cacheable see http://stackoverflow.com/questions/49547/making-sure-a-web-page-is-not-cached-across-all-browsers
+* handle browser back button (pop context accordingly)
+* remove harcoded ':' at the end of labels
+* remove jquery notif (was used by selenium tests)
+* introduce XxxPermission and use them
+* search form is now toggleable
+* introduce inputMultiAutoComplete for search forms (disjunction on a specific field)
+* saved search feature
+* introduce GenericController
+* move a lot of code to generic level
+* export to excel feature
+* upgrade to spring security 3.1
+* update login button
+* better look'n'feel (no more white on white issues)
+* merge multiple info/error messages in one panel
+* use home made @Conversation annotation
+* Use FIFO policy to terminate conversation when the max number of conversations is reached (https://sofact.banque-france.fr/jira/browse/EVOSOCLE-12)
+* handle natural conversation ending (when all contextes are popped)
+* 'create' conversation link on homepage
+* move the term handling in the GenericSearchForm
+* better auto-complete with many to one
+* some changes to make sonar happy
+* handle all cases in primeresource handler
+* make more sens about subpackages, and move around files to prevent cyclic dependencies
+* simplify conditionnalValidatorUtil
+
+#### pack jsf2-spring-webflow
+No significant changes
+
+#### pack backend-jpa
+* SearchParameters cache is now false by default
+* no longer map FK columns. Only rely on many-to-one association.
+* string based property selectors now make use of the SearchParameters searchMode
+* fix oracle date precision
+* XxxPrinter refactoring
+* replace junit asserts for fest-assert in model unit tests
+* extract methods to JpaUtil
+* rename searchParameters.propertySelectors() and entitySelectors() to properties() and entities()
+* introduce genericDao.getVersion(entity) so it can be used in GenericController auto complete decision helper
+* Update spring version to 3.2.2, cleanup xsd reference, add task executor to handle the lucene IndexerService
+* use meta model instead of hardcoded values in entity.toString()
+* update joda-time from 2.1 to 2.2
+* update hibernate-search and hibernate-search-analyzers from 4.1.1.Final to 4.2.0.Final
+* update guava from 12.0 to 14.0.1
+* update commons-codec from 1.6 to 1.7
+* update aspectj from 1.6.12 to 1.7.2
+* update junit from 4.10 to 4.11
+* update mockito from 1.9.0 to 1.9.5
+* update jackson-mapper-asl from 1.9.2 to 1.9.12
+
+#### Celerio config
+* mark entity as indexed in case it has one columConfig indexed
+
 ### 3.0.97 (2013-03-04)
 
 [Sample generated app diff 3.0.96-3.0.97](https://github.com/jaxio/generated-projects/commit/dfaf72437db6b4da9c6c0c21aeb58d0bbf983d9a) 
