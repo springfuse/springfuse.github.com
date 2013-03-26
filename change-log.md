@@ -7,7 +7,7 @@ title: Springfuse change log
 
 ### 3.0.100-SNAPSHOT
 
-#### pack backend-jpa
+##### pack backend-jpa
 * remove repository interfaces
 
 ### 3.0.99 (2013-03-26)
@@ -28,10 +28,10 @@ title: Springfuse change log
 
 ### 3.0.98 (2013-03-25)
 
-#### pack jsf2-spring-simple
+##### pack jsf2-spring-simple
 New front end option, without conversation, just plain JSF2/Spring/Primefaces.
 
-#### pack jsf2-spring-conversation
+##### pack jsf2-spring-conversation
 
 Major change: we no longer keep an entityManager instance in the Conversation, instead we work with detached entities.
 
@@ -64,10 +64,10 @@ Major change: we no longer keep an entityManager instance in the Conversation, i
 * make more sens about subpackages, and move around files to prevent cyclic dependencies
 * simplify conditionnalValidatorUtil
 
-#### pack jsf2-spring-webflow
+##### pack jsf2-spring-webflow
 No significant changes
 
-#### pack backend-jpa
+##### pack backend-jpa
 * SearchParameters cache is now false by default
 * no longer map FK columns. Only rely on many-to-one association.
 * string based property selectors now make use of the SearchParameters searchMode
@@ -88,31 +88,31 @@ No significant changes
 * update mockito from 1.9.0 to 1.9.5
 * update jackson-mapper-asl from 1.9.2 to 1.9.12
 
-#### Celerio config
+##### Celerio config
 * mark entity as indexed in case it has one columConfig indexed
 
 ### 3.0.97 (2013-03-04)
 
 [Sample generated app diff 3.0.96-3.0.97](https://github.com/jaxio/generated-projects/commit/dfaf72437db6b4da9c6c0c21aeb58d0bbf983d9a) 
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * Audit information, when present, is displayed only if not null
 
-#### JPA2 Backend
+##### JPA2 Backend
 * query By Example using Many to Many uses 'AND' by default, but it is configurable using useANDInManyToMany in SearchParameters.
 * introduce useDistinct in SearchParameters
 * in SearchParameters rename getLeftJoinAttributes to getLeftJoins
 * fix isNull handling in ByRangeUtil
 * make Range.setIncludeNull java bean complient
 
-#### Selenium (pro users only)
+##### Selenium (pro users only)
 * remove jquery notification as we will be using primefaces growl (for selenium tests)
 * upgrade selenium from 2.24.1 to 2.29.1
 
-#### Celerio reverse engine
+##### Celerio reverse engine
 * fix duplicate column reverse ( http://stackoverflow.com/questions/1601203/jdbc-databasemetadata-getcolumns-returns-duplicate-columns )
 
-#### Celerio configuration
+##### Celerio configuration
 * 2d level cache is now fully configurable. It is disabled by default.
 * fetch type is now configurable globally
 * cascade type is now configurable globally
@@ -179,7 +179,7 @@ Here is an example extracted from the default maven-celerio-plugin.xml configura
 
 Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vincent Beretti for their ideas, feedbacks and patches.
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * do not use conversation's entity manager for search pages
 * skip entityManager binding for ajax request coming from x-to-one auto-complete source
 * rename PersistenceContextConversationListener to EntityManagerConversationListener and other renamings
@@ -193,10 +193,10 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 * downgrade primefaces from 3.5 to 3.4.2
 * remove 'send' action and button as it confuses people
 
-#### Front End (with spring web flow)
+##### Front End (with spring web flow)
 * no changes
 
-#### JPA2 Backend
+##### JPA2 Backend
 * upgrade from hibernate 4.1.4.Final to 4.1.9.Final
 * use hibernate.connection.release_mode=after_transaction to prevent connection leak
 * default jdbc pool size set to 1 to detect upfront any jdbc leak
@@ -206,7 +206,7 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 [Sample generated app diff 3.0.94-3.0.95](https://github.com/jaxio/generated-projects/commit/2cb13258e2a137cae3b12dcf1fb4aa49d6bef3cf) 
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * upgrade from primefaces 3.4.2. to primefaces 3.5
 * rename the various public pushXxx to setNextContextXxx for better clarity
 * no longer lazy load xToMany list data model (to please jrebel)
@@ -217,17 +217,17 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 * no longer create entityManager during conversation creation => instead let conversation resuming handle it
 * prevent npe during potential ajax race condition
 
-#### Front End (with spring web flow)
+##### Front End (with spring web flow)
 * no changes
 
-#### JPA2 Backend
+##### JPA2 Backend
 * no changes
 
 ### 3.0.94 (2013-02-02)
 
 [Sample generated app diff 3.0.93-3.0.94](https://github.com/jaxio/generated-projects/commit/ad9dbb6350a5af601b9798638d46149a37c71637) 
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * use omnifaces gzip filter instead of ehcache one
 * fix: release Jdbc connection when pausing the conversation, see PersistenceContextConversationListener
 * fix: selectOneMenu is now referencing p:selectOneRadio + css fix
@@ -235,11 +235,11 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 * use proper JSTL path in panel/search.xhtml (bug found using my faces which is less tolerant than mojarra...)
 * fix little details to make it work nicely with MyFaces
 
-#### Front End (with spring web flow)
+##### Front End (with spring web flow)
 * fix: introduce AvoidLeakJpaFlowExecutionListener to circumvent https://jira.springsource.org/browse/SWF-1525
 * fix: selectOneMenu is now referencing p:selectOneRadio + css fix
 
-#### JPA2 Backend
+##### JPA2 Backend
 * leverage QueryParser.escape in HibernateSearchUtil
 * add extraParameters in SearchParameters + typo fix
 
@@ -248,14 +248,14 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 [Sample generated app diff 3.0.92-3.0.93](https://github.com/jaxio/generated-projects/commit/dcb20404903ed585d65510b9e952138ebc0577c9) 
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * minor refactoring (no longer use preRenderView event)
 * log context info are now set properly
 * uses Primefaces datatable multi selection for many to many association
 * fix: selectOneMenu is referencing selectOneRadio
 * fix: configuring an enum as ordinal breaks compilation
 
-#### Front End (with spring web flow)
+##### Front End (with spring web flow)
 * fix: selectOneMenu is referencing selectOneRadio
 * fix: configuring an enum as ordinal breaks compilation
 
@@ -264,52 +264,52 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
 
 [Sample generated app diff 3.0.91-3.0.92](https://github.com/jaxio/generated-projects/commit/b61febe3b9d8e7f87a4a2f75271bda44326ea5d6) 
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * important code refactoring
 
 ### 3.0.91 (2013-01-14)
 
 [Sample generated app diff](https://github.com/jaxio/generated-projects/commit/5d46df4459c73250c1e6da43c95fe668bb27f1aa) 
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * use breadCrumb in conversation
 * align label with css (not js)
 
-#### Front End (with spring web flow)
+##### Front End (with spring web flow)
 * align label with css (not js) 
 
-#### JPA2 Backend
+##### JPA2 Backend
 * no changes
 
-#### Core Celerio
+##### Core Celerio
 * introduce celerioTemplateContext (pro user only)
 
 ### 3.0.90 (2013-01-10)
 
-#### Front End (without spring web flow)
+##### Front End (without spring web flow)
 * upgrade mojarra from 2.1.10 to 2.1.17 (this was helpful http://forum.primefaces.org/viewtopic.php?f=3&t=25822)
 * upgrade omnifaces from 1.2 to 1.3 
 * refactor the web.conversation package for the better
 
-#### Front End (with spring web flow)
+##### Front End (with spring web flow)
 * upgrade mojarra from 2.1.10 to 2.1.17 (this was helpful http://forum.primefaces.org/viewtopic.php?f=3&t=25822)
 
-#### JPA2 Backend
+##### JPA2 Backend
 * no changes
 
 ### 3.0.89 (2012-12-20)
 
-#### NEW!
+##### NEW!
 * introduce a new option without spring web flow. We encourage you to switch to it and report us feedbacks.
 
-#### Back end
+##### Back end
 * Possibility to configure left Join in search by example
 * composite pk var name changed to 'id'.
 * provide oracle script for sample db and create-db-user profile
 * rename persistence.xml to cope with jboss
 * remove contains method in entity
 
-#### Front end
+##### Front end
 * all remove/delete dialogs are now contextual
 * rename SearchFormBase to GenericSearchForm
 * cache resources ( com.sun.faces.defaultResourceMaxAge context-param in web.xml)
@@ -389,7 +389,7 @@ Many thanks to Brice Leporini, Jean-Louis Boudart, Pierre-Henri Dezanneau and Vi
  
 ### 3.0.83 (2012-09-20)
 
-#### JPA2 backend
+##### JPA2 backend
 * add byNamedQuery in namedQueryUtil
 * prevent var clash when self referencing entity
 * support for localization in db schema. Ex: columns such as text_fr, text_en are detected by celerio 
@@ -399,7 +399,7 @@ which generate a getText() method which invoke the getter corresponding to the c
 * SafeHtml annotation is now disabled by default. It is configurable (safeHtml element, child of columnConfig)
 * entity: in copyTo remove the copy of the relations' ids
 
-#### Hibernate Search support
+##### Hibernate Search support
 * generate transverse hibernate search code only if at least one entity is indexed
 * generate XxxPkBridge only if needed
 * remove tika dependencies and code (too specific)
@@ -407,34 +407,34 @@ which generate a getText() method which invoke the getter corresponding to the c
 * introduce findTerm in Respository (use full text search). It is not wired in the view, it is up to the developer 
 to change it from find to findTerm... easy
 
-#### JSF2 WebFlow Primefaces
+##### JSF2 WebFlow Primefaces
 * add a reset button: unfortunately does not work with all components
 * remove c:if from select page (use rendered instead)
 * dynamic layout in selectManyEnum depending on items list size
 
-#### Celerio
+##### Celerio
 * collision is now under target/maven-celerio-plugin/collisions, in any circumstance
 * we now generate bootstrap as all regular file (so pom get into collision)
 
 
 ### 3.0.82 (2012-09-17)
 
-#### JPA2 backend
+##### JPA2 backend
 * change the maven resource substitution pattern from ${value} to @value@ so it does not interfer with the spring one
 * enforce java 1.6.0-26 and above, as jpa2 utils we use will not compile
 * fix domain localization if we do not generate in the same folder
 
-#### JSF2 WebFlow Primefaces
+##### JSF2 WebFlow Primefaces
 * fix quit navigation (for case where new is pressed from an edit page and then quit is pressed)
 * set severity to error for unique validator message
 
 ### 3.0.81 (2012-09-14)
 
-#### JPA2 backend
+##### JPA2 backend
 * improve JPA search by example: take many-to-many association into account
 * fix NPE on null booleans (regression)
 
-#### JSF2 WebFlow Primefaces
+##### JSF2 WebFlow Primefaces
 * add jpa unique validator for jsf forms
 * introduce XxxController  to do business validation and other conditional checks that are easier to implement in Java than in webflow's xml syntax
 * contextual messages for status_saved_ok and status_deleted_ok
@@ -443,11 +443,11 @@ to change it from find to findTerm... easy
 
 ### 3.0.80 (2012-09-11)
 
-#### JPA2 backend
+##### JPA2 backend
 * Improve JPA search by example: take x-to-one association into account
 * you can now add custom annotations on entities using celerio configuration
 
-#### Hibernate Search support
+##### Hibernate Search support
 * Hibernate Search is now configurable per entity and per column. In your entity config, 
 use the 'indexed' property to index the entity and use the 'field' element to annotate a field.
 Here is an example:
@@ -462,7 +462,7 @@ Here is an example:
 {% endhighlight %}
 
 
-#### JSF2 WebFlow Primefaces
+##### JSF2 WebFlow Primefaces
 * upgrade to PrimeFaces 3.4
 * changes in webflow navigation: after'close' or 'save' you go back to search page
 * make faces message survive multiple redirections
@@ -476,12 +476,12 @@ Here is an example:
 
 ### 3.0.79 (2012-09-02)
 
-#### JPA2 backend
+##### JPA2 backend
 * Upgrade jadira usertype from 3.0.RC1 to 3.0.RC3
 * Fix package-info.java for repository subpackage
 * Upgrade to spring security 3.1.2
 
-#### JSF2 WebFlow Primefaces
+##### JSF2 WebFlow Primefaces
 * Upgrade to primefaces 3.4-SNAPSHOT
 * Use primefaces twitter bootstrap theme 1.0.8
 * Upgrade to mojara 2.1.10 (as on prime labs demo site)
@@ -494,7 +494,7 @@ Here is an example:
 We have decided to focus our effort on JPA2 backend and JSF2/PrimeFaces front.
 So currently other options (spring data, spring mvc/jquery) are no longer available, if you need these, please contact us.
 
-#### JPA2 backend
+##### JPA2 backend
 * Upgrade to Hibernate 4.1.4.Final
 * Upgrade to Spring Framework 3.1.2.RELEASE
 * Upgrade to Spring Security 3.1.1.RELEASE
@@ -506,7 +506,7 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * Simplify the use of spring security context
 * First basic support of Hibernate Search
 
-#### JSF2 WebFlow Primefaces
+##### JSF2 WebFlow Primefaces
 * Upgrade to primefaces 3.3.1
 * Upgrade to Spring Web Flow 2.3.1.RELEASE
 * Use flow inheritance to reduce the amount of webflow code
@@ -517,17 +517,17 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 
 ### 3.0.74 (2012-04-01)
 
-#### backend common to all projects
+##### backend common to all projects
 * upgrade to springframework 3.0.7.RELEASE
 * do not specify nullable = false and unique = true in the column specifying a simple PK to please topLink ddl generation
 * dos2unix on all resources
 * add missing @Override
 * better javadocs
 
-#### Spring data
+##### Spring data
 * refactoring of the support classes
 
-#### JSF front
+##### JSF front
 * upgrade to spring webflow 2.3.1
 * upgrade to mojarra 2.1.7
 * upgrade to Primefaces 3.2 and theme 1.0.4
@@ -543,7 +543,7 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * selenium support 
 * remove PRIMEFACES_FILE_HANDLER module, use PRIMEFACES instead
 
-#### Other versions updates
+##### Other versions updates
 * upgrade junit from 4.8.1 to 4.10
 * upgrade jackson from 1.5.2 to 1.9.4
 * upgrade xstream from 1.2.2 to 1.4.2
@@ -557,7 +557,7 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 * upgrade aspectj version from 1.6.8 to to 1.6.12
 * upgrade mockito version from 1.8.5 to 1.9.0
 
-#### Maven related update (generated pom)
+##### Maven related update (generated pom)
 * upgrade maven-jxr-plugin from 2.1 to 2.3
 * upgrade maven-pmd-plugin from 2.4 to 2.7
 * upgrade cobertura plugin to 2.5.1
@@ -586,15 +586,15 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 
 ### 3.0.72 (2012-02-14)
 
-#### jsf2-primefaces webapp (with spring data backend)
+##### jsf2-primefaces webapp (with spring data backend)
 * upgrade to Spring Data 1.0.3
 * upgrade to PrimeFaces 3.1
 * upgrade to PrimeFaces Theme 1.0.3
 
-#### spring mvc webapp (with spring data backend)
+##### spring mvc webapp (with spring data backend)
 * upgrade to Spring Data 1.0.3
 
-#### backend (with spring data)
+##### backend (with spring data)
 * upgrade to Spring Data 1.0.3
 * fix compilation issue if no 'account' table is found
 
@@ -602,68 +602,65 @@ So currently other options (spring data, spring mvc/jquery) are no longer availa
 
 ### 3.0.71 (2012-02-09)
 
-## Generation workflow update
+#### Generation workflow update
 It is now required to provide a valid email address.
 During the first project generation you will be asked to validate your email address.
 
-
-## Spring Data support
+#### Spring Data support
 The generated code is now using Spring Data 1.0.2 for backend, spring mvc and primefaces projects.
 For the moment, we still provide some options to generate backend, spring mvc and primefaces projects as before.
 
-## Noticable upgrades
+#### upgrades
 
-### backend
+##### backend
 * upgrade to hibernate 3.6.9.Final
 * upgrade to joda time 2.0
 * upgrade to ehcache 2.4.3
 
-### jsf2-primefaces front:
+##### jsf2-primefaces front:
 * Upgrade to mojara 2.1.6
 * Upgrade to primefaces 3.0.1
 
-### spring mvc
+##### spring mvc
 * upgrade to urlrewrite 3.2
 
+### 3.0.70 (2012-01-19)
 
-
-#3.0.70 (2012-01-19)
-
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 
 * Remove all render fragments from flows as the update attribute on the command button is enough.
 * Set "javax.faces.validator.BeanValidator.MESSAGE_detail={0}" in ValidationMessage properties files
 * Remove workaround when "yes" is clicked inside askForSaveDialog (proper fix found)
 * Remove deprecated "lazy" attribute in dataTable (see primefaces #2993)
 
-## pom.xml
+##### pom.xml
 * Downgrade maven plugin from 2.7 to 2.6
 
-#3.0.69 (2012-01-02)
+### 3.0.69 (2012-01-02)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * Better JSF navigation with possibility to conditionally skip bean validation. Please <a href="/2011/12/15/skip-jsf-validation-depending-on-action.html">read our blog entry</a> related to this major change. 
 * Upgrade to PrimeFaces 3.0
 * Better readonly view support (use outputText instead of disabled="true")
 * Validate not null many to one association (unless inverse is present)
 
-## backend:
+##### backend:
 * Use @Size annotation instead of @Length annotation when javax.validation is present
 
-## maven (pom.xml)
+##### maven (pom.xml)
 * Use Hibernate validator annotation processor
 
 
-#3.0.68 (2011-12-08)
+### 3.0.68 (2011-12-08)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * Introduce SimpleExceptionHandler.java to handle exception during webflow event (ajax request) or transition (non ajax request). When the exception occurs during an event, an error message is displayed. When an exception occurs during a transition, we force a transition to the 'error' state which in turn ends the flow and display an error page
 * Better general exception handling using ExceptionFilter.java.
 * ExceptionFilter also handles gracefully session expiration during ajax request and send a JSF2 partial redirect to the login page.  
 
-#3.0.67 (2011-12-01)
+### 3.0.67 (2011-12-01)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * clean up localization files messages.properties and messages_fr.properties
 * set main title depending on context (ie entity name)
 * add contextual title to all command button for accessibility concern
@@ -678,28 +675,28 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * messages composite component: fix tricky date bug (visible only for days > 28) in DatePickerHelper
 * remove pure one-to-one 'contact info' from example
 
-## jsf2 without webflow (private front)
+##### jsf2 without webflow (private front)
 * support save (using merge)
 * add custom spring scope (ViewScope)
  
-## backend:
+##### backend:
 * rename all 'logger' to 'log', in case we want to leverage lombok
 * add 'merge' to generic DAO
 * extract DAOHibernate.getCriteria redundant code to HibernateUtil
 * add links to javadoc
 * fix compilation bug when a column is unique and mapped to an Enum 
 
-## misc
+##### misc
 * normalize Logger initialization
 * renamed PaddingConverter.NOTASTRING to PaddingConverter.NOT_A_STRING
 
-## celerio engine
+##### celerio engine
 * better convention for searchResult to avoid listing redundant parent in one to many list
 
 
-#3.0.66 (2011-11-25)
+### 3.0.66 (2011-11-25)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * Capture 'Enter' keypress and use it to trigger click() on the expected submit button
 * Move Save/Submit and Search buttons below input/select fields (introduce saveButton tag)
 * Move 'Active Flows' menu to the right
@@ -708,29 +705,29 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * Remove some useless 'fId' attributes from tags
 * On home page, we now omit links to flows that can only be used as subflows.
 
-#3.0.65 (2011-11-17)
+### 3.0.65 (2011-11-17)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * display a contextual info message each time the model is changed but no saved in database
 * move language switch to the top right corner
 * fix many to one autocomplete (itemValue was removed in 3.0.64, it is now back)
 
-## backend
+##### backend
 * rename GenericEntityService 'autoComplete' method to 'find' for consistency
 * generate labels for onetomany relation
 
 
-#3.0.64 (2011-11-14)
+### 3.0.64 (2011-11-14)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * fix datePicker composite component
 * remove useless code related to webflow menus.
 * light refactor in entity's root flow
 
 
-#3.0.63 (2011-11-10)
+### 3.0.63 (2011-11-10)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * upgrade to primefaces 3.0.M4 and themes 1.0.2 
 * introduce and use an accessible datePicker composite component. It supports bean validation, joda time, etc.
 * introduce and use an accessible messages component
@@ -745,12 +742,12 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * introduce TabBean to track tab activeIndex
 * fix tricky issue with bean validation localization message (i.e. need empty english file)
 
-## backend
+##### backend
 * fix compilation bug when pk is an enum (thanks to Stéphane Cros for reporting it)
 
-#3.0.62 (2011-10-27)
+### 3.0.62 (2011-10-27)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * upgrade to bean validation 4.2.0.Final (was 4.1.0.Final)
 * use bean validation instead of webflow validation. No longer generate XxxValidator...
 * upgrade to mojarra 2.1.3
@@ -770,9 +767,9 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * paginator look and feel harmonization
 * in pom.xml remove plugins we don't really care of
 
-#3.0.61 (2011-10-14)
+### 3.0.61 (2011-10-14)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * Fix datatable selection for Firefox and Safari (was OK with Chrome) 
 * Replace Select subflow in popup (not accessible enough) by regular Select subflow.
 * Introduce auto-complete for Select as an alternative to regular Select subflow
@@ -784,12 +781,12 @@ For the moment, we still provide some options to generate backend, spring mvc an
   be displayed or not. See generated PrimeFacesUtil.java
 * Fix menuitem label in main.css (was not displayed!)
 
-## backend
+##### backend
 * Remove @Transactional annotation from DAO methods (redundant with the one on Service methods)
 
-#3.0.60 (2011-10-07)
+### 3.0.60 (2011-10-07)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * remove bunch of facelet to keep things simpler
 * some wai-aria integration (search, form error message, etc.) 
 * use PrimeFaces 3.0.M4-SNAPSHOT
@@ -801,12 +798,12 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * use p:spinner for integer and long (fixed recently by primefaces)
 * no longer need hack under web/el Use instead MessageBundle which is declared in faces-config
 
-## jsf2-primefaces and spring-mvc-3 front:
+##### jsf2-primefaces and spring-mvc-3 front:
 * upgrade from jetty 6 to jetty 7 
 
-#3.0.57 (2011-09-19)
+### 3.0.57 (2011-09-19)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * pay special attention to keyboard navigation and focus for accessibility concern
 * fix some page and layout to please achecker accessibility tool.
 * use p:layout
@@ -815,9 +812,9 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * rename various ids for better clarity
 
 
-#3.0.56 (2011-09-08)
+### 3.0.56 (2011-09-08)
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * Upgrade to PrimeFaces 3.0.RC1-SNAPSHOT
 * Remove selectionMode="single" from p:dataTable as webflow datamodel does not support it.
 * Change the way we display askForUpdateDialog
@@ -830,31 +827,31 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * accessibility: add 'for' attribute to label in the inputText component
 * accessibility: use hidden commandButton instead of hidden commandLink in panelMenu component
 
-# 3.0.55 (2011-07-27)
+### 3.0.55 (2011-07-27)
 
-## Database reverse:
+##### Database reverse:
 * Make database reverse work for DB2 on Z/OS system
 * Catalog and schema name were ignored (was working most of the time as we provide sensitive default for Oracle and DB2
 
-## backend pack
+##### backend pack
 * Fix default value for attribute mapped to enum.
   For example assuming the civility colunm is mapped to CivilityEnum and its default valude in the database in "MR",
   instead of generating setCivility("MR"), we now generate setCivility(CivilityEnum.MR). Thanks to Aram Murguía.
 * Fix SearchTemplate constructor by copy. List were passed by reference instead of being cloned.
 * Fix some var name clashes occurring when a non foreign key attribute var name matches the var name used by convention for an x-to-one relation.  
 
-## jsf2 primefaces pack
+##### jsf2 primefaces pack
 * Fix url-pattern in web.xml ('*' ==> '/*'), thanks to Aram Murguía
 
-# 3.0.52 (2011-07-11)
+### 3.0.52 (2011-07-11)
 
-## Remote logs:
+##### Remote logs:
 * Generation logs are now sent by email along with extracted metadata.
 * Fix archetype to take into account email entered in springfuse generation form.
 
-# 3.0.51 (2011-07-07)
+### 3.0.51 (2011-07-07)
 
-## Celerio engine:
+##### Celerio engine:
 * Leverage IS_AUTOINCREMENT column metadata when the jdbc driver supports it. 
   It is used to determine if we should annotate simple pk field witn @GeneratedValue or not. 
   If the driver does not support this metadata, we do as before: numeric pk are annotated 
@@ -873,11 +870,11 @@ For the moment, we still provide some options to generate backend, spring mvc an
 
 * Upgrade all H2 versions used in the examples or template pack bootstraps to 1.3.157
 
-## spring mvc 3 front:
+##### spring mvc 3 front:
 * Move up the character encoding filter and apply it to /** (thanks to unibail for tip)
 
 
-# 3.0.50 (2011-06-16)
+### 3.0.50 (2011-06-16)
 
 ##Celerio engine:
 * compilation fix for default value when the numeric type maps to BigInteger or BigDecimal
@@ -888,19 +885,19 @@ For the moment, we still provide some options to generate backend, spring mvc an
   setPrice(new BigDecimal("0.0000"));
 {% endhighlight %}
 
-## backend:
+##### backend:
 * jpa: generate @DateTimeFormat(pattern = DATE_FORMAT_PATTERN) instead of @DateTimeFormat(iso = DATE) to ease global modification of the formatted date. The DATE_FORMAT_PATTERN is statically imported from ResourcesUtil.
 
-## spring mvc 3 front:
+##### spring mvc 3 front:
 * fix auto complete for many to one: in certain case, the binding was not working on the server side
 * fix the contact us link in the generated app
 
-## jsf2-primefaces front:
+##### jsf2-primefaces front:
 * fix the contact us link in the generated app
 
 
-# 3.0.49 (2011-05-24)
-## General
+### 3.0.49 (2011-05-24)
+##### General
 
 * no longer skip table without pk. Instead, look for:
 
@@ -911,23 +908,23 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * better logging message for property name clash and duplicate columns in metadata (Thanks to Lisa from Qualcomm)
 * add getPackageNodeUp facility.
 
-## Improvements
+##### Improvements
 
 * Specify mime types in web.xml (thanks to Björn Johansson)
 
-## maven-springfuse-plugin:
+##### maven-springfuse-plugin:
 
 * dump reversed metadata to target/reversed-metadata.xml
 
 
-# 3.0.48 (2011-05-18)
-## Fixes
+### 3.0.48 (2011-05-18)
+##### Fixes
 
 * Fix file move (see 3.0.47) when a file with the same name is already present in the collision folder. Classes not located in the project root package would not have been picked up
 
 
-# 3.0.47 (2011-05-11)
-## General
+### 3.0.47 (2011-05-11)
+##### General
 * The springfuse remote generation plugin now streams the generation logs from our server.
 * better logging message for property name clash and duplicate columns in metadata (Thanks to Lisa from Qualcomm)
 * Fix @Column mapping for reserved column name whose var name is the same as the column name
@@ -937,8 +934,8 @@ For the moment, we still provide some options to generate backend, spring mvc an
 {% endhighlight %}
 
 
-# 3.0.46 (2011-05-04)
-## General
+### 3.0.46 (2011-05-04)
+##### General
 
 * Better quickstart example
 * Change the save() implementation in HibernateGenericDao to support persist OR update of entities having either  auto generated id, manually assigned or composite pk.
@@ -948,7 +945,7 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * Search by pattern now searches in assigned primary keys (both simple primary key and composite primary keys)
 
 
-## Spring MVC 3 front option
+##### Spring MVC 3 front option
 
 * Totally revisited the look'n'feel and the navigation... for the better :-). Many thanks to Frédéric Pernot from Unibail-Rodamco for his precious feedbacks
 * upgrade to jquery 1.5 <http://jquery.org/>
@@ -958,22 +955,22 @@ For the moment, we still provide some options to generate backend, spring mvc an
 * upgrade jquery-validate <https://github.com/jzaefferer/jquery-validation>
 
 
-## JSF2/Primefaces front option
+##### JSF2/Primefaces front option
 
 * Use embedded flow to renderer search flows in primefaces popup dialog
 * File download/upload is now supported
 
 
-# 3.0.43 (2011-02-08)
-## Introducing JSF2/Primefaces/Webflow pack
+### 3.0.43 (2011-02-08)
+##### Introducing JSF2/Primefaces/Webflow pack
 New Front end option: JSF 2 + PrimeFaces 2.2 + Spring WebFlow 2.2.1. 
 
 Many thanks to <a href="http://www.linkedin.com/profile/view?id=35594474">Bernard Pons</a> (Architect at Banque de France), for sharing his expertise and vision on this front-end stack. 
 Without him, you would not benefit from it.
 
-# 3.0.41 (2011-01-06)
+### 3.0.41 (2011-01-06)
 
-## New
+##### New
 * You can new generate a backend only project...
 * New: Possibility to configure 1 sequence per table. Please use sequenceName attribute in entityConfig.
   It will generate the corresponding @SequenceGenerator and @GeneratedValue annotations.
@@ -983,7 +980,7 @@ Without him, you would not benefit from it.
 * New: Entities are sorted in alphabetical order in generated menus.
 * Upgrade to Spring 3.0.5.RELEASE, Spring Security 3.0.5.RELEASE
 
-## Fixes
+##### Fixes
 * Fix jdbc driver (when oracle is selected) in generated pom
 * Fix PrimaryKeyJoinColumn annotation in case of JOINED inheritance (tables having different pk names)
 * Fix bidirectional one-to-one generated test (XxxDaoWithRealSessionTest)
@@ -996,8 +993,8 @@ Without him, you would not benefit from it.
 * Fix javadoc comments (use '/**' instead of '/*' for entity and attributes)	
 
 
-# 3.0.39 (2010-11-12)
-## New
+### 3.0.39 (2010-11-12)
+##### New
 * springfuse plugin: Support remote generation through http proxy, including proxy using ntlm (please let us know if it works for you)
 * DateRange now also support jodatime LocalDate and LocalDateTime
 * Activate ManyToManyConfig element to fine tune @ManyToMany relation (var, element var, fetch, cascade)
@@ -1012,8 +1009,8 @@ Without him, you would not benefit from it.
 * Fix ehcache configuration filename (was not properly picked up by hibernate)
 
 
-# 3.0.33 (2010-10-14)
-## New
+### 3.0.33 (2010-10-14)
+##### New
 * Increase the max of number of tables you can reverse per schema to 400 (was 100)
 * Revisited, for the better, the generated spring mvc 3 controllers
 * Fix some "context-less" link on the generated application homepage (was ok without context, but was problematic for example 
@@ -1032,12 +1029,12 @@ Celerio will generate the equals/hashCode methods accordingly. If no columnConfi
 1. if none is found, use the first unique constraint involving more than 1 column
 1. if none is found, the PK is used.
 
-## Fixes
+##### Fixes
 * Fix cyclic package dependency that was due to format annotations
 * No longer elect a table as an 'Account' table if it has a composite primary key.
    	
 
-# 3.0.30 (2010-09-03)
+### 3.0.30 (2010-09-03)
 We are happy to release this new version which remotely uses the latest version of Celerio.
 The remote generation process has been greatly simplified:
  
@@ -1063,12 +1060,12 @@ ORM technologies and generators. Finally, thanks to the developers using Celerio
 both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi B., Pierre T, Gary ?, Vincent L.
 
 
-# 2.8.22 (2010-01-04)
+### 2.8.22 (2010-01-04)
 
 * Spring Web Flow: fix url when using non-root contexts. Thanks to Pierre Boned.
 
 
-# 2.8.21 (2009-11-25)
+### 2.8.21 (2009-11-25)
 
 * Spring Web Flow: Use the create subflow, in addition to the select subflow, to wire a many to one relation
 * Spring Web Flow: display many-to-many relation in the review state
@@ -1076,7 +1073,7 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
 * fix XxxFormServiceImpl..java when a many to one points to itself.
 
 
-# 2.8.19 (2009-11-11)
+### 2.8.19 (2009-11-11)
 
 * Support case where @OneToMany's mappedBy attribute refers to an @EmbeddedId (occurs when the id is a composite primary key). 
   Thanks to Olivier Huber from <a href="http://www.zenika.com">Zenika</a> for reporting it.
@@ -1086,7 +1083,7 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
   Thanks to <a href="http://www.hikage.be/">Gildas Cuisinier</a> for taking the time to analyze it and report it.
 
 
-# 2.8.18 (2009-09-24)
+### 2.8.18 (2009-09-24)
 
 * New feature: generate flow menu. Please read <a href="http://blog.springfuse.com/2009/09/spring-web-flow-menus.html">our blog entry</a> to know more.
 * Support for hibernate filters in flows thanks to a special flow execution listener
@@ -1094,7 +1091,7 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
 * Refactor equals and hashCode
 
 
-# 2.8.17 (2009-09-21)
+### 2.8.17 (2009-09-21)
 
 * Upgrade from Spring 2.5.6 to Spring 2.5.6.SEC01 and no longer use spring.jar. We use instead spring-orm.jar etc... as for Spring 3.0 which is coming soon :-)
 * Upgrade from SpringSecurity 2.0.4 to 2.0.5.RELEASE
@@ -1104,7 +1101,7 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
 * JPA annotations are now set on getters instead of fields.
 
 
-# 2.8.16 (2009-08-22)
+### 2.8.16 (2009-08-22)
 
 * New feature: Generate annotation for validation (use Hibernate Validators 3.0.0.ga)
 * New feature: Handle composite foreign keys
@@ -1124,14 +1121,14 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
  * Set the source/target to 1.5 / 1.5 explicitly with the compiler plugin to keep Eclipse happy
 		
 
-# 2.8.15 (2009-07-05)
+### 2.8.15 (2009-07-05)
 
 * Fix a compilation error (regression) in generated unit test when one of the composite primary fields maps to a Java Long (thanks to Stéphane Deraco for reporting it)
 * Fix a compilation error occurring when one of the composite primary key fields maps to a date.
 * Fix an incorrect redirection url after an update of a model having a composite pk (thanks to David Martin).
 
 
-# 2.8.14 (2009-06-25)
+### 2.8.14 (2009-06-25)
 
 * No longer set attribute that match the default value in @Column annotation:
  * length = 255 is useless
@@ -1149,7 +1146,7 @@ both the generated code and the product: Hervé, Tony B., Sébastien P., Lottfi 
 * Fix unit test error when no account table is found (Thanks to David Martin)
 
 
-# 2.8.9 (2009-06-18)
+### 2.8.9 (2009-06-18)
 
 The major feature of this release is the <strong>JPA support</strong>.
 It was a long awaited feature demand from our users.
@@ -1170,7 +1167,7 @@ Other important changes are listed below.
 * Refactor the main pom : filter only .properties (we used to filter also the .xml files)
 
 
-# 2.7.4 (2009-05-10)
+### 2.7.4 (2009-05-10)
 
 * New! <b>Spring Web Flow</b> support:
  * For each entity, a create flow and a select flow are now generated. The select flow is used as a subflow in create flow whose entity has a many to one relation.
@@ -1183,7 +1180,7 @@ Other important changes are listed below.
 * When a table has no pk, use the first non null unique index instead (Thanks to Bernard Pons)
 
 
-# 2.7.3 (2009-04-09)
+### 2.7.3 (2009-04-09)
 * Fix a case that was breaking compilation of the generated code: a composite foreign
   key having one of its field also used as a foreign key (non-composite). (Thanks to <a href="http://www.linkedin.com/in/marcelheemskerk">Marcel Heemskerk</a>).
 * Isolate the use of URLEncoder.encode(string, "UTF-8") in a dedicated URLEncoderUtil class.
@@ -1198,12 +1195,12 @@ Other important changes are listed below.
  * Inject the XxxValidator in XxxFormController using @Autowire
 
 
-# 2.7.2 (2009-04-03)
+### 2.7.2 (2009-04-03)
 
 * Use URLEncoder.encode(string, "UTF-8") to encode parameters that appears in search results' sort urls in XxxSearchForm.java files.
 
 
-# 2.7.1 (2009-03-30)
+### 2.7.1 (2009-03-30)
 
 * pom.xml: remove the error prone activeByDefault from H2 profile.
  - No impact as H2 properties are anyway set by default when no database profile is used.
@@ -1219,7 +1216,7 @@ Other important changes are listed below.
 * Use Html entities instead of images to display sort arrows (&uarr; or &darr;) in search results. Impact in XxxSearchForm.java and searchResult.jsp pages.
 * Allow search using both a searchPattern and a model example. Change within Xxx.DAOHibernate.addCriterionOnCriteria method.
 
-# 2.7.0
+### 2.7.0
 
 * Add Springfuse version support in the project generation form (Thanks to Ian H. for requesting it).
   It allows you regenerate a project using an older version of Springfuse.
@@ -1231,7 +1228,7 @@ Other important changes are listed below.
 * Package reorganization: to clearly separate domain related classes from the rest, move
   the classes that were in the 'dao' package to 'dao.support' package.
 
-# 2.6.0
+### 2.6.0
 
 * Fix a compilation error when using a composite key having a date type (Thanks to Steve T. for reporting it)
 * Make getQueryStringForSortableHeader method public on all search forms so it can be conveniently used from Freemarker views
@@ -1241,7 +1238,7 @@ Other important changes are listed below.
 * Cosmetic comments in Spring's configuration files
 
 
-# Since 2009-03-13
+### Since 2009-03-13
 
 * Fix a zip issue that was preventing windows to unzip properly the files at the root of the generated project (Thanks to Neil G. for reporting it)
 * Add some instructions for tomcat 5.5 and tomcat 6.0 in the generated pom.xml.
@@ -1249,14 +1246,14 @@ Other important changes are listed below.
 * Minor changes in Spring application context files related to bean description (no impact, just documentation and cosmetic)
 
 
-# Since 2009-03-06
+### Since 2009-03-06
 
 * Fix hard coded reference to login/password/email setters that were preventing certain generated projects to compile.
 * Fix a generation issue when the email column was not present in the auto detected Account table.
 * Introduce isAccount method in the AccountContext for fined grained security.
 
 
-# Since 2009-03-03
+### Since 2009-03-03
 
 * Account table detection: accept the 'user_name' column as a candidate for the username.
 * Use directly LocaleContextHolder instead of AccountContext in EmailServiceImpl to prevent NPE when using the EmailService from a cron job.
@@ -1265,19 +1262,19 @@ Other important changes are listed below.
 * Cosmetic in xml configuration: move bean descriptions from comments to description tag
 
 
-# Since 2009-02-28
+### Since 2009-02-28
 
 * Set currentAccountId to a dummy value in HibernateFilterContext
 
 
-# Since 2009-02-27
+### Since 2009-02-27
 
 * Fix the currentAccountId type in HibernateFilterContext: it was hard coded to String, it has now the same type as the primary key of the 'account' table.
 * Circumvent a SpringJavascript bug similar to <a href="http://jira.springframework.org/browse/SJS-21">http://jira.springframework.org/browse/SJS-21</a> (thanks to Ian Hendry for reporting it).
 * SearchTemplateImpl setters now return SearchTemplateImpl instead of SearchTemplate so builder pattern can be used.
 
 
-# Since 2009-02-24
+### Since 2009-02-24
 
 * Remove trailing div tag in show.jsp responsible for poor layout under IE (thanks to Ian Hendry)
 * Fix duplication of the searchParameters.searchMode in the show.jsp page for each domain table (thanks to Ian Hendry)
@@ -1285,7 +1282,7 @@ Other important changes are listed below.
 * Provide two sets of velocity templates under src/main/resources/velocity/emails for email sent upon reset/change password.
 
 
-# Since 2009-02-12
+### Since 2009-02-12
 
 * Collect JDBC driver name/version when reversing the database schema. This information is displayed in the generated project page.
 * Improve support for camel case syntax: if your column or table name are camel cased and your jdbc driver preserves your syntax, 
@@ -1313,7 +1310,7 @@ Other important changes are listed below.
 * Upgrade to Spring Javascript 2.0.5
 
 
-# Since 2009-02-03
+### Since 2009-02-03
 
 * Remove common table prefix before generating variable/method/class name
 * Clean primary key variable names
