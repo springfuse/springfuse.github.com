@@ -54,7 +54,7 @@ Major change: we no longer keep an entityManager instance in the Conversation, i
 * better look'n'feel (no more white on white issues)
 * merge multiple info/error messages in one panel
 * use home made @Conversation annotation
-* Use FIFO policy to terminate conversation when the max number of conversations is reached (https://sofact.banque-france.fr/jira/browse/EVOSOCLE-12)
+* Use FIFO policy to terminate conversation when the max number of conversations is reached
 * handle natural conversation ending (when all contextes are popped)
 * 'create' conversation link on homepage
 * move the term handling in the GenericSearchForm
