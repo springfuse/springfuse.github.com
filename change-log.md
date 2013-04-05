@@ -9,6 +9,17 @@ title: Springfuse change log
 
 ##### pack backend-jpa
 * remove repository interfaces
+* use logback instead of log4j
+* simplify the graphLoader
+* jpa by example now supports annotation on fields
+
+##### pack jsf2-spring-conversation
+* start conversation programmatically
+* move code from LazyDataModel to controller
+* use more the jpa metamodel 
+* handle optimistic lock exception, warns the user and propose reloading data
+* rename MultiPageMessagesSupport to MultiPageMessagesListener
+
 
 ### 3.0.99 (2013-03-26)
 
