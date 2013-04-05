@@ -13,6 +13,7 @@ title: Springfuse change log
 * simplify the graphLoader
 * jpa by example now supports annotation on fields
 * upgrade hibernate from 4.1.9.Final to 4.2.0.Final 
+* upgrade usertype.core from 3.0.0.CR3 to 3.0.0.GA
 * upgrade commons-fileupload from 1.2.2 to 1.3
 * upgrade jxls-core from 1.0 to 1.0.1
 * upgrade jsoup from 1.6.3 to 1.7.2
