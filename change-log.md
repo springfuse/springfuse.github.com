@@ -12,6 +12,10 @@ title: Springfuse change log
 * use logback instead of log4j
 * simplify the graphLoader
 * jpa by example now supports annotation on fields
+* upgrade hibernate from 4.1.9.Final to 4.2.0.Final 
+* upgrade commons-fileupload from 1.2.2 to 1.3
+* upgrade jxls-core from 1.0 to 1.0.1
+* upgrade jsoup from 1.6.3 to 1.7.2
 
 ##### pack jsf2-spring-conversation
 * start conversation programmatically
