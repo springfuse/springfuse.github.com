@@ -12,6 +12,7 @@ title: Springfuse change log
 * use logback instead of log4j
 * replaced dbcp by tomcat-jdbc
 * simplify the graphLoader
+* full text search on SingularAttributes
 * jpa by example now supports annotation on fields
 * upgrade hibernate from 4.1.9.Final to 4.2.0.Final 
 * upgrade usertype.core from 3.0.0.CR3 to 3.0.0.GA
@@ -28,6 +29,7 @@ title: Springfuse change log
 * rename MultiPageMessagesSupport to MultiPageMessagesListener
 * in views use generic printer instead of the typed one
 * in view remove where possible the usage of $msg.KEY
+* use navigator in calendars
 * upgrade primefaces from 3.4.2 to 3.5
 
 
