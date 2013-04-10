@@ -10,6 +10,7 @@ title: Springfuse change log
 ##### pack backend-jpa
 * remove repository interfaces
 * use logback instead of log4j
+* replaced dbcp by tomcat-jdbc
 * simplify the graphLoader
 * jpa by example now supports annotation on fields
 * upgrade hibernate from 4.1.9.Final to 4.2.0.Final 
@@ -20,10 +21,14 @@ title: Springfuse change log
 
 ##### pack jsf2-spring-conversation
 * start conversation programmatically
+* introduce GenericToManyAssociation and GenericToOneAssociation to reduce code
 * move code from LazyDataModel to controller
 * use more the jpa metamodel 
 * handle optimistic lock exception, warns the user and propose reloading data
 * rename MultiPageMessagesSupport to MultiPageMessagesListener
+* in views use generic printer instead of the typed one
+* in view remove where possible the usage of $msg.KEY
+* upgrade primefaces from 3.4.2 to 3.5
 
 
 ### 3.0.99 (2013-03-26)
