@@ -13,7 +13,7 @@ title: Springfuse change log
 * logs are produced in target/
 * replaced dbcp by tomcat-jdbc
 * simplify the graphLoader
-* full text search on SingularAttributes
+* refactored hibernate search integration with SearchParameters
 * jpa by example now supports annotation on fields
 * use @Configuration to replace some xml definitions
 * use mockitoRunner instead of creating manually the mocks
