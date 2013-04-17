@@ -33,6 +33,8 @@ title: Springfuse change log
 * rename MultiPageMessagesSupport to MultiPageMessagesListener
 * in views use generic printer instead of the typed one
 * in view remove where possible the usage of $msg.KEY
+* jetty stars now with web-development.xml in development mode
+* split service.UserContext in LocaleService and UserContextService
 * use navigator in calendars
 * use @Configuration to replace some xml definitions
 * upgrade primefaces from 3.4.2 to 3.5
