@@ -32,7 +32,10 @@ Here are the main configuration points (this is a work in progress):
 	* [Inverse @OneToOne](#io2o)
 	* [@ManyToMany](#m2m)
 * [Conventions](#conventions)
-	* [File Upload and Download](#file)
+	* [File Upload and Download](#conventions-file)
+	* [Audit entity](#conventions-audit-entity)
+	* [Audit table](#conventions-audit-table)
+	* [Saved search](#conventions-saved-search)
  
 <a name="xsd"></a>
 # Inline documentation through XSD
