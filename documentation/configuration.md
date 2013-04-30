@@ -424,10 +424,10 @@ manipulation from the web tier to the persistence layer.
 Example: Here is the corresponding SQL code using 'mydoc' as a 'prefix'
 
 {% highlight sql %}
-mydoc_content_type	varchar(255)    not null,
-mydoc_size		integer         not null,
-mydoc_file_name		varchar(255)    not null,
-mydoc_binary		bytea,
+mydoc_content_type      varchar(255)    not null,
+mydoc_size              integer         not null,
+mydoc_file_name         varchar(255)    not null,
+mydoc_binary            bytea,
 {% endhighlight %}
 
 This convention allows you to upload a file transparently, 
