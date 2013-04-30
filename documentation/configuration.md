@@ -406,7 +406,7 @@ to `true` the `middleTable` attribute of the `entityConfig` element.
 <a name="conventions"></a>
 # Conventions
 
-<a name="file"></a>
+<a name="conventions-file"></a>
 ## File Upload and Download
 
 When the following columns are present simultaneously in a
@@ -414,7 +414,7 @@ table, Celerio generates various helper methods to ease file
 manipulation from the web tier to the persistence layer.
 
 * 'prefix'_FILE_NAME (String)
-* 'prefix'_CONTENT_TYPE (String)</para>
+* 'prefix'_CONTENT_TYPE (String)
 * 'prefix'_SIZE or 'prefix'_LENGTH (int)
 * 'prefix'_BINARY (blob)
 
@@ -431,40 +431,77 @@ This convention allows you to upload a file transparently,
 save it to the corresponding table, then download it using a simple URL.
 
 
+<a name="conventions-audit-entity"></a>
+## Auditing entity
+
+When the following columns are present simultaneously in a
+table, Celerio will use these columns to save the creation and last update using jpa listeners.
+
+* creationAuthor, creationBy, creePar (Date)
+* creationDate, dateCreation (Date)
+* lastModificationAuthor, lastModificationAt, derniereModificationPar, modifiePar (String)
+* lastModificationDate, dateDerniereModification, derniereModification (String)
+
+Example: 
+
+{% highlight sql %}
+    creation_date            timestamp,
+    creation_author          varchar(200),
+    last_modification_date   timestamp,
+    last_modification_author varchar(200),
+{% highlight sql %}
+
+<a name="conventions-audit-table"></a>
+## Audit table
+
+When the following columns are present simultaneously in a
+table, Celerio will use these columns to save the creation and last update using jpa listeners.
+
+The table should be called either
+
+* auditLog
+* auditTrail
+* audit
+
+The table should contain the following columns
+
+* author‚ auteur (String)
+* event (String)
+* eventDate (Date)
+* stringAttribute1, attribute1, string1 (String)
+* stringAttribute2, attribute2, string2 (String)
+* stringAttribute3, attribute3, string3 (String)
 
 
+<a name="conventions-saved-search"></a>
+## Saved search table
 
+When the following columns are present simultaneously in a
+table, Celerio will use these columns to propose the user to save its searches
 
+The table should be called either
 
+* savedSearch
+* savedSearchForm
 
+The table should contain the following columns
 
+* formClass, formClassname (String)
+* name (String)
+* formContent (blob)
+* creationAuthor, creationBy, creePar, accountId (fk to account)
 
+{% highlight sql %}
+CREATE TABLE SAVED_SEARCH (
+    id                            int not null IDENTITY,
+    name                          varchar(128) not null,
+    form_classname                varchar(256) not null,
+    form_content                  bytea,
+    account_id                    char(36) not null,
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    constraint saved_search_fk_1 foreign key (account_id) references ACCOUNT,
+    primary key (id)
+);
+{% highlight sql %}
 
 
