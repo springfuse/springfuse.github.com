@@ -494,6 +494,8 @@ The table should contain the following columns
 * formContent (blob)
 * creationAuthor, creationBy, creePar, accountId (fk to account)
 
+Example: 
+
 {% highlight sql %}
 CREATE TABLE SAVED_SEARCH (
     id                            int not null IDENTITY,
@@ -506,3 +508,4 @@ CREATE TABLE SAVED_SEARCH (
     primary key (id)
 );
 {% endhighlight %}
+
