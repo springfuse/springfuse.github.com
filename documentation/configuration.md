@@ -250,18 +250,16 @@ having a `foreign key` constraint and no `unique` constraint.
 
 The variable name of the many to one association is deduced by default from the
 `fieldName` of the column. For example if the `fieldName` is `addressId`, the many to one variable name will be `address`. 
-In case where the `fieldName` already matches the name of the target entity,
-Celerio adds the "Ref" suffix to the variable name. Here are few simplified examples:
 
 {% highlight java %}
 // column name is 'addr_id' 
 Address addr;
 
 // column name is 'address'
-Address addressRef;
+Address address;
 
 // column name is 'anything_else'
-Address address;
+Address anythingElse;
 {% endhighlight %}
 
 In any case, use the `manyToOneConfig` element to force a different variable name. For example:
