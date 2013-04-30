@@ -58,21 +58,21 @@ If you rely on conventions, you do not need to configure anything regarding Ids.
  it into account. Here is an example:
  
 {% highlight xml %}
-<entityConfigs>
-	<entityConfig tableName="ADDRESS" sequenceName="ADDRESS_SEQ"/>
-</entityConfigs>
+    <entityConfigs>
+        <entityConfig tableName="ADDRESS" sequenceName="ADDRESS_SEQ"/>
+    </entityConfigs>
 {% endhighlight %}
 
 assuming the PK of the ADDRESS table is mapped to an Integer, here is how would look the generated code:
 
 {% highlight java %}
-@Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
-@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADDRESS_SEQ")
-@Id
-@SequenceGenerator(name = "ADDRESS_SEQ", sequenceName = "ADDRESS_SEQ")
-public Integer getAddressId() {
-  return addressId;
-}
+    @Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ADDRESS_SEQ")
+    @Id
+    @SequenceGenerator(name = "ADDRESS_SEQ", sequenceName = "ADDRESS_SEQ")
+    public Integer getAddressId() {
+        return addressId;
+    }
 {% endhighlight %}
 
 <a name="cust_id_generator"></a>
@@ -81,31 +81,31 @@ public Integer getAddressId() {
 In certain cases, generally when you work with legacy databases, you may need to use a custom Id generator
 in order to be consistent with the legacy system. Here is an example:
 {% highlight xml %}
-<entityConfig tableName="ADDRESS">
-	<columnConfigs>
-    	<columnConfig columnName="ADDRESS_ID">
-      		<generatedValue generator="myCustomerGenerator" />
-      		<genericGenerator name="myCustomerGenerator" strategy="com.yourcompany.appli.customgen.CustomerGenerator">
-        		<parameters>
-          			<parameter name="sequence" value="YOUR_EVNTUAL_SEQ" />
-        		</parameters>
-      		</genericGenerator>
-		</columnConfig>
-	</columnConfigs>
-</entityConfig>
+    <entityConfig tableName="ADDRESS">
+        <columnConfigs>
+            <columnConfig columnName="ADDRESS_ID">
+                <generatedValue generator="myCustomerGenerator" />
+                <genericGenerator name="myCustomerGenerator" strategy="com.yourcompany.appli.customgen.CustomerGenerator">
+                    <parameters>
+                        <parameter name="sequence" value="YOUR_EVNTUAL_SEQ" />
+                    </parameters>
+                </genericGenerator>
+            </columnConfig>
+        </columnConfigs>
+    </entityConfig>
 {% endhighlight %}
 
 leads to:
 
 {% highlight java %}
-@Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
-@GeneratedValue(generator = "myCustomerGenerator")
-@GenericGenerator(name = "myCustomerGenerator", strategy = "com.yourcompany.appli.customgen.CustomerGenerator", 
-	parameters = @Parameter(name = "sequence", value = "YOUR_EVNTUAL_SEQ"))
-@Id
-public Integer getAddressId() {
-  return addressId;
-}          
+    @Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
+    @GeneratedValue(generator = "myCustomerGenerator")
+    @GenericGenerator(name = "myCustomerGenerator", strategy = "com.yourcompany.appli.customgen.CustomerGenerator", 
+        parameters = @Parameter(name = "sequence", value = "YOUR_EVNTUAL_SEQ"))
+    @Id
+    public Integer getAddressId() {
+        return addressId;
+    }          
 {% endhighlight %}
 
 <a name="naming"></a>
@@ -118,9 +118,9 @@ By default, an entity name is deduced from the Table name. To force the entity n
 `entityName` attribute of the `entityConfig` element, for example.
 
 {% highlight xml %}
-<entityConfigs>
-	<entityConfig tableName="ACCOUNT" entityName="UserAccount"/>    
-</entityConfigs>
+    <entityConfigs>
+        <entityConfig tableName="ACCOUNT" entityName="UserAccount"/>    
+    </entityConfigs>
 {% endhighlight %}
 
 <a name="property_name"></a>
@@ -130,19 +130,19 @@ By default, a property name is deduced from the column name. To force the proper
 `fieldName` attribute of the `columnConfig` element, for example.
 
 {% highlight xml %}
-<entityConfigs>
-	<entityConfig tableName="ACCOUNT">
-		<columnConfigs>
-			<columnConfig columnName="user_dob" fieldName="birthDate"/>
-    	</columnConfigs>
-  	</entityConfig>
-</entityConfigs>
+    <entityConfigs>
+        <entityConfig tableName="ACCOUNT">
+            <columnConfigs>
+                <columnConfig columnName="user_dob" fieldName="birthDate"/>
+            </columnConfigs>
+        </entityConfig>
+    </entityConfigs>
 {% endhighlight %}
 
 leads to:
 
 {% highlight java %}
-Date birthDate;
+    Date birthDate;
 {% endhighlight %}
 
 <a name="name_rule"></a>
@@ -153,11 +153,11 @@ The `fieldNaming` element allows you to change the column names passed to Celeri
 to calculate the default field names. The example below removes well known prefix pattern from column names:
 
 {% highlight xml %}
-<configuration>
-	<conventions>
-    	<fieldNaming regexp="^.{3}_{1}" replace=""/>
-  	</conventions>
-</configuration>
+    <configuration>
+        <conventions>
+            <fieldNaming regexp="^.{3}_{1}" replace=""/>
+        </conventions>
+    </configuration>
 {% endhighlight %}
 
 In that case, column names such as `XYZ_SOMETHING_MEANINGFUL` now lead to Java field name `sometingMeaningful`
@@ -175,13 +175,13 @@ You can force the mapped type using the `mappedType` attribute of the columnConf
 a mapping to an Integer you would do:
 
 {% highlight xml %}
-<entityConfigs>
-	<entityConfig tableName="ACCOUNT">
-    	<columnConfigs>
-			<columnConfig columnName="year" mappedType="M_INTEGER"/>
-    	</columnConfigs>
-  	</entityConfig>
-</entityConfigs>
+    <entityConfigs>
+        <entityConfig tableName="ACCOUNT">
+    	    <columnConfigs>
+                <columnConfig columnName="year" mappedType="M_INTEGER"/>
+            </columnConfigs>
+        </entityConfig>
+    </entityConfigs>
 {% endhighlight %}
 
 <a name="rule_number_mapping"></a>
@@ -191,25 +191,23 @@ You can configure number mapping rules globally. For example, to map all columns
 proceed as follow: 
 
 {% highlight xml %}
-<configuration>
-	<numberMappings>
-    	<numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="1" columnDecimalDigitsMin="1"/>  
-	</numberMappings>
-</configuration>
+    <configuration>
+        <numberMappings>
+            <numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="1" columnDecimalDigitsMin="1"/>  
+        </numberMappings>
+    </configuration>
 {% endhighlight %}
 
 First rule that matches is used. For example to map to either Boolean, Double or BigDecimal you can do:
 
 {% highlight xml %}
-<configuration>
-	<numberMappings>
-		<numberMapping mappedType="M_BOOLEAN" 
-					   columnSizeMin="1" columnSizeMax="2" columnDecimalDigitsMin="0" columnDecimalDigitsMax="1"/>    
-		<numberMapping mappedType="M_DOUBLE" 
-					   columnSizeMin="1" columnSizeMax="11" columnDecimalDigitsMin="1" columnDecimalDigitsMax="4"/>
-		<numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="11" columnDecimalDigitsMin="4"/>  
-	</numberMappings>
-</configuration>              
+    <configuration>
+        <numberMappings>
+            <numberMapping mappedType="M_BOOLEAN" columnSizeMin="1" columnSizeMax="2" columnDecimalDigitsMin="0" columnDecimalDigitsMax="1"/>    
+            <numberMapping mappedType="M_DOUBLE" columnSizeMin="1" columnSizeMax="11" columnDecimalDigitsMin="1" columnDecimalDigitsMax="4"/>
+            <numberMapping mappedType="M_BIGDECIMAL" columnSizeMin="11" columnDecimalDigitsMin="4"/>  
+        </numberMappings>
+    </configuration>              
 {% endhighlight %}
 
 Note that the `columnSizeMin` is inclusive and `columnSizeMax` is exclusive.
@@ -220,22 +218,22 @@ Note that the `columnSizeMin` is inclusive and `columnSizeMax` is exclusive.
 You can configure date mapping rules globally. For example, to map all date/time/timestamp column to Joda Time LocalDateTime, proceed as follow:
 
 {% highlight xml %}
-<configuration>
-	<dateMappings>
-    	<dateMapping mappedType="M_JODA_LOCALDATETIME" />  
-  	</dateMappings>
-</configuration>
+    <configuration>
+        <dateMappings>
+            <dateMapping mappedType="M_JODA_LOCALDATETIME" />  
+        </dateMappings>
+    </configuration>
 {% endhighlight %}
 
 And for example to map differently the columns whose name is VERSION you can add the following mapping rule:
 
 {% highlight xml %}
-<configuration>
-  	<dateMappings>
-		<dateMapping mappedType="M_UTILDATE" columnNameRegExp="VERSION"/>  
-		<dateMapping mappedType="M_JODA_LOCALDATETIME" />  
-  	</dateMappings>
-</configuration>
+    <configuration>
+        <dateMappings>
+            <dateMapping mappedType="M_UTILDATE" columnNameRegExp="VERSION"/>  
+            <dateMapping mappedType="M_JODA_LOCALDATETIME" />  
+        </dateMappings>
+    </configuration>
 {% endhighlight %}
 
 
@@ -252,28 +250,28 @@ The variable name of the many to one association is deduced by default from the
 `fieldName` of the column. For example if the `fieldName` is `addressId`, the many to one variable name will be `address`. 
 
 {% highlight java %}
-// column name is 'addr_id' 
-Address addr;
-
-// column name is 'address'
-Address address;
-
-// column name is 'anything_else'
-Address anythingElse;
+    // column name is 'addr_id' 
+    Address addr;
+    
+    // column name is 'address'
+    Address address;
+    
+    // column name is 'anything_else'
+    Address anythingElse;
 {% endhighlight %}
 
 In any case, use the `manyToOneConfig` element to force a different variable name. For example:
 
 {% highlight xml %}
-<columnConfig columnName="addr_id">
-	<manyToOneConfig var="myAddress"/>
-</columnConfig>
+    <columnConfig columnName="addr_id">
+        <manyToOneConfig var="myAddress"/>
+    </columnConfig>
 {% endhighlight %}
 
 will lead to
 
 {% highlight java %}
-Address myAddress;
+    Address myAddress;
 {% endhighlight %}
 
 The `manyToOneConfig` element also allows you to tune the JPA fetch type and the JPA cascade types.
@@ -283,7 +281,7 @@ If you have some inheritance involved on the 'one' side of the many to one assoc
 enough to identify the target entity. In that case, set the `targetEntityName` attribute of the `columnConfig` element. For example:
 
 {% highlight xml %}
-<columnConfig columnName="address_id" targetEntityName="HomeAddress"/>
+    <columnConfig columnName="address_id" targetEntityName="HomeAddress"/>
 {% endhighlight %}
 
 On legacy schema, the foreign key constraint may not be present and Celerio will not generate the many to one association
@@ -293,7 +291,7 @@ Hopefully you can configure Celerio to do as if a foreign key constraint was pre
 `columnConfig` element. For example:
                 
 {% highlight xml %}
-<columnConfig columnName="address_id" targetTableName="ADDRESS"/>
+    <columnConfig columnName="address_id" targetTableName="ADDRESS"/>
 {% endhighlight %}
 
 <a name="o2m"></a>
@@ -307,22 +305,22 @@ Celerio generates the code for one to many association when a many to one associ
 `associationDirection` attribute of the `columnConfig` element is `BIDIRECTIONAL`. For example:
                 
 {% highlight xml %}
-<entityConfig tableName="Account">
-    <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL"/>
-</entityConfig>
+    <entityConfig tableName="Account">
+        <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL"/>
+    </entityConfig>
 {% endhighlight %}
 
 will lead (assuming address_id refers to Address) to something like:
 
 {% highlight java %}
-// in Account.java
-Address address;
+    // in Account.java
+    Address address;
 {% endhighlight %}
 
 
 {% highlight java %}
-// In Address.java
-List<Account> accounts;
+    // In Address.java
+    List<Account> accounts;
 {% endhighlight %}
             
 In the example above `accounts`
@@ -333,22 +331,23 @@ to a different value. As you will see, you can also set the name of an element o
 to control the name of the associated helper methods that Celerio generates (adder, remover, etc.). Here is an example:
 
 {% highlight xml %}
-<entityConfig tableName="Account">
-    <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL">
-        <oneToManyConfig var="people" elementVar="resident"/>
-    </columnConfig>
-</entityConfig>
+    <entityConfig tableName="Account">
+        <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL">
+            <oneToManyConfig var="people" elementVar="resident"/>
+        </columnConfig>
+    </entityConfig>
 {% endhighlight %}
 
 will lead to
 
 {% highlight java %}
-// In Address.java
-List<Account> people;
-
-public void addResident(Account resident) {
-// skip...
-}{% endhighlight %}
+    // In Address.java
+    List<Account> people;
+    
+    public void addResident(Account resident) {
+    // skip...
+    }
+{% endhighlight %}
 
 The `oneToManyConfig` element also allows you to tune the JPA fetch type and the JPA cascade types.
 Please refer to the XSD for more information.
@@ -388,16 +387,16 @@ You may use the `manyToManyConfig` element. to set the related variables and add
 You can use the `inverse` attribute to force the inverse side of the association. For example:
            
 {% highlight xml %}
-<entityConfig tableName="account_role" associationDirection="BIDIRECTIONAL">
-	<columnConfigs>
-  		<columnConfig columnName="account_id">
-   			<manyToManyConfig var="theAccounts" elementVar="anAccount"/>
-  		</columnConfig>
-  		<columnConfig columnName="role_id" inverse="true">
-   			<manyToManyConfig var="theRoles" elementVar="aRole"/>                
-  		</columnConfig>
- 	</columnConfigs>
-</entityConfig>
+    <entityConfig tableName="account_role" associationDirection="BIDIRECTIONAL">
+        <columnConfigs>
+            <columnConfig columnName="account_id">
+                <manyToManyConfig var="theAccounts" elementVar="anAccount"/>
+            </columnConfig>
+            <columnConfig columnName="role_id" inverse="true">
+                <manyToManyConfig var="theRoles" elementVar="aRole"/>                
+            </columnConfig>
+        </columnConfigs>
+    </entityConfig>
 {% endhighlight %}
 
 In case Celerio does not detect the join table, for example if an extra column is present, you can force it by setting
@@ -422,10 +421,10 @@ manipulation from the web tier to the persistence layer.
 Example: Here is the corresponding SQL code using 'mydoc' as a 'prefix'
 
 {% highlight sql %}
-mydoc_content_type      varchar(255)    not null,
-mydoc_size              integer         not null,
-mydoc_file_name         varchar(255)    not null,
-mydoc_binary            bytea,
+    mydoc_content_type      varchar(255)    not null,
+    mydoc_size              integer         not null,
+    mydoc_file_name         varchar(255)    not null,
+    mydoc_binary            bytea,
 {% endhighlight %}
 
 This convention allows you to upload a file transparently, 
@@ -495,15 +494,15 @@ The table should contain the following columns
 Example: 
 
 {% highlight sql %}
-CREATE TABLE SAVED_SEARCH (
-    id                            int not null IDENTITY,
-    name                          varchar(128) not null,
-    form_classname                varchar(256) not null,
-    form_content                  bytea,
-    account_id                    char(36) not null,
-
-    constraint saved_search_fk_1 foreign key (account_id) references ACCOUNT,
-    primary key (id)
-);
+    CREATE TABLE SAVED_SEARCH (
+        id                            int not null IDENTITY,
+        name                          varchar(128) not null,
+        form_classname                varchar(256) not null,
+        form_content                  bytea,
+        account_id                    char(36) not null,
+    
+        constraint saved_search_fk_1 foreign key (account_id) references ACCOUNT,
+        primary key (id)
+    );
 {% endhighlight %}
 
