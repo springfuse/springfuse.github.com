@@ -462,9 +462,9 @@ table, Celerio will use these columns to save the creation and last update using
 
 The table should be called either
 
-* auditLog
-* auditTrail
 * audit
+* audit_log
+* audit_trail
 
 The table should contain the following columns
 
@@ -484,8 +484,8 @@ table, Celerio will use these columns to propose the user to save its searches
 
 The table should be called either
 
-* savedSearch
-* savedSearchForm
+* saved_search
+* saved_search_form
 
 The table should contain the following columns
 
