@@ -416,10 +416,10 @@ When the following columns are present simultaneously in a
 table, Celerio generates various helper methods to ease file
 manipulation from the web tier to the persistence layer.
 
-* 'prefix'_FILE_NAME (String)
-* 'prefix'_CONTENT_TYPE (String)
-* 'prefix'_SIZE or 'prefix'_LENGTH (int)
-* 'prefix'_BINARY (blob)
+* 'prefix'_file_name (String)
+* 'prefix'_content_type (String)
+* 'prefix'_size or 'prefix'_length or 'prefix'_content_length (int)
+* 'prefix'_binary or 'prefix'_content or 'prefix'_blob or  (blob)
 
 Example: Here is the corresponding SQL code using 'mydoc' as a 'prefix'
 
