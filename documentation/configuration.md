@@ -422,7 +422,7 @@ Example: Here is the corresponding SQL code using 'mydoc' as a 'prefix'
 
 {% highlight sql %}
 mydoc_content_type	varchar(255)    not null,
-mydoc_size			integer         not null,
+mydoc_size		integer         not null,
 mydoc_file_name		varchar(255)    not null,
 mydoc_binary		bytea,
 {% endhighlight %}
@@ -449,7 +449,7 @@ Example:
     creation_author          varchar(200),
     last_modification_date   timestamp,
     last_modification_author varchar(200),
-{% highlight sql %}
+{% endhighlight %}
 
 <a name="conventions-audit-table"></a>
 ## Audit table
@@ -502,6 +502,4 @@ CREATE TABLE SAVED_SEARCH (
     constraint saved_search_fk_1 foreign key (account_id) references ACCOUNT,
     primary key (id)
 );
-{% highlight sql %}
-
-
+{% endhighlight %}
