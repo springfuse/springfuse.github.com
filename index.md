@@ -364,7 +364,7 @@ __Requirements__
 * download the generated project from our server and unzip it
 * deploy the project locally using Jetty servlet container (<a href="http://localhost:8080/">http://localhost:8080/</a>) or, for backend project run all the unit tests.
 
-<textarea id="cmdLine2" rows="2" cols="80" readonly="readonly" style="width:850px;height:40px;"></textarea>
+<textarea id="cmdLine2" rows="2" cols="80" style="width:850px;height:40px;"></textarea>
 
 <p class="tip">
 	If the remote generation fails (error, missing entities, etc.), please <a href="/faq.html#question_remote_generation_failed" target="_new">read this faq entry</a>.
