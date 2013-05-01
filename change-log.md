@@ -7,6 +7,8 @@ title: Springfuse change log
 
 ### 3.0.100 (2013-05-01)
 
+[Sample generated app diff 3.0.99-3.0.100](https://github.com/jaxio/generated-projects/commit/9b82e77f4c4b7e6bca495c20bc925f2c7c9170fa) 
+
 ##### pack backend-jpa
 * better support for composite fk and fk in composite pk
 * remove repository interfaces
@@ -49,6 +51,8 @@ title: Springfuse change log
 
 ### 3.0.99 (2013-03-26)
 
+[Sample generated app diff 3.0.98-3.0.99](https://github.com/jaxio/generated-projects/commit/238324b1fb721f42b83ed1b83ed865391d9ba848) 
+
 ##### pack jsf2-spring-conversation
 * move code to generics
 * separate XxxGraphLoader in a dedicated file.
@@ -64,6 +68,8 @@ title: Springfuse change log
 * no changes
 
 ### 3.0.98 (2013-03-25)
+
+[Sample generated app diff 3.0.97-3.0.98](https://github.com/jaxio/generated-projects/commit/84f2996f621b10ca249e1009d547ede6d3dd0147) 
 
 ##### pack jsf2-spring-simple
 New front end option, without conversation, just plain JSF2/Spring/Primefaces.
