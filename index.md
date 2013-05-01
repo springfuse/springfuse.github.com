@@ -12,7 +12,7 @@ title: SpringFuse - Online Java Code Generator
 	<div><g:plusone></g:plusone></div>
 	<div><a href="https://twitter.com/springfuse" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @springfuse</a></div>
 	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	Current version: 3.0.97 | <a href="/change-log.html">Change Logs</a>	
+	Current version: 3.0.100 | <a href="/change-log.html">Change Logs</a>	
 </div>
 
 ## When to use Springfuse?
@@ -125,9 +125,9 @@ __Requirements__
 	<label class="control-label" for="frontEnd">Project type</label>
     <div class="controls">
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.4.2
+		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.5
 			<span class="help-block">
-				Ideal for large enterprise application requiring complex navigation, nice look&amp;feel and development productivity.
+				Ideal for enterprise data-oriented application requiring well organized code, powerful features, nice look&amp;feel and development productivity.
 			</span>
 	  </label>	  
       <label class="radio">
@@ -451,7 +451,7 @@ __Requirements__
 	}
 
 	function updateCommand() {
-		var version= "3.0.97";
+		var version= "3.0.100";
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();

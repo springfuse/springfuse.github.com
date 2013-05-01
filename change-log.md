@@ -5,9 +5,10 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
-### 3.0.100-SNAPSHOT
+### 3.0.100 (2013-05-01)
 
 ##### pack backend-jpa
+* better support for composite fk and fk in composite pk
 * remove repository interfaces
 * instrument domain object which contains blobs to support lazy loading
 * use logback instead of log4j
