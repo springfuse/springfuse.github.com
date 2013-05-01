@@ -349,7 +349,7 @@ __Requirements__
 
 <p><span class="label label-info">Copy paste</span> the command below in a console to create the minimal set of files required to reverse the database.</p>
 
-<textarea id="cmdLine" rows="6" cols="80" readonly="readonly" style="width:850px;height:80px;"></textarea>
+<textarea id="cmdLine" rows="6" cols="80" style="width:850px;height:80px;"></textarea>
 
 ### Step 3/4:  Configuration (Optional)
 
