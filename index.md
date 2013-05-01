@@ -183,7 +183,7 @@ __Requirements__
 </div>
 
 <p>
-	<b>Adjust the Jdbc Driver settings if needed:</b>
+	<b>Adjust the jdbc driver settings if needed:</b>
 </p>
 
 <div id="oracle-database" class="alert alert-warn" style="display: none">
@@ -234,7 +234,7 @@ __Requirements__
 </div>
 
 <p>
-	<b>Now enter your Database credential. Please do not use a production database!</b>
+	<b>Now enter your database credentials.</b> Please do not use a production database.
 </p>
 
 <!-- jdbcUrl -->
@@ -343,7 +343,7 @@ __Requirements__
 </form>
 <hr/>
 
-<span class="label label-info">Once you are done</span>, copy-paste sequentially these maven commands from step 2 and from step 4 in a console:
+Once you are <span class="label label-info">done</span>, copy-paste sequentially these maven commands from step 2 and from step 4 in a console:
 
 ### Step 2/4: Fetch the appropriate archetype
 
@@ -353,7 +353,7 @@ __Requirements__
 
 ### Step 3/4:  Configuration (Optional)
 
-<span class="label label-info">Once you become familiar</span> with Springfuse, you may want to <a href="documentation/configuration.html" target="_new">configure the code generation</a>.
+Once you <span class="label label-info">become familiar</span> with Springfuse, you may want to <a href="documentation/configuration.html" target="_new">configure the code generation</a>.
 
 ### Step 4/4: Reverse and Code Generation
 
