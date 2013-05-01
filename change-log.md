@@ -9,7 +9,9 @@ title: Springfuse change log
 
 ##### pack backend-jpa
 * remove repository interfaces
+* instrument domain object which contains blobs to support lazy loading
 * use logback instead of log4j
+* custom enum types are back
 * logs are produced in target/
 * replaced dbcp by tomcat-jdbc
 * simplify the graphLoader
@@ -17,6 +19,7 @@ title: Springfuse change log
 * jpa by example now supports annotation on fields
 * use @Configuration to replace some xml definitions
 * use mockitoRunner instead of creating manually the mocks
+* full text indexer is no more blocking
 * rename DaoTest to DaoIT, they will be executed at integration-test phase
 * upgrade hibernate from 4.1.9.Final to 4.2.0.Final 
 * upgrade usertype.core from 3.0.0.CR3 to 3.0.0.GA
@@ -34,6 +37,8 @@ title: Springfuse change log
 * in views use generic printer instead of the typed one
 * in view remove where possible the usage of $msg.KEY
 * jetty stars now with web-development.xml in development mode
+* componentarize fileUpload and outputFile
+* show labels when using enums
 * split service.UserContext in LocaleService and UserContextService
 * use navigator in calendars
 * use @Configuration to replace some xml definitions
