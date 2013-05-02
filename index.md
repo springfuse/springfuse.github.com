@@ -146,7 +146,7 @@ __Requirements__
       <label class="radio">
 		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
 			<span class="help-block">			
-				This option is going to be removed in the coming months. We encourage you to use one of the option above.
+				This option is going to be removed in the coming months. We encourage you to use one of the options above.
 			</span>		
 	  </label>
     </div>
