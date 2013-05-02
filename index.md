@@ -125,23 +125,30 @@ __Requirements__
 	<label class="control-label" for="frontEnd">Project type</label>
     <div class="controls">
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.5
+		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.5, with conversation
 			<span class="help-block">
-				Ideal for enterprise data-oriented application requiring well organized code, powerful features, nice look&amp;feel and development productivity.
+				Ideal for enterprise data-oriented application requiring well organized code, conversation support, powerful features, nice look&amp;feel and development productivity.
+				This is our favorite stack.
 			</span>
 	  </label>	  
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
-			<span class="help-block">			
-				Same as above except that it uses Spring Web Flow. Note that this option is going to be removed in the coming months. 
-			</span>		
-	  </label>
+		<input type="radio" name="frontEnd" id="jsf2Simple" value="jsf2Simple" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.5
+			<span class="help-block">
+				Same as above, without conversation... a bit simpler, but less powerful.
+			</span>
+	  </label>	  
       <label class="radio">
-      <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend only
+      <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend, with Query By Example feature
 		<span class="help-block">      
       		Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.
 		</span>
       </label>
+      <label class="radio">
+		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
+			<span class="help-block">			
+				This option is going to be removed in the coming months. We encourage you to use one of the option above.
+			</span>		
+	  </label>
     </div>
 </div>
 
