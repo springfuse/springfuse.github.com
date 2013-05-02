@@ -132,7 +132,7 @@ __Requirements__
 			</span>
 	  </label>	  
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Simple" value="jsf2Simple" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.5
+		<input type="radio" name="frontEnd" id="jsf2Simple" value="jsf2Simple" class="updateCommand" />JSF 2, Primefaces 3.5
 			<span class="help-block">
 				Same as above, without conversation... a bit simpler, but less powerful.
 			</span>
