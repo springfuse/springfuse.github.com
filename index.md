@@ -198,7 +198,7 @@ __Requirements__
 	<a href="/install-oracle-jdbc-driver-in-maven-repository.html" target="_new">install it manually</a>.
 	<br/>
 	If you rely on sequences to generate your PK ids, 
-	you must configure Celerio during 'Step 3/4' below. Please refer to <a href="documentation/configuration.html#seq_per_table" target="_new">'Use a SEQUENCE per TABLE'</a> 
+	you must configure Celerio during 'Step 3/4' below. Please refer to <a href="http://www.jaxio.com/documentation/celerio/configuration.html#seq_per_table" target="_new">'Use a SEQUENCE per TABLE'</a> 
 </div>
 <div id="db2-database" class="alert alert-warn" style="display: none">
 	If you do not have an DB2 driver already in your maven repository please <a href="/reverse-db2-database-schema.html" target="_new">install it manually</a>.
@@ -360,7 +360,7 @@ Once you are <span class="label label-info">done</span>, copy-paste sequentially
 
 ### Step 3/4:  Configuration (Optional)
 
-Once you <span class="label label-info">become familiar</span> with Springfuse, you may want to <a href="documentation/configuration.html" target="_new">configure the code generation</a>.
+Once you <span class="label label-info">become familiar</span> with Springfuse, you may want to <a href="http://www.jaxio.com/documentation/celerio/configuration.html" target="_new">configure the code generation</a>.
 
 ### Step 4/4: Reverse and Code Generation
 
