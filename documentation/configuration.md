@@ -11,7 +11,7 @@ The file is located under `src/main/config/maven-celerio-plugin/maven-celerio-pl
 This configuration file allows you to override conventions and control more precisely what is generated. 
 For example, you may want to rename some variables, make some associations bidirectional, change a type, etc.
 
-Here are the main configuration points (this is a work in progress):
+Here are the main configuration points:
 
 * [Inline documentation through XSD](#xsd)
 * [Entity ID](#entity_id)
@@ -37,26 +37,29 @@ Here are the main configuration points (this is a work in progress):
 	* [Audit entity](#conventions-audit-entity)
 	* [Audit table](#conventions-audit-table)
 	* [Saved search](#conventions-saved-search)
- 
+
 <a name="xsd"></a>
 # Inline documentation through XSD
-Before editing your configuration file, make sure that Eclipse displays the documentation present in the
-`celerio.xsd` file and that it suggests the available tags.
+Before editing your configuration file, make sure that Eclipse displays
+the documentation present in the `celerio.xsd` file and that it suggests
+the available tags. From Eclipse, you cannot work efficiently without
+the help of the XSD documentation.
 
-From Eclipse, you cannot work efficiently without the help of the XSD documentation.
-
-![Tag completion and documentation under Eclipse](images/celerio-eclipse-xsd-completion.png)
+![Tag completion and documentation under
+Eclipse](images/celerio-eclipse-xsd-completion.png)
 
 <a name="entity_id"></a>
 # Entity ID
 
-If you rely on conventions, you do not need to configure anything regarding Ids. These examples are for advanced usage. 
+If you rely on conventions, you do not need to configure anything
+regarding Ids. These examples are for advanced usage.
 
 <a name="seq_per_table"></a>
 ## Use a SEQUENCE per TABLE
  
- In case you use a sequence per table to generate your primary key values, you must configure Celerio in order to take
- it into account. Here is an example:
+In case you use a sequence per table to generate your primary key
+values, you must configure Celerio in order to take it into account.
+Here is an example:
  
 {% highlight xml %}
     <entityConfigs>
@@ -64,7 +67,9 @@ If you rely on conventions, you do not need to configure anything regarding Ids.
     </entityConfigs>
 {% endhighlight %}
 
-assuming the PK of the ADDRESS table is mapped to an Integer, here is how would look the generated code:
+
+assuming the PK of the ADDRESS table is mapped to an Integer, here is
+how would look the generated code:
 
 {% highlight java %}
     @Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
@@ -79,8 +84,10 @@ assuming the PK of the ADDRESS table is mapped to an Integer, here is how would 
 <a name="cust_id_generator"></a>
 ## Use a custom Id generator
 
-In certain cases, generally when you work with legacy databases, you may need to use a custom Id generator
-in order to be consistent with the legacy system. Here is an example:
+In certain cases, generally when you work with legacy databases, you may
+need to use a custom Id generator in order to be consistent with the
+legacy system. Here is an example:
+
 {% highlight xml %}
     <entityConfig tableName="ADDRESS">
         <columnConfigs>
@@ -101,8 +108,9 @@ leads to:
 {% highlight java %}
     @Column(name = "ADDRESS_ID", nullable = false, unique = true, precision = 5)
     @GeneratedValue(generator = "myCustomerGenerator")
-    @GenericGenerator(name = "myCustomerGenerator", strategy = "com.yourcompany.appli.customgen.CustomerGenerator", 
-        parameters = @Parameter(name = "sequence", value = "YOUR_EVNTUAL_SEQ"))
+    @GenericGenerator(name = "myCustomerGenerator", 
+     strategy = "com.yourcompany.appli.customgen.CustomerGenerator", 
+     parameters = @Parameter(name = "sequence", value = "YOUR_EVNTUAL_SEQ"))
     @Id
     public Integer getAddressId() {
         return addressId;
@@ -115,8 +123,9 @@ leads to:
 <a name="entity_name"></a>
 ## Force an entity name
 
-By default, an entity name is deduced from the Table name. To force the entity name to a different value, use the 
-`entityName` attribute of the `entityConfig` element, for example.
+By default, an entity name is deduced from the Table name. To force the
+entity name to a different value, use the `entityName` attribute of the
+`entityConfig` element, for example.
 
 {% highlight xml %}
     <entityConfigs>
@@ -127,8 +136,9 @@ By default, an entity name is deduced from the Table name. To force the entity n
 <a name="property_name"></a>
 ## Force a property name
 
-By default, a property name is deduced from the column name. To force the property name to a different value, use the
-`fieldName` attribute of the `columnConfig` element, for example.
+By default, a property name is deduced from the column name. To force
+the property name to a different value, use the `fieldName` attribute of
+the `columnConfig` element, for example.
 
 {% highlight xml %}
     <entityConfigs>
@@ -149,9 +159,10 @@ leads to:
 <a name="name_rule"></a>
 ## Advanced property name calculation
             
-By default Celerio calculates Java field name based on the underlying column name. 
-The `fieldNaming` element allows you to change the column names passed to Celerio 
-to calculate the default field names. The example below removes well known prefix pattern from column names:
+By default Celerio calculates Java field name based on the underlying
+column name. The `fieldNaming` element allows you to change the column
+names passed to Celerio to calculate the default field names. The
+example below removes well known prefix pattern from column names:
 
 {% highlight xml %}
     <configuration>
@@ -161,19 +172,22 @@ to calculate the default field names. The example below removes well known prefi
     </configuration>
 {% endhighlight %}
 
-In that case, column names such as `XYZ_SOMETHING_MEANINGFUL` now lead to Java field name `sometingMeaningful`
-instead of `xyzSometingMeaningful`.
+In that case, column names such as `XYZ_SOMETHING_MEANINGFUL` now lead
+to Java field name `sometingMeaningful` instead of
+`xyzSometingMeaningful`.
 
 <a name="type_mapping"></a>
 # Type Mapping
 
-Celerio has some conventions regarding type mapping. You can change them either locally or globally using rules.
+Celerio has some conventions regarding type mapping. You can change them
+either locally or globally using rules.
 
 <a name="force_mapping"></a>
 ## Force a type mapping locally
 
-You can force the mapped type using the `mappedType` attribute of the columnConfig element. For example to force
-a mapping to an Integer you would do:
+You can force the mapped type using the `mappedType` attribute of the
+columnConfig element. For example to force a mapping to an Integer you
+would do:
 
 {% highlight xml %}
     <entityConfigs>
@@ -188,8 +202,9 @@ a mapping to an Integer you would do:
 <a name="rule_number_mapping"></a>
 ## Number mapping customization
 
-You can configure number mapping rules globally. For example, to map all columns whose size and decimal digits are &gt; 1 to BigDecimal, 
-proceed as follow: 
+You can configure number mapping rules globally. For example, to map all
+columns whose size and decimal digits are \> 1 to BigDecimal, proceed as
+follow:
 
 {% highlight xml %}
     <configuration>
@@ -199,7 +214,8 @@ proceed as follow:
     </configuration>
 {% endhighlight %}
 
-First rule that matches is used. For example to map to either Boolean, Double or BigDecimal you can do:
+First rule that matches is used. For example to map to either Boolean,
+Double or BigDecimal you can do:
 
 {% highlight xml %}
     <configuration>
@@ -211,12 +227,15 @@ First rule that matches is used. For example to map to either Boolean, Double or
     </configuration>              
 {% endhighlight %}
 
-Note that the `columnSizeMin` is inclusive and `columnSizeMax` is exclusive.
+Note that the `columnSizeMin` is inclusive and `columnSizeMax` is
+exclusive.
          
 <a name="rule_date_mapping"></a>               
 ## Date mapping customization
 
-You can configure date mapping rules globally. For example, to map all date/time/timestamp column to Joda Time LocalDateTime, proceed as follow:
+You can configure date mapping rules globally. For example, to map all
+date/time/timestamp column to Joda Time LocalDateTime, proceed as
+follow:
 
 {% highlight xml %}
     <configuration>
@@ -226,7 +245,8 @@ You can configure date mapping rules globally. For example, to map all date/time
     </configuration>
 {% endhighlight %}
 
-And for example to map differently the columns whose name is VERSION you can add the following mapping rule:
+And for example to map differently the columns whose name is VERSION you
+can add the following mapping rule:
 
 {% highlight xml %}
     <configuration>
@@ -244,11 +264,16 @@ And for example to map differently the columns whose name is VERSION you can add
 <a name="m2o"></a>
 ## @ManyToOne
 
-By default, Celerio generates the code for a `@ManyToOne` association when it encounters a column 
-having a `foreign key` constraint and no `unique` constraint.
+By default, Celerio generates the code for a `@ManyToOne` association
+when it encounters a column having a `foreign key` constraint and no
+`unique` constraint.
 
-The variable name of the many to one association is deduced by default from the
-`fieldName` of the column. For example if the `fieldName` is `addressId`, the many to one variable name will be `address`. 
+The variable name of the many to one association is deduced by default
+from the `fieldName` of the column. For example if the `fieldName` is
+`addressId` , the many to one variable name will be `address` . In case
+where the `fieldName` already matches the name of the target entity,
+Celerio adds the "Ref" suffix to the variable name. Here are few
+simplified examples:
 
 {% highlight java %}
     // column name is 'addr_id' 
@@ -261,7 +286,8 @@ The variable name of the many to one association is deduced by default from the
     Address anythingElse;
 {% endhighlight %}
 
-In any case, use the `manyToOneConfig` element to force a different variable name. For example:
+In any case, use the `manyToOneConfig` element to force a different
+variable name. For example:
 
 {% highlight xml %}
     <columnConfig columnName="addr_id">
@@ -275,20 +301,22 @@ will lead to
     Address myAddress;
 {% endhighlight %}
 
-The `manyToOneConfig` element also allows you to tune the JPA fetch type and the JPA cascade types.
-Please refer to the XSD for more information.
+The `manyToOneConfig` element also allows you to tune the JPA fetch type
+and the JPA cascade types. Please refer to the XSD for more information.
 
-If you have some inheritance involved on the 'one' side of the many to one association, the table referenced by the foreign key is not
-enough to identify the target entity. In that case, set the `targetEntityName` attribute of the `columnConfig` element. For example:
+If you have some inheritance involved on the 'one' side of the many to
+one association, the table referenced by the foreign key is not enough
+to identify the target entity. In that case, set the `targetEntityName`
+attribute of the `columnConfig` element. For example:
 
 {% highlight xml %}
     <columnConfig columnName="address_id" targetEntityName="HomeAddress"/>
 {% endhighlight %}
 
-On legacy schema, the foreign key constraint may not be present and Celerio will not generate the many to one association
-you would expect.
-
-Hopefully you can configure Celerio to do as if a foreign key constraint was present by setting the `targetTableName` attribute of the
+On legacy schema, the foreign key constraint may not be present and
+Celerio will not generate the many to one association you would expect.
+Hopefully you can configure Celerio to do as if a foreign key constraint
+was present by setting the `targetTableName` attribute of the
 `columnConfig` element. For example:
                 
 {% highlight xml %}
@@ -298,42 +326,48 @@ Hopefully you can configure Celerio to do as if a foreign key constraint was pre
 <a name="o2m"></a>
 ## @OneToMany
 
-One to many association is configured on the 'many' side of the association, more precisely on the same
-`columnConfig` as the one used for the associated many to one association. 
-This may be a bit confusing at first but it has the advantage to group together, both associations on the side that really owns the association.
+One to many association is configured on the 'many' side of the
+association, more precisely on the same `columnConfig` as the one used
+for the associated many to one association. This may be a bit confusing
+at first but it has the advantage to group together, both associations
+on the side that really owns the association.
 
-Celerio generates the code for one to many association when a many to one association is present and when the
-`associationDirection` attribute of the `columnConfig` element is `BIDIRECTIONAL`. For example:
+Celerio generates the code for one to many association when a many to
+one association is present and when the `associationDirection` attribute
+of the `columnConfig` element is `BIDIRECTIONAL` . For example:
                 
 {% highlight xml %}
     <entityConfig tableName="Account">
-        <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL"/>
+    <columnConfig columnName="address_id" 
+                  associationDirection="BIDIRECTIONAL"/>
     </entityConfig>
 {% endhighlight %}
 
-will lead (assuming address_id refers to Address) to something like:
+will lead (assuming address\_id refers to Address) to something like:
 
 {% highlight java %}
     // in Account.java
     Address address;
 {% endhighlight %}
 
-
 {% highlight java %}
     // In Address.java
     List<Account> accounts;
 {% endhighlight %}
             
-In the example above `accounts`
-is simply the plural of the Account entity that Celerio guessed. We were of course lucky on this one.
+In the example above `accounts` is simply the plural of the Account
+entity that Celerio guessed. We were of course lucky on this one.
 
-Use the `oneToManyConfig` element of the `columnAttribute` to set the name of the one to many association
-to a different value. As you will see, you can also set the name of an element of the collection
-to control the name of the associated helper methods that Celerio generates (adder, remover, etc.). Here is an example:
+Use the `oneToManyConfig` element of the `columnAttribute` to set the
+name of the one to many association to a different value. As you will
+see, you can also set the name of an element of the collection to
+control the name of the associated helper methods that Celerio generates
+(adder, remover, etc.). Here is an example:
 
 {% highlight xml %}
     <entityConfig tableName="Account">
-        <columnConfig columnName="address_id" associationDirection="BIDIRECTIONAL">
+    <columnConfig columnName="address_id" 
+                  associationDirection="BIDIRECTIONAL">
             <oneToManyConfig var="people" elementVar="resident"/>
         </columnConfig>
     </entityConfig>
@@ -350,8 +384,8 @@ will lead to
     }
 {% endhighlight %}
 
-The `oneToManyConfig` element also allows you to tune the JPA fetch type and the JPA cascade types.
-Please refer to the XSD for more information.
+The `oneToManyConfig` element also allows you to tune the JPA fetch type
+and the JPA cascade types. Please refer to the XSD for more information.
 
 
 <a name="cfk"></a>
@@ -371,33 +405,45 @@ Do not forget to set the `associationDirection` attribute of the `columnConfig` 
 By default, Celerio generates the code for a `@OneToOne` association when it encounters a column having a
 `foreign key` constraint AND a `unique` constraint.
 
-One to one associations are very similar to many to one associations.
-To change the variable name, the JPA fetch type or the cascade types of the
-one to one association, use the `oneToOne` element of the `columnConfig` element.
+By default, Celerio generates the code for a `@OneToOne` association
+when it encounters a column having a `foreign key` constraint AND a
+`unique` constraint.
+
+One to one associations are very similar to many to one associations. To
+change the variable name, the JPA fetch type or the cascade types of the
+one to one association, use the `oneToOne` element of the `columnConfig`
+element.
             
 <a name="io2o"></a>
 ## Inverse @OneToOne
 
-Inverse one to one association is for one to one association what one to many association is for many to one association.
+Inverse one to one association is for one to one association what one to
+many association is for many to one association.
 
-Celerio generates the code for inverse one to one association when a one to one association is present and when the
-`associationDirection` attribute of the `columnConfig` element is `BIDIRECTIONAL`.
+Celerio generates the code for inverse one to one association when a one
+to one association is present and when the `associationDirection`
+attribute of the `columnConfig` element is `BIDIRECTIONAL` .
 
-Inverse one to one association is configured on the owning side of association, that is on the
-`columnConfig` that has the foreign key and unique constraints. As for one to many association, 
-this may be a bit confusing at first but it has the advantage to group together, both associations 
-on the side that really owns the association.
+Inverse one to one association is configured on the owning side of
+association, that is on the `columnConfig` that has the foreign key and
+unique constraints. As for one to many association, this may be a bit
+confusing at first but it has the advantage to group together, both
+associations on the side that really owns the association.
 
 <a name="m2m"></a>
 ## @ManyToMany
             
-Many to many association necessarily involves a join table. When Celerio detects a join table, it generates the code for the many to many
-relation. Celerio assumes that a table is a join table when it has 2 foreign keys and no other columns, except eventually a primary key column and
-a column used for optimistic locking.
+Many to many association necessarily involves a join table. When Celerio
+detects a join table, it generates the code for the many to many
+relation. Celerio assumes that a table is a join table when it has 2
+foreign keys and no other columns, except eventually a primary key
+column and a column used for optimistic locking.
 
-To fine tune the many to many association, you must declare an entityConfig for the join table.
-You may use the `manyToManyConfig` element. to set the related variables and adder/remover/etc. method names. 
-You can use the `inverse` attribute to force the inverse side of the association. For example:
+To fine tune the many to many association, you must declare an
+entityConfig for the join table. You may use the `manyToManyConfig`
+element. to set the related variables and adder/remover/etc. method
+names. You can use the `inverse` attribute to force the inverse side of
+the association. For example:
            
 {% highlight xml %}
     <entityConfig tableName="account_role" associationDirection="BIDIRECTIONAL">
@@ -412,8 +458,11 @@ You can use the `inverse` attribute to force the inverse side of the association
     </entityConfig>
 {% endhighlight %}
 
-In case Celerio does not detect the join table, for example if an extra column is present, you can force it by setting
-to `true` the `middleTable` attribute of the `entityConfig` element.
+> **Note**
+>
+> In case Celerio does not detect the join table, for example if an
+> extra column is present, you can force it by setting to `true` the
+> `middleTable` attribute of the `entityConfig` element.
 
 
 <a name="conventions"></a>
