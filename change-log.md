@@ -5,6 +5,21 @@ title: Springfuse change log
 
 ## SpringFuse/Celerio Change Logs
 
+
+### 3.0.101-SNAPSHOT 
+
+##### pack backend-jpa
+* support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
+* it is no longer required to set the associationDirection attribute to BIDIRECTIONAL when configuring inverse association.
+
+##### pack jsf2-spring-conversation
+* set immediate="true" to quit command button in search panel
+
+##### pack jsf2-spring-webflow
+* fix regression introduced in 3.0.100: language switch no longer works
+* fix regression introduced in 3.0.100: edition of entity with composite pk no longer work
+
+
 ### 3.0.100 (2013-05-01)
 
 [Sample generated app diff 3.0.99-3.0.100](https://github.com/jaxio/generated-projects/commit/9b82e77f4c4b7e6bca495c20bc925f2c7c9170fa) 
