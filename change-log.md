@@ -8,12 +8,32 @@ title: Springfuse change log
 
 ### 3.0.101-SNAPSHOT 
 
+In order to quickly remove existing database conventions from leaking into your java code, you now can rename globally tables and columns.
+It replaces the former `fieldNaming` attribute.
+
+{% highlight xml %}
+
+<tableRenamers>
+	<tableRenamer regexp="tbl_" replace="" />
+</tableRenamers>
+<columnRenamers>
+	<columnRenamer regexp="^.{3}_" replace="" />
+	<columnRenamer regexp="qrtz_" replace="Quartz_" />
+</columnRenamers>
+
+{% endhighlight %}  
+
+
 ##### pack backend-jpa
 * support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
 * it is no longer required to set the associationDirection attribute to BIDIRECTIONAL when configuring inverse association.
 
 ##### pack jsf2-spring-conversation
 * set immediate="true" to quit command button in search panel
+* add better orderBy defaults to autocompletes
+* add sensible default labels on conversations
+* simplify iconsXXX usage by relying on jsf scopes
+* simplify localization
 
 ##### pack jsf2-spring-webflow
 * fix regression introduced in 3.0.100: language switch no longer works
