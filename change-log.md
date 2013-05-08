@@ -8,6 +8,7 @@ title: Springfuse change log
 
 ### 3.0.101-SNAPSHOT 
 
+##### New configuration 
 In order to quickly remove existing database conventions from leaking into your java code, you now can rename globally tables and columns.
 It replaces the former `fieldNaming` attribute.
 
@@ -23,6 +24,9 @@ It replaces the former `fieldNaming` attribute.
 
 {% endhighlight %}  
 
+#####  Convention
+
+When your fields or table have names using camelCase we will use it as entity names and field names.
 
 ##### pack backend-jpa
 * support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
