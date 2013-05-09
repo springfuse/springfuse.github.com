@@ -14,13 +14,17 @@ It replaces the former `fieldNaming` attribute.
 
 {% highlight xml %}
 
-<tableRenamers>
-	<tableRenamer regexp="tbl_" replace="" />
-</tableRenamers>
-<columnRenamers>
-	<columnRenamer regexp="^.{3}_" replace="" />
-	<columnRenamer regexp="qrtz_" replace="Quartz_" />
-</columnRenamers>
+<configuration>
+  <conventions>
+    <tableRenamers>
+	  <tableRenamer regexp="tbl_" replace="" />
+    </tableRenamers>
+    <columnRenamers>
+	  <columnRenamer regexp="^.{3}_" replace="" />
+	  <columnRenamer regexp="qrtz_" replace="Quartz_" />
+    </columnRenamers>
+  </conventions>
+</configuration>
 
 {% endhighlight %}  
 
@@ -31,6 +35,8 @@ When your fields or table have names using camelCase we will use it as entity na
 ##### pack backend-jpa
 * support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
 * it is no longer required to set the associationDirection attribute to BIDIRECTIONAL when configuring inverse association.
+* fix default var name of @OneToMany and inverse @OneToOne association (thanks to Shahzad Munir for reporing it)
+* rename "isIdSet" method in composite primary key to "areAllFieldSet" to avoid duplicate method name when one of the composite pk column name is "id".
 
 ##### pack jsf2-spring-conversation
 * set immediate="true" to quit command button in search panel
