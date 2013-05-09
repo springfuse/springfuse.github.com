@@ -36,7 +36,7 @@ It replaces the former `fieldNaming` attribute.
 * support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
 * it is no longer required to set the associationDirection attribute to BIDIRECTIONAL when configuring inverse association.
 * fix default var name of @OneToMany and inverse @OneToOne association (thanks to Shahzad Munir for reporing it)
-* rename "isIdSet" method in composite primary key to "areAllFieldSet" to avoid duplicate method name when one of the composite pk column name is "id".
+* rename "isIdSet" method in composite primary key to "areFieldsSet" to avoid duplicate method name when one of the composite pk column name is "id".
 
 ##### pack jsf2-spring-conversation
 * set immediate="true" to quit command button in search panel
