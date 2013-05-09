@@ -30,7 +30,7 @@ It replaces the former `fieldNaming` attribute.
 
 #####  Convention
 
-When your fields or table have names using camelCase we will use it as entity names and field names.
+* When your table/column name uses camelCase syntax we will use the table/column name as entity/field name.
 
 ##### pack backend-jpa
 * support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
