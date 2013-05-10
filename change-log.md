@@ -10,7 +10,7 @@ title: Springfuse change log
 
 ##### New configuration 
 In order to quickly remove existing database conventions from leaking into your java code, you now can rename globally tables and columns.
-It replaces the former `fieldNaming` attribute.
+It replaces the former `fieldNaming` element.
 
 {% highlight xml %}
 
@@ -37,6 +37,7 @@ It replaces the former `fieldNaming` attribute.
 * it is no longer required to set the associationDirection attribute to BIDIRECTIONAL when configuring inverse association.
 * fix default var name of @OneToMany and inverse @OneToOne association (thanks to Shahzad Munir for reporing it)
 * rename "isIdSet" method in composite primary key to "areAllFieldSet" to avoid duplicate method name when one of the composite pk column name is "id".
+* add getType method to GenericDao and GenericRepository.
 
 ##### pack jsf2-spring-conversation
 * set immediate="true" to quit command button in search panel
@@ -44,6 +45,7 @@ It replaces the former `fieldNaming` attribute.
 * add sensible default labels on conversations
 * simplify iconsXXX usage by relying on jsf scopes
 * simplify localization
+* localize hardcoded string in GenericController
 
 ##### pack jsf2-spring-webflow
 * fix regression introduced in 3.0.100: language switch no longer works
