@@ -95,6 +95,18 @@ __Requirements__
 </div>
 
 <!-- artifactId -->
+<div class="control-group celerioVersion">
+    <label class="control-label" for="celerioVersion">Celerio Version</label>
+    <div class="controls">
+		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
+			<option value="3.0.100">3.0.100</option>
+			<option value="3.0.101-SNAPSHOT">3.0.101-SNAPSHOT</option>
+		</select>    
+		<span class="help-inline">The Celerio version that Springfuse should use.</span>
+	</div>
+</div>
+
+<!-- artifactId -->
 <div class="control-group artifactId">
     <label class="control-label" for="artifactId">Project Name</label>
     <div class="controls">
@@ -458,7 +470,7 @@ Once you <span class="label label-info">become familiar</span> with Springfuse, 
 	}
 
 	function updateCommand() {
-		var version= "3.0.100";
+		var version= $("#celerioVersion").val();
 		var groupId = $("#groupId").val();
 		var artifactId = $("#artifactId").val();
 		var email= $("#email").val();
