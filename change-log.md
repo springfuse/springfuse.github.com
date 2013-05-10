@@ -8,26 +8,11 @@ title: Springfuse change log
 
 ### 3.0.101-SNAPSHOT 
 
-##### New configuration 
-In order to quickly remove existing database conventions from leaking into your java code, you now can rename globally tables and columns.
-It replaces the former `fieldNaming` element.
-
-{% highlight xml %}
-
-<configuration>
-  <conventions>
-    <tableRenamers>
-	  <tableRenamer regexp="tbl_" replace="" />
-    </tableRenamers>
-    <columnRenamers>
-	  <columnRenamer regexp="^.{3}_" replace="" />
-	  <columnRenamer regexp="qrtz_" replace="Quartz_" />
-    </columnRenamers>
-  </conventions>
-</configuration>
-
-{% endhighlight %}  
-
+##### Configuration 
+* fieldNaming element replaced and extended by tableRenamer and columnRenamer.
+  Please refer to [documentation](http://www.jaxio.com/documentation/celerio/configuration.html#name_rule)
+* fix: the columnConfig's displayOrder attribute is not always taken into account.
+ 
 #####  Convention
 
 * When your table/column name uses camelCase syntax we will use the table/column name as entity/field name.
