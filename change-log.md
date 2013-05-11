@@ -23,14 +23,20 @@ title: Springfuse change log
 * fix default var name of @OneToMany and inverse @OneToOne association (thanks to Shahzad Munir for reporing it)
 * rename "isIdSet" method in composite primary key to "areFieldsSet" to avoid duplicate method name when one of the composite pk column name is "id".
 * add getType method to GenericDao and GenericRepository.
+* fix hashCode when using a fk as a business key
+* fix ordinalPosition override in xml (works only for simple properties)
 
 ##### pack jsf2-spring-conversation
+* extract jsf breadcrumb and menu handling from conversation manager
 * set immediate="true" to quit command button in search panel
+* in excel reports use labels for enum values
+* in excel reports use printers for many to one values
 * add better orderBy defaults to autocompletes
 * add sensible default labels on conversations
 * simplify iconsXXX usage by relying on jsf scopes
 * simplify localization
 * localize hardcoded string in GenericController
+* use the controller defaultOrder from the GenericLazyDataModel 
 
 ##### pack jsf2-spring-webflow
 * fix regression introduced in 3.0.100: language switch no longer works
