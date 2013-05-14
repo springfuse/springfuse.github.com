@@ -405,7 +405,7 @@ Once you <span class="label label-info">become familiar</span> with Springfuse, 
 			$("#jdbcGroupId").val("com.h2database");
 			$("#jdbcArtifactId").val("h2");
 			$("#jdbcDriver").val("org.h2.Driver");
-			$("#jdbcVersion").val("1.3.165");
+			$("#jdbcVersion").val("1.3.171");
 		} else if (dbType == "postgresql") {
 			if (urlDbType != "postgresql") {
 				$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
@@ -437,7 +437,7 @@ Once you <span class="label label-info">become familiar</span> with Springfuse, 
 			$("#jdbcGroupId").val("mysql");
 			$("#jdbcArtifactId").val("mysql-connector-java");
 			$("#jdbcDriver").val("com.mysql.jdbc.Driver");
-			$("#jdbcVersion").val("5.1.17");
+			$("#jdbcVersion").val("5.1.25");
 		}
 
 		if (dbType == "oracle") {
