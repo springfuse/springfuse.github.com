@@ -50,21 +50,21 @@ Therefore
 * Developers learn faster and better with concrete code.
 * You improve the overall quality of your project.
 
-### ![great](/images/green-check.gif) Make it possible !
+### Make it possible !
 
 Cost cuttings, lack of resources, lack of training, impossible dead lines, you name it.
 
 When the wall in front of you is too high, you just cannot climb it without help.
 Springfuse can be a precious ladder. Here are two use cases:
 
-### ![great](/images/green-check.gif) Prototyping
+### Prototyping
 
 Writing a prototype for free is a common practice in the industry.
 You have to work fast, for free, and deliver top notch quality to get the deal.
 
 __Springfuse increases drastically your chances to succeed.__
 
-### ![great](/images/green-check.gif) Application rewriting
+### Application rewriting
 
 Deciding to rewrite an application is a tough decision. 
 There are often many risks.
