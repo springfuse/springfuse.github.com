@@ -18,7 +18,7 @@ title: SpringFuse - Online Java Code Generator
 ## When to use Springfuse?
 
 <a name="repet"></a>
-### ![great](/images/green-check.gif) Eliminate repetitive tasks
+### Eliminate repetitive tasks
 
 When you identify a repetitive task, your duty is to automate it.
 Springfuse automates the tedious and repetitive task of writing the first piece of code of a new Java project.
@@ -36,7 +36,7 @@ Therefore
 * You can focus on developing real features.
 * You deliver on time.
 
-### ![great](/images/green-check.gif) Learn faster technologies
+### Learn faster technologies
 
 There are so many Java technologies around! It is moving so fast!
 Which ones to choose ? And then, what are the associated best practices ?
@@ -75,7 +75,10 @@ But it is too much work, you would need a second team, but there is no budget fo
 __Springfuse helps your existing team make the first move toward your application rewriting.__
 
 <a name="gen"></a>
-<br/><br/><br/>
+
+
+
+
 ## Steps to generate a Java EE application
 
 Before starting, if you are totally new to SpringFuse, you should take a few moment to <a href="/what-is-springfuse.html">understand how it works</a>.
