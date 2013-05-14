@@ -25,6 +25,7 @@ title: Springfuse change log
 * add getType method to GenericDao and GenericRepository.
 * fix hashCode when using a fk as a business key
 * fix ordinalPosition override in xml (works only for simple properties)
+* you can now configure if a field is lazy
 
 ##### pack jsf2-spring-conversation
 * extract jsf breadcrumb and menu handling from conversation manager
@@ -36,6 +37,10 @@ title: Springfuse change log
 * simplify iconsXXX usage by relying on jsf scopes
 * simplify localization
 * localize hardcoded string in GenericController
+* use autocomplete maxResults property in completeProperty and completeFuzzy
+* force UTF-8 encoding, needed when uploading a file
+* fix download link in select page
+* fix pagignation in xToMany in edit page
 * use the controller defaultOrder from the GenericLazyDataModel 
 
 ##### pack jsf2-spring-webflow
