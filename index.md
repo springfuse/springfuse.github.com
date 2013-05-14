@@ -73,12 +73,9 @@ But it is too much work, you would need a second team, but there is no budget fo
 
 
 __Springfuse helps your existing team make the first move toward your application rewriting.__
+<br/><br/><br/>
 
 <a name="gen"></a>
-
-
-
-
 ## Steps to generate a Java EE application
 
 Before starting, if you are totally new to SpringFuse, you should take a few moment to <a href="/what-is-springfuse.html">understand how it works</a>.
