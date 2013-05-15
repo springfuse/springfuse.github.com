@@ -18,7 +18,7 @@ title: SpringFuse - Online Java Code Generator
 ## When to use Springfuse?
 
 <a name="repet"></a>
-### ![great](/images/green-check.gif) Eliminate repetitive tasks
+### Eliminate repetitive tasks
 
 When you identify a repetitive task, your duty is to automate it.
 Springfuse automates the tedious and repetitive task of writing the first piece of code of a new Java project.
@@ -36,7 +36,7 @@ Therefore
 * You can focus on developing real features.
 * You deliver on time.
 
-### ![great](/images/green-check.gif) Learn faster technologies
+### Learn faster technologies
 
 There are so many Java technologies around! It is moving so fast!
 Which ones to choose ? And then, what are the associated best practices ?
@@ -50,21 +50,21 @@ Therefore
 * Developers learn faster and better with concrete code.
 * You improve the overall quality of your project.
 
-### ![great](/images/green-check.gif) Make it possible !
+### Make it possible !
 
 Cost cuttings, lack of resources, lack of training, impossible dead lines, you name it.
 
 When the wall in front of you is too high, you just cannot climb it without help.
 Springfuse can be a precious ladder. Here are two use cases:
 
-### ![great](/images/green-check.gif) Prototyping
+### Prototyping
 
 Writing a prototype for free is a common practice in the industry.
 You have to work fast, for free, and deliver top notch quality to get the deal.
 
 __Springfuse increases drastically your chances to succeed.__
 
-### ![great](/images/green-check.gif) Application rewriting
+### Application rewriting
 
 Deciding to rewrite an application is a tough decision. 
 There are often many risks.
@@ -73,9 +73,9 @@ But it is too much work, you would need a second team, but there is no budget fo
 
 
 __Springfuse helps your existing team make the first move toward your application rewriting.__
+<br/><br/><br/>
 
 <a name="gen"></a>
-<br/><br/><br/>
 ## Steps to generate a Java EE application
 
 Before starting, if you are totally new to SpringFuse, you should take a few moment to <a href="/what-is-springfuse.html">understand how it works</a>.
@@ -405,7 +405,7 @@ Once you <span class="label label-info">become familiar</span> with Springfuse, 
 			$("#jdbcGroupId").val("com.h2database");
 			$("#jdbcArtifactId").val("h2");
 			$("#jdbcDriver").val("org.h2.Driver");
-			$("#jdbcVersion").val("1.3.165");
+			$("#jdbcVersion").val("1.3.171");
 		} else if (dbType == "postgresql") {
 			if (urlDbType != "postgresql") {
 				$("#jdbcUrl").val("jdbc:postgresql://localhost/DBNAME");
@@ -437,7 +437,7 @@ Once you <span class="label label-info">become familiar</span> with Springfuse, 
 			$("#jdbcGroupId").val("mysql");
 			$("#jdbcArtifactId").val("mysql-connector-java");
 			$("#jdbcDriver").val("com.mysql.jdbc.Driver");
-			$("#jdbcVersion").val("5.1.17");
+			$("#jdbcVersion").val("5.1.25");
 		}
 
 		if (dbType == "oracle") {
