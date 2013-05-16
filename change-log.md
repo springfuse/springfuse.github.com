@@ -8,6 +8,10 @@ title: Springfuse change log
 
 ### 3.0.101-SNAPSHOT 
 
+##### Database reverse 
+* We now extract enums definitions from mysql
+* We support mysql year(4) type
+
 ##### Configuration 
 * fieldNaming element replaced and extended by tableRenamer and columnRenamer.
   Please refer to [documentation](http://www.jaxio.com/documentation/celerio/configuration.html#name_rule)
@@ -26,6 +30,7 @@ title: Springfuse change log
 * fix hashCode when using a fk as a business key
 * fix ordinalPosition override in xml (works only for simple properties)
 * you can now configure if a field is lazy
+* do not log sql queries when using perf profile
 
 ##### pack jsf2-spring-conversation
 * extract jsf breadcrumb and menu handling from conversation manager
