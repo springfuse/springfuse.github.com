@@ -24,7 +24,7 @@ title: Springfuse change log
 ##### pack backend-jpa
 * support many-to-one and one-to-many associations with an intermediate table (as many-to-many).
 * it is no longer required to set the associationDirection attribute to BIDIRECTIONAL when configuring inverse association.
-* fix default var name of @OneToMany and inverse @OneToOne association (thanks to Shahzad Munir for reporing it)
+* fix default var name of @OneToMany and inverse @OneToOne association (thanks to Shahzad Munir for reporting it)
 * rename "isIdSet" method in composite primary key to "areFieldsSet" to avoid duplicate method name when one of the composite pk column name is "id".
 * add getType method to GenericDao and GenericRepository.
 * fix hashCode when using a fk as a business key
@@ -34,6 +34,7 @@ title: Springfuse change log
 
 ##### pack jsf2-spring-conversation
 * extract jsf breadcrumb and menu handling from conversation manager
+* add print action (opens all tabs, remove layout, add css media print)
 * set immediate="true" to quit command button in search panel
 * in excel reports use labels for enum values
 * in excel reports use printers for many to one values
