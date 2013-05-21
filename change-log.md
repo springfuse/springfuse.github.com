@@ -34,6 +34,7 @@ title: Springfuse change log
 
 ##### pack jsf2-spring-conversation
 * extract jsf breadcrumb and menu handling from conversation manager
+* kickstart jmeter integration
 * add print action (opens all tabs, remove layout, add css media print)
 * set immediate="true" to quit command button in search panel
 * in excel reports use labels for enum values
