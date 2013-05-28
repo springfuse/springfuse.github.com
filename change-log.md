@@ -31,8 +31,18 @@ title: Springfuse change log
 * fix ordinalPosition override in xml (works only for simple properties)
 * you can now configure if a field is lazy
 * do not log sql queries when using perf profile
+* searchMode can be set at the property selector level
+* hibernate search is now async by default
+* ugprade h2 from 1.3.171 to 1.3.172
+* upgrade commons-codec from 1.7 to 1.8
+* upgrade spring-security from 3.1.3.RELEASE to 3.1.4 release
+* upgrade slf4j from 1.6.4 to 1.7.5
+* upgrade logback from 1.0.11 to 1.0.13
+* upgrade tomcat-jdbc from 7.0.39 to 7.0.40
+* @OrderBy is configurable for oneToMany association
 
 ##### pack jsf2-spring-conversation
+* use JSF for the login page
 * extract jsf breadcrumb and menu handling from conversation manager
 * kickstart jmeter integration
 * add print action (opens all tabs, remove layout, add css media print)
@@ -49,6 +59,12 @@ title: Springfuse change log
 * fix download link in select page
 * fix pagignation in xToMany in edit page
 * use the controller defaultOrder from the GenericLazyDataModel 
+* split selenium tests
+* do not show bold and '*' for required field in readonly mode
+* upgrade selenium from 2.32.0 to 2.33.0
+* upgrade mojarra from 2.1.21 to 2.1.22 (30% performance improvemnt on edit pages)
+* set 'numeric' css in datatables when numeric values are used
+* add tooltips for inputs
 
 ##### pack jsf2-spring-webflow
 * fix regression introduced in 3.0.100: language switch no longer works
