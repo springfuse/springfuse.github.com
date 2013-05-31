@@ -3,17 +3,68 @@ layout: english
 title: SpringFuse - Online Java Code Generator
 ---
 <!-- Main hero unit for a primary marketing message or call to action -->
-<div class="hero-unit">
-    <h1>SpringFuse</h1>
-    <h2>Java Code Generator for Data Driven Applications</h2>
-	<p>Reverse your database schema and generate a Java EE application</p>
-    <p><a href="https://github.com/jaxio/generated-projects" class="btn btn-primary btn-large">Review the code we generate &raquo;</a></p>
-    <p><a href="#gen" class="btn btn-primary btn-large">Generate an application now &raquo;</a></p>
-	<div><g:plusone></g:plusone></div>
-	<div><a href="https://twitter.com/springfuse" class="twitter-follow-button" data-show-count="true" data-lang="en">Follow @springfuse</a></div>
-	<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-	Current version: 3.0.101 | <a href="http://www.jaxio.com/documentation/celerio/change-log.html">Change Logs</a>	
+<div id="myCarousel" class="carousel slide hero-unit">
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <!-- Carousel items -->
+  <div class="carousel-inner">
+    <div class="active item">
+	    <h1>Springfuse <small>powered by celerio</small></h1>
+		<h4>Code generator service for Java data-oriented applications</h4>
+		<div class="carousel-caption">
+			<p>&gt; Reverse your database schema</p>
+			<p>&gt; Configure Springfuse and generate your project foundation</p>
+			<p>&gt; Save weeks of R&amp;D in few seconds</p>
+		</div>
+    </div>
+    <div class="item">
+	    <h1>Springfuse <small>powered by celerio</small></h1>
+		<h4>Stay ahead</h4>		
+		<div class="carousel-caption">
+			<p>&gt; Generated code follows recent industry standards</p>
+			<p>&gt; 100% of generated code is already tested</p>
+			<p>&gt; Generated code implements advanced features</p>
+		</div>	
+    </div>
+    <div class="item">
+	    <h1>Springfuse <small>powered by celerio</small></h1>
+		<h4>Stay in control</h4>
+	     <div class="carousel-caption">
+			<p>&gt; The generated code is open</p>
+			<p>&gt; Code quality fosters self-learning</p>
+			<p>&gt; Springfuse is not present at runtime</p>
+		</div>
+    </div>
+    <div class="item">
+	    <h1>Springfuse <small>powered by celerio</small></h1>
+		<h4>Boost your productivity</h4> 
+		<div class="carousel-caption">
+			<p>&gt; Focus your energy on business code right away</p>
+			<p>&gt; Homogeneous technical code across projects</p>
+			<p>&gt; Right to fail and retry</p>    
+		</div>
+    </div>
+  </div>
+  <!-- Carousel nav -->
+  <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+  <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
 </div>
+<script type="text/javascript">
+$('.carousel').carousel({
+  interval: 10000
+});
+</script>
+<div>
+	<p>
+		<a href="https://github.com/jaxio/generated-projects" class="btn btn-primary">Review the code we generate</a>
+		<a href="#gen" class="btn btn-primary">Generate an application now</a> | Current version: 3.0.101 | <a href="http://www.jaxio.com/documentation/celerio/change-log.html">Change Logs</a>
+	</p>
+</div>
+
 
 ## When to use Springfuse?
 
