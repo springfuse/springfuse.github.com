@@ -102,7 +102,7 @@ __Requirements__
 			<option value="3.0.100">3.0.100</option>
 			<option value="3.0.101-SNAPSHOT">3.0.101-SNAPSHOT</option>
 		</select>    
-		<span class="help-inline">The Celerio version that Springfuse should use.</span>
+		<span class="help-inline">The Celerio version that Springfuse should use</span>
 	</div>
 </div>
 
