@@ -122,11 +122,10 @@ There are often many risks.
 However, when your customer ask for patches and features that you cannot deliver in time because of some some old code that nobody understand anymore, you do not have many choices. 
 But it is too much work, you would need a second team, but there is no budget for that.
 
-
 __Springfuse helps your existing team make the first move toward your application rewriting.__
-<br/><br/><br/>
 
 <a name="gen"></a>
+<br/><br/>
 ## Steps to generate a Java EE application
 
 Before starting, if you are totally new to SpringFuse, you should take a few moment to <a href="/what-is-springfuse.html">understand how it works</a>.
