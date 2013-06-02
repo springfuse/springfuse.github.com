@@ -3,89 +3,111 @@ layout: english
 title: Spring Security Integration Tutorial 
 ---
 
-## Spring Security Integration Tutorial
+<a name="conventions-spring-security-integration"></a>
+Spring Security Integration
+---------------------------
 
-<strong><i>If you have not generated a project yet, please
-<a href="/">generate one now!</a>.</i> The generated project is a full functional Spring 3 web application.
-It is of a great help to learn Spring Security by the example.</strong>
-
-
-### 'Account' and 'Role' tables convention
-
-The UserDetailsServiceImpl service is the link between the SpringSecurity's world
+The generated `UserDetailsServiceImpl` service is the link between the SpringSecurity's world
 and your user's credential information. As you expect, this class must know how to
 access the user's login and password.
+
 The generated implementation of this service varies depending on whether you follow
-or not SpringFuse's conventions.
+or not Celerio's conventions.
 
-By convention, during the generation phase,
-SpringFuse looks for 2 specials tables in your database schema, an 'Account' table
-and a 'Role' table. The account table is expected to store user's login and password
-informations while the role table is expected to store user's roles.
+If your login credential are stored in your database, then you should make sure that the entity 
+playing the role of the `account` entity has the properties expected by Celerio (e.g. login &amp; password).
 
-The 'Account' and the 'Role' tables do not need to be named Account and Role.
+Once Celerio has found your account entity, it looks up the account entity's many to many associations.
+If it finds a many to many association whose target entity is also playing the role
+of a `Role` entity (e.g. it has an 'authority' property), then it uses it.
 
-### Account Table
+> **Note**
+>
+> The 'Account' and the 'Role' entities do not need to be named Account and Role.
 
-SpringFuse assumes that a table is an 'Account' table when it contains at least the following mandatory columns:
+<a name="conventions-account-entity"></a>
+### The Account entity
 
-<div>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>Column name</th>
-				<th>Is mandatory?</th>
-				<th>mapped Java type</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>"login" OR "username" OR "identifiant" OR "email" OR "emailAddress" OR "mail"</td>
-				<td>Yes</td>
-				<td>String</td>
-			</tr>
-			<tr>
-				<td>"password" OR "pwd" OR "passwd" OR "mot_de_passe" OR "motdepasse"</td>
-				<td>Yes</td>
-				<td>String</td>
-			</tr>
-			<tr>
-				<td>"enabled" OR "is_enabled" OR "isenabled" </td>
-				<td>No</td>
-				<td>Boolean</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+By convention, Celerio considers that an entity is the `Account` entity if it has the following properties:
 
-When the "enabled" column (or one of its variants) is present, it is passed to SpringSecurity along with the username and password.
-If it is not present, 'true' is passed instead to SpringSecurity.
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Expected property</th>
+      <th>Type</th>
+      <th>Required?</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td>username, login, userName, identifiant, email, emailAddress, mail</td>
+    <td>String</td>
+    <td>Yes</td>
+    <td>Login used by the end user to authenticate to this web application</td>
+  </tr>
+  <tr>
+    <td>password, pwd, passwd, motDePasse</td>
+    <td>String</td>
+    <td>Yes</td>    
+    <td>Password (in clear) used by the end user to authenticate to this web application</td>
+  </tr>
+  <tr>
+    <td>enabled, isEnabled</td>
+    <td>Boolean</td>
+    <td>No</td>    
+    <td>Only enabled users (enabled == true) can login.</td>
+  </tr>
+  </tbody>
+</table>
+
+Bear in mind that you can match this convention using Celerio configuration.
+Let's assume that your users' credentials are stored in a table named
+User that has 2 columns user_login and user_password.
+
+Such a table would not be considered by default as the account table.
+
+To have Celerio consider this table as the account table, you must map the 
+user_login and user_password to one of the expected properties, for example:
+
+{% highlight sql %}
+<entityConfig tableName="USER">
+	<columnConfigs>
+		<columnConfig columnName="user_login" fieldName="username" />
+		<columnConfig columnName="user_password" fieldName="password" />
+	</columnConfigs>
+</entityConfig>	
+{% endhighlight %}
+
+> **Note**
+>
+> If no `Account` entity is found, the `UserDetailsServiceImpl` simply returns hard coded users and roles.
 
 
-### Role Table
+<a name="conventions-role-entity"></a>
+The 'Role' entity
+----------------
 
-SpringFuse assumes that a table is a 'Role' table when the table
-has a <strong>many-to-many</strong> relationship with the found 'Account' table and 
-when the table contains the following mandatory column:
+By convention, Celerio considers that an entity is the `Role` entity if it has the following property:
 
-<div>
-	<table class="list">
-		<thead>
-			<tr>
-				<th>Column name</th>
-				<th>Is mandatory?</th>
-				<th>mapped Java type</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>"authority" OR "name_locale" OR "role_name" OR "role"</td>
-				<td>Yes</td>
-				<td>String</td>
-			</tr>
-		</tbody>
-	</table>
-</div>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Expected property</th>
+      <th>Type</th>
+      <th>Required</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>  
+  <tr>
+    <td>authority, roleName, role, nameLocale</td>
+    <td>String</td>
+    <td>Yes</td>
+    <td>The role name for example: ROLE_USER, ROLE_ADMIN</td>
+   </tr>
+  </tbody>   
+</table>
 
 By default, the configuration file generated by Springfuse expects the content 
 of the 'authority' column (or one of its variants) to match one of these role names:
@@ -94,43 +116,39 @@ of the 'authority' column (or one of its variants) to match one of these role na
 * ROLE_ADMIN
 
 This is just a convention coming from Security's official documentation, if it does not suit your needs,
-you can change it manually in the files that uses these role names:
-
-* src/main/resources/spring/spring-security-http.xml configuration file.
-* <rootpackag>/dao/hibernate/HibernateFilterContext.java
-* <rootpackag>/web/context/AccountContextSupport.java
-* <rootpackag>/service/password/PasswordService.java
-* few JSP pages under src/main/webapp/WEB-INF: search for occurences of the &lt;security:authorize&gt; tag...
+you can change it manually in the files that uses these role names.
 
 
-## When Account or Role table convention is not used
-### No Account table case
+Here is a sample SQL script (H2 Database) that complies to Celerio conventions
 
-If no Account table is found, SpringFuse does as if it had found one named "SF_MOCK_ACCOUNT"
-and generates a mock Account DAO implementation that returns 2 dummy users (user/user and admin/admin)
-instead of generating an Hibernate DAO implementation. It is up to you to replace this DAO
-implementation with your own implementation.
+{% highlight sql %}
 
+CREATE TABLE ACCOUNT (
+    account_id char(32) not null, 
+    login varchar(255) not null,
+    password varchar(255) not null,
+    email varchar(255) not null,
 
-### No Role tables case
+    constraint account_unique_1 unique (login),
+    constraint account_unique_2 unique (email),
+    primary key (account_id)
+);
 
-When no role table is found, the user's roles are retrieved using the generated 'AccountModel'.getRoleNames() method,
-but instead of relying on the many-to-many relationship with a role table, it returns hard coded role names.
-Please refer to the (SfMock)AccountModel.java generated file for more details.
+CREATE TABLE ROLE (
+    role_id smallint generated by default as identity,
+    name_locale varchar(255) not null,
 
-## Miscellaneous integration
-### Remember Me
+    constraint role_unique_1 unique (name_locale),
+    primary key (role_id) 
+);
 
-The login form has a special 'remember me' checkbox. It is activated in spring-security-http.xml
+CREATE TABLE ACCOUNT_ROLE (
+    account_id char(32) not null,
+    role_id smallint not null,
 
-### Logout URL
+    constraint account_role_fk_1 foreign key (account_id) references ACCOUNT,
+    constraint account_role_fk_2 foreign key (role_id) references ROLE,
+    primary key (account_id, role_id) 
+);
 
-The /logout url is intercepted by SpringSecurity filter which logs out the user. It is configured in
-spring-security-http.xml. Note that this logout.action url is not a SpringMvc action.
-
-### Using annotations
-
-All is configured in the generated project so you can use in your code the @RolesAllowed annotation.
-We do not use it in the generated code except as an example in the &lt;rootpackage&gt;/service/PasswordService.java to
-indicates the changePassword method can only be invoked by a user having a ROLE_USER role. In other terms,
-you have to be logged in to be able to change your password using this method.
+{% endhighlight %}
