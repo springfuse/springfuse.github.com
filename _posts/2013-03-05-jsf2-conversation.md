@@ -24,7 +24,7 @@ A conversation is a kind of inner web session. It has a start and an end.
 In between it enforces a strict navigation between pages (like spring webflow or up coming Faces Flow do)
 
 For our case, data-driven applications, a conversation is created each time the user wants to edit a JPA Entity.
-It starts with a search page, continue with an edit page and when the user is done editing, he goes back the the search page. 
+It starts with a search page, continue with an edit page and when the user is done editing, he goes back to the search page. 
 From there, he can click from the menu a quit button which terminates the conversation.
 
 From the main edit page the user can of course edit the entity's properties but he can also **manage the entity's associations** (if any). 
@@ -42,10 +42,12 @@ If we choose the first approach we have to handle the case when the user changes
 The second approach is more natural, we add it only if the user clicks a 'Submit' button in the target entity's edit page.
 
 But wait a second. Other entities could also have a many-to-many association to the same target entity.
-The target edit page should be therefore reusable, that is it should not 'know' from which page the user is coming from.
-For this reason we introduce callback.
+The target entity edit page should therefore be reusable, that is it should not 'know' from which page the user is coming from.
+For this reason we introduce callback. Thus, when the user clicks the 'Submit' button on the target entity page, we invoke a method
+on the callback. This approach is extremely powerful. 
 
 ### Here is a concrete example
+
 
 An `Account` entity has a many-to-many association with a `Role` entity.
 From the `Account` edit page, when the user clicks on the <img src="/images/blog/2013-03-05/add.png"/>

@@ -89,10 +89,10 @@ __Requirements__
     <label class="control-label" for="celerioVersion">Celerio Version</label>
     <div class="controls">
 		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
-			<option value="3.0.101">3.0.101</option>
 			<option value="3.0.102-SNAPSHOT">3.0.102-SNAPSHOT</option>
+			<option value="3.0.101">3.0.101</option>
 		</select>    
-		<span class="help-inline">The Celerio version that Springfuse should use</span>
+		<span class="help-inline">The Celerio version that Springfuse should use.</span>
 	</div>
 </div>
 
