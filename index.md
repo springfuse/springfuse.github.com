@@ -61,7 +61,7 @@ $('.carousel').carousel({
 <div>
 	<p>
 		<a href="https://github.com/jaxio/generated-projects" class="btn btn-primary">Review the code we generate</a>
-		<a href="#gen" class="btn btn-primary">Generate an application now</a> | Current version: 3.0.101 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
+		<a href="#gen" class="btn btn-primary">Generate an application now</a> Current version: 3.0.101 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
 	</p>
 </div>
 <a name="gen"></a>
