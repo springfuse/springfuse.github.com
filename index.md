@@ -61,7 +61,7 @@ $('.carousel').carousel({
 <div>
 	<p>
 		<a href="https://github.com/jaxio/generated-projects" class="btn btn-primary">Review the code we generate</a>
-		<a href="#gen" class="btn btn-primary">Generate an application now</a> Current version: 3.0.101 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
+		<a href="#gen" class="btn btn-primary">Generate an application now</a> Current version: 3.0.102 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
 	</p>
 </div>
 <a name="gen"></a>
@@ -89,8 +89,8 @@ __Requirements__
     <label class="control-label" for="celerioVersion">Celerio Version</label>
     <div class="controls">
 		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
-			<option value="3.0.102-SNAPSHOT">3.0.102-SNAPSHOT</option>
-			<option value="3.0.101">3.0.101</option>
+			<option value="3.0.103-SNAPSHOT">3.0.103-SNAPSHOT</option>
+			<option value="3.0.102">3.0.102</option>
 		</select>    
 		<span class="help-inline">The Celerio version that Springfuse should use.</span>
 	</div>
