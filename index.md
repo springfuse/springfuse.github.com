@@ -89,8 +89,7 @@ __Requirements__
     <label class="control-label" for="celerioVersion">Celerio Version</label>
     <div class="controls">
 		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
-			<option value="3.0.102" selected="selected">3.0.102</option>
-			<option value="3.0.103-SNAPSHOT">3.0.103-SNAPSHOT</option>
+			<option value="3.0.103" selected="selected">3.0.103</option>
 		</select>    
 		<span class="help-inline">The Celerio version that Springfuse should use.</span>
 	</div>
@@ -134,23 +133,11 @@ __Requirements__
 			</span>
 	  </label>	  
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Simple" value="jsf2Simple" class="updateCommand" />JSF 2, Primefaces 3.5
-			<span class="help-block">
-				Same as above, without conversation... a bit simpler, but less powerful.
-			</span>
-	  </label>	  
-      <label class="radio">
       <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend, with Query By Example feature
 		<span class="help-block">      
       		Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.
 		</span>
       </label>
-      <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Primefaces" value="jsf2Primefaces" class="updateCommand" />JSF 2, Primefaces 3.4 (Spring Web Flow 2.3.1)
-			<span class="help-block">			
-				This option is going to be removed in the coming months. We encourage you to use one of the options above.
-			</span>		
-	  </label>
     </div>
 </div>
 
