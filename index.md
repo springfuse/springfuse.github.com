@@ -13,7 +13,7 @@ title: SpringFuse - Online Java Code Generator
   <!-- Carousel items -->
   <div class="carousel-inner">
     <div class="active item">
-	    <h1>Springfuse <small>powered by celerio</small></h1>
+	    <h1>Springfuse <small>powered by Celerio</small></h1>
 		<h4>Code generator service for Java data-oriented applications</h4>
 		<div class="carousel-caption">
 			<p>&gt; Reverse your database schema</p>
@@ -22,7 +22,7 @@ title: SpringFuse - Online Java Code Generator
 		</div>
     </div>
     <div class="item">
-	    <h1>Springfuse <small>powered by celerio</small></h1>
+	    <h1>Springfuse <small>powered by Celerio</small></h1>
 		<h4>Stay ahead</h4>		
 		<div class="carousel-caption">
 			<p>&gt; Generated code follows recent industry standards</p>
@@ -31,7 +31,7 @@ title: SpringFuse - Online Java Code Generator
 		</div>	
     </div>
     <div class="item">
-	    <h1>Springfuse <small>powered by celerio</small></h1>
+	    <h1>Springfuse <small>powered by Celerio</small></h1>
 		<h4>Stay in control</h4>
 	     <div class="carousel-caption">
 			<p>&gt; The generated code is open</p>
@@ -40,7 +40,7 @@ title: SpringFuse - Online Java Code Generator
 		</div>
     </div>
     <div class="item">
-	    <h1>Springfuse <small>powered by celerio</small></h1>
+	    <h1>Springfuse <small>powered by Celerio</small></h1>
 		<h4>Boost your productivity</h4> 
 		<div class="carousel-caption">
 			<p>&gt; Focus your energy on business code right away</p>
@@ -60,8 +60,11 @@ $('.carousel').carousel({
 </script>
 <div>
 	<p>
-		<a href="https://github.com/jaxio/generated-projects" class="btn btn-primary">Review the code we generate</a>
-		<a href="#gen" class="btn btn-primary">Generate an application now</a> Current version: 3.0.102 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
+		<a href="https://github.com/jaxio/generated-projects" class="btn btn-primary">Generated code example on github</a>
+		<a href="#gen" class="btn btn-primary">Generate an application now</a>
+	</p>
+	<p>
+		Current version: 3.0.104 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
 	</p>
 </div>
 <a name="gen"></a>
