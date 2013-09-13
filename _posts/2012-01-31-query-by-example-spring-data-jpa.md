@@ -4,6 +4,9 @@ title: Query by example with Spring Data JPA
 comments: true
 ---
 
+> ** Update (2013-09-13) **: we no longer support Spring Data, instead we provide Query By Example using only JPA 2, without Spring Data.
+> Please refer to [JPA2 Query By Example blog post](/2012/09/05/jpa-query-by-example.html) for more information.
+
 # Query by Example with Spring Data JPA
 
 We are pleased to announce that SpringFuse now leverages <a href="http://www.springsource.org/spring-data/jpa">Spring Data JPA</a> in the code it generates.
