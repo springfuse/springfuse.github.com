@@ -12,9 +12,9 @@ The API code is available on GitHub. It is also included in projects generated b
 __Resources__
 
 * [JPA 2 Query By Example API on github](https://github.com/jaxio/jpa-query-by-example)
-* <a href="https://www.facebook.com/video/video.php?v=524162864265905&notif_t=video_processed">Watch a demo of the generated application</a>
-* <a href="https://github.com/jaxio/generated-projects">Browse full generated project code on GitHub</a>
 * <a href="/#gen">Generate a data-oriented application</a> out of your database schema and leverage right away the full power of Query By Example.
+* <a href="https://github.com/jaxio/generated-projects">Browse full generated project code on GitHub</a>
+* <a href="https://www.facebook.com/video/video.php?v=524162864265905&notif_t=video_processed">Watch a demo of the generated application</a>
  
 ### What is Query By Example?
 
