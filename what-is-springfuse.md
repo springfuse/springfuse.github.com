@@ -10,13 +10,17 @@ title: What is Springfuse?
 <a name="what"></a>
 ## What is SpringFuse?
 
-SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>, a code generation tool for Java developed by <a href="http://www.jaxio.com/en/">JAXIO</a>.
+Springfuse is a free online service dedicated to generating solid data-oriented application written in Java.
 
-Springfuse relies on Celerio to generate __in a few seconds__ web applications that leverage various open source technologies, such as Spring Framework and Hibernate.
+SpringFuse is the online version of <a href="http://www.jaxio.com/en/celerio.html">Celerio</a>,
+a professional code generator for Java developed by <a href="http://www.jaxio.com/en/">JAXIO</a>.
+
+Springfuse relies on Celerio to generate __in a few seconds__ web applications that leverage various open source technologies/standards,
+such as Hibernate/JPA, Spring Framework, JSF2, etc.
 
 <a name="how"></a>
 <br/><br/>
-## How Springfuse works
+## How does Springfuse work ?
 
 Springfuse uses the structure of __your database as an entry point__.
 

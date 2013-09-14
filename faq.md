@@ -38,7 +38,8 @@ Please follow these <a href="http://maven.apache.org/guides/mini/guide-proxies.h
 Note that you also need to provide this information to the springfuse maven plugin.
 
 ### How can I use previous versions of springfuse ?
-You can't, we expose only latest version of SpringFuse.
+Springfuse uses only the latest version of Celerio.
+If you rely on a specific Celerio's version, you may be interested in [purchasing Celerio](http://www.jaxio.com/en/pricing.html).
 
 ### I am still using jdk 1.5, will it work for me ?
 Yes, update the pom.xml accordingly
