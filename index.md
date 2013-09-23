@@ -148,8 +148,8 @@ __Requirements__
 		</span>
       </label>
 
+	<!--
       <h4>JavaEE 6 (targeting JBoss EAS 7.1)</h4>
-      
       <label class="radio">
 		<input type="radio" name="frontEnd" id="javaee6Jboss" value="javaee6Jboss" class="updateCommand"/>Web application.
 			<span class="help-block">
@@ -157,6 +157,7 @@ __Requirements__
 				Attention: dev in progress, not fully tested
 			</span>
 	  </label>	  
+
       <h4>JavaEE 7 (targeting GlassFish 4.0)</h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="javaee7Glassfish" value="javaee7Glassfish" class="updateCommand"/>Web application.
@@ -165,7 +166,8 @@ __Requirements__
 				Attention: dev in progress, not fully tested<br/>
 				IMPORTANT: not compatible yet with hibernate search!				
 			</span>
-	  </label>	        
+	  </label>
+	  -->
     </div>
 </div>
 
