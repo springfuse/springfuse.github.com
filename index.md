@@ -64,7 +64,7 @@ $('.carousel').carousel({
 		<a href="#gen" class="btn btn-primary">Generate an application now</a>
 	</p>
 	<p>
-		Current version: 3.0.104 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
+		Current version: 3.0.105 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
 	</p>
 </div>
 <a name="gen"></a>
@@ -92,8 +92,8 @@ __Requirements__
     <label class="control-label" for="celerioVersion">Celerio Version</label>
     <div class="controls">
 		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
-			<option value="3.0.104" selected="selected">3.0.104</option>
-			<option value="3.0.105-SNAPSHOT">3.0.105-SNAPSHOT</option>
+			<option value="3.0.105" selected="selected">3.0.105</option>
+<!--			<option value="3.0.106-SNAPSHOT">3.0.106-SNAPSHOT</option> -->
 		</select>
 		<span class="help-inline">The Celerio version that Springfuse should use.</span>
 	</div>
@@ -128,20 +128,44 @@ __Requirements__
 <hr/>
 <div class="control-group">
 	<label class="control-label" for="frontEnd">Project type</label>
+
+	
     <div class="controls">
+      The generated code is ideal for enterprise data-oriented application requiring well organized code, conversation support, powerful features, nice look&amp;feel and development productivity.
+    
+      <h4>JavaEE 6 + Spring Framework (targeting Jetty, Tomcat, JBoss, etc.) </h4>
       <label class="radio">
-		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>JSF 2, Primefaces 3.5, with conversation
+		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>Web application. 
 			<span class="help-block">
-				Ideal for enterprise data-oriented application requiring well organized code, conversation support, powerful features, nice look&amp;feel and development productivity.
-				This is our favorite stack.
+				JSF 2.1, Primefaces 3.5, JPA 2.0, Hibernate 4.2, Spring 3.2, BeanValidation, SpringSecurity, etc.<br/>
+				This is our favorite stack.		
 			</span>
-	  </label>	  
+	  </label>
       <label class="radio">
-      <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>JPA 2 backend, with Query By Example feature
+      <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>Backend only.
 		<span class="help-block">      
-      		Just the backend... Ideal if you want to develop your own front end stack or if you simply don't need one.
+				JPA 2.0, Hibernate 4.2, Spring 3.2, BeanValidation, SpringSecurity, etc.
 		</span>
       </label>
+
+      <h4>JavaEE 6 (targeting JBoss EAS 7.1)</h4>
+      
+      <label class="radio">
+		<input type="radio" name="frontEnd" id="javaee6Jboss" value="javaee6Jboss" class="updateCommand"/>Web application.
+			<span class="help-block">
+				JSF 2.1, Primefaces 3.5, JPA 2.0, Hibernate 4.2, BeanValidation, Apache Shiro, Arquillian, etc.<br/>
+				Attention: dev in progress, not fully tested
+			</span>
+	  </label>	  
+      <h4>JavaEE 7 (targeting GlassFish 4.0)</h4>
+      <label class="radio">
+		<input type="radio" name="frontEnd" id="javaee7Glassfish" value="javaee7Glassfish" class="updateCommand"/>Web application.
+			<span class="help-block">
+				JSF 2.2, Primefaces 3.5, JPA 2.1, Hibernate 4.3, BeanValidation, Apache Shiro, Glassfish Embedded from maven, etc.<br/>
+				Attention: dev in progress, not fully tested<br/>
+				IMPORTANT: not compatible yet with hibernate search!				
+			</span>
+	  </label>	        
     </div>
 </div>
 
@@ -154,10 +178,13 @@ __Requirements__
 	<label class="control-label" for="archetypeArtifactId3">Database to reverse</label>
     <div class="controls">
       <label class="radio">
-			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked"/>Reverse a sample H2 database that we provide
+			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked"/>Sample H2 database and configuration file that we provide.
 	  </label>
       <label class="radio">
-			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand"/>Reverse your own database			
+			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-wo-hibernate-search" class="updateCommand"/>Sample H2 database and configuration file that we provide (without hibernate search).
+	  </label>	  
+      <label class="radio">
+			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand"/>Your own database and use your own configuration file.
       </label>
     </div>
 </div>
