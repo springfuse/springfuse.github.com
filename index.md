@@ -64,7 +64,7 @@ $('.carousel').carousel({
 		<a href="#gen" class="btn btn-primary">Generate an application now</a>
 	</p>
 	<p>
-		Current version: 3.0.105 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
+		Current version: 3.0.105 - 3.0.106-SNAPSHOT | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
 	</p>
 </div>
 <a name="gen"></a>
@@ -93,7 +93,7 @@ __Requirements__
     <div class="controls">
 		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
 			<option value="3.0.105" selected="selected">3.0.105</option>
-<!--			<option value="3.0.106-SNAPSHOT">3.0.106-SNAPSHOT</option> -->
+			<option value="3.0.106-SNAPSHOT">3.0.106-SNAPSHOT</option>
 		</select>
 		<span class="help-inline">The Celerio version that Springfuse should use.</span>
 	</div>
@@ -141,6 +141,8 @@ __Requirements__
 				This is our favorite stack.		
 			</span>
 	  </label>
+      
+      <h4>JavaEE 6 + Spring Framework (backend only) </h4>      
       <label class="radio">
       <input type="radio" name="frontEnd" id="backendJpa" value="backendJpa" class="updateCommand"/>Backend only.
 		<span class="help-block">      
@@ -148,26 +150,22 @@ __Requirements__
 		</span>
       </label>
 
-	<!--
-      <h4>JavaEE 6 (targeting JBoss EAS 7.1)</h4>
+      <h4>JavaEE 6 (targeting JBoss EAS 7.1) - requires v3.0.106-SNAPSHOT</h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="javaee6Jboss" value="javaee6Jboss" class="updateCommand"/>Web application.
 			<span class="help-block">
-				JSF 2.1, Primefaces 3.5, JPA 2.0, Hibernate 4.2, BeanValidation, Apache Shiro, Arquillian, etc.<br/>
-				Attention: dev in progress, not fully tested
+				JSF 2.1, Primefaces 3.5, JPA 2.0, Hibernate 4.2, BeanValidation, Apache Shiro, Apache DeltaSpike, Arquillian, etc.
 			</span>
 	  </label>	  
 
-      <h4>JavaEE 7 (targeting GlassFish 4.0)</h4>
+      <h4>JavaEE 7 (targeting GlassFish 4.0) - requires v3.0.106-SNAPSHOT</h4></h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="javaee7Glassfish" value="javaee7Glassfish" class="updateCommand"/>Web application.
 			<span class="help-block">
-				JSF 2.2, Primefaces 3.5, JPA 2.1, Hibernate 4.3, BeanValidation, Apache Shiro, Glassfish Embedded from maven, etc.<br/>
-				Attention: dev in progress, not fully tested<br/>
+				JSF 2.2, Primefaces 3.5, JPA 2.1, Hibernate 4.3, BeanValidation, Apache Shiro, Apache DeltaSpike, Glassfish Embedded from maven, etc.<br/>
 				IMPORTANT: not compatible yet with hibernate search!				
 			</span>
 	  </label>
-	  -->
     </div>
 </div>
 
@@ -180,10 +178,10 @@ __Requirements__
 	<label class="control-label" for="archetypeArtifactId3">Database to reverse</label>
     <div class="controls">
       <label class="radio">
-			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked"/>Sample H2 database and configuration file that we provide.
+			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-with-configuration" class="updateCommand" checked="checked"/>Sample H2 database and configuration file that we provide (Attention: not yet compatible with JavaEE7)
 	  </label>
       <label class="radio">
-			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-wo-hibernate-search" class="updateCommand"/>Sample H2 database and configuration file that we provide (without hibernate search).
+			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId3" value="quickstart-embedded-db-wo-hibernate-search" class="updateCommand"/>Sample H2 database and configuration file that we provide (without hibernate search, compatible with JavaEE7).
 	  </label>	  
       <label class="radio">
 			<input type="radio" name="archetypeArtifactId" id="archetypeArtifactId1" value="quickstart" class="updateCommand"/>Your own database and use your own configuration file.
