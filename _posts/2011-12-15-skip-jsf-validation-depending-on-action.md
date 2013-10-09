@@ -4,13 +4,9 @@ title: How to skip JSF BeanValidation conditionally
 comments: true
 ---
 
-
 # How to skip JSF BeanValidation conditionally 
 
-Here is a trick that allows you to perform JSF-based BeanValidation depending on the action. __It will be supported by next SpringFuse version (3.0.69)__
-
-__Note__: We are using Spring and SpringWebFlow, but this should be easy to adapt it to a pure Java EE application.
-
+Here is a trick that allows you to perform JSF-based BeanValidation depending on the action.
 
 ## The challenge
 
@@ -20,7 +16,7 @@ By usable navigation we mean:
 
 * a user should be able to navigate freely from one page to another without loosing the data entered in the input fields, even if the entered data is invalid, so that the user can come back to it later.
 
-* for certain actions (for example 'save' action) the validation should be enforced.
+* for certain actions, for example a 'save' action, the validation should be enforced.
 
 ## Requirements
 
