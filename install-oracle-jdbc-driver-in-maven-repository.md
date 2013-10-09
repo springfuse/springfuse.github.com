@@ -3,18 +3,19 @@ layout: english
 title: Install Oracle Jdbc driver in your Maven local repository
 ---
 
+#### 
 
-# Install Oracle Jdbc driver in your Maven local repository
+### Install Oracle Jdbc driver in your Maven local repository
 
 If you are using Oracle, you must first install your Oracle JDBC driver in your local Maven repository.
 
 Here is how to proceed:
 
-## Step 1- Download the Oracle JDBC driver
+#### Step 1 - Download the Oracle JDBC driver
 
 Please download manually the Oracle JDBC driver <a href="http://www.oracle.com/technetwork/database/features/jdbc/index-091264.html">from Oracle web site</a>.
 
-## Step 2- install your Oracle JDBC driver in your local Maven repository
+#### Step 2 - install your Oracle JDBC driver in your local Maven repository
 
 We follow the instructions from this Maven FAQ <a href="http://maven.apache.org/general.html#importing-jars" target="_new">I have a jar that I want to put into my local repository. How can I copy it in?</a>
 
@@ -52,7 +53,8 @@ c:\oracle\jdbc>mvn install:install-file -Dfile=classes12_g.jar -DgroupId=com.ora
 [INFO] Final Memory: 3M/5M
 [INFO] ------------------------------------------------------------------------
 </pre>
-## Step 3 - Done
+
+#### Step 3 - Ready!
 
 You can now add the driver dependency in your pom.xml
 <pre class="screen">
@@ -62,7 +64,28 @@ You can now add the driver dependency in your pom.xml
 	&lt;version&gt;10.2.0.2.0&lt;/version&gt;
 &lt;/dependency&gt;
 </pre>
- 
- You are now ready to reverse your Oracle database using Springfuse and generate a complete Java/JPA/Hibernate/Spring project!
+
+#### Step 4 - Use SpringFuse to reverse your database and generate a projet...
+
+You are now ready to [reverse your Oracle database using Springfuse and generate a complete JavaEE/JPA2 project!](/)
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+
+
+
+
 
  
