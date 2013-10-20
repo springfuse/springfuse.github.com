@@ -64,7 +64,7 @@ $('.carousel').carousel({
 		<a href="#gen" class="btn btn-primary">Generate an application now</a>
 	</p>
 	<p>
-		Current version: 3.0.106 | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
+		Current versions: 3.0.106 / 3.0.107-SNAPSHOT | <a href="http://www.jaxio.com/documentation/celerio/changelog.html">Change Logs</a>
 	</p>
 </div>
 <a name="gen"></a>
@@ -93,6 +93,7 @@ __Requirements__
     <div class="controls">
 		<select id="celerioVersion" name="celerioVersion" class="updateCommand">
 			<option value="3.0.106">3.0.106</option>
+			<option value="3.0.107-SNAPSHOT">3.0.107-SNAPSHOT</option>
 		</select>
 		<span class="help-inline">The Celerio version that Springfuse should use.</span>
 	</div>
@@ -149,7 +150,7 @@ __Requirements__
 		</span>
       </label>
 
-      <h4>JavaEE 6 (targeting JBoss EAS 7.1) - requires v3.0.106-SNAPSHOT</h4>
+      <h4>JavaEE 6 (targeting JBoss EAS 7.1)</h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="javaee6Jboss" value="javaee6Jboss" class="updateCommand"/>Web application.
 			<span class="help-block">
@@ -157,7 +158,7 @@ __Requirements__
 			</span>
 	  </label>	  
 
-      <h4>JavaEE 7 (targeting GlassFish 4.0) - requires v3.0.106-SNAPSHOT</h4></h4>
+      <h4>JavaEE 7 (targeting GlassFish 4.0)</h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="javaee7Glassfish" value="javaee7Glassfish" class="updateCommand"/>Web application.
 			<span class="help-block">
