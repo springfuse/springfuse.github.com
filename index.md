@@ -133,7 +133,7 @@ __Requirements__
     <div class="controls">
       The generated code is ideal for enterprise data-oriented application requiring well organized code, conversation support, powerful features, nice look&amp;feel and development productivity.
     
-      <h4>JavaEE 6 + Spring Framework (targeting Jetty, Tomcat, JBoss, etc.) + Selenium</h4>
+      <h4>JavaEE 6 + Spring Framework + Selenium (targeting Jetty, Tomcat, JBoss, etc.)</h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>Web application. 
 			<span class="help-block">
