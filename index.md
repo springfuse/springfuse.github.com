@@ -133,11 +133,11 @@ __Requirements__
     <div class="controls">
       The generated code is ideal for enterprise data-oriented application requiring well organized code, conversation support, powerful features, nice look&amp;feel and development productivity.
     
-      <h4>JavaEE 6 + Spring Framework (targeting Jetty, Tomcat, JBoss, etc.) </h4>
+      <h4>JavaEE 6 + Spring Framework (targeting Jetty, Tomcat, JBoss, etc.) + Selenium</h4>
       <label class="radio">
 		<input type="radio" name="frontEnd" id="jsf2Spring" value="jsf2Spring" class="updateCommand" checked="checked"/>Web application. 
 			<span class="help-block">
-				JSF 2.1, Primefaces 3.5, JPA 2.0, Hibernate 4.2, Spring 3.2, BeanValidation, SpringSecurity, etc.<br/>
+				JSF 2.1, Primefaces 3.5, JPA 2.0, Hibernate 4.2, Spring 3.2, BeanValidation, SpringSecurity, Type Safe Selenium Tests, etc.<br/>
 				This is our favorite stack.		
 			</span>
 	  </label>
