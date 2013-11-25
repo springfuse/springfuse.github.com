@@ -75,7 +75,7 @@ Before starting, if you are totally new to SpringFuse, you should take a few mom
 
 __Requirements__
 
-* Have at least Java 1.6 and Maven 2 installed on your machine.
+* Have at least Java 1.6 and Maven 3 installed on your machine.
 
 <span class="label label-info">To generate a project</span>, adjust the settings below and execute the resulting command lines in a console.
 
