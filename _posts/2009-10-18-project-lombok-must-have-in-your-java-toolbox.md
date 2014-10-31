@@ -312,7 +312,7 @@ Using lombok and maven is straightforward:
 		<groupId>org.projectlombok</groupId>
 		<artifactId>lombok</artifactId>
 		<version>0.8.5</version>
-		<scope>compile</scope>
+		<scope>provided</scope>
 	</dependency>
 	...	
  	<repositories>
