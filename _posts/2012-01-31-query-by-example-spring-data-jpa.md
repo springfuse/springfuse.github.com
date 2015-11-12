@@ -4,8 +4,18 @@ title: Query by example with Spring Data JPA
 comments: true
 ---
 
-> ** Update (2013-09-13) **: we no longer support Spring Data, instead we provide Query By Example using only JPA 2, without Spring Data.
-> Please refer to [JPA2 Query By Example blog post](/2012/09/05/jpa-query-by-example.html) for more information.
+<hr/>
+<hr/>
+
+# Important update (2015-11-12)
+
+We no longer support Spring Data, instead we provide a [JPA Query By Example Lib](https://github.com/jaxio/jpa-query-by-example) without Spring Data.
+
+Follow our doc to ** generate, in a few minutes, ** your [first project with Celerio](http://www.jaxio.com/documentation/celerio/installation.html) that
+uses this [JPA Query By Example Lib](https://github.com/jaxio/jpa-query-by-example).
+
+<hr/>
+<hr/>
 
 # Query by Example with Spring Data JPA
 

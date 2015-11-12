@@ -8,7 +8,7 @@ title: SpringFuse - Online Java Code Generator
 We are pleased to announce that Celerio (the code generator that was powering SpringFuse) is now freely available
 and that Celerio Code generation templates are Open Source.
 
-** To start using Celerio, please follow [Celerio's documentation](http://www.jaxio.com/documentation/celerio/) **
+Follow our doc to ** generate in a few minutes ** your [first project with Celerio](http://www.jaxio.com/documentation/celerio/installation.html)
 
 Code generation templates source code are here...
 

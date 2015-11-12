@@ -3,7 +3,9 @@ layout: english
 title: Install Oracle Jdbc driver in your Maven local repository
 ---
 
-#### 
+#### Celerio and Oracle
+
+Before [using Celerio to reverse your Oracle database and generate a projet](http://www.jaxio.com/en/) you must first follow these 3 steps.
 
 ### Install Oracle Jdbc driver in your Maven local repository
 
@@ -65,9 +67,6 @@ You can now add the driver dependency in your pom.xml
 &lt;/dependency&gt;
 </pre>
 
-#### Step 4 - Use SpringFuse to reverse your database and generate a projet...
-
-You are now ready to [reverse your Oracle database using Springfuse and generate a complete JavaEE/JPA2 project!](/)
 
 <br/>
 <br/>
