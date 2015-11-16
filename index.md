@@ -5,19 +5,25 @@ title: SpringFuse - Online Java Code Generator
 
 ## Switching to Celerio 4
 
-We are pleased to announce that Celerio (the code generator that was powering SpringFuse) is now freely available
-and that Celerio Code generation templates are Open Source.
+We are pleased to announce that Celerio (the code generator that was powering SpringFuse) is now Open Source.
 
-Follow our doc to ** generate in a few minutes ** your [first project with Celerio](http://www.jaxio.com/documentation/celerio/installation.html)
+If you already have Maven 3.1.1 (or above) and Java 1.8 installed, to generate a sample project, simply run:
 
-Code generation templates source code are here...
-
-* backend templates: [https://github.com/jaxio/pack-backend-jpa](https://github.com/jaxio/pack-backend-jpa)
-* frontend templates: [https://github.com/jaxio/pack-jsf2-spring-conversation](https://github.com/jaxio/pack-jsf2-spring-conversation)
-
-We are going to release more template packs in the coming weeks...
-
+	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.2:bootstrap
+    
+For more information please visit [Jaxio's site](http://www.jaxio.com/en/)
 
 Happy coding with Celerio!
 
 The Jaxio team.
+
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
