@@ -9,7 +9,7 @@ We are pleased to announce that Celerio (the code generator that was powering Sp
 
 If you already have Maven 3.1.1 (or above) and Java 1.8 installed, to generate a sample project, simply run:
 
-	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.2:bootstrap
+	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.4:bootstrap
     
 For more information please visit [Jaxio's site](http://www.jaxio.com/en/)
 
