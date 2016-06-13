@@ -1,4 +1,4 @@
-pygments: true
+highlighter: 'rouge'
 server: true
 port: 4444
 auto: true
