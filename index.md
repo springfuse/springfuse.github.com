@@ -1,19 +1,33 @@
 ---
 layout: english
-title: SpringFuse - Online Java Code Generator
+title: SpringFuse - Java Code Generator
 ---
+## SpringFuse no longer operates but... :-)
 
-## Switching to Celerio 4
+Celerio the code generator that was powering SpringFuse is now Open Source. Celerio can reverse 
+a database schema and generate advanced CRUD-based applications.
 
-We are pleased to announce that Celerio (the code generator that was powering SpringFuse) is now Open Source.
+* [Celerio Documentation](http://www.jaxio.com/documentation/celerio)
+* [Celerio Source Code](https://github.com/jaxio/celerio)
 
-For more information please visit [Jaxio's site](http://www.jaxio.com/en/)
+## Related projects
 
-### Bootstrapping
+### Code generation templates
+
+ * *IN PROGRESS*: [Web App Angular 2 + PrimeNG + Spring Boot](https://github.com/jaxio/celerio-angular-quickstart)
+ * [Java EE 7 Web App frontend and backend: No Spring Inside](https://github.com/jaxio/javaee-lab)
+ * [backend: JPA 2 / Hibernate + Lucene + Spring](https://github.com/jaxio/pack-backend-jpa)
+ * [frontend: JSF 2 + Spring](https://github.com/jaxio/pack-jsf2-spring-conversation)
+
+### JPA Query By Example API
+
+ * [JPA Query By Example API](https://github.com/jaxio/jpa-query-by-example)
+
+### Bootstrapping a project with Celerio
 
 If you already have Maven 3.3.3 (or above) and Java 1.8 installed, to generate a sample project, simply run:
 
-	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.5:bootstrap
+	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.6:bootstrap
 
 You will be asked by our `bootstrap-maven-plugin` to choose between 3 options:
     
@@ -32,15 +46,7 @@ You will be asked by our `bootstrap-maven-plugin` to choose between 3 options:
         Backend only: almost pure JPA 2.1 with Hibernate 5, Spring 4.2
         Generates entities, meta model and repositories. Used by front-end packs.
 
-### Angular 2 / TypeScript / PrimeNG / Spring Boot option...
-
-This option is not yet bundled in the `bootstrap-maven-plugin`.
-
-You may try it here directly from the source:
-
-[https://github.com/jaxio/celerio-angular-quickstart](https://github.com/jaxio/celerio-angular-quickstart)
-
-Simply follow the instructions...
+> **Note** Angular 2 is not yet part of the options yet as it is [under development](https://github.com/jaxio/celerio-angular-quickstart).
 
 Feedbacks are welcome.
 
