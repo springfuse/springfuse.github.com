@@ -27,7 +27,7 @@ a database schema and generate advanced CRUD-based applications.
 
 If you already have Maven 3.3.3 (or above) and Java 1.8 installed, to generate a sample project, simply run:
 
-	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.6:bootstrap
+	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.7:bootstrap
 
 You will be asked by our `bootstrap-maven-plugin` to choose between 3 options:
     
