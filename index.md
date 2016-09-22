@@ -14,7 +14,7 @@ a database schema and generate advanced CRUD-based applications.
 
 ### Code generation templates
 
- * *IN PROGRESS*: [Web App Angular 2 + PrimeNG + Spring Boot](https://github.com/jaxio/celerio-angular-quickstart)
+ * *IN PROGRESS*: [Web App Angular 2.0 + PrimeNG + Spring Boot](https://github.com/jaxio/celerio-angular-quickstart)
  * [Java EE 7 Web App frontend and backend: No Spring Inside](https://github.com/jaxio/javaee-lab)
  * [backend: JPA 2 / Hibernate + Lucene + Spring](https://github.com/jaxio/pack-backend-jpa)
  * [frontend: JSF 2 + Spring](https://github.com/jaxio/pack-jsf2-spring-conversation)
@@ -27,7 +27,7 @@ a database schema and generate advanced CRUD-based applications.
 
 If you already have Maven 3.3.3 (or above) and Java 1.8 installed, to generate a sample project, simply run:
 
-	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.9:bootstrap
+	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.10:bootstrap
 
 You will be asked by our `bootstrap-maven-plugin` to choose between 3 options:
     
