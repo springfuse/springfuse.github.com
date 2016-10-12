@@ -25,9 +25,14 @@ a database schema and generate advanced CRUD-based applications.
 
 ### Bootstrapping a project with Celerio
 
-If you already have Maven 3.3.3 (or above) and Java 1.8 installed, to generate a sample project, simply run:
+*Prerequisites:*
 
-	mvn com.jaxio.celerio:bootstrap-maven-plugin:4.0.12:bootstrap
+* [Java Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [Maven 3.3.3](https://maven.apache.org/download.cgi)
+
+To generate a sample project, simply run:
+
+	mvn com.jaxio.celerio:bootstrap-maven-plugin:bootstrap
 
 You will be asked by our `bootstrap-maven-plugin` to choose between 3 options:
     
